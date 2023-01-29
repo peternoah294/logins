@@ -28,9 +28,6 @@ const emailInvoice = document.getElementById('email-div');
 const phoneInvoice = document.getElementById('phone-div');
 const anonInvoice = document.getElementById('anon-div');
 
-const theClint = document.getElementsByClassName('clint')[0];
-const cxA = document.getElementById('cx-a');
-
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -111,8 +108,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 	} else if(user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -125,8 +120,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -138,28 +131,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
-
-		cxA.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				Email / Phone invoice is a better option
-				<hr class="to-hr">
-				Create a burner email / phone and use it to get an invoice
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	}
 
 	if(user.uid){
@@ -268,8 +239,6 @@ const signUpFunction = () => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = theaddress + '@...';
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -327,9 +296,6 @@ const signUpFunction = () => {
 
 				var themail = theUser.email;
 				var theaddress = themail.substring(0, themail.indexOf('@'));
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = theaddress + '@...';
@@ -427,8 +393,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.removeAttribute('data-bs-toggle');
 			phoneIn.removeAttribute('data-bs-toggle');
 			emailIn.innerText = theaddress + '@...';
-			theClint.style.position = 'fixed';
-			theClint.style.bottom = '0';
 
 			if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
 				emailImg.src = 'img/partners/emails.png';
@@ -540,8 +504,6 @@ const signInWithPhone = sentCodeId => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 
 				logoHolder.style.display = 'none';
 				thePic.style.display = 'none';
