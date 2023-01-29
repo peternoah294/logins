@@ -188,7 +188,7 @@ body {
 	color: #121d33;
 }
 .btn7.gold7:hover{
-	color: aqua;
+	color: aqua !important;
 	border: 1.4px solid aqua !important;
 }
 .btn7.gold7 img{
