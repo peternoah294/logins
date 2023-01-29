@@ -201,53 +201,42 @@
                         </div>
                         <ul class="dropdown-menu">
                             <li class="thegold">
-                                <img src="img/ach/ach.png">
-                                <a class="butn gold" href="tutorial-ach">
-                                    ACH Transfer
+                                <img src="img/partners/grad.png">
+                                <a class="butn gold" href="cashout">
+                                    Cashout Guides
                                 </a>
                             </li>
                             <li class="thegold">
-                                <img src="img/partners/banklogo.png">
-                                <a class="butn gold" href="tutorial-bankofamerica">
-                                    Bank of America
+                                <img src="img/partners/mail.png">
+                                <a class="butn gold" href="mailto: darkweb.cx7@gmail.com" target="_blank">
+                                    Contact Info
                                 </a>
                             </li>
                             <li class="thegold">
-                                <img src="img/partners/coinbaselogo.png">
-                                <a class="butn gold" href="tutorial-coinbase">
-                                    Coinbase Method
+                                <img src="img/partners/emails.png">
+                                <a class="butn gold" id="email-in" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    Email Invoice
                                 </a>
                             </li>
                             <li class="thegold">
-                                <img src="img/partners/huntington.png">
-                                <a class="butn gold" href="tutorial-huntington">
-                                    Huntington Bank
+                                <img src="img/partners/home.png">
+                                <a class="butn gold" href="home">
+                                    Home Page
                                 </a>
                             </li>
                             <li class="thegold">
-                                <img src="img/partners/nfcu.jpg">
-                                <a class="butn gold" href="tutorial-navyfederal">
-                                    Navy Federal
+                                <img src="img/partners/phone.png">
+                                <a class="butn gold" id="phone-in" data-bs-toggle="modal" data-bs-target="#phoneModal">
+                                    Phone Invoice
                                 </a>
                             </li>
                             <li class="thegold">
-                                <img src="img/partners/paypal-logo.png">
-                                <a class="butn gold" href="tutorial-paypal">
-                                    PayPal Method
+                                <img src="img/partners/logout.png">
+                                <a class="butn gold" id="logout">
+                                    Sign Out & Exit
                                 </a>
                             </li>
-                            <li class="thegold">
-                                <img src="img/partners/transfer.png">
-                                <a class="butn gold" href="tutorial-wiretransfer">
-                                    Wire Transfer
-                                </a>
-                            </li>
-                            <li class="thegold">
-                                <img src="img/partners/woodlogo.png">
-                                <a class="butn gold" href="tutorial-woodforest">
-                                    Woodforest Bank
-                                </a>
-                            </li>
+
 
                             <li class="thegold">
                                 <img id="vpn-img">
@@ -577,6 +566,140 @@
         </div>
     </div>   
 </div>
+
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set">
+                        EMAIL INVOICE
+                    </h4>
+                </div>
+                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p" id="ver-email">
+                    A link will be sent to the email you enter below 👇🏼👇🏼.
+                    <br>
+                    Use the link to sign in on <span>darkweb</span>.
+                </p>
+                <hr class="thehr">
+                <form id="the-form">
+                    <div class="form-group col-md-12">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Enter Your Email..." required>
+                    </div>
+                    <hr class="thehr">
+                    <li class="next">
+                        <button type="submit" class="butn modal-btn" id="signUp">
+                            Verify Email
+                            <img src="img/partners/mail.png">
+                        </button>
+                    </li>
+                </form>
+            </div>
+        </div>
+    </div>   
+</div>
+
+<div class="modal fade" id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set">
+                        VERIFICATION
+                    </h4>
+                </div>
+                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p" id="ver-p">
+                    
+                </p>
+                <hr class="thehr">
+                <li class="next">
+                    <a class="butn modal-btn" id="ver-check" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                        View Profile <img id="ver-img">
+                    </a>
+                </li>
+
+            </div>
+        </div>
+    </div>   
+</div>
+
+
+<div class="modal fade"  id="phoneModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set">
+                        PHONE INVOICE
+                    </h4>
+                </div>
+                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p">
+                    A code will be sent to the number you enter below 👇🏼 👇🏼.
+                    <br>
+                    Use the code to sign in on <span>darkweb</span>.
+                </p>
+                <hr class="thehr">
+                <form id="myform">
+                    <div class="form-group col-md-12">
+                        <div id="the-div">
+                            <img id="the-flag2" />
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter Phone Number..." name="phone" pattern="[+]{1}[0-9]{11,14}" required />
+                        </div>
+                        <div id="recaptcha-container"></div>
+                    </div>
+                    <hr class="thehr">
+                    <li class="next" id="next-btn">
+                        <button type="submit" class="butn modal-btn" id="getCode">
+                            Verify Number
+                            <img src="img/partners/phone.png">
+                        </button>
+                    </li>
+                </form>
+            </div>
+        </div>
+    </div>   
+</div>
+
+<div class="modal fade" id="verifyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set">
+                        VERIFY CODE
+                    </h4>
+                </div>
+                <button type="button" class="btn-cloze" data-bs-toggle="modal" data-bs-target="#phoneModal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p">
+                    Check your phone messages, and enter the <span>code</span> received.
+                </p>
+                <hr class="thehr">
+                <div class="form-group col-md-12">
+                    <input type="text" required maxlength="7" class="form-control" id="code" placeholder="Enter Verification Code...">
+                </div>
+                <hr class="thehr">
+                <li class="next" id="next-btn">
+                    <button type="submit" class="butn modal-btn" id="signInWithPhone">
+                        Verify Code
+                        <img src="img/partners/check.png">
+                    </button>
+                </li>
+            </div>
+        </div>
+    </div>   
+</div>
+
 
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>

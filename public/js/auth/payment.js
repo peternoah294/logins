@@ -409,8 +409,6 @@ const signInWithPhone = sentCodeId => {
 	const code = codeField.value;
 	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
-	const user = auth.currentUser;
-
 	auth.currentUser.linkWithCredential(credential)
 		.then(() => {
 			auth.currentUser.updateProfile({

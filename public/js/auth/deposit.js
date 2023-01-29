@@ -28,8 +28,21 @@ const tableName = document.getElementById('table-name');
 const emailP = document.getElementById('email-p');
 
 const vpnImg = document.getElementById('vpn-img');
-const vpnNav = document.getElementById('vpn-nav');
 const vpn = document.getElementById('vpn');
+
+const emailIn = document.getElementById('email-in');
+const phoneIn = document.getElementById('phone-in');
+
+const verP = document.getElementById('ver-p');
+const verImg = document.getElementById('ver-img');
+
+const mailField = document.getElementById('inputEmail');
+const signUp = document.getElementById('signUp');
+
+const phoneNumberField = document.getElementById('phoneNumber');
+const codeField = document.getElementById('code');
+const signInWithPhoneButton = document.getElementById('signInWithPhone');
+const getCodeButton = document.getElementById('getCode');
 
 if(localStorage.getItem('received-funds')) {
 	window.location.assign('invoice');
@@ -59,16 +72,17 @@ auth.onAuthStateChanged(user => {
 		}
 	}
 
-
 	if(user.email) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
@@ -77,8 +91,13 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+		phoneIn.removeAttribute('data-bs-toggle');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		jinaHolder.readOnly = true;
@@ -94,6 +113,9 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = true;
 		tableName.innerHTML = user.phoneNumber;
 		tableId.innerHTML = user.uid;
+		emailIn.removeAttribute('data-bs-toggle');
+		phoneIn.removeAttribute('data-bs-toggle');
+		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 		emailP.innerHTML = `Deposit will be credited to: <br> <span>${user.phoneNumber}</span>`;
@@ -143,6 +165,258 @@ auth.onAuthStateChanged(user => {
 });
 
 
+function sendEmail() {
+	if(!localStorage.getItem('darkweb-verify-cx')) {
+		auth.currentUser.sendEmailVerification();
+		verP.innerHTML = `
+			Verification email sent to <span>${auth.currentUser.email}</span>. <br>
+			Check the <span>spam / junk</span> folder
+		`;
+
+		var shortCutFunction = 'success';
+		var msg = `
+			Verification email sent to: ${auth.currentUser.email}, 
+			<hr class="to-hr">
+			Check the spam / junk folder.
+		`;
+		toastr.options = {
+			closeButton: true,
+			debug: false,
+			newestOnTop: true,
+			progressBar: true,
+			positionClass: 'toast-top-full-width',
+			preventDuplicates: true,
+			onclick: null
+		};
+		var $toast = toastr[shortCutFunction](msg);
+		$toastlast = $toast;
+	} else {
+		verP.innerHTML = `
+			Verification email has already been sent to <span>${auth.currentUser.email}</span>. <br>
+			Check the <span>spam / junk</span> folder
+		`;
+
+		var shortCutFunction = 'success';
+		var msg = `
+			Verification email has already been sent to: ${auth.currentUser.email}, 
+			<hr class="to-hr">
+			Check the spam / junk folder.
+		`;
+		toastr.options = {
+			closeButton: true,
+			debug: false,
+			newestOnTop: true,
+			progressBar: true,
+			positionClass: 'toast-top-full-width',
+			preventDuplicates: true,
+			onclick: null
+		};
+		var $toast = toastr[shortCutFunction](msg);
+		$toastlast = $toast;
+	}
+	localStorage.setItem('darkweb-verify-cx', true);
+}
+
+const signUpFunction = () => {
+	event.preventDefault();
+	const email = mailField.value;
+	var actionCodeSettings = {
+		url: 'https://www.darkweb.cx/confirm',
+		handleCodeInApp: true,
+	};
+	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
+		const googleProvider = new firebase.auth.GoogleAuthProvider;
+		const theUser = auth.currentUser;
+		theUser.linkWithPopup(googleProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, 
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
+			}).then(() => {
+				window.location.assign('confirm');
+			});
+		}).catch(error => {
+			document.getElementById('ver-email').innerHTML = `
+				${error.message} : <span>${mailField.value}</span> <br>
+				Use a different email address.
+			`;
+			var shortCutFunction = 'success';
+			var msg = `
+				${error.message} : ${mailField.value} <br>
+				<hr class="to-hr">
+				Use a different email address.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		});
+	} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
+		const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
+		const theUser = auth.currentUser;
+		theUser.linkWithPopup(yahooProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, 
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
+			}).then(() => {
+				window.location.assign('confirm');
+			});
+		}).catch(error => {
+			document.getElementById('ver-email').innerHTML = `
+				${error.message} : <span>${mailField.value}</span> <br>
+				Use a different email address.
+			`;
+			var shortCutFunction = 'success';
+			var msg = `
+				${error.message} : ${mailField.value} <br>
+				<hr class="to-hr">
+				Use a different email address.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		});
+	} else {
+		auth.sendSignInLinkToEmail(email, actionCodeSettings)
+		.then(() => {
+			document.getElementById('ver-email').innerHTML = `
+				Verification link sent to your email <span>${email}</span>.
+				<br> 
+				Check the <span>spam / junk </span> folder.
+			`;
+
+			var shortCutFunction = 'success';
+			var msg = `
+				Verification link sent to your email: ${email}.
+				<hr class="to-hr">
+				Check the spam / junk folder.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+
+			window.localStorage.setItem('emailForSignIn', email);
+		}).catch(error => {
+			var shortCutFunction = 'success';
+			var msg = `${error.message}`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		});
+	}
+}
+signUp.addEventListener('click', signUpFunction);
+document.getElementById('the-form').addEventListener('submit', signUpFunction);
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+recaptchaVerifier.render().then(widgetId => {
+	window.recaptchaWidgetId = widgetId;
+});
+const sendVerificationCode = () => {
+	const phoneNumber = phoneNumberField.value;
+	const appVerifier = window.recaptchaVerifier;
+
+	auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+		.then(confirmationResult => {
+			const sentCodeId = confirmationResult.verificationId;
+			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
+
+			var shortCutFunction = 'success';
+			var msg = `
+				Verification code sent to your phone: ${phoneNumber}.
+				<hr class="to-hr">
+				Check your messages inbox.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		})
+		.catch(error => {
+			var shortCutFunction = 'success';
+			var msg = `${error.message}`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		})
+}
+const signInWithPhone = sentCodeId => {
+	const code = codeField.value;
+	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
+
+	auth.currentUser.linkWithCredential(credential)
+		.then(() => {
+			auth.currentUser.updateProfile({
+				phoneNumber: auth.currentUser.providerData[0].phoneNumber
+			}).then(() => {
+				window.location.assign('confirm');
+			});
+		})
+		.catch(error => {
+			var shortCutFunction = 'success';
+			var msg = `${error.message}`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		})
+}
+getCodeButton.addEventListener('click', sendVerificationCode);
+
 jinaHolder.addEventListener("change", () => {
 	auth.currentUser.updateProfile({
 		displayName: jinaHolder.value
@@ -155,6 +429,23 @@ jinaHolder.addEventListener("change", () => {
 	})
 });
 
+const logOut = document.getElementById('logout');
+logOut.addEventListener('click', () => {
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('lockscreen');
+	}
+})
+
+
 fetch('https://ipapi.co/json/')
 .then(function(response) {
 	return response.json();
@@ -164,10 +455,19 @@ fetch('https://ipapi.co/json/')
 	var countyCode = data.country_code;
 	var newCode = countyCode.toLowerCase();
 
+	document.getElementById('the-flag2').src = `https://flagcdn.com/144x108/${newCode}.png`;
+	document.getElementById('phoneNumber').value = data.country_calling_code;
+
 	document.getElementById('label-ip').innerHTML = `
 		IP address: <span>${data.ip}</span> ${data.country_calling_code} <img src="https://flagcdn.com/144x108/${newCode}.png" id="the-flag" />
 	`;
 	document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
+});
+
+$('#myform').on('submit', function(ev) {
+	$('#verifyModal').modal('show');
+	$('#phoneModal').modal('hide');
+	ev.preventDefault();
 });
 
 document.getElementById("thebodyz").oncontextmenu = function() {
