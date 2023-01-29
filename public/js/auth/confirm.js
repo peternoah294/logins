@@ -31,8 +31,6 @@ const anonInvoice = document.getElementById('anon-div');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
-const theClint = document.getElementsByClassName('clint')[0];
-
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -111,8 +109,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 	} else if(user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -125,8 +121,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -267,9 +261,6 @@ const signUpFunction = () => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = theaddress + '@...';
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -331,9 +322,6 @@ const signUpFunction = () => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = theaddress + '@...';
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -438,8 +426,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				anonInvoice.style.display = 'none';
 				theUser.sendEmailVerification();
 				emailVerify.addEventListener('click', sendEmail);
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 				window.location.href = 'https://www.darkweb.cx/confirm';
 			} else {
 				window.location.href = 'https://www.darkweb.cx/confirm';
@@ -537,8 +523,6 @@ const signInWithPhone = sentCodeId => {
 				avatarHolder.style.border = 'none';
 				avatarHolder.style.borderRadius = 0;
 				thenoPic.style.display = 'inline-block';
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
