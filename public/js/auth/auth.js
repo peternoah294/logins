@@ -22,7 +22,6 @@ const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
 const vpnImg = document.getElementById('vpn-img');
-const vpnNav = document.getElementById('vpn-nav');
 const vpn = document.getElementById('vpn');
 
 const mailField = document.getElementById('inputEmail');

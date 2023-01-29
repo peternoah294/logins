@@ -27,7 +27,6 @@ const paidText = document.getElementById('paid-text');
 const emailP = document.getElementById('email-p');
 
 const vpnImg = document.getElementById('vpn-img');
-const vpnNav = document.getElementById('vpn-nav');
 const vpn = document.getElementById('vpn');
 
 const phoneNumberField = document.getElementById('phoneNumber');
@@ -155,8 +154,6 @@ auth.onAuthStateChanged(user => {
 			document.getElementsByClassName('clint')[0].style.position = 'fixed';
 
 			vpnImg.src = 'img/partners/phone.png';
-			vpnNav.setAttribute('data-bs-target', '#phoneModal');
-			vpnNav.innerHTML = 'PHONE INVOICE';
 		}
 	}  
 

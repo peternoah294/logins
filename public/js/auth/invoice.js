@@ -25,7 +25,6 @@ const labelDate = document.getElementById('label-date');
 
 const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
-const vpnNav = document.getElementById('vpn-nav');
 const emailP = document.getElementById('email-p');
 
 const phoneNumberField = document.getElementById('phoneNumber');
@@ -128,9 +127,7 @@ auth.onAuthStateChanged(user => {
 		} 
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		vpnImg.src = 'img/partners/phone.png';
-		vpnNav.setAttribute('data-bs-target', '#phoneModal');
-		vpnNav.innerHTML = 'PHONE INVOICE';
+		vpnImg.src = 'img/partners/anonymous.png';
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
@@ -340,6 +337,21 @@ jinaHolder3.addEventListener("change", () => {
 	})
 });
 
+const logOut = document.getElementById('logout');
+logOut.addEventListener('click', () => {
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('lockscreen');
+	}
+})
 
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false

@@ -35,7 +35,6 @@ const thePic2 = document.getElementById('the-pic2');
 const thenoPic2 = document.getElementById('the-nopic2');
 
 const vpnImg = document.getElementById('vpn-img');
-const vpnNav = document.getElementById('vpn-nav');
 const vpn = document.getElementById('vpn');
 
 const plat1 = document.getElementById('plat1');
