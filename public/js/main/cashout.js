@@ -43,7 +43,7 @@
                     revslider_showDoubleJqueryError(".countdown");
                 } else {
                     countdown = tpj(".countdown").show().countdown({
-                        date: "28 Feb 2023 00:00:00",
+                        date: "5 April 2023 00:00:00",
                         format: "on"
                     });
                 }
