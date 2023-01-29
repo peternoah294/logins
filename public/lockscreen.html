@@ -60,7 +60,7 @@
     cxOut.addEventListener('click', removeIt);
     function removeIt() {
         localStorage.removeItem('cx-out');
-        window.location.assign('home');
+        window.history.back();
     }
 </script>
 <script src="js/main/core.login.js"></script>
