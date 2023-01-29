@@ -1,6 +1,9 @@
 let items = [];
 var table1 = jQuery('#example1').DataTable();
+var teleHome = document.getElementById('tele-home');
 var setBtn = document.getElementById('settings');
+var profileModal = document.getElementById('profileModal');
+var modalDialog = profileModal.getElementsByClassName('modal-dialog')[0];
 
 var month = new Array();
 month[0] = "January";
@@ -67,9 +70,7 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     setBtn.innerHTML = `Cart: $0 <img src="img/partners/bitcoin.png">`;
     setBtn.style.left = '27%';
     setBtn.style.right = '27%';
-
-    var profileModal = document.getElementById('profileModal');
-    var modalDialog = profileModal.getElementsByClassName('modal-dialog')[0];
+    teleHome.innerHTML = `View Cart: $0 <img src="img/partners/btc.png">`;
 
     if (window.innerWidth > 1092) {
         modalDialog.style.top = '5vh';
@@ -140,9 +141,7 @@ function updateCartTotal() {
     localStorage.setItem('time-left',600);
     setBtn.innerHTML = `Cart: $${total.toLocaleString()} <img src="img/partners/bitcoin.png">`;
     document.getElementById('cartlength').innerText = (JSON.parse(localStorage.getItem('banklogs')).length);
-
-    var profileModal = document.getElementById('profileModal');
-    var modalDialog = profileModal.getElementsByClassName('modal-dialog')[0];
+    teleHome.innerHTML = `View Cart: $${total.toLocaleString()} <img src="img/partners/btc.png">`;
 
     if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
         if (window.innerWidth > 1092) {

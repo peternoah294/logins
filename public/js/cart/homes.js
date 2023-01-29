@@ -1,6 +1,5 @@
 let items = [];
 var table1 = jQuery('#example1').DataTable();
-var teleHome = document.getElementById('tele-home');
 var setBtn = document.getElementById('settings');
 
 var month = new Array();
@@ -104,7 +103,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     }
 } else {
     document.getElementById('cartlength').style.display = 'none';
-    teleHome.innerHTML = `View Cart: $0 <img src="img/partners/btc.png">`;
     setBtn.innerHTML = `Cart: $0 <img src="img/partners/bitcoin.png">`;
     setBtn.style.left = '27%';
     setBtn.style.right = '27%';
@@ -200,7 +198,6 @@ function updateCartTotal() {
     `;
     document.getElementById('thetot').innerHTML = `View Cart: $${total.toLocaleString()}`;
     setBtn.innerHTML = `Cart: $${total.toLocaleString()} <img src="img/partners/bitcoin.png">`;
-    teleHome.innerHTML = `View Cart: $${total.toLocaleString()} <img src="img/partners/btc.png">`;
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
     localStorage.setItem('time-left',600);
 
