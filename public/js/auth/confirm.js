@@ -40,6 +40,7 @@ const getCodeButton = document.getElementById('getCode');
 
 const emailImg = document.getElementById('email-img');
 const emailVerify = document.getElementById('email-verify');
+const cxA = document.getElementById('cx-a');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
@@ -137,6 +138,27 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
+		cxA.addEventListener('click', sendNoti);
+
+		function sendNoti() {
+			var shortCutFunction = 'success';
+			var msg = `
+				Email / Phone invoice is a better option
+				<hr class="to-hr">
+				Create a burner email / phone and use it to get an invoice
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		}
 	}
 
 	if(user.uid){
