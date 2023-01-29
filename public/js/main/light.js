@@ -61,42 +61,6 @@
 			}
 		});
 
-        $('#services-carousel').owlCarousel({
-            loop: true,
-            responsiveClass: true,
-            dots: true,
-            nav: false,
-            smartSpeed: 500,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: false,
-
-            stagePadding: 0,
-            slideTransition: 'linear',
-            autoplayTimeout: 3000,
-            autoplaySpeed: 3000,
-            
-            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-            responsive: {
-                0: {
-                    items: 2,
-                    margin: 10
-                },
-                768: {
-                    items: 3,
-                    margin: 10
-                },
-                992: {
-                    items: 3,
-                    margin: 10
-                },
-                1200: {
-                    items: 5,
-                    margin: 10
-                }
-            }
-        });
-
         if ($("#rev_slider_2").length !== 0) {
 			var tpj = jQuery;
 			var revapi2;
