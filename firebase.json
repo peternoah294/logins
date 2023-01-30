@@ -128,6 +128,10 @@
         "destination": "/tutorial-paypal.html"
       },
       {
+        "source": "/tutorial-wellsfargo",
+        "destination": "/tutorial-wellsfargo.html"
+      },
+      {
         "source": "/tutorial-wiretransfer",
         "destination": "/tutorial-wiretransfer.html"
       },
@@ -275,6 +279,11 @@
       {
         "source": "/tutorial-paypal.html",
         "destination": "/tutorial-paypal",
+        "type": 301
+      },
+      {
+        "source": "/tutorial-wellsfargo.html",
+        "destination": "/tutorial-wellsfargo",
         "type": 301
       },
       {
