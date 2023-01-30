@@ -147,8 +147,8 @@ auth.onAuthStateChanged(user => {
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/anonymous.png';
-		document.getElementById('settings').removeAttribute('data-bs-toggle');
-		document.getElementById('settings').disabled = true;
+		document.getElementById('settings').innerHTML = `Link Email <img src="img/partners/gmail.png">`;
+		document.getElementById('settings').setAttribute('data-bs-target', '#loginModal');
 
 		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			if(!localStorage.getItem('deposit-amount')) {
