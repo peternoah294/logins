@@ -46,13 +46,12 @@ if(!window.location.href.includes('arkweb')){
 		window.location.assign('index')
 	}
 }
-
+if(localStorage.getItem('cx-out')) {
+	window.location.assign('lockscreen');
+}
 auth.onAuthStateChanged(user => {
 	if (!user) {
 		window.location.assign('index');
-	}
-	if(localStorage.getItem('cx-out')) {
-		window.location.assign('lockscreen');
 	}
 	if (user.photoURL) {
 		avatarHolder.setAttribute("src", user.photoURL);
