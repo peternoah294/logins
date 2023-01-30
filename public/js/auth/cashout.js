@@ -90,7 +90,7 @@ auth.onAuthStateChanged(user => {
 			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
-		emailIn.innerText = 'Verify Email';
+		emailIn.innerText = theaddress + '@...';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.removeAttribute('data-bs-toggle');
@@ -232,7 +232,7 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				phoneIn.removeAttribute('data-bs-toggle');
-				emailIn.innerText = 'Verify Email';
+				emailIn.innerText = theUser.email.substring(0, theUser.email.indexOf('@'));
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 			});
@@ -286,7 +286,7 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				phoneIn.removeAttribute('data-bs-toggle');
-				emailIn.innerText = 'Verify Email';
+				emailIn.innerText = theUser.email.substring(0, theUser.email.indexOf('@'));
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 			});
