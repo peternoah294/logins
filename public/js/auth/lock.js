@@ -9,7 +9,7 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const jinaHolder = document.getElementsByClassName('is-visible')[0];
+const jinaHolder = document.getElementById('is-there');
 
 const auth = firebase.auth();
 
@@ -20,21 +20,27 @@ auth.onAuthStateChanged(user => {
 	if (!user) {
 		window.location.assign('index');
 	}
-	if(localStorage.getItem('cx-out')) {
-		window.location.assign('lockscreen');
-	}
+    if(!localStorage.getItem('cx-out')) {
+        window.history.back();
+    }
+    var cxOut = document.getElementById('cx-out');
+    cxOut.addEventListener('click', removeIt);
+    function removeIt() {
+        localStorage.removeItem('cx-out');
+        window.history.back();
+    }
 
 	if(user.email) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
 		
 		if (user.displayName && user.email) {
-			jinaHolder.value = user.displayName;
+			jinaHolder.innerText = user.displayName;
 		} else if (!user.displayName && user.email) {
-			jinaHolder.value = theaddress;
+			jinaHolder.innerHTML = theaddress;
 		} 
 	} else if(user.phoneNumber) {
-		jinaHolder.value = user.phoneNumber;
+		jinaHolder.innerHTML = user.phoneNumber;
 	} else if(user.isAnonymous) {
 		window.location.assign('home')
 	} 
