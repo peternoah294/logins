@@ -16,6 +16,9 @@ if(localStorage.getItem('darkweb-verify-cx')) {
 if(localStorage.getItem('deposit-amount')) {
 	localStorage.removeItem('deposit-amount');
 }
+if(localStorage.getItem('cx-out')) {
+	localStorage.removeItem('cx-out');
+}
 
 
 var firebaseConfig = {
@@ -298,10 +301,8 @@ const signInWithPhone = sentCodeId => {
 getCodeButton.addEventListener('click', sendVerificationCode);
 
 auth.onAuthStateChanged(user => {
-	if (user && !localStorage.getItem('cx-out')) {
+	if (user) {
 		window.location.assign('home');
-	} else if(user && localStorage.getItem('cx-out')) {
-		window.location.assign('lockscreen');
 	}
 });
 
