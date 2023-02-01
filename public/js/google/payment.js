@@ -160,7 +160,7 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('cx-time')) {
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			if(!localStorage.getItem('deposit-amount')) {
 				document.getElementById('apart').style.display = 'flex';
 				document.getElementById('logsection').style.display = 'none';

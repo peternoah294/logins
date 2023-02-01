@@ -19,7 +19,7 @@ function move(){
         
         if(localStorage.getItem('banklogs') && !localStorage.getItem('deposit-amount') && !localStorage.getItem('received-funds')) {
             if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-                if((user.isAnonymous && !localStorage.getItem('cx-time')) || user.email || user.phoneNumber) {
+                if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var elemj = document.getElementById('pablos');        
                     var width = localStorage.getItem('time-left');
                     var id = setInterval(frame, 1000);
@@ -27,7 +27,6 @@ function move(){
                         if(width <= 0){
                             clearInterval(id);
                             i = false;
-                            localStorage.setItem('cx-time', true);
                             localStorage.setItem('time-left',null);
                             localStorage.setItem('banklogs',[]);
                             document.getElementById('predat').style.display = 'flex';
