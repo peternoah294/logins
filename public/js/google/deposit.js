@@ -147,7 +147,7 @@ auth.onAuthStateChanged(user => {
 		}
 
 
-		if(localStorage.getItem('deposit-amount') && localStorage.getItem('cx-time')) {
+		if(localStorage.getItem('deposit-amount') && localStorage.getItem('dark-time')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementsByClassName('clint')[0].style.bottom = '0';
