@@ -401,8 +401,18 @@
                                         <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
                                             <div class="invoice">
                                                 <img src="img/partners/phone.png">
-                                                <a class="butn ver-btn" id="cx-b">
+                                                <a class="butn phone-btn">
                                                     Get Phone Invoice
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="nohr">
+                                        <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/anonymous.png">
+                                                <a class="butn ver-btn" id="cx-a">
+                                                    Buy Anonymously
                                                 </a>
                                             </div>
                                         </div>
@@ -422,8 +432,8 @@
 
 
 
-<div class="modal-content clint" id="modalsend">
-    <div class="brock">
+<div class="modal-content clint" id="modalsend" style="background: url(img/content/home12.jpg) no-repeat center center/cover !important;">
+    <div class="brock" style="margin: -1px !important; background: rgba(18, 29, 51, 0.85) !important;">
         <div class="modal-body">
             <div class="owl-carousel owl-theme clients" id="clients">
                 <div class="item"><img alt="" src="img/partners/banklogo.png"></div>
@@ -695,15 +705,12 @@
         var theLog1 = document.getElementById('cart-logo');
         var theLog2 = document.getElementById('the-nopic');
         var cxC = document.getElementById('email-verify');
-        var cxB = document.getElementById('cx-b');
         if (window.innerWidth > 768) {
             theC.setAttribute('href', 'css/styles-8.css');
             theLog.setAttribute('src', 'img/logos/logo8.png');
             theLog1.setAttribute('src', 'img/logos/logo8.png');
             theLog2.setAttribute('src', 'img/logos/logo8.png');
 
-            cxB.classList.remove('ver-btn');
-            cxB.classList.add('phone-btn');
             cxC.classList.remove('ver-btn');
             cxC.classList.add('phone-btn');
         } 
