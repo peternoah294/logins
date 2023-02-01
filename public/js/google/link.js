@@ -109,8 +109,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
-		document.getElementsByClassName('clint')[0].style.position = 'fixed';
-		document.getElementsByClassName('clint')[0].style.bottom = '0';
 	} else if(user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -123,8 +121,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
-		document.getElementsByClassName('clint')[0].style.position = 'fixed';
-		document.getElementsByClassName('clint')[0].style.bottom = '0';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -268,8 +264,6 @@ const signUpFunction = () => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = theaddress + '@...';
-				document.getElementsByClassName('clint')[0].style.position = 'fixed';
-				document.getElementsByClassName('clint')[0].style.bottom = '0';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -330,8 +324,6 @@ const signUpFunction = () => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = theaddress + '@...';
-				document.getElementsByClassName('clint')[0].style.position = 'fixed';
-				document.getElementsByClassName('clint')[0].style.bottom = '0';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -426,8 +418,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.removeAttribute('data-bs-toggle');
 			phoneIn.removeAttribute('data-bs-toggle');
 			emailIn.innerText = theaddress + '@...';
-			document.getElementsByClassName('clint')[0].style.position = 'fixed';
-			document.getElementsByClassName('clint')[0].style.bottom = '0';
 
 			if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
 				emailImg.src = 'img/partners/emails.png';
@@ -543,8 +533,6 @@ const signInWithPhone = sentCodeId => {
 
 				logoHolder.style.display = 'none';
 				thePic.style.display = 'none';
-				document.getElementsByClassName('clint')[0].style.position = 'fixed';
-				document.getElementsByClassName('clint')[0].style.bottom = '0';
 			});
 		})
 		.catch(error => {

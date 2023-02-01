@@ -7,8 +7,6 @@ var anonDiv = document.getElementById('anon-div');
 if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('confirm').style.display = 'flex';
     document.getElementById('logs-invoice').style.display = 'none';
-    document.getElementsByClassName('clint')[0].style.position = 'fixed';
-    document.getElementsByClassName('clint')[0].style.bottom = '0';
 } else {
     document.getElementById('confirm').style.display = 'none';
     document.getElementById('logs-invoice').style.display = 'flex';
