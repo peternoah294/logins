@@ -147,10 +147,20 @@ auth.onAuthStateChanged(user => {
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/anonymous.png';
-		document.getElementById('settings').innerHTML = `Link Email <img src="img/partners/gmail.png">`;
-		document.getElementById('settings').setAttribute('data-bs-target', '#loginModal');
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
+
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('cx-time')) {
 			if(!localStorage.getItem('deposit-amount')) {
 				document.getElementById('apart').style.display = 'flex';
 				document.getElementById('logsection').style.display = 'none';
@@ -726,7 +736,7 @@ const depositBtc = (even) => {
 		localStorage.setItem('depo-left',600);
 		
 
-		$('#loginModal').modal('hide');
+		$('#depositModal').modal('hide');
 		document.getElementById('depart').style.display = 'flex';
 		document.getElementById('logsection').style.display = 'none';
 		document.getElementById('logsection2').style.display = 'none';
