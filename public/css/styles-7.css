@@ -483,6 +483,8 @@ blink.high {
 #email-invoice p, 
 #phone-invoice p, 
 #anon-invoice p,
+#than-invoice p,
+#than-invoice p span,
 #email-invoice p span, 
 #phone-invoice p span, 
 #anon-invoice p span { 

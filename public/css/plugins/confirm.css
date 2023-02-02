@@ -205,6 +205,7 @@
         margin-top: 13vh;
     }
 }
+#than-invoice p,
 #email-invoice p, 
 #phone-invoice p, 
 #anon-invoice p {
@@ -212,12 +213,14 @@
     font-size: 20.5px !important;
     line-height: 41px !important;
 }
+#than-invoice p span,
 #email-invoice p span, 
 #phone-invoice p span, 
 #anon-invoice p span { 
     font-weight: 600;
 }
 @media screen and (max-width: 574px) {
+    #than-invoice p,
     #email-invoice p, 
     #phone-invoice p, 
     #anon-invoice p {
@@ -226,6 +229,7 @@
     }
 }
 @media screen and (max-width: 404px) {
+    #than-invoice p,
     #email-invoice p, 
     #phone-invoice p, 
     #anon-invoice p {
@@ -233,6 +237,7 @@
     }
 }
 @media screen and (max-width: 380px) {
+    #than-invoice p,
     #email-invoice p, 
     #phone-invoice p, 
     #anon-invoice p {

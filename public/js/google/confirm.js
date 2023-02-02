@@ -84,14 +84,14 @@ auth.onAuthStateChanged(user => {
 	} if(user.email && user.phoneNumber) {
 		if (user.displayName && user.email) {
 			if(user.email.includes('yahoo.com')){
-				emailImg.src = 'img/partners/yahoo.png';
+				thanImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
 			} else {
-				emailImg.src = 'img/partners/google.png';
+				thanImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
-			emailImg.src = 'img/partners/emails.png';
+			thanImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
 		} 
 		jinaHolder.value = user.phoneNumber;
@@ -105,7 +105,7 @@ auth.onAuthStateChanged(user => {
 
 		thanInvoice.style.display = 'flex';
 		thanEmail.innerText = user.email;
-		thanPhone.innerText = user.email;
+		thanPhone.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		thanVerify.addEventListener('click', sendEmail);		
 	} else if(user.email && !user.phoneNumber) {
@@ -241,7 +241,6 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				emailImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
@@ -260,7 +259,7 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailVerify.addEventListener('click', sendEmail);
-
+					emailImg.src = 'img/partners/google.png';
 					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
@@ -268,7 +267,7 @@ const signUpFunction = () => {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
 					thanVerify.addEventListener('click', sendEmail);
-
+					emailImg.src = 'img/partners/google.png';
 					thanInvoice.style.display = 'flex';
 					thanEmail.innerText = theUser.email;
 					thanPhone.innerText = theUser.phoneNumber;
@@ -308,7 +307,6 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				emailImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
@@ -327,7 +325,7 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailVerify.addEventListener('click', sendEmail);
-
+					emailImg.src = 'img/partners/yahoo.png';
 					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
@@ -335,7 +333,7 @@ const signUpFunction = () => {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
 					thanVerify.addEventListener('click', sendEmail);
-
+					thanImg.src = 'img/partners/yahoo.png';
 					thanInvoice.style.display = 'flex';
 					thanEmail.innerText = theUser.email;
 					thanPhone.innerText = theUser.phoneNumber;
@@ -521,24 +519,33 @@ const signInWithPhone = sentCodeId => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
-				vpnImg.src = 'img/partners/phone.png';
-					
-				phoneInvoice.style.display = 'flex';
-				yourPhone.innerText = theUser.phoneNumber;
-				anonInvoice.style.display = 'none';
-
-				avatarHolder.setAttribute("src", 'img/partners/phone.png');
-				avatarHolder.style.display = 'block';
-				avatarHolder.style.borderWidth = 0;
-				avatarHolder.style.borderRadius = 0;
-				thenoPic.style.display = 'inline-block';
 
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
 
-				logoHolder.style.display = 'none';
-				thePic.style.display = 'none';
+				if(!theUser.email) {
+					avatarHolder.setAttribute("src", 'img/partners/phone.png');
+					avatarHolder.style.display = 'block';
+					avatarHolder.style.borderWidth = 0;
+					avatarHolder.style.borderRadius = 0;
+					thenoPic.style.display = 'inline-block';
+
+					vpnImg.src = 'img/partners/phone.png';
+					
+					phoneInvoice.style.display = 'flex';
+					yourPhone.innerText = theUser.phoneNumber;
+					anonInvoice.style.display = 'none';
+
+					logoHolder.style.display = 'none';
+					thePic.style.display = 'none';
+				} else {
+					emailImg.src = 'img/partners/mail.png';
+					thanInvoice.style.display = 'flex';
+					thanPhone.innerText = theUser.phoneNumber;
+					thanEmail.innerText = theUser.email;
+					emailInvoice.style.display = 'none';
+				}
 			});
 		})
 		.catch(error => {
