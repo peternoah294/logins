@@ -129,7 +129,6 @@ auth.onAuthStateChanged(user => {
 
 		jinaHolder.readOnly = true;
 		jinaHolder3.readOnly = true;
-		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -230,10 +229,6 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				jinaHolder.value = theUser.displayName;
-				jinaHolder3.value = theUser.displayName;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 
 				vpnImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
@@ -249,6 +244,13 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+					jinaHolder.readOnly = true;
+					jinaHolder3.readOnly = true;
+				} 
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -282,12 +284,6 @@ const signUpFunction = () => {
 				photoURL: theUser.providerData[0].photoURL,
 				isAnonymous: false
 			}).then(() => {
-				$('#loginModal').modal('hide');
-				jinaHolder.value = theUser.displayName;
-				jinaHolder3.value = theUser.displayName;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
-
 				vpnImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 
@@ -302,6 +298,13 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+					jinaHolder.readOnly = true;
+					jinaHolder3.readOnly = true;
+				} 
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
