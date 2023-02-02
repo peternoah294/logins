@@ -377,19 +377,15 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			phoneIn.removeAttribute('data-bs-toggle');
 			emailIn.innerText = 'Verify Email';
 
-			if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
-				emailImg.src = 'img/partners/emails.png';
-				vpnImg.src = 'img/partners/emails.png';
-					
-				emailInvoice.style.display = 'flex';
-				yourEmail.innerText = theUser.email;
-				anonInvoice.style.display = 'none';
-				theUser.sendEmailVerification();
-				emailVerify.addEventListener('click', sendEmail);
-				window.location.href = 'https://www.darkweb.cx/confirm';
-			} else {
-				window.location.href = 'https://www.darkweb.cx/confirm';
-			}
+			emailImg.src = 'img/partners/emails.png';
+			vpnImg.src = 'img/partners/emails.png';
+				
+			emailInvoice.style.display = 'flex';
+			yourEmail.innerText = theUser.email;
+			anonInvoice.style.display = 'none';
+			theUser.sendEmailVerification();
+			emailVerify.addEventListener('click', sendEmail);
+			window.location.href = 'https://www.darkweb.cx/confirm';
 		})
 		.catch((error) => {
 			var shortCutFunction = 'success';
@@ -462,10 +458,10 @@ const signInWithPhone = sentCodeId => {
 	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 	const theUser = auth.currentUser;
 
-	auth.currentUser.linkWithCredential(credential)
+	theUser.linkWithCredential(credential)
 		.then(() => {
-			auth.currentUser.updateProfile({
-				phoneNumber: auth.currentUser.providerData[0].phoneNumber,
+			theUser.updateProfile({
+				phoneNumber: theUser.providerData[0].phoneNumber,
 				isAnonymous: false 
 			}).then(() => {
 				$('#verifyModal').modal('hide');
