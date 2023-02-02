@@ -74,8 +74,6 @@ auth.onAuthStateChanged(user => {
 
 	if(user.email && user.phoneNumber) {
 		if (user.displayName && user.email) {
-			jinaHolder.value = user.displayName;
-			jinaHolder3.value = user.displayName;
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
@@ -86,18 +84,15 @@ auth.onAuthStateChanged(user => {
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
-			var themail = user.email;
-			var theaddress = themail.substring(0, themail.indexOf('@'));
-			jinaHolder.value = theaddress;
-			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		phoneIn.removeAttribute('data-bs-toggle');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		tableName.innerHTML = user.email;
@@ -128,7 +123,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		phoneIn.removeAttribute('data-bs-toggle');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		tableName.innerHTML = user.email;
@@ -140,7 +134,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		tableName.innerHTML = user.phoneNumber;
 		tableId.innerHTML = user.uid;
-		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
