@@ -246,7 +246,6 @@ const signUpFunction = () => {
 				thenoPic.style.display = 'none';
 				theUser.sendEmailVerification();
 
-				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
@@ -300,7 +299,6 @@ const signUpFunction = () => {
 				thenoPic.style.display = 'none';
 				theUser.sendEmailVerification();
 
-				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
