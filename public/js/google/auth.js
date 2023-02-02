@@ -146,6 +146,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
 	} 
 
 	
