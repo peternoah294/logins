@@ -108,7 +108,7 @@ auth.onAuthStateChanged(user => {
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			goodies = JSON.parse(localStorage.getItem('banklogs'));
 			for (var i = 0; i < goodies.length; i++) {
-				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
+				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(user.phoneNumber.length - 4, 0) + '.....';
 			}
 		}
 
@@ -190,7 +190,7 @@ auth.onAuthStateChanged(user => {
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			goodies = JSON.parse(localStorage.getItem('banklogs'));
 			for (var i = 0; i < goodies.length; i++) {
-				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
+				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(user.phoneNumber.length - 4, 0) + '.....';
 			}
 		}
 		phoneIn.removeAttribute('data-bs-toggle');
@@ -568,7 +568,7 @@ const signInWithPhone = sentCodeId => {
 				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 					goodies = JSON.parse(localStorage.getItem('banklogs'));
 					for (var i = 0; i < goodies.length; i++) {
-						document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
+						document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.phoneNumber.substring(theUser.phoneNumber.length - 4, 0) + '.....';
 					}
 				}
 

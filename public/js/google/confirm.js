@@ -541,6 +541,7 @@ const signInWithPhone = sentCodeId => {
 					thePic.style.display = 'none';
 				} else {
 					thanImg.src = 'img/partners/mail.png';
+					thanVerify.addEventListener('click', sendEmail);
 					thanInvoice.style.display = 'flex';
 					thanPhone.innerText = theUser.phoneNumber;
 					thanEmail.innerText = theUser.email;
