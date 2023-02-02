@@ -18,7 +18,7 @@
     <link href="css/styles-2.css" rel="stylesheet" id="colors">
     <link rel="stylesheet" href="datatables/css/jquery.datatables2.min.css" />
     <link href="css/plugins/button.css" rel="stylesheet">
-    <link href="css/plugins/link.css" rel="stylesheet">
+    <link href="css/plugins/confirm.css" rel="stylesheet">
 </head>
 <body id="thebodyz" style="background: #121d33;">
     <div id="preloader">
@@ -401,8 +401,18 @@
                                         <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
                                             <div class="invoice">
                                                 <img src="img/partners/phone.png">
-                                                <a class="butn ver-btn" id="cx-b">
+                                                <a class="butn phone-btn">
                                                     Get Phone Invoice
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="nohr">
+                                        <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/anonymous.png">
+                                                <a class="butn ver-btn" id="cx-a">
+                                                    Buy Anonymously
                                                 </a>
                                             </div>
                                         </div>
@@ -422,8 +432,8 @@
 
 
 
-<div class="modal-content clint" id="modalsend">
-    <div class="brock">
+<div class="modal-content clint" id="modalsend" style="background: url(img/content/home12.jpg) no-repeat center center/cover !important;">
+    <div class="brock" style="margin: -1px !important; background: rgba(18, 29, 51, 0.85) !important;">
         <div class="modal-body">
             <div class="owl-carousel owl-theme clients" id="clients">
                 <div class="item"><img alt="" src="img/partners/banklogo.png"></div>
@@ -695,7 +705,7 @@
         var theLog1 = document.getElementById('cart-logo');
         var theLog2 = document.getElementById('the-nopic');
         var cxC = document.getElementById('email-verify');
-        var cxB = document.getElementById('cx-b');
+
         if (window.innerWidth > 768) {
             theC.setAttribute('href', 'css/styles-8.css');
             theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -704,17 +714,15 @@
 
             cxC.classList.remove('ver-btn');
             cxC.classList.add('phone-btn');
-            cxB.classList.remove('ver-btn');
-            cxB.classList.add('phone-btn');
         } 
     </script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
     <script src="js/main/core.confirm.js"></script>
     <script src="js/main/confirm.js"></script>
-    <script src="js/google/link.js"></script>
+    <script src="js/google/confirm.js"></script>
     <script src="datatables/js/jquery.datatable2.min.js"></script> 
-    <script src="js/cart/link.js"></script>
+    <script src="js/cart/confirm.js"></script>
 
 </body>
 </html>
