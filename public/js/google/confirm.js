@@ -540,7 +540,7 @@ const signInWithPhone = sentCodeId => {
 					logoHolder.style.display = 'none';
 					thePic.style.display = 'none';
 				} else {
-					emailImg.src = 'img/partners/mail.png';
+					thanImg.src = 'img/partners/mail.png';
 					thanInvoice.style.display = 'flex';
 					thanPhone.innerText = theUser.phoneNumber;
 					thanEmail.innerText = theUser.email;
