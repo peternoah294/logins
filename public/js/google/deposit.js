@@ -95,9 +95,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		tableName.innerHTML = user.email;
+		tableName.innerHTML = `${user.email} <br> ${user.phoneNumber}`;
 		tableId.innerHTML = user.uid;
-		emailP.innerHTML = `Deposit will be credited to: <br> <span>${user.email}</span>`;
+		emailP.innerHTML = `Deposit will be credited to: <br> Mail: <span>${user.email}</span> <br> Phone: <span>${user.phoneNumber}</span>`;
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
