@@ -135,7 +135,7 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
-		if(localStorage.getItem('received-funds')) {
+		if(localStorage.getItem('received-funds') && localStorage.getItem('pol-time')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementsByClassName('clint')[0].style.bottom = '0';

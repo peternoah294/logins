@@ -19,7 +19,7 @@ function move(){
         
         if(localStorage.getItem('banklogs') && !localStorage.getItem('deposit-amount') && !localStorage.getItem('received-funds')) {
             if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-                if(!user.isAnonymous || user.email || user.phoneNumber) {
+                if((user.isAnonymous && !localStorage.getItem('pol-time')) || user.email || user.phoneNumber) {
                     var elemj = document.getElementById('pablos');        
                     var width = localStorage.getItem('time-left');
                     var id = setInterval(frame, 1000);
@@ -27,6 +27,7 @@ function move(){
                         if(width <= 0){
                             clearInterval(id);
                             i = false;
+                            localStorage.setItem('pol-time', true);
                             localStorage.setItem('time-left',null);
                             localStorage.setItem('banklogs',[]);
                             document.getElementById('predat').style.display = 'flex';
@@ -36,6 +37,7 @@ function move(){
                             document.getElementsByClassName('clint')[0].style.position = 'fixed';
                             document.getElementById('cartlength').style.display = 'none';
                         } 
+
                         else if( width <= 14) {
                             elemj.classList.add("bg-danger");
                             localStorage.setItem('time-left',width--);
