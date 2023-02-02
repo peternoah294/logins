@@ -72,7 +72,7 @@ auth.onAuthStateChanged(user => {
 		}
 	}
 
-	if(user.email) {
+	if(user.email && user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
@@ -103,7 +103,38 @@ auth.onAuthStateChanged(user => {
 		tableName.innerHTML = user.email;
 		tableId.innerHTML = user.uid;
 		emailP.innerHTML = `Deposit will be credited to: <br> <span>${user.email}</span>`;
-	} else if(user.phoneNumber) {
+	} else if(user.email && !user.phoneNumber) {
+		if (user.displayName && user.email) {
+			jinaHolder.value = user.displayName;
+			jinaHolder3.value = user.displayName;
+			if(user.email.includes('yahoo.com')){
+				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+			} else {
+				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+			}
+		} else if (!user.displayName && user.email) {
+			var themail = user.email;
+			var theaddress = themail.substring(0, themail.indexOf('@'));
+			jinaHolder.value = theaddress;
+			jinaHolder3.value = theaddress;
+			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+		} 
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+		phoneIn.removeAttribute('data-bs-toggle');
+
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		tableName.innerHTML = user.email;
+		tableId.innerHTML = user.uid;
+		emailP.innerHTML = `Deposit will be credited to: <br> <span>${user.email}</span>`;
+	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
