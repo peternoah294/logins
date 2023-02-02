@@ -118,14 +118,14 @@ auth.onAuthStateChanged(user => {
 		nameHolder1.value = user.phoneNumber;
 		nameHolder2.value = user.phoneNumber;
 		nameHolder3.value = user.phoneNumber;
+		email5.innerHTML = user.phoneNumber;
+		phoneIn.innerText = user.phoneNumber;
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		phoneIn.innerText = user.phoneNumber;
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		email5.innerHTML = user.phoneNumber;
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -175,21 +175,16 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		email5.innerHTML = user.email;
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder4.value = user.phoneNumber;
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		nameHolder1.value = user.phoneNumber;
 		nameHolder2.value = user.phoneNumber;
 		nameHolder3.value = user.phoneNumber;
-
-		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
-
 		email5.innerHTML = user.phoneNumber;
 
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -198,6 +193,8 @@ auth.onAuthStateChanged(user => {
 				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
 			}
 		}
+		phoneIn.removeAttribute('data-bs-toggle');
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 	} else if(user.isAnonymous) {
