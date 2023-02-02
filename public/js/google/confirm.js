@@ -104,8 +104,6 @@ auth.onAuthStateChanged(user => {
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
 	} else if(user.phoneNumber) {
@@ -115,8 +113,6 @@ auth.onAuthStateChanged(user => {
 		phoneInvoice.style.display = 'flex';
 		yourPhone.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
@@ -129,6 +125,8 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = 'Anonymous';
 		}
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
 	}
@@ -214,9 +212,6 @@ const signUpFunction = () => {
 				$('#loginModal').modal('hide');
 				jinaHolder.value = theUser.displayName;
 				jinaHolder3.value = theUser.displayName;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
-
 				emailImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
 					
@@ -232,9 +227,6 @@ const signUpFunction = () => {
 				thenoPic.style.display = 'none';
 				theUser.sendEmailVerification();
 				emailVerify.addEventListener('click', sendEmail);
-
-				var themail = theUser.email;
-				var theaddress = themail.substring(0, themail.indexOf('@'));
 
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
@@ -275,8 +267,6 @@ const signUpFunction = () => {
 				$('#loginModal').modal('hide');
 				jinaHolder.value = theUser.displayName;
 				jinaHolder3.value = theUser.displayName;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 
 				emailImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
@@ -294,8 +284,6 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 				emailVerify.addEventListener('click', sendEmail);
 
-				var themail = theUser.email;
-				var theaddress = themail.substring(0, themail.indexOf('@'));
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = 'Verify Email';
@@ -384,11 +372,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			var theaddress = themail.substring(0, themail.indexOf('@'));
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
-			jinaHolder.readOnly = true;
-			jinaHolder3.readOnly = true;
-
-			var themail = theUser.email;
-			var theaddress = themail.substring(0, themail.indexOf('@'));
 
 			emailIn.removeAttribute('data-bs-toggle');
 			phoneIn.removeAttribute('data-bs-toggle');
@@ -488,8 +471,6 @@ const signInWithPhone = sentCodeId => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 				vpnImg.src = 'img/partners/phone.png';
 					
 				phoneInvoice.style.display = 'flex';

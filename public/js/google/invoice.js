@@ -90,8 +90,6 @@ auth.onAuthStateChanged(user => {
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
 		} 
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 
 		emailIn.innerText = 'Verify Email';
@@ -117,8 +115,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber;
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
@@ -146,6 +142,8 @@ auth.onAuthStateChanged(user => {
 		} 
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
 
 		if(platform.manufacturer !== null) {

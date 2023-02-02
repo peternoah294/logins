@@ -89,9 +89,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		phoneIn.innerText = user.phoneNumber;
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
@@ -119,16 +116,10 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -251,8 +242,6 @@ const signUpFunction = () => {
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					jinaHolder.readOnly = true;
-					jinaHolder3.readOnly = true;
 				} else {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
@@ -309,8 +298,6 @@ const signUpFunction = () => {
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					jinaHolder.readOnly = true;
-					jinaHolder3.readOnly = true;
 				} else {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
@@ -449,8 +436,6 @@ const signInWithPhone = sentCodeId => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
 

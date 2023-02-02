@@ -124,9 +124,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.innerText = user.phoneNumber;
 
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
-		jinaHolder4.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		email5.innerHTML = user.phoneNumber;
 	} else if(user.email && !user.phoneNumber) {
@@ -179,18 +176,12 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
-		jinaHolder4.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		email5.innerHTML = user.email;
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder4.value = user.phoneNumber;
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
-		jinaHolder4.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		nameHolder1.value = user.phoneNumber;
 		nameHolder2.value = user.phoneNumber;
@@ -241,6 +232,9 @@ auth.onAuthStateChanged(user => {
 		} 
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
+		jinaHolder4.readOnly = false;
 		email5.innerHTML = `Logged in anonymously, you can link a valid email address on the confirm page to get an email invoice`;
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 		vpnImg.src = 'img/partners/anonymous.png';
@@ -328,10 +322,6 @@ const signUpFunction = () => {
 			}).then(() => {
 				$('#loginModal').modal('hide');
 
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
-				jinaHolder4.readOnly = true;
-
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
@@ -400,10 +390,6 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
-				jinaHolder4.readOnly = true;
 
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
@@ -580,9 +566,6 @@ const signInWithPhone = sentCodeId => {
 				nameHolder2.value = theUser.phoneNumber;
 				nameHolder3.value = theUser.phoneNumber;
 				email5.innerHTML = theUser.phoneNumber;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
-				jinaHolder4.readOnly = true;
 
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {

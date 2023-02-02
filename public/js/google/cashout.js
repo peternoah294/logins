@@ -94,16 +94,10 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.removeAttribute('data-bs-toggle');
-
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
@@ -120,6 +114,8 @@ auth.onAuthStateChanged(user => {
 		} 
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	} 
@@ -217,8 +213,6 @@ const signUpFunction = () => {
 				$('#loginModal').modal('hide');
 				jinaHolder.value = theUser.displayName;
 				jinaHolder3.value = theUser.displayName;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 
 				vpnImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
@@ -271,8 +265,6 @@ const signUpFunction = () => {
 				$('#loginModal').modal('hide');
 				jinaHolder.value = theUser.displayName;
 				jinaHolder3.value = theUser.displayName;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 
 				vpnImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
@@ -422,8 +414,6 @@ const signInWithPhone = sentCodeId => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
-				jinaHolder.readOnly = true;
-				jinaHolder3.readOnly = true;
 				vpnImg.src = 'img/partners/phone.png';
 
 				avatarHolder.setAttribute("src", 'img/partners/phone.png');

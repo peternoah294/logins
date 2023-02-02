@@ -100,8 +100,6 @@ auth.onAuthStateChanged(user => {
 		phoneIn.removeAttribute('data-bs-toggle');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		tableName.innerHTML = user.email;
 		tableId.innerHTML = user.uid;
 		emailP.innerHTML = `Deposit will be credited to: <br> <span>${user.email}</span>`;
@@ -109,8 +107,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		jinaHolder.readOnly = true;
-		jinaHolder3.readOnly = true;
 		tableName.innerHTML = user.phoneNumber;
 		tableId.innerHTML = user.uid;
 		emailIn.removeAttribute('data-bs-toggle');
@@ -128,6 +124,8 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = 'Anonymous';
 		} 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
 		tableName.innerHTML = 'Anonymous';
 		tableId.innerHTML = user.uid;
 
