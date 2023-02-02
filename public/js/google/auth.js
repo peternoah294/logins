@@ -67,7 +67,33 @@ auth.onAuthStateChanged(user => {
 			thenoPic.style.display = 'inline-block';
 		}
 	}
-	if(user.email) {
+	if(user.email && user.phoneNumber) {
+		if (user.displayName && user.email) {
+			if(user.email.includes('yahoo.com')){
+				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+			} else {
+				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+			}
+		} else if (!user.displayName && user.email) {
+			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+		} 
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		phoneIn.innerText = user.phoneNumber;
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		jinaHolder.readOnly = true;
+		jinaHolder3.readOnly = true;
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
 		
@@ -93,12 +119,11 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		phoneIn.removeAttribute('data-bs-toggle');
 
 		jinaHolder.readOnly = true;
 		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-	} else if(user.phoneNumber) {
+	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 
@@ -415,22 +440,23 @@ const signInWithPhone = sentCodeId => {
 				jinaHolder3.value = theUser.phoneNumber;
 				jinaHolder.readOnly = true;
 				jinaHolder3.readOnly = true;
-				vpnImg.src = 'img/partners/phone.png';
-
-				avatarHolder.setAttribute("src", 'img/partners/phone.png');
-				avatarHolder.style.display = 'block';
-				avatarHolder.style.border = 'none';
-				avatarHolder.style.borderRadius = 0;
-				thenoPic.style.display = 'inline-block';
-
-				logoHolder.style.display = 'none';
-				thePic.style.display = 'none';
-
-				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
 
-				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+				if(!theUser.email) {
+					vpnImg.src = 'img/partners/phone.png';
+
+					avatarHolder.setAttribute("src", 'img/partners/phone.png');
+					avatarHolder.style.display = 'block';
+					avatarHolder.style.border = 'none';
+					avatarHolder.style.borderRadius = 0;
+					thenoPic.style.display = 'inline-block';
+	
+					logoHolder.style.display = 'none';
+					thePic.style.display = 'none';
+	
+					vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+				} 
 			});
 		})
 		.catch(error => {
