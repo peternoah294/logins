@@ -776,6 +776,7 @@ const depositBtc = (even) => {
 		document.getElementById('depart').style.display = 'flex';
 		document.getElementById('logsection').style.display = 'none';
 		document.getElementById('logsection2').style.display = 'none';
+		document.getElementById('predat').style.display = 'none';
 
 		document.getElementById('your-bal').innerHTML = `Pending Deposit: <span>$${localStorage.getItem('deposit-amount')}</span>`;
 

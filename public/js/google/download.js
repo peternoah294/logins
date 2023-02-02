@@ -26,6 +26,16 @@ const labelDate = document.getElementById('label-date');
 const paidText = document.getElementById('paid-text');
 const emailP = document.getElementById('email-p');
 
+const mailField = document.getElementById('inputEmail');
+const signUp = document.getElementById('signUp');
+
+const emailIn = document.getElementById('email-in');
+const phoneIn = document.getElementById('phone-in');
+
+const verP = document.getElementById('ver-p');
+const verImg = document.getElementById('ver-img');
+
+
 const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
 
@@ -57,8 +67,41 @@ auth.onAuthStateChanged(user => {
 			thenoPic.style.display = 'inline-block';
 		}
 	}
+	if(user.email && user.phoneNumber) {
+		if (user.displayName && user.email) {
+			if(user.email.includes('yahoo.com')){
+				vpnImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+			} else {
+				vpnImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+			}
+		} else if (!user.displayName && user.email) {
+			vpnImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+		} 
 
-	if(user.email) {
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
+
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		paidText.innerHTML = `
+			The cost of acquiring tools for spamming, and also the process itself is expensive, 
+			Send $100 to complete your download.
+			Do not close this page or navigate to any other page otherwise this progress might be lost
+			<br>
+			After this payment check your email inbox @ <span>${user.email}</span>. 
+			<br>
+			The bank log files will be in text format. 
+		`;
+		emailP.innerHTML = `
+			An email invoice will be sent to:  <br>
+			<span>${user.email}</span>
+		`;		
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
@@ -92,10 +135,15 @@ auth.onAuthStateChanged(user => {
 			An email invoice will be sent to:  <br>
 			<span>${user.email}</span>
 		`;
-	} else if(user.phoneNumber) {
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		phoneIn.removeAttribute('data-bs-toggle');
+		phoneIn.innerText = user.phoneNumber;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
 			Send $100 to complete your download.
@@ -153,7 +201,180 @@ auth.onAuthStateChanged(user => {
 	}
 });
 
+function sendEmail() {
+	if(!localStorage.getItem('darkweb-verify-cx')) {
+		auth.currentUser.sendEmailVerification();
+		verP.innerHTML = `
+			Verification email sent to <span>${auth.currentUser.email}</span>. <br>
+			Check the <span>spam / junk</span> folder
+		`;
 
+		var shortCutFunction = 'success';
+		var msg = `
+			Verification email sent to: ${auth.currentUser.email}, 
+			<hr class="to-hr">
+			Check the spam / junk folder.
+		`;
+		toastr.options = {
+			closeButton: true,
+			debug: false,
+			newestOnTop: true,
+			progressBar: true,
+			positionClass: 'toast-top-full-width',
+			preventDuplicates: true,
+			onclick: null
+		};
+		var $toast = toastr[shortCutFunction](msg);
+		$toastlast = $toast;
+	} else {
+		verP.innerHTML = `
+			Verification email has already been sent to <span>${auth.currentUser.email}</span>. <br>
+			Check the <span>spam / junk</span> folder
+		`;
+
+		var shortCutFunction = 'success';
+		var msg = `
+			Verification email has already been sent to: ${auth.currentUser.email}, 
+			<hr class="to-hr">
+			Check the spam / junk folder.
+		`;
+		toastr.options = {
+			closeButton: true,
+			debug: false,
+			newestOnTop: true,
+			progressBar: true,
+			positionClass: 'toast-top-full-width',
+			preventDuplicates: true,
+			onclick: null
+		};
+		var $toast = toastr[shortCutFunction](msg);
+		$toastlast = $toast;
+	}
+	localStorage.setItem('darkweb-verify-cx', true);
+}
+
+const signUpFunction = () => {
+	event.preventDefault();
+	const email = mailField.value;
+	var actionCodeSettings = {
+		url: 'https://www.darkweb.cx/confirm',
+		handleCodeInApp: true,
+	};
+	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
+		const googleProvider = new firebase.auth.GoogleAuthProvider;
+		const theUser = auth.currentUser;
+		theUser.linkWithPopup(googleProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, 
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
+			}).then(() => {
+				window.location.assign('confirm');
+			});
+		}).catch(error => {
+			document.getElementById('ver-email').innerHTML = `
+				${error.message} : <span>${mailField.value}</span> <br>
+				Use a different email address.
+			`;
+			var shortCutFunction = 'success';
+			var msg = `
+				${error.message} : ${mailField.value} <br>
+				<hr class="to-hr">
+				Use a different email address.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		});
+	} else if(email.includes('@yahoo.com') || email.includes('@YAHOO.COM')) {
+		const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
+		const theUser = auth.currentUser;
+		theUser.linkWithPopup(yahooProvider).then(() => {
+			theUser.updateProfile({
+				displayName: theUser.providerData[0].displayName, 
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
+			}).then(() => {
+				window.location.assign('confirm');
+			});
+		}).catch(error => {
+			document.getElementById('ver-email').innerHTML = `
+				${error.message} : <span>${mailField.value}</span> <br>
+				Use a different email address.
+			`;
+			var shortCutFunction = 'success';
+			var msg = `
+				${error.message} : ${mailField.value} <br>
+				<hr class="to-hr">
+				Use a different email address.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		});
+	} else {
+		auth.sendSignInLinkToEmail(email, actionCodeSettings)
+		.then(() => {
+			document.getElementById('ver-email').innerHTML = `
+				Verification link sent to your email <span>${email}</span>.
+				<br> 
+				Check the <span>spam / junk </span> folder.
+			`;
+
+			var shortCutFunction = 'success';
+			var msg = `
+				Verification link sent to your email: ${email}.
+				<hr class="to-hr">
+				Check the spam / junk folder.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+
+			window.localStorage.setItem('emailForSignIn', email);
+		}).catch(error => {
+			var shortCutFunction = 'success';
+			var msg = `${error.message}`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		});
+	}
+}
+signUp.addEventListener('click', signUpFunction);
+document.getElementById('the-form').addEventListener('submit', signUpFunction);
 
 if(!localStorage.getItem('received-funds')) {
 	document.getElementById('logsection').style.display = 'none'
@@ -234,37 +455,7 @@ const signInWithPhone = sentCodeId => {
 			auth.currentUser.updateProfile({
 				phoneNumber: auth.currentUser.providerData[0].phoneNumber
 			}).then(() => {
-
-				$('#verifyModal').modal('hide');
-
-				jinaHolder.value = user.phoneNumber;
-				jinaHolder2.innerText = 'User ID: ' + user.uid;
-				paidText.innerHTML = `
-					The cost of acquiring tools for spamming, and also the process itself is expensive, 
-					Send $70 to complete your download.
-					Do not close this page or navigate to any other page otherwise this progress might be lost
-					<br>
-					After this payment check your text messages inbox @ <span>${user.phoneNumber}</span>. 
-					<br>
-					The bank log files will be sent as a link to your phone number. 
-				`;
-				emailP.innerHTML = `
-					A dynamic link will be sent to:  <br>
-					<span>${user.phoneNumber}</span>
-				`;
-
-				avatarHolder.setAttribute("src", 'img/partners/phone.png');
-				avatarHolder.style.display = 'block';
-				avatarHolder.style.borderWidth = 0;
-				avatarHolder.style.borderRadius = 0;
-			
-				logoHolder.style.display = 'none';
-
-				document.getElementById('apart').style.display = 'none';
-				document.getElementById('logsection').style.display = 'block';
-				document.getElementsByClassName('clint')[0].style.bottom = '0';
-				document.getElementsByClassName('clint')[0].style.position = 'relative';
-				move();
+				window.location.assign('invoice');
 			});
 		})
 		.catch(error => {
@@ -302,6 +493,23 @@ fetch('https://ipapi.co/json/')
 	`;
 	document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
 });
+
+const logOut = document.getElementById('logout');
+logOut.addEventListener('click', () => {
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('lockscreen');
+	}
+})
+
 
 $('#myform').on('submit', function(ev) {
 	$('#verifyModal').modal('show');
