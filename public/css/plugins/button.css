@@ -2646,6 +2646,7 @@ ul.countdown li p {
     line-height: 35px;
     white-space: nowrap !important;
     padding: 10px 15px;
+    box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
 }
 .butn.modal-btn {
     margin: 3vh 0 2vh;
