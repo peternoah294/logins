@@ -59,7 +59,7 @@ auth.onAuthStateChanged(user => {
 		if(user.phoneNumber) {
 			avatarHolder.setAttribute("src", 'img/partners/phone.png');
 			avatarHolder.style.display = 'block';
-			avatarHolder.style.border = 'none';
+			avatarHolder.style.borderWidth = 0;
 			avatarHolder.style.borderRadius = 0;
 			thenoPic.style.display = 'inline-block';
 		} else {
@@ -428,7 +428,7 @@ const signInWithPhone = sentCodeId => {
 
 				avatarHolder.setAttribute("src", 'img/partners/phone.png');
 				avatarHolder.style.display = 'block';
-				avatarHolder.style.border = 'none';
+				avatarHolder.style.borderWidth = 0;
 				avatarHolder.style.borderRadius = 0;
 				thenoPic.style.display = 'inline-block';
 
