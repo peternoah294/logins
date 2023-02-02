@@ -231,6 +231,7 @@ const signUpFunction = () => {
 				$('#loginModal').modal('hide');
 
 				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
@@ -288,6 +289,7 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 
 				avatarHolder.setAttribute("src", theUser.photoURL);

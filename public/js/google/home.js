@@ -89,7 +89,47 @@ auth.onAuthStateChanged(user => {
 			thenoPic2.style.display = 'inline-block';
 		}
 	}
-	if(user.email) {
+	if(user.email && user.phoneNumber) {
+		if (user.displayName && user.email) {
+			if(user.email.includes('yahoo.com')){
+				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+			} else {
+				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+			}
+		} else if (!user.displayName && user.email) {	
+			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+		} 
+		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			goodies = JSON.parse(localStorage.getItem('banklogs'));
+			for (var i = 0; i < goodies.length; i++) {
+				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
+			}
+		}
+
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
+		jinaHolder4.value = user.phoneNumber;
+		nameHolder1.value = user.phoneNumber;
+		nameHolder2.value = user.phoneNumber;
+		nameHolder3.value = user.phoneNumber;
+
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+		phoneIn.innerText = user.phoneNumber;
+
+		jinaHolder.readOnly = true;
+		jinaHolder3.readOnly = true;
+		jinaHolder4.readOnly = true;
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		email5.innerHTML = user.phoneNumber;
+	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
 
@@ -138,14 +178,13 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		phoneIn.removeAttribute('data-bs-toggle');
 
 		jinaHolder.readOnly = true;
 		jinaHolder3.readOnly = true;
 		jinaHolder4.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		email5.innerHTML = user.email;
-	} else if(user.phoneNumber) {
+	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder4.value = user.phoneNumber;
@@ -157,18 +196,15 @@ auth.onAuthStateChanged(user => {
 		nameHolder2.value = user.phoneNumber;
 		nameHolder3.value = user.phoneNumber;
 
-		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 
-		let broNumber = user.phoneNumber;
-
-		email5.innerHTML = `Logged in with phone number ${user.phoneNumber}, you'll have to check your text messages for a link after buying any bank log`;
+		email5.innerHTML = user.phoneNumber;
 
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			goodies = JSON.parse(localStorage.getItem('banklogs'));
 			for (var i = 0; i < goodies.length; i++) {
-				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = broNumber.substring(broNumber.length - 4, 0) + '.....';
+				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
 			}
 		}
 		vpnImg.src = 'img/partners/phone.png';
@@ -291,40 +327,44 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				jinaHolder.value = theUser.displayName;
-				jinaHolder3.value = theUser.displayName;
-				jinaHolder4.value = theUser.displayName;
+
 				jinaHolder.readOnly = true;
 				jinaHolder3.readOnly = true;
 				jinaHolder4.readOnly = true;
 
-				nameHolder1.value = theUser.displayName;
-				nameHolder2.value = theUser.displayName;
-				nameHolder3.value = theUser.displayName;
-
-				vpnImg.src = 'img/partners/google.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+				emailIn.innerText = 'Verify Email';
+				emailIn.addEventListener('click', sendEmail);
+				emailIn.setAttribute('data-bs-target', '#emailModal');
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
 				avatarHolder.style.display = 'block';
 				thePic.setAttribute("src", theUser.photoURL);
+				thePic2.setAttribute("src", theUser.photoURL);
 				thePic.style.display = 'inline-block';
 				thePic2.style.display = 'inline-block';
 				logoHolder.style.display = 'none';
 				thenoPic.style.display = 'none';
 				thenoPic2.style.display = 'none';
-				theUser.sendEmailVerification();
+				vpnImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 
-				phoneIn.removeAttribute('data-bs-toggle');
-				emailIn.innerText = 'Verify Email';
-				emailIn.addEventListener('click', sendEmail);
-				emailIn.setAttribute('data-bs-target', '#emailModal');
-
-				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-					goodies = JSON.parse(localStorage.getItem('banklogs'));
-					for (var i = 0; i < goodies.length; i++) {
-						document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.displayName;
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+					jinaHolder4.value = theUser.displayName;
+					nameHolder1.value = theUser.displayName;
+					nameHolder2.value = theUser.displayName;
+					nameHolder3.value = theUser.displayName;
+					email5.innerHTML = theUser.displayName;
+					if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+						goodies = JSON.parse(localStorage.getItem('banklogs'));
+						for (var i = 0; i < goodies.length; i++) {
+							document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.displayName;
+						}
 					}
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
 				}
 			});
 		}).catch(error => {
@@ -360,40 +400,44 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				jinaHolder.value = theUser.displayName;
-				jinaHolder3.value = theUser.displayName;
-				jinaHolder4.value = theUser.displayName;
+
 				jinaHolder.readOnly = true;
 				jinaHolder3.readOnly = true;
 				jinaHolder4.readOnly = true;
 
-				nameHolder1.value = theUser.displayName;
-				nameHolder2.value = theUser.displayName;
-				nameHolder3.value = theUser.displayName;
-
-				vpnImg.src = 'img/partners/yahoo.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+				emailIn.innerText = 'Verify Email';
+				emailIn.addEventListener('click', sendEmail);
+				emailIn.setAttribute('data-bs-target', '#emailModal');
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
 				avatarHolder.style.display = 'block';
 				thePic.setAttribute("src", theUser.photoURL);
+				thePic2.setAttribute("src", theUser.photoURL);
 				thePic.style.display = 'inline-block';
 				thePic2.style.display = 'inline-block';
 				logoHolder.style.display = 'none';
 				thenoPic.style.display = 'none';
 				thenoPic2.style.display = 'none';
-				theUser.sendEmailVerification();
+				vpnImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 
-				phoneIn.removeAttribute('data-bs-toggle');
-				emailIn.innerText = 'Verify Email';
-				emailIn.addEventListener('click', sendEmail);
-				emailIn.setAttribute('data-bs-target', '#emailModal');
-
-				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-					goodies = JSON.parse(localStorage.getItem('banklogs'));
-					for (var i = 0; i < goodies.length; i++) {
-						document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.displayName;
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+					jinaHolder4.value = theUser.displayName;
+					nameHolder1.value = theUser.displayName;
+					nameHolder2.value = theUser.displayName;
+					nameHolder3.value = theUser.displayName;
+					email5.innerHTML = theUser.displayName;
+					if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+						goodies = JSON.parse(localStorage.getItem('banklogs'));
+						for (var i = 0; i < goodies.length; i++) {
+							document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.displayName;
+						}
 					}
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
 				}
 			});
 		}).catch(error => {
@@ -522,50 +566,46 @@ const signInWithPhone = sentCodeId => {
 
 	auth.currentUser.linkWithCredential(credential)
 		.then(() => {
-			auth.currentUser.updateProfile({
-				phoneNumber: auth.currentUser.providerData[0].phoneNumber
+			theUser.updateProfile({
+				phoneNumber: auth.currentUser.providerData[0].phoneNumber,
+				isAnonymous: false
 			}).then(() => {
 				$('#verifyModal').modal('hide');
+				phoneIn.removeAttribute('data-bs-toggle');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
 				jinaHolder4.value = theUser.phoneNumber;
+				phoneIn.innerText = theUser.phoneNumber;
+				nameHolder1.value = theUser.phoneNumber;
+				nameHolder2.value = theUser.phoneNumber;
+				nameHolder3.value = theUser.phoneNumber;
+				email5.innerHTML = theUser.phoneNumber;
 				jinaHolder.readOnly = true;
 				jinaHolder3.readOnly = true;
 				jinaHolder4.readOnly = true;
-				vpnImg.src = 'img/partners/phone.png';
 
-				avatarHolder.setAttribute("src", 'img/partners/phone.png');
-				avatarHolder.style.display = 'block';
-				avatarHolder.style.borderWidth = 0;
-				avatarHolder.style.borderRadius = 0;
-				thenoPic.style.display = 'inline-block';
-				thenoPic2.style.display = 'inline-block';
-
-				logoHolder.style.display = 'none';
-				thePic.style.display = 'none';
-
-				emailIn.removeAttribute('data-bs-toggle');
-				phoneIn.removeAttribute('data-bs-toggle');
-				phoneIn.innerText = theUser.phoneNumber;
-
-				nameHolder1.value = user.phoneNumber;
-				nameHolder2.value = user.phoneNumber;
-				nameHolder3.value = user.phoneNumber;
-		
-				let broNumber = user.phoneNumber;
-		
-				email5.innerHTML = `Logged in with phone number ${user.phoneNumber}, you'll have to check your text messages for a link after buying any bank log`;
-
-				theUser.updateProfile({
-					isAnonymous: false 
-				});
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 					goodies = JSON.parse(localStorage.getItem('banklogs'));
 					for (var i = 0; i < goodies.length; i++) {
-						document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = broNumber.substring(broNumber.length - 4, 0) + '.....';
+						document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theUser.phoneNumber.substring(broNumber.length - 4, 0) + '.....';
 					}
 				}
+
+				if(!theUser.email) {
+					avatarHolder.setAttribute("src", 'img/partners/phone.png');
+					avatarHolder.style.display = 'block';
+					avatarHolder.style.borderWidth = 0;
+					avatarHolder.style.borderRadius = 0;
+					thenoPic.style.display = 'inline-block';
+					thenoPic2.style.display = 'inline-block';
+					vpnImg.src = 'img/partners/phone.png';
+					vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+					logoHolder.style.display = 'none';
+					thePic.style.display = 'none';	
+					thePic2.style.display = 'none';
+				}
+
 			});
 		})
 		.catch(error => {
