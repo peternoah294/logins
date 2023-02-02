@@ -154,8 +154,7 @@ auth.onAuthStateChanged(user => {
 		tableName.innerHTML = 'Anonymous';
 		tableId.innerHTML = user.uid;
 
-		theSet.setAttribute('data-bs-target', '#loginModal');
-		theSet.innerText = 'Link Email';
+		theSet.removeAttribute('data-bs-toggle');
 
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
@@ -709,8 +708,6 @@ if(!localStorage.getItem('deposit-amount')) {
 	document.getElementsByClassName('clint')[0].style.bottom = '0';
 	document.getElementsByClassName('clint')[0].style.position = 'fixed';
 	theSet.removeAttribute('data-bs-toggle');
-	theSet.setAttribute('href', 'invoice');
-	theSet.innerHTML = `Invoice <img src="img/partners/doh.png">`
 } else {
     tableDollar.innerHTML = `$${localStorage.getItem('deposit-amount')}`;
 	anonCheck.innerHTML = `Confirm: $${localStorage.getItem('deposit-amount')} <img src="img/partners/bitcoin.png">`;

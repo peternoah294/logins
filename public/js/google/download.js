@@ -181,6 +181,8 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
+		document.getElementById('settings').removeAttribute('data-bs-toggle');
+
 		if(localStorage.getItem('received-funds')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
