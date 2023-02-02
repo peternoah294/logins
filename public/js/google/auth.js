@@ -404,10 +404,11 @@ const signInWithPhone = sentCodeId => {
 	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 	const theUser = auth.currentUser;
 
-	auth.currentUser.linkWithCredential(credential)
+	theUser.linkWithCredential(credential)
 		.then(() => {
-			auth.currentUser.updateProfile({
-				phoneNumber: auth.currentUser.providerData[0].phoneNumber
+			theUser.updateProfile({
+				phoneNumber: theUser.providerData[0].phoneNumber,
+				isAnonymous: false
 			}).then(() => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
@@ -429,9 +430,6 @@ const signInWithPhone = sentCodeId => {
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
 
-				theUser.updateProfile({
-					isAnonymous: false 
-				});
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 			});
 		})
