@@ -21,9 +21,13 @@ const thenoPic = document.getElementById('the-nopic');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
+const thanEmail = document.getElementById('thanEmail');
+const thanPhone = document.getElementById('thanPhone');
+
 const yourEmail = document.getElementById('yourEmail');
 const yourPhone = document.getElementById('yourPhone');
 
+const thanInvoice = document.getElementById('than-div');
 const emailInvoice = document.getElementById('email-div');
 const phoneInvoice = document.getElementById('phone-div');
 const anonInvoice = document.getElementById('anon-div');
@@ -38,6 +42,8 @@ const getCodeButton = document.getElementById('getCode');
 
 const emailImg = document.getElementById('email-img');
 const emailVerify = document.getElementById('email-verify');
+const thanImg = document.getElementById('than-img');
+const thanVerify = document.getElementById('than-verify');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
@@ -75,8 +81,34 @@ auth.onAuthStateChanged(user => {
 			logoHolder.style.display = 'block';
 			thenoPic.style.display = 'inline-block';
 		}
-	}
- 	if(user.email) {
+	} if(user.email && user.phoneNumber) {
+		if (user.displayName && user.email) {
+			if(user.email.includes('yahoo.com')){
+				emailImg.src = 'img/partners/yahoo.png';
+				vpnImg.src = 'img/partners/yahoo.png';
+			} else {
+				emailImg.src = 'img/partners/google.png';
+				vpnImg.src = 'img/partners/google.png';
+			}
+		} else if (!user.displayName && user.email) {
+			emailImg.src = 'img/partners/emails.png';
+			vpnImg.src = 'img/partners/emails.png';
+		} 
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
+
+		phoneIn.innerText = user.phoneNumber;
+		phoneIn.removeAttribute('data-bs-toggle');
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#exampleModal');
+
+		thanInvoice.style.display = 'flex';
+		thanEmail.innerText = user.email;
+		thanPhone.innerText = user.email;
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		thanVerify.addEventListener('click', sendEmail);		
+	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
 		if (user.displayName && user.email) {
@@ -98,22 +130,21 @@ auth.onAuthStateChanged(user => {
 			vpnImg.src = 'img/partners/emails.png';
 		} 
 
-		emailIn.removeAttribute('data-bs-toggle');
-		phoneIn.removeAttribute('data-bs-toggle');
 		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#exampleModal');
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		emailVerify.addEventListener('click', sendEmail);
-	} else if(user.phoneNumber) {
+		emailVerify.addEventListener('click', sendEmail);		
+	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		phoneInvoice.style.display = 'flex';
 		yourPhone.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
-		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 	} else if(user.isAnonymous) {
@@ -210,14 +241,8 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				jinaHolder.value = theUser.displayName;
-				jinaHolder3.value = theUser.displayName;
 				emailImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
-					
-				emailInvoice.style.display = 'flex';
-				yourEmail.innerText = theUser.email;
-				anonInvoice.style.display = 'none';
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
 				avatarHolder.style.display = 'block';
@@ -226,11 +251,29 @@ const signUpFunction = () => {
 				logoHolder.style.display = 'none';
 				thenoPic.style.display = 'none';
 				theUser.sendEmailVerification();
-				emailVerify.addEventListener('click', sendEmail);
 
-				emailIn.removeAttribute('data-bs-toggle');
-				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = 'Verify Email';
+				emailIn.setAttribute('data-bs-target', '#exampleModal');
+				emailIn.addEventListener('click', sendEmail);
+
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+					emailVerify.addEventListener('click', sendEmail);
+
+					emailInvoice.style.display = 'flex';
+					yourEmail.innerText = theUser.email;
+					anonInvoice.style.display = 'none';
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+					thanVerify.addEventListener('click', sendEmail);
+
+					thanInvoice.style.display = 'flex';
+					thanEmail.innerText = theUser.email;
+					thanPhone.innerText = theUser.phoneNumber;
+					anonInvoice.style.display = 'none';
+				}
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -265,15 +308,8 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-				jinaHolder.value = theUser.displayName;
-				jinaHolder3.value = theUser.displayName;
-
 				emailImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
-					
-				emailInvoice.style.display = 'flex';
-				yourEmail.innerText = theUser.email;
-				anonInvoice.style.display = 'none';
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
 				avatarHolder.style.display = 'block';
@@ -282,11 +318,29 @@ const signUpFunction = () => {
 				logoHolder.style.display = 'none';
 				thenoPic.style.display = 'none';
 				theUser.sendEmailVerification();
-				emailVerify.addEventListener('click', sendEmail);
 
-				emailIn.removeAttribute('data-bs-toggle');
-				phoneIn.removeAttribute('data-bs-toggle');
 				emailIn.innerText = 'Verify Email';
+				emailIn.setAttribute('data-bs-target', '#exampleModal');
+				emailIn.addEventListener('click', sendEmail);
+
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+					emailVerify.addEventListener('click', sendEmail);
+
+					emailInvoice.style.display = 'flex';
+					yourEmail.innerText = theUser.email;
+					anonInvoice.style.display = 'none';
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+					thanVerify.addEventListener('click', sendEmail);
+
+					thanInvoice.style.display = 'flex';
+					thanEmail.innerText = theUser.email;
+					thanPhone.innerText = theUser.phoneNumber;
+					anonInvoice.style.display = 'none';
+				}
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `

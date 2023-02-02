@@ -296,6 +296,50 @@
     <div class="container-fluid">
         <div class="row">
 
+            <div class="col-lg-5 col-md-7 col-12 center-col" id="than-div">
+                <div class="modal-content" id="modalsend">
+                    <div class="brock">
+    
+                        <div class="modal-body" id="invoice-body">
+                            <div id="invoice-body-div">
+                                <div id="than-invoice">
+                                    <div class="text-center section-heading">
+                                        <p>
+                                            Bank log files will be sent to your 
+                                            email <span id="thanEmail"></span>, 
+                                            & phone number as a link <span id="thanPhone"></span> 
+                                            that expires after 7 hours.
+                                        </p>
+                                        <hr class="nohr">
+                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/btc.png">
+                                                <a class="butn home-btn" id="than-check">
+                                                
+                                                </a>
+                                            </div>
+                                        </div>
+                
+                                        <hr class="nohr">
+                
+                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <div class="invoice">
+                                                <img id="than-img">
+                                                <a class="butn ver-btn" id="than-verify">
+                                                    Verify My Mail
+                                                </a>
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        
+
             <div class="col-lg-5 col-md-7 col-12 center-col" id="email-div">
                 <div class="modal-content" id="modalsend">
                     <div class="brock">
@@ -695,6 +739,7 @@
         var theLog1 = document.getElementById('cart-logo');
         var theLog2 = document.getElementById('the-nopic');
         var cxC = document.getElementById('email-verify');
+        var cxA = document.getElementById('than-verify');
         var cxB = document.getElementById('cx-b');
         if (window.innerWidth > 768) {
             theC.setAttribute('href', 'css/styles-8.css');
@@ -704,6 +749,8 @@
 
             cxC.classList.remove('ver-btn');
             cxC.classList.add('phone-btn');
+            cxA.classList.remove('ver-btn');
+            cxA.classList.add('phone-btn');
             cxB.classList.remove('ver-btn');
             cxB.classList.add('phone-btn');
         } 
