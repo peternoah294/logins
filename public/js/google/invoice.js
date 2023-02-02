@@ -70,7 +70,43 @@ auth.onAuthStateChanged(user => {
 			thenoPic.style.display = 'inline-block';
 		}
 	}
- 	if(user.email) {
+	if(user.email && user.phoneNumber) {
+		if (user.displayName && user.email) {
+			if(user.email.includes('yahoo.com')){
+				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
+			} else {
+				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
+			}
+		} else if (!user.displayName && user.email) {
+			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
+		} 
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+
+		emailIn.innerText = 'Verify Email';
+		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Phone: <span>${user.phoneNumber}</span>, <br>
+				Mail: <span>${user.email}</span>, <br>
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Phone: <span>${user.phoneNumber}</span>, <br>
+				Mail: <span>${user.email}</span>, <br>
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
+	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
@@ -95,7 +131,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		phoneIn.removeAttribute('data-bs-toggle');
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
@@ -110,12 +145,11 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
-	} else if(user.phoneNumber) {
+	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
