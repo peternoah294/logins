@@ -427,9 +427,9 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 
-			emailIn.removeAttribute('data-bs-toggle');
-			phoneIn.removeAttribute('data-bs-toggle');
 			emailIn.innerText = 'Verify Email';
+			emailIn.setAttribute('data-bs-target', '#exampleModal');
+			emailIn.addEventListener('click', sendEmail);
 
 			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
