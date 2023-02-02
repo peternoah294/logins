@@ -145,6 +145,7 @@
     width: 27px;
     border-radius: 4px;
 }
+#than-invoice,
 #email-invoice, 
 #phone-invoice, 
 #anon-invoice {
@@ -152,17 +153,20 @@
     padding: 0px !important;
     width: 100% !important;
 }
+#than-div,
 #anon-div, 
 #phone-div, 
 #email-div {
     display: none;
 }
+#than-div,
 #anon-div,
 #phone-div,
 #email-div {
     margin-top: 16vh;
 }
 @media screen and (max-width: 821px) {
+    #than-div
     #anon-div,
     #phone-div,
     #email-div {
@@ -170,6 +174,7 @@
     }
 }
 @media screen and (max-width: 500px) {
+    #than-div,
     #anon-div,
     #phone-div,
     #email-div {
@@ -177,6 +182,7 @@
     }
 }
 @media screen and (max-width: 400px) {
+    #than-div,
     #anon-div,
     #phone-div,
     #email-div {
@@ -184,6 +190,7 @@
     }
 }
 @media screen and (max-width: 381px) {
+    #than-div,
     #anon-div,
     #phone-div,
     #email-div {
@@ -191,6 +198,7 @@
     }
 }
 @media screen and (max-width: 374px) {
+    #than-div
     #anon-div,
     #phone-div,
     #email-div {

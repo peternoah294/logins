@@ -59,6 +59,7 @@ a:active {
 .depart-cart,
 .paid-cart,
 .empty-cart, 
+#than-invoice,
 #email-invoice, 
 #phone-invoice {
   border: 5px solid rgba(208, 173, 85, 0.5) !important;

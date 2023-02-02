@@ -57,7 +57,8 @@ a:active {
 #anon-invoice,
 .depart-cart,
 .paid-cart,
-.empty-cart, 
+.empty-cart,
+#than-invoice, 
 #email-invoice, 
 #phone-invoice {
   border: 5px solid rgba(22, 160, 134, 0.5) !important;
