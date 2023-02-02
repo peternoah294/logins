@@ -250,7 +250,10 @@ const signUpFunction = () => {
 					jinaHolder3.value = theUser.displayName;
 					jinaHolder.readOnly = true;
 					jinaHolder3.readOnly = true;
-				} 
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+				}
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -304,7 +307,10 @@ const signUpFunction = () => {
 					jinaHolder3.value = theUser.displayName;
 					jinaHolder.readOnly = true;
 					jinaHolder3.readOnly = true;
-				} 
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+				}
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
