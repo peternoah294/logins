@@ -94,7 +94,7 @@ auth.onAuthStateChanged(user => {
 			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
-		emailIn.innerText = theaddress + '@...';
+		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.removeAttribute('data-bs-toggle');

@@ -94,7 +94,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = true;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 
-		emailIn.innerText = theaddress + '@...';
+		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.removeAttribute('data-bs-toggle');

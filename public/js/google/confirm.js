@@ -100,7 +100,7 @@ auth.onAuthStateChanged(user => {
 
 		emailIn.removeAttribute('data-bs-toggle');
 		phoneIn.removeAttribute('data-bs-toggle');
-		emailIn.innerText = theaddress + '@...';
+		emailIn.innerText = 'Verify Email';
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
@@ -238,7 +238,7 @@ const signUpFunction = () => {
 
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
-				emailIn.innerText = theaddress + '@...';
+				emailIn.innerText = 'Verify Email';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -298,7 +298,7 @@ const signUpFunction = () => {
 				var theaddress = themail.substring(0, themail.indexOf('@'));
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
-				emailIn.innerText = theaddress + '@...';
+				emailIn.innerText = 'Verify Email';
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -392,7 +392,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 
 			emailIn.removeAttribute('data-bs-toggle');
 			phoneIn.removeAttribute('data-bs-toggle');
-			emailIn.innerText = theaddress + '@...';
+			emailIn.innerText = 'Verify Email';
 
 			if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)){
 				emailImg.src = 'img/partners/emails.png';
