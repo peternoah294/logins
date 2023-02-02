@@ -1,5 +1,4 @@
 var j = true;
-function move(){
 auth.onAuthStateChanged(user => {
     if(localStorage.getItem('deposit-amount')) {
         if(!user.isAnonymous || user.email || user.phoneNumber) {
@@ -352,4 +351,3 @@ auth.onAuthStateChanged(user => {
         console.log('There was nothing on your cart')
     }     
 }); 
-}
