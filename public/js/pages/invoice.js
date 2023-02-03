@@ -27,7 +27,7 @@ var getMessage = function() {
                     <hr>
                     ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} 
                     <hr class="to-hr">
-                    Deposit an extra $100 that will be used to purchase bank logs later on.
+                    Deposit an extra $70 that will be used to purchase bank logs later on.
                 `];
                 i++;
                 if (i === msgs.length) {
@@ -42,7 +42,7 @@ var getMessage = function() {
                     <hr>
                     ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs 
                     <hr class="to-hr">
-                    Deposit an extra $100 that will be used to purchase bank logs later on.
+                    Deposit an extra $70 that will be used to purchase bank logs later on.
                 `];
                 i++;
                 if (i === msgs.length) {
