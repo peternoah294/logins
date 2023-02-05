@@ -2844,8 +2844,9 @@ ul.countdown li p {
     opacity: 1;
 }
 #modal-car {
-    background: transparent !important;
+    background: rgba(18, 29, 51, 0.1) !important;
     border: none !important;
+    box-shadow: 20px 20px 21px 30px rgba(18, 29, 51, 0.3) !important;
 }
 .bit-p,
 .depo-p {
