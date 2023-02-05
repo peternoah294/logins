@@ -34,7 +34,6 @@ const anonInvoice = document.getElementById('anon-div');
 
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
-var theClint = document.getElementsByClassName('clint')[0];
 
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
@@ -48,7 +47,6 @@ const thanVerify = document.getElementById('than-verify');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
-const cxA = document.getElementById('cx-a');
 
 const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
@@ -171,29 +169,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
-		cxA.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				Email / Phone invoice is a better option
-				<hr>
-				Create a burner email / phone and use it to get an invoice
-				<hr class="to-hr">
-				It's optional if you prefer to remain anonymous.
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	}
 
 	if(user.uid){
@@ -289,9 +264,6 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
-
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -357,9 +329,6 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -478,9 +447,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			theUser.sendEmailVerification();
 			emailVerify.addEventListener('click', sendEmail);
 
-			theClint.style.position = 'fixed';
-			theClint.style.bottom = '0';
-
 			window.location.href = 'https://www.darkweb.cx/confirm';
 		})
 		.catch((error) => {
@@ -580,9 +546,6 @@ const signInWithPhone = sentCodeId => {
 					phoneInvoice.style.display = 'flex';
 					yourPhone.innerText = theUser.phoneNumber;
 					anonInvoice.style.display = 'none';
-
-					theClint.style.position = 'fixed';
-					theClint.style.bottom = '0';
 
 					logoHolder.style.display = 'none';
 					thePic.style.display = 'none';
