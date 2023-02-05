@@ -2028,49 +2028,49 @@ td {
     border-radius: 50% !important;
 }
 .nav-bank {
-    background: url(../../img/partners/boaw.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/bankofamerica.jpg) no-repeat center center/cover;
 }
 .nav-chase {
-    background: url(../../img/partners/chases.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/chase.jpg) no-repeat center center/cover;
 }
 .nav-chime {
-    background: url(../../img/partners/chimelogo.png) no-repeat center center/cover;
+    background: url(../../img/carousel/chime.png) no-repeat center center/cover;
 }
 .nav-citi {
-    background: url(../../img/citi.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/citi.jpg) no-repeat center center/cover;
 }
 .nav-hunt {
-    background: url(../../img/partners/hunts.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/huntington.jfif) no-repeat center center/cover;
 }
 .nav-fed {
-    background: url(../../img/navy-federal-icon.png) no-repeat center center/cover;
+    background: url(../../img/carousel/navyfederal.png) no-repeat center center/cover;
 }
 .nav-pnc {
-    background: url(../../img/partners/pnclogo.png) no-repeat center center/cover;
+    background: url(../../img/carousel/pnc.png) no-repeat center center/cover;
 }
 .nav-truist {
-    background: url(../../img/truists.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/truist.jpg) no-repeat center center/cover;
 }
 .nav-wells {
-    background: url(../../img/partners/wells2.png) no-repeat center center/cover;
+    background: url(../../img/carousel/wellsfargo.png) no-repeat center center/cover;
 }
 .nav-wood {
-    background: url(../../img/wood.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/woodforest.jpg) no-repeat center center/cover;
 }
 .nav-bar {
-    background: url(../../img/partners/barclays.png) no-repeat center center/cover;   
+    background: url(../../img/carousel/barclays.png) no-repeat center center/cover;   
 }
 .nav-mt {
-    background: url(../../img/partners/mt.png) no-repeat center center/cover;
+    background: url(../../img/carousel/mt.png) no-repeat center center/cover;
 }
 .nav-td {
-    background: url(../../img/partners/td.png) no-repeat center center/cover;
+    background: url(../../img/carousel/td.png) no-repeat center center/cover;
 }
 .nav-rbc {
-    background: url(../../img/rbc.png) no-repeat center center/cover;
+    background: url(../../img/carousel/rbc.png) no-repeat center center/cover;
 }
 .nav-scotia {
-    background: url(../../img/scotia.jpg) no-repeat center center/cover;
+    background: url(../../img/carousel/scotia.jpg) no-repeat center center/cover;
 }
 
 .t-head {
@@ -2836,7 +2836,7 @@ ul.countdown li p {
     opacity: 1;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
-    border-radius: 1px;
+    border-radius: 50% !important;
 }
 .clients img:hover {
     opacity: 1;
