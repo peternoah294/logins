@@ -716,7 +716,6 @@ if(!localStorage.getItem('deposit-amount')) {
 	document.getElementById('predat').style.display = 'flex';
 	document.getElementsByClassName('clint')[0].style.bottom = '0';
 	document.getElementsByClassName('clint')[0].style.position = 'fixed';
-	theSet.removeAttribute('data-bs-toggle');
 } else {
     tableDollar.innerHTML = `$${localStorage.getItem('deposit-amount')}`;
 	anonCheck.innerHTML = `Confirm: $${localStorage.getItem('deposit-amount')} <img src="img/partners/bitcoin.png">`;
