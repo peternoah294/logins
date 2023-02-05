@@ -289,6 +289,9 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
+
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -354,6 +357,9 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
+
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -472,6 +478,9 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			theUser.sendEmailVerification();
 			emailVerify.addEventListener('click', sendEmail);
 
+			theClint.style.position = 'fixed';
+			theClint.style.bottom = '0';
+
 			window.location.href = 'https://www.darkweb.cx/confirm';
 		})
 		.catch((error) => {
@@ -571,6 +580,9 @@ const signInWithPhone = sentCodeId => {
 					phoneInvoice.style.display = 'flex';
 					yourPhone.innerText = theUser.phoneNumber;
 					anonInvoice.style.display = 'none';
+
+					theClint.style.position = 'fixed';
+					theClint.style.bottom = '0';
 
 					logoHolder.style.display = 'none';
 					thePic.style.display = 'none';
