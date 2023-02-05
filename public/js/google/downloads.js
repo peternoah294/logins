@@ -181,6 +181,8 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
+		document.getElementById('settings').removeAttribute('data-bs-toggle');
+
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
 				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>

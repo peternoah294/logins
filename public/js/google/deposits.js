@@ -153,6 +153,8 @@ auth.onAuthStateChanged(user => {
 		tableName.innerHTML = 'Anonymous';
 		tableId.innerHTML = user.uid;
 
+		document.getElementById('settings').removeAttribute('data-bs-toggle');
+
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 

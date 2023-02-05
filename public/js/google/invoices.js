@@ -179,6 +179,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
+		
+		document.getElementById('settings').removeAttribute('data-bs-toggle');
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
