@@ -38,6 +38,7 @@ const verImg = document.getElementById('ver-img');
 
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
+const theSet = document.getElementById('settings');
 
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
@@ -153,22 +154,12 @@ auth.onAuthStateChanged(user => {
 		tableName.innerHTML = 'Anonymous';
 		tableId.innerHTML = user.uid;
 
+		theSet.removeAttribute('data-bs-toggle');
+
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
-		}
-
-		if(localStorage.getItem('deposit-amount') && localStorage.getItem('vx-time')) {
+		if(localStorage.getItem('deposit-amount')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementsByClassName('clint')[0].style.bottom = '0';
@@ -716,6 +707,7 @@ if(!localStorage.getItem('deposit-amount')) {
 	document.getElementById('predat').style.display = 'flex';
 	document.getElementsByClassName('clint')[0].style.bottom = '0';
 	document.getElementsByClassName('clint')[0].style.position = 'fixed';
+	theSet.removeAttribute('data-bs-toggle');
 } else {
     tableDollar.innerHTML = `$${localStorage.getItem('deposit-amount')}`;
 	anonCheck.innerHTML = `Confirm: $${localStorage.getItem('deposit-amount')} <img src="img/partners/bitcoin.png">`;
