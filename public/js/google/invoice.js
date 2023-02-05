@@ -35,7 +35,6 @@ const verImg = document.getElementById('ver-img');
 
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
-const theSet = document.getElementById('settings');
 
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
@@ -181,9 +180,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
 
-		theSet.setAttribute('data-bs-target', '#loginModal');
-		theSet.innerText = 'Link Email';
-
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
 				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
@@ -196,7 +192,7 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('vx-time')) {
 			if(!localStorage.getItem('deposit-amount')) {
 				document.getElementById('apart').style.display = 'flex';
 				document.getElementById('logsection').style.display = 'none';
