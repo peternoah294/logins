@@ -137,6 +137,8 @@ function removeCartItem(event) {
             singleLog[i].disabled = false;
         } 
     }
+
+    window.location.reload();
 }
 
 function addItemToCart(price, balance, account,website, image,info1,info2,info3,info4,info5,info6){
