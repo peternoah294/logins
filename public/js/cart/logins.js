@@ -111,27 +111,18 @@ function removeCartItem(event) {
     var info4 = cartItem.children[8].innerText;
     var info5 = cartItem.children[9].innerText;
     var info6 = cartItem.children[10].innerText;
-    var remove = `<td><button class="btn-cloze btn-remove"></button></td>`
 
     removeItemFromCart(price, balance, account,website,image,info1,info2,info3,info4,info5,info6);
     buttonClicked.parentElement.parentElement.remove();
     
     updateCartTotal2();
-
-    table1.row(({
-        image,
-        balance,      
-        account,   
-        remove,
-        price,
-        info1,   
-        info2,   
-        info3,   
-        info4,   
-        info5,   
-        info6,   
-        website,      
-    })).remove();
+ 
+    $('#example1 tbody').on( 'click', 'button.btn-cloze', function () {
+        table1
+            .row( $(this).parents('tr') )
+            .remove()
+            .draw();
+    });
 
     var logsContainer =  document.getElementsByClassName('gallery')[0];
     var singleLog = logsContainer.getElementsByClassName('butn');
@@ -146,8 +137,6 @@ function removeCartItem(event) {
             singleLog[i].disabled = false;
         } 
     }
-
-    window.location.reload();
 }
 
 function addItemToCart(price, balance, account,website, image,info1,info2,info3,info4,info5,info6){
