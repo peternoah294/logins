@@ -3,7 +3,7 @@ var j = true;
 
 auth.onAuthStateChanged(user => {
     if(localStorage.getItem('deposit-amount')) {
-        if((user.isAnonymous && !localStorage.getItem('cx-time')) || user.email || user.phoneNumber) {
+        if((user.isAnonymous && !localStorage.getItem('vx-time')) || user.email || user.phoneNumber) {
             var elemj = document.getElementById('pablos');        
             var width = localStorage.getItem('depo-left');
             var depoAm = localStorage.getItem('deposit-amount');
@@ -12,7 +12,7 @@ auth.onAuthStateChanged(user => {
                 if(width <= 0){
                     clearInterval(id);
                     i = false;
-                    localStorage.setItem('cx-time', true);
+                    localStorage.setItem('vx-time', true);
                     localStorage.setItem('time-left', 600);
                     localStorage.removeItem('deposit-amount');
                     document.getElementById('logsection').style.display = 'none'
