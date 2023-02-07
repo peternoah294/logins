@@ -17,7 +17,7 @@ auth.onAuthStateChanged(user => {
         
     if(localStorage.getItem('banklogs') && !localStorage.getItem('deposit-amount') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-            if(!user.isAnonymous || user.email || user.phoneNumber) {
+            if(!user.isAnonymous || (user.email && user.phoneNumber) || user.phoneNumber) {
                 var elemj = document.getElementById('pablos');        
                 var width = localStorage.getItem('time-left');
                 var id = setInterval(frame, 1000);
@@ -53,13 +53,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `15 Seconds Left! ${user.email}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
-                            } else {
-                                var msg = `15 Seconds Left! ${user.email}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `; 
                             } else {
@@ -90,15 +84,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `1 Minute Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `1 Minute Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `1 Minute Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -132,15 +118,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `2 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `2 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `2 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -173,15 +151,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `3 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `3 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `3 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -225,15 +195,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `4 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `4 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `4 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -267,15 +229,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `5 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `5 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `5 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -309,15 +263,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `6 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `6 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `6 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -358,15 +304,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `7 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `7 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `7 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -398,15 +336,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `8 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `8 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `8 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -438,15 +368,7 @@ auth.onAuthStateChanged(user => {
                         document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                         var shortCutFunction = 'success';
-                        if(user.email) { 
-                            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                                var msg = `9 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                            } else {
-                                var msg = `9 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                                <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                            }
-                        } else if(user.phoneNumber) { 
+                        if(user.phoneNumber) { 
                             if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                                 var msg = `9 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                                 <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 

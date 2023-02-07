@@ -3,8 +3,8 @@ var j = true;
 
 auth.onAuthStateChanged(user => {
     if(localStorage.getItem('deposit-amount')) {
-        if(!user.isAnonymous || user.email || user.phoneNumber) {
-            var elemj = document.getElementById('pablos');        
+        if(!user.isAnonymous || (user.email && user.phoneNumber) || user.phoneNumber) {
+            var elemj = document.getElementById('pablos');             
             var width = localStorage.getItem('depo-left');
             var depoAm = localStorage.getItem('deposit-amount');
             var id = setInterval(frame, 1000);
@@ -39,9 +39,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `15 Seconds Left! ${user.email}, <hr class="to-hr"> Let the timer run out then choose another deposit amount, and pay for it on time`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out then choose another deposit amount, and pay for it on time`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -69,9 +67,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `1 Minute Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `1 Minute Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -100,9 +96,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `2 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `2 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -130,9 +124,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `3 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `3 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -172,9 +164,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `4 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `4 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -202,9 +192,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `5 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `5 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -232,9 +220,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `6 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `6 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -271,9 +257,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `7 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `7 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -299,9 +283,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `8 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `8 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
@@ -327,9 +309,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
     
                     var shortCutFunction = 'success';
-                    if(user.email) { 
-                        var msg = `9 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.phoneNumber) { 
+                    if(user.phoneNumber) { 
                         var msg = `9 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};

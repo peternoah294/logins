@@ -29,6 +29,7 @@ const emailP = document.getElementById('email-p');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
+const theSet = document.getElementById('settings');
 
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
@@ -172,24 +173,14 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = 'Anonymous';
 			jinaHolder3.value = 'Anonymous';
 		} 
-
+		theSet.removeAttribute('data-bs-toggle');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
+	}
 
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
-		}
-
+	if(!user.phoneNumber) {
 		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			if(!localStorage.getItem('deposit-amount')) {
 				document.getElementById('apart').style.display = 'flex';
@@ -199,7 +190,6 @@ auth.onAuthStateChanged(user => {
 				document.getElementsByClassName('clint')[0].style.position = 'fixed';
 			}
 		}
-	
 	}
 
 	if(user.uid){

@@ -31,6 +31,7 @@ const signUp = document.getElementById('signUp');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
+const theSet = document.getElementById('settings');
 
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
@@ -179,20 +180,11 @@ auth.onAuthStateChanged(user => {
 			The bank log files will be in text format. 
 		`;
 		vpnImg.src = 'img/partners/anonymous.png';
+		theSet.removeAttribute('data-bs-toggle');
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+	}  
 
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
-		}
-
+	if(!user.phoneNumber) {
 		if(localStorage.getItem('received-funds')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
@@ -201,7 +193,7 @@ auth.onAuthStateChanged(user => {
 
 			vpnImg.src = 'img/partners/phone.png';
 		}
-	}  
+	}
 
 	if(user.uid){
 		theId.innerHTML = user.uid;
