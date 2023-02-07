@@ -496,22 +496,6 @@ fetch('https://ipapi.co/json/')
 	document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
 });
 
-const logOut = document.getElementById('logout');
-logOut.addEventListener('click', () => {
-    if(auth.currentUser.isAnonymous) {
-		auth.currentUser.delete()
-			.then(() => {
-				window.location.assign('index');
-			})
-			.catch(error => {
-				console.error(error);
-			})
-	} else {
-		localStorage.setItem('cx-out', true);
-		window.location.assign('lockscreen');
-	}
-})
-
 
 $('#myform').on('submit', function(ev) {
 	$('#verifyModal').modal('show');
