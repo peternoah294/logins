@@ -20,10 +20,6 @@
         "destination": "/cashout.html"
       },
       {
-        "source": "/banklogs",
-        "destination": "/banklogs.html"
-      },
-      {
         "source": "/lockscreen",
         "destination": "/lockscreen.html"
       },
@@ -163,11 +159,6 @@
       {
         "source": "/cashout.html",
         "destination": "/cashout",
-        "type": 301
-      },
-      {
-        "source": "/banklogs.html",
-        "destination": "/banklogs",
         "type": 301
       },
       {

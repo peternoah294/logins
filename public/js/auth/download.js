@@ -409,6 +409,22 @@ jinaHolder.addEventListener("change", () => {
 	})
 });
 
+const logOut = document.getElementById('logout');
+logOut.addEventListener('click', () => {
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('lockscreen');
+	}
+})
+
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
 recaptchaVerifier.render().then(widgetId => {
 	window.recaptchaWidgetId = widgetId;
