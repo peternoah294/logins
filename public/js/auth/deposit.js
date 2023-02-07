@@ -156,9 +156,19 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
-		document.getElementById('settings').removeAttribute('data-bs-toggle');
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
 
-		if(localStorage.getItem('deposit-amount')) {
+		if(localStorage.getItem('deposit-amount') && localStorage.getItem('cx-timer')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementsByClassName('clint')[0].style.bottom = '0';
