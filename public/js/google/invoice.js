@@ -23,11 +23,9 @@ const thenoPic = document.getElementById('the-nopic');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
-const paidText = document.getElementById('paid-text');
+const vpnImg = document.getElementById('vpn-img');
+const vpn = document.getElementById('vpn');
 const emailP = document.getElementById('email-p');
-
-const mailField = document.getElementById('inputEmail');
-const signUp = document.getElementById('signUp');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
@@ -35,20 +33,25 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
-
-const vpnImg = document.getElementById('vpn-img');
-const vpn = document.getElementById('vpn');
+const mailField = document.getElementById('inputEmail');
+const signUp = document.getElementById('signUp');
 
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
+
+if(!window.location.href.includes('arkweb')){
+	if(!window.location.href.includes('5502')) {
+		window.location.assign('index')
+	}
+}
 if(localStorage.getItem('cx-out')) {
 	window.location.assign('lockscreen');
 }
 auth.onAuthStateChanged(user => {
 	if (!user) {
-		window.location.assign("index");
+		window.location.assign('index');
 	}
 	if (user.photoURL) {
 		avatarHolder.setAttribute("src", user.photoURL);
@@ -71,137 +74,125 @@ auth.onAuthStateChanged(user => {
 		if (user.displayName && user.email) {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+				verImg.src = 'img/partners/yahoo.png';
 			} else {
 				vpnImg.src = 'img/partners/google.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+				verImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			vpnImg.src = 'img/partners/emails.png';
-			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+			verImg.src = 'img/partners/emails.png';
 		} 
-
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $70 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress might be lost
-			<br>
-			After this payment check your email inbox @ <span>${user.email}</span>. 
-			<br>
-			The bank log files will be in text format. 
-		`;
-		emailP.innerHTML = `
-			An email invoice will be sent to:  <br>
-			<span>${user.email}</span>
-		`;		
+
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Phone: <span>${user.phoneNumber}</span>, <br>
+				Mail: <span>${user.email}</span>, <br>
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Phone: <span>${user.phoneNumber}</span>, <br>
+				Mail: <span>${user.email}</span>, <br>
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+				verImg.src = 'img/partners/yahoo.png';
 			} else {
 				vpnImg.src = 'img/partners/google.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+				verImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			var themail = user.email;
 			var theaddress = themail.substring(0, themail.indexOf('@'));
+	
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
-			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+			verImg.src = 'img/partners/emails.png';
 		} 
-
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $70 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress might be lost
-			<br>
-			After this payment check your email inbox @ <span>${user.email}</span>. 
-			<br>
-			The bank log files will be in text format. 
-		`;
-		emailP.innerHTML = `
-			An email invoice will be sent to:  <br>
-			<span>${user.email}</span>
-		`;
+
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-	} else if(!user.email && user.phoneNumber) {
-		jinaHolder.value = user.phoneNumber;
-		jinaHolder3.value = user.phoneNumber
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		phoneIn.removeAttribute('data-bs-toggle');
-		phoneIn.innerText = user.phoneNumber;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $70 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress might be lost
-			<br>
-			After this payment check your text messages inbox @ <span>${user.phoneNumber}</span>. 
-			<br>
-			The bank log files will be sent as a link to your phone number. 
-		`;
-		emailP.innerHTML = `
-			A dynamic link will be sent to:  <br>
-			<span>${user.phoneNumber}</span>
-		`;
-		vpnImg.src = 'img/partners/phone.png';
-		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
-	} else if(user.isAnonymous) {
-		if (user.isAnonymous && user.displayName) {
-			jinaHolder.value = user.displayName;
-			jinaHolder3.value = user.displayName;
-		} else 	if (user.isAnonymous && !user.displayName) {
-			jinaHolder.value = 'Anonymous';
-			jinaHolder3.value = 'Anonymous';
-		} 
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		jinaHolder.readOnly = false;
-		jinaHolder3.readOnly = false;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $70 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress will be lost
-			<br>
-			After this payment a text file will be available for download.
-			The bank log files will be in text format. 
-		`;
-		vpnImg.src = 'img/partners/anonymous.png';
-		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
+				Mail: <span>${user.email}</span>, <br>
 				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
 				Web Browser: <span>${platform.name}</span>. 
 			`;
 		} else {
 			emailP.innerHTML = `
+				Mail: <span>${user.email}</span>, <br>
 				Your Device: <span>${platform.os}</span>, <br> 
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+	} else if(!user.email && user.phoneNumber) {
+		jinaHolder.value = user.phoneNumber;
+		jinaHolder3.value = user.phoneNumber;
 
-		if(localStorage.getItem('received-funds') && localStorage.getItem('vx-time')) {
-			document.getElementById('apart').style.display = 'flex';
-			document.getElementById('logsection').style.display = 'none';
-			document.getElementsByClassName('clint')[0].style.bottom = '0';
-			document.getElementsByClassName('clint')[0].style.position = 'fixed';
-
-			vpnImg.src = 'img/partners/phone.png';
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		phoneIn.removeAttribute('data-bs-toggle');
+		phoneIn.innerText = user.phoneNumber;
+		vpnImg.src = 'img/partners/phone.png';
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Phone: <span>${user.phoneNumber}</span>, <br>
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Phone: <span>${user.phoneNumber}</span>, <br>
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
 		}
-	}  
+	} else if(user.isAnonymous) {
+		if(user.isAnonymous && user.displayName) {
+			jinaHolder.value = user.displayName;
+			jinaHolder3.value = user.displayName;
+		} else if(user.isAnonymous && !user.displayName) {
+			jinaHolder.value = 'Anonymous';
+			jinaHolder3.value = 'Anonymous';
+		} 
+
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
+		vpnImg.src = 'img/partners/anonymous.png';
+
+		document.getElementById('settings').removeAttribute('data-bs-toggle');
+
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('vx-time')) {
+			if(!localStorage.getItem('deposit-amount')) {
+				document.getElementById('apart').style.display = 'flex';
+				document.getElementById('logsection').style.display = 'none';
+				document.getElementById('logsection2').style.display = 'none';
+				document.getElementsByClassName('clint')[0].style.bottom = '0';
+				document.getElementsByClassName('clint')[0].style.position = 'fixed';
+			}
+		}
+	
+	}
 
 	if(user.uid){
 		theId.innerHTML = user.uid;
@@ -388,27 +379,6 @@ const signUpFunction = () => {
 signUp.addEventListener('click', signUpFunction);
 document.getElementById('the-form').addEventListener('submit', signUpFunction);
 
-if(!localStorage.getItem('received-funds')) {
-	document.getElementById('logsection').style.display = 'none'
-	document.getElementById('predat').style.display = 'flex';
-} else {
-	document.getElementById('you-sent').innerText = (parseInt(localStorage.getItem('received-funds'))).toLocaleString();
-}
-
-
-
-jinaHolder.addEventListener("change", () => {
-	auth.currentUser.updateProfile({
-		displayName: jinaHolder.value
-	})
-	.then(() => {
-		alert('Display Name Updated Successfully !');
-	})
-	.catch(error => {
-		jinaHolder.focus()
-	})
-});
-
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
 recaptchaVerifier.render().then(widgetId => {
 	window.recaptchaWidgetId = widgetId;
@@ -460,14 +430,12 @@ const signInWithPhone = sentCodeId => {
 	const code = codeField.value;
 	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
 
-	const user = auth.currentUser;
-
 	auth.currentUser.linkWithCredential(credential)
 		.then(() => {
 			auth.currentUser.updateProfile({
 				phoneNumber: auth.currentUser.providerData[0].phoneNumber
 			}).then(() => {
-				window.location.assign('invoice');
+				window.location.assign('confirm');
 			});
 		})
 		.catch(error => {
@@ -488,7 +456,6 @@ const signInWithPhone = sentCodeId => {
 }
 getCodeButton.addEventListener('click', sendVerificationCode);
 
-
 fetch('https://ipapi.co/json/')
 .then(function(response) {
 	return response.json();
@@ -500,10 +467,43 @@ fetch('https://ipapi.co/json/')
 
 	document.getElementById('the-flag2').src = `https://flagcdn.com/144x108/${newCode}.png`;
 	document.getElementById('phoneNumber').value = data.country_calling_code;
+
 	document.getElementById('label-ip').innerHTML = `
 		IP address: <span>${data.ip}</span> ${data.country_calling_code} <img src="https://flagcdn.com/144x108/${newCode}.png" id="the-flag" />
 	`;
 	document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
+});
+
+$('#myform').on('submit', function(ev) {
+	$('#verifyModal').modal('show');
+	$('#phoneModal').modal('hide');
+	ev.preventDefault();
+});
+
+jinaHolder.addEventListener("change", () => {
+	auth.currentUser.updateProfile({
+		displayName: jinaHolder.value
+	})
+	.then(() => {
+		alert('Display Name Updated Successfully !');
+		jinaHolder3.value = jinaHolder.value;
+	})
+	.catch(error => {
+		jinaHolder.focus()
+	})
+});
+
+jinaHolder3.addEventListener("change", () => {
+	auth.currentUser.updateProfile({
+		displayName: jinaHolder3.value
+	})
+	.then(() => {
+		alert('Display Name Updated Successfully !');
+		jinaHolder.value = jinaHolder3.value;
+	})
+	.catch(error => {
+		jinaHolder3.focus();
+	})
 });
 
 const logOut = document.getElementById('logout');
@@ -522,16 +522,16 @@ logOut.addEventListener('click', () => {
 	}
 })
 
-
-$('#myform').on('submit', function(ev) {
-	$('#verifyModal').modal('show');
-	$('#phoneModal').modal('hide');
-	ev.preventDefault();
-});
-
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false
 };
+if(!window.location.href.includes('5502')) {
+	document.addEventListener("keydown", function (event) {
+		if (event.ctrlKey) {
+			event.preventDefault();
+		}   
+	});
+}
 
 
 var canvas = document.getElementById("canvas");
@@ -615,6 +615,25 @@ function drawHand(ctx, pos, length, width) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var canvas2 = document.getElementById("canvas2");
 var ctx2 = canvas2.getContext("2d");
 var radius2 = canvas2.height / 2;
@@ -695,10 +714,6 @@ function drawHand2(ctx, pos, length, width) {
 	ctx2.rotate(-pos);
 }
 
-
-
-
-
 if(!window.location.href.includes('5502')) {
 	function disableCtrlKeyCombination(e){
 		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
@@ -733,7 +748,56 @@ if(!window.location.href.includes('5502')) {
 	}
 }
 
-if(!localStorage.getItem('received-funds')) {
-	document.getElementsByClassName('clint')[0].style.bottom = '0';
-	document.getElementsByClassName('clint')[0].style.position = 'fixed';
+var inputAmount = document.getElementById('inputAmount');
+var depositBtn = document.getElementById('depositBtn');
+
+const depositBtc = (even) => {
+	even.preventDefault();
+	if(inputAmount.value >= 10 && inputAmount.value <= 500) {
+		localStorage.setItem('deposit-amount', inputAmount.value);
+		localStorage.setItem('depo-left',600);
+		
+
+		$('#depositModal').modal('hide');
+		document.getElementById('depart').style.display = 'flex';
+		document.getElementById('logsection').style.display = 'none';
+		document.getElementById('logsection2').style.display = 'none';
+		document.getElementById('predat').style.display = 'none';
+
+		document.getElementById('your-bal').innerHTML = `Pending Deposit: <span>$${localStorage.getItem('deposit-amount')}</span>`;
+
+		document.getElementsByClassName('depo-p')[0].innerHTML = `
+			There's a deposit amount of 
+			<span>$${localStorage.getItem('deposit-amount')}</span>
+			that is pending. 
+			Visit the deposit page and complete the progress.
+		`;
+
+		document.getElementsByClassName('clint')[0].style.bottom = '0';
+		document.getElementsByClassName('clint')[0].style.position = 'fixed';
+		localStorage.setItem('time-left', 60000);
+	} else {
+		var shortCutFunction = 'success';
+		var msg = `Enter a deposit amount between: <hr class="to-hr"> $10 and $500`;
+		toastr.options = {
+			closeButton: true,
+			debug: false,
+			newestOnTop: true,
+			progressBar: true,
+			positionClass: 'toast-top-full-width',
+			preventDuplicates: true,
+			onclick: null
+		};
+		var $toast = toastr[shortCutFunction](msg);
+		$toastlast = $toast;
+	}
+}
+
+depositBtn.addEventListener('click', depositBtc);
+document.getElementById('the-form').addEventListener('submit', depositBtc);
+
+if(localStorage.getItem('acc-balance')) {
+	vpn.innerHTML = `Balance: $${localStorage.getItem('acc-balance')} <img src="img/partners/bitcoin.png">`;
+} else {
+	vpn.innerHTML = `Balance: $0 <img src="img/partners/bitcoin.png">`;
 }
