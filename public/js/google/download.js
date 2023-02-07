@@ -183,7 +183,7 @@ auth.onAuthStateChanged(user => {
 
 		document.getElementById('settings').removeAttribute('data-bs-toggle');
 
-		if(localStorage.getItem('received-funds') && localStorage.getItem('vx-time')) {
+		if(localStorage.getItem('received-funds')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementsByClassName('clint')[0].style.bottom = '0';

@@ -3,7 +3,7 @@ var j = true;
 
 auth.onAuthStateChanged(user => {
     if(localStorage.getItem('deposit-amount')) {
-        if((user.isAnonymous && !localStorage.getItem('cx-time')) || user.email || user.phoneNumber) {
+        if(!user.isAnonymous || user.email || user.phoneNumber) {
             var elemj = document.getElementById('pablos');        
             var width = localStorage.getItem('depo-left');
             var depoAm = localStorage.getItem('deposit-amount');
@@ -12,7 +12,6 @@ auth.onAuthStateChanged(user => {
                 if(width <= 0){
                     clearInterval(id);
                     i = false;
-                    localStorage.setItem('cx-time', true);
                     localStorage.setItem('time-left', 600);
                     localStorage.removeItem('deposit-amount');
                     document.getElementById('logsection').style.display = 'none'
@@ -44,9 +43,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `15 Seconds Left! ${user.email}, <hr class="to-hr"> Let the timer run out then choose another deposit amount, and pay for it on time`; 
                     } else if(user.phoneNumber) { 
                         var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out then choose another deposit amount, and pay for it on time`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `15 Seconds Left! Anonymous User, <hr> Let the timer run out. <hr class="to-hr"> You'll be required to get an email / phone invoice next time `;
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -76,9 +73,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `1 Minute Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `1 Minute Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `1 Minute Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -109,9 +104,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `2 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `2 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `2 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -141,9 +134,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `3 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `3 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `3 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -185,9 +176,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `4 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `4 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `4 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -217,9 +206,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `5 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `5 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `5 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -249,9 +236,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `6 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `6 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `6 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -290,9 +275,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `7 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `7 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `7 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -320,9 +303,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `8 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `8 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `8 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -350,9 +331,7 @@ auth.onAuthStateChanged(user => {
                         var msg = `9 Minutes Left! ${user.email}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
                     } else if(user.phoneNumber) { 
                         var msg = `9 Minutes Left! ${user.phoneNumber}, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    } else if(user.isAnonymous) {
-                        var msg = `9 Minutes Left! Anonymous User, <hr class="to-hr"> Complete the $${depoAm} bitcoin deposit before time runs out.`; 
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;

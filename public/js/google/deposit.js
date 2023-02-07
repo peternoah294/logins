@@ -158,7 +158,7 @@ auth.onAuthStateChanged(user => {
 
 		document.getElementById('settings').removeAttribute('data-bs-toggle');
 
-		if(localStorage.getItem('deposit-amount') && localStorage.getItem('vx-time')) {
+		if(localStorage.getItem('deposit-amount')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementsByClassName('clint')[0].style.bottom = '0';
