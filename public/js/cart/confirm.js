@@ -130,7 +130,6 @@ function updateCartTotal() {
         <img src="img/partners/bitcoin.png"> 
     `;
     document.getElementById('thetot').innerHTML = `View Cart: $${total.toLocaleString()}`;
-    document.getElementById('email-check').innerHTML = `Checkout: $${total.toLocaleString()}`;
     document.getElementById('than-check').innerHTML = `Checkout: $${total.toLocaleString()}`;
     document.getElementById('phone-check').innerHTML = `Checkout: $${total.toLocaleString()}`;
     document.getElementById('ver-check').innerHTML = `Checkout: $${total.toLocaleString()} <img src="img/partners/btc.png">`;

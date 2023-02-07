@@ -48,6 +48,9 @@ const thanVerify = document.getElementById('than-verify');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
+const inPhone = document.getElementById('in-phone');
+const noPhone = document.getElementById('no-phone');
+
 const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
 const auth = firebase.auth();
@@ -100,6 +103,7 @@ auth.onAuthStateChanged(user => {
 		phoneIn.innerText = user.phoneNumber;
 		phoneIn.removeAttribute('data-bs-toggle');
 		emailIn.innerText = 'Verify Email';
+		inPhone.style.display = 'block';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#exampleModal');
 
@@ -135,6 +139,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.setAttribute('data-bs-target', '#exampleModal');
 
 		emailInvoice.style.display = 'flex';
+		noPhone.style.display = 'block';
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);		
@@ -252,6 +257,7 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				emailIn.innerText = 'Verify Email';
+				noPhone.style.display = 'block';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
@@ -318,6 +324,7 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				emailIn.innerText = 'Verify Email';
+				noPhone.style.display = 'block';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
@@ -426,6 +433,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			jinaHolder3.value = theaddress;
 
 			emailIn.innerText = 'Verify Email';
+			noPhone.style.display = 'block';
 			emailIn.setAttribute('data-bs-target', '#exampleModal');
 			emailIn.addEventListener('click', sendEmail);
 
@@ -523,6 +531,7 @@ const signInWithPhone = sentCodeId => {
 
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
+				inPhone.style.display = 'block';
 				phoneIn.innerText = theUser.phoneNumber;
 				
 				if(!theUser.email) {

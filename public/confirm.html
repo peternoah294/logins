@@ -349,16 +349,16 @@
                                 <div id="email-invoice">
                                     <div class="text-center section-heading">
                                         <p>
-                                            Bank log files will be sent to your email <span id="yourEmail"></span>, after a successful purchase
+                                            Bank log files will be sent via mail to <span id="yourEmail"></span>. 
                                             <br>
-                                            Check the <span>spam / junk</span> folder
+                                            Secure your purchase by getting a <span>phone invoice</span>. 
                                         </p>
                                         <hr class="nohr">
-                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#phoneModal">
                                             <div class="invoice">
-                                                <img src="img/partners/btc.png">
-                                                <a class="butn home-btn" id="email-check">
-                                                
+                                                <img src="img/partners/phone.png">
+                                                <a class="butn home-btn">
+                                                    Phone Invoice
                                                 </a>
                                             </div>
                                         </div>
@@ -636,9 +636,15 @@
                     
                 </p>
                 <hr class="thehr">
-                <li class="next">
+                <li class="next" style="display: none;" id="in-phone">
                     <a class="butn modal-btn" id="ver-check" data-bs-toggle="modal" data-bs-target="#vpnModal">
                         
+                    </a>
+                </li>
+
+                <li class="next" style="display: none;" id="no-phone">
+                    <a class="butn modal-btn" data-bs-toggle="modal" data-bs-target="#phoneModal">
+                        Phone Invoice <img src="img/partners/phone.png">
                     </a>
                 </li>
 
