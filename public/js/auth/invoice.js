@@ -93,14 +93,12 @@ auth.onAuthStateChanged(user => {
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
-				Phone: <span>${user.phoneNumber}</span>, <br>
 				Mail: <span>${user.email}</span>, <br>
 				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
 				Web Browser: <span>${platform.name}</span>. 
 			`;
 		} else {
 			emailP.innerHTML = `
-				Phone: <span>${user.phoneNumber}</span>, <br>
 				Mail: <span>${user.email}</span>, <br>
 				Your Device: <span>${platform.os}</span>, <br> 
 				Web Browser: <span>${platform.name}</span>.
