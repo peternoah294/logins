@@ -271,7 +271,7 @@ function updateCartTotal() {
         }
     
         showToast.innerHTML = `
-            Download 1 Bank Log <img src="img/partners/doh.png">
+            Get Download Link <img src=${bankImg}>
         `;
 
         anonP.innerHTML = `
@@ -279,7 +279,7 @@ function updateCartTotal() {
             ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
         `;
         anonCheck.innerHTML = `
-            Download File <img src=${bankImg}>
+            Chase Bank Link <img src=${bankImg}>
         `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 

@@ -88,22 +88,29 @@ var getMessage = function() {
 
 var toastbut = document.getElementById('anon-check');
 
-$(toastbut).click(function() {
-    var shortCutFunction = 'success';
-    var msg = '';
-    var title = '';
-    toastr.options = {
-        closeButton: true,
-        debug: false,
-        newestOnTop: true,
-        progressBar: true,
-        positionClass: 'toast-top-full-width',
-        preventDuplicates: true,
-        onclick: null
-    };
-    if (!msg) {
-        msg = getMessage();
+auth.onAuthStateChanged(user => {
+	if(user.phoneNumber){
+		$(toastbut).click(function() {
+            var shortCutFunction = 'success';
+            var msg = '';
+            var title = '';
+            toastr.options = {
+                closeButton: true,
+                debug: false,
+                newestOnTop: true,
+                progressBar: true,
+                positionClass: 'toast-top-full-width',
+                preventDuplicates: true,
+                onclick: null
+            };
+            if (!msg) {
+                msg = getMessage();
+            }
+            var $toast = toastr[shortCutFunction](msg, title);
+            $toastlast = $toast;
+        });
+	} else {
+        toastbut.setAttribute('data-bs-toggle', 'modal');
+        toastbut.setAttribute('data-bs-target', '#phoneModal');
     }
-    var $toast = toastr[shortCutFunction](msg, title);
-    $toastlast = $toast;
 });

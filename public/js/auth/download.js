@@ -184,17 +184,6 @@ auth.onAuthStateChanged(user => {
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	}  
 
-	if(!user.phoneNumber) {
-		if(localStorage.getItem('received-funds')) {
-			document.getElementById('apart').style.display = 'flex';
-			document.getElementById('logsection').style.display = 'none';
-			document.getElementsByClassName('clint')[0].style.bottom = '0';
-			document.getElementsByClassName('clint')[0].style.position = 'fixed';
-
-			vpnImg.src = 'img/partners/phone.png';
-		}
-	}
-
 	if(user.uid){
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
