@@ -32,7 +32,6 @@ const vpn = document.getElementById('vpn');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
-const theSet = document.getElementById('settings');
 
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
@@ -124,7 +123,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		theSet.removeAttribute('data-bs-toggle');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		tableName.innerHTML = user.email;
 		tableId.innerHTML = user.uid;
@@ -153,7 +151,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		tableName.innerHTML = 'Anonymous';
 		tableId.innerHTML = user.uid;
-		theSet.removeAttribute('data-bs-toggle');
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	}
@@ -697,7 +694,6 @@ if(!localStorage.getItem('deposit-amount')) {
 	document.getElementById('predat').style.display = 'flex';
 	document.getElementsByClassName('clint')[0].style.bottom = '0';
 	document.getElementsByClassName('clint')[0].style.position = 'fixed';
-	theSet.removeAttribute('data-bs-toggle');
 } else {
     tableDollar.innerHTML = `$${localStorage.getItem('deposit-amount')}`;
 	anonCheck.innerHTML = `Confirm: $${localStorage.getItem('deposit-amount')} <img src="img/partners/bitcoin.png">`;

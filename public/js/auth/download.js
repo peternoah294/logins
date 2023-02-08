@@ -31,7 +31,6 @@ const signUp = document.getElementById('signUp');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
-const theSet = document.getElementById('settings');
 
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
@@ -180,7 +179,6 @@ auth.onAuthStateChanged(user => {
 			The bank log files will be in text format. 
 		`;
 		vpnImg.src = 'img/partners/anonymous.png';
-		theSet.removeAttribute('data-bs-toggle');
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	}  
 

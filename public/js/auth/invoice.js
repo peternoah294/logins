@@ -29,7 +29,6 @@ const emailP = document.getElementById('email-p');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
-const theSet = document.getElementById('settings');
 
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
@@ -126,7 +125,6 @@ auth.onAuthStateChanged(user => {
 			verImg.src = 'img/partners/emails.png';
 		} 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		theSet.removeAttribute('data-bs-toggle');
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
@@ -173,7 +171,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = 'Anonymous';
 			jinaHolder3.value = 'Anonymous';
 		} 
-		theSet.removeAttribute('data-bs-toggle');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;

@@ -279,7 +279,7 @@ function updateCartTotal() {
             ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
         `;
         anonCheck.innerHTML = `
-            Chase Bank Link <img src=${bankImg}>
+            Request Link <img src=${bankImg}>
         `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
