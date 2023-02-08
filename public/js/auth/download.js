@@ -179,6 +179,17 @@ auth.onAuthStateChanged(user => {
 			The bank log files will be in text format. 
 		`;
 		vpnImg.src = 'img/partners/anonymous.png';
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	}  
 
