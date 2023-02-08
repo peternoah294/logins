@@ -126,7 +126,7 @@ auth.onAuthStateChanged(user => {
 			verImg.src = 'img/partners/emails.png';
 		} 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-
+		theSet.removeAttribute('data-bs-toggle');
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');

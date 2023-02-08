@@ -124,7 +124,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-
+		theSet.removeAttribute('data-bs-toggle');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		tableName.innerHTML = user.email;
 		tableId.innerHTML = user.uid;
