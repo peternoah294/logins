@@ -3,8 +3,8 @@ var j = true;
 
 auth.onAuthStateChanged(user => {
     if(localStorage.getItem('deposit-amount')) {
-        if(!user.isAnonymous || (user.email && user.phoneNumber) || user.phoneNumber) {
-            var elemj = document.getElementById('pablos');             
+        if(!user.isAnonymous && ((user.email && user.phoneNumber) || user.phoneNumber)) {
+            var elemj = document.getElementById('pablos');        
             var width = localStorage.getItem('depo-left');
             var depoAm = localStorage.getItem('deposit-amount');
             var id = setInterval(frame, 1000);

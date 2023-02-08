@@ -17,7 +17,7 @@ auth.onAuthStateChanged(user => {
         
     if(localStorage.getItem('banklogs') && !localStorage.getItem('deposit-amount') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
-            if(!user.isAnonymous || (user.email && user.phoneNumber) || user.phoneNumber) {
+            if(!user.isAnonymous && ((user.email && user.phoneNumber) || user.phoneNumber)) {
                 var elemj = document.getElementById('pablos');        
                 var width = localStorage.getItem('time-left');
                 var id = setInterval(frame, 1000);
