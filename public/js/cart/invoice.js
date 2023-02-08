@@ -271,7 +271,7 @@ function updateCartTotal() {
         }
     
         showToast.innerHTML = `
-            Get Download Link <img src="img/partners/doh.png">
+            Download 1 Bank Log <img src="img/partners/doh.png">
         `;
 
         anonP.innerHTML = `
@@ -279,7 +279,7 @@ function updateCartTotal() {
             ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
         `;
         anonCheck.innerHTML = `
-            Request Link <img src=${bankImg}>
+            Download File <img src=${bankImg}>
         `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
@@ -305,11 +305,13 @@ function updateCartTotal() {
         }
         
         showToast.innerHTML = `
-            Get Download Links <img src="img/partners/doh.png">
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
+            <img src="img/partners/doh.png">
         `;
         downFile.innerHTML = 'Bank Log Files';
         anonCheck.innerHTML = `
-            Request Links <img src="img/partners/link.png">
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+            <img src="img/partners/doh.png">
         `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
