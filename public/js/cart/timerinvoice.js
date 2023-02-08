@@ -66,7 +66,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
                         }
                     } else if(user.isAnonymous) {
-                        var msg = `15 Seconds Left! Anonymous User, <hr> Let the timer run out. <hr class="to-hr"> You'll be required to get an email / phone invoice`;
+                        var msg = `15 Seconds Left! Anonymous User, <hr> Let the timer run out. <hr class="to-hr"> You'll be required to get an email / phone invoice next time`;
                     }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
