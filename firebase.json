@@ -56,8 +56,8 @@
         "destination": "/chime.html"
       },
       {
-        "source": "/confirm",
-        "destination": "/confirm.html"
+        "source": "/link",
+        "destination": "/link.html"
       },
       {
         "source": "/citi",
@@ -202,8 +202,8 @@
         "type": 301
       },
       {
-        "source": "/confirm.html",
-        "destination": "/confirm",
+        "source": "/link.html",
+        "destination": "/link",
         "type": 301
       },
       {

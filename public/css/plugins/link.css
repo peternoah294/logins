@@ -289,12 +289,12 @@ blink {
    }
 }
 .link-email-div {
-    margin-top: -3px !important;
-    margin-bottom: -18px !important;
+    margin-top: 0px !important;
+    margin-bottom: -20px !important;
 }
 .link-phone-div {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
 }
 blink {
     animation: blinkez 4.9s linear infinite;
@@ -373,5 +373,7 @@ blink {
     margin-top: 23vh !important;
 }
 .clint {
-    margin: -7px 0 0 0 !important; 
+    margin: -7px 0 0 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
 }
