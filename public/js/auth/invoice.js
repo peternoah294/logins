@@ -186,6 +186,7 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+		window.location.assign('confirm');
 	}
 
 	if(user.uid){

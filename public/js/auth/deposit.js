@@ -153,6 +153,7 @@ auth.onAuthStateChanged(user => {
 		tableId.innerHTML = user.uid;
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+		window.location.assign('confirm');
 	}
 
 	if(user.uid){
