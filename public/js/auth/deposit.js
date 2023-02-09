@@ -153,7 +153,6 @@ auth.onAuthStateChanged(user => {
 		tableId.innerHTML = user.uid;
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
-		window.location.assign('confirm');
 	}
 
 	if(user.uid){
@@ -223,7 +222,7 @@ const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;
 	var actionCodeSettings = {
-		url: 'https://www.darkweb.cx/confirm',
+		url: 'https://www.darkweb.cx/link',
 		handleCodeInApp: true,
 	};
 	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
@@ -235,7 +234,7 @@ const signUpFunction = () => {
 				photoURL: theUser.providerData[0].photoURL,
 				isAnonymous: false
 			}).then(() => {
-				window.location.assign('confirm');
+				window.location.assign('link');
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -269,7 +268,7 @@ const signUpFunction = () => {
 				photoURL: theUser.providerData[0].photoURL,
 				isAnonymous: false
 			}).then(() => {
-				window.location.assign('confirm');
+				window.location.assign('link');
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -398,7 +397,7 @@ const signInWithPhone = sentCodeId => {
 			auth.currentUser.updateProfile({
 				phoneNumber: auth.currentUser.providerData[0].phoneNumber
 			}).then(() => {
-				window.location.assign('confirm');
+				window.location.assign('link');
 			});
 		})
 		.catch(error => {

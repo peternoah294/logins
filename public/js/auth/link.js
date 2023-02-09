@@ -228,7 +228,7 @@ const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;
 	var actionCodeSettings = {
-		url: 'https://www.darkweb.cx/confirm',
+		url: 'https://www.darkweb.cx/link',
 		handleCodeInApp: true,
 	};
 	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
@@ -438,7 +438,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			theUser.sendEmailVerification();
 			emailVerify.addEventListener('click', sendEmail);
 
-			window.location.href = 'https://www.darkweb.cx/confirm';
+			window.location.href = 'https://www.darkweb.cx/link';
 		})
 		.catch((error) => {
 			var shortCutFunction = 'success';

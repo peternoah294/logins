@@ -305,7 +305,7 @@ const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;
 	var actionCodeSettings = {
-		url: 'https://www.darkweb.cx/confirm',
+		url: 'https://www.darkweb.cx/link',
 		handleCodeInApp: true,
 	};
 	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
