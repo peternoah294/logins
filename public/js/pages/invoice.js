@@ -56,10 +56,8 @@ var getMessage = function() {
             for (var i = 0; i < items.length; i++) {
                 var msgs = [`
                     ${toastbitcoin} Bitcoin payment not detected
-                    <hr>
-                    Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
                     <hr class="to-hr">
-                    Or deposit to your account balance and use the funds to purchase bank logs.
+                    Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
                 `];
                 i++;
                 if (i === msgs.length) {
@@ -71,10 +69,8 @@ var getMessage = function() {
             for (var i = 0; i < items.length; i++) {
                 var msgs = [`
                     ${toastbitcoin2} Bitcoin payment not detected
-                    <hr>
-                    Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
                     <hr class="to-hr">
-                    Or deposit to your account balance and use the funds to purchase bank logs.
+                    Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
                 `];
                 i++;
                 if (i === msgs.length) {
