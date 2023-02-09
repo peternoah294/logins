@@ -2757,14 +2757,14 @@ ul.countdown li p {
     padding: 49px 14px;
     margin-top: 30vh !important;
 }
-.depart-cart {
+.bit-cart {
     background: rgba(255, 255, 255, 0.92) !important;
     padding: 37px 5px;
     margin: auto 1vw !important;
     margin-top: 21vh !important;
 }
 @media screen and (min-width: 767px) {
-    .depart-cart {
+    .bit-cart {
         margin-top: 18vh !important;
     }
 }
