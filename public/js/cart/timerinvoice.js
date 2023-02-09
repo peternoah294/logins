@@ -5,7 +5,7 @@ var coastDis = localStorage.getItem('divtotal');
 
 auth.onAuthStateChanged(user => {
         
-    if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
+    if(localStorage.getItem('banklogs') && !localStorage.getItem('deposit-amount') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
             var elemj = document.getElementById('pablos');        
             var width = localStorage.getItem('time-left');
@@ -554,6 +554,20 @@ if(localStorage.getItem('received-funds')) {
         A bitcoin payment has been detected, 
         Visit the download page and complete the progress.
     `;
+} else if(localStorage.getItem('deposit-amount')) {
+    document.getElementById('depart').style.display = 'flex';
+    document.getElementById('logsection').style.display = 'none';
+    document.getElementById('logsection2').style.display = 'none';
+    document.getElementById('your-bal').innerHTML = `Pending Deposit: <span>$${localStorage.getItem('deposit-amount')}</span>`;
+    document.getElementsByClassName('depo-p')[0].innerHTML = `
+        There's a deposit amount of 
+        <span>$${localStorage.getItem('deposit-amount')}</span>
+        that is pending. 
+        Visit the deposit page and complete the progress.
+    `;
+
+    document.getElementsByClassName('clint')[0].style.bottom = '0';
+    document.getElementsByClassName('clint')[0].style.position = 'fixed';
 } else if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('predat').style.display = 'flex';
     document.getElementsByClassName('clint')[0].style.bottom = '0';

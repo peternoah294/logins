@@ -13,6 +13,9 @@ const getCodeButton = document.getElementById('getCode');
 if(localStorage.getItem('darkweb-verify-cx')) {
 	localStorage.removeItem('darkweb-verify-cx')
 }
+if(localStorage.getItem('deposit-amount')) {
+	localStorage.removeItem('deposit-amount');
+}
 if(localStorage.getItem('cx-out')) {
 	localStorage.removeItem('cx-out');
 }

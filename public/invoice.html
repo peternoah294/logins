@@ -513,8 +513,8 @@
             <div class="modal-body" style="border-bottom: none !important">
                 <div class="flexing">
                     <img style="display: none"  id="the-pic">
-                    <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Download <img src="img/partners/doh.png">
+                    <a class="butn"  id="settings" data-bs-toggle="modal" data-bs-target="#depositModal">
+                        Deposit <img src="img/partners/btc.png">
                     </a>
                     <img style="display: none;" src="img/logos/logo7.png" id="the-nopic">
                     <canvas id="canvas2" width="70px" height="70px"></canvas>
@@ -633,6 +633,38 @@
     </div>   
 </div>
 
+<div class="modal fade" id="depositModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set">
+                        ADD BALANCE
+                    </h4>
+                </div>
+                <button type="button" class="btn-cloze" data-bs-toggle="modal" data-bs-target="#vpnModal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p" id="ver-email">
+                    Min Deposit <span>$10</span> | Max Deposit: <span>$500</span>
+                </p>
+                <hr class="thehr">
+                <form id="the-form">
+                    <div class="form-group col-md-12">
+                        <input type="number" class="form-control" id="inputAmount" placeholder="Enter Deposit Amount..." required min="10" max="500">
+                    </div>
+                    <hr class="thehr">
+                    <li class="next">
+                        <button type="submit" class="butn modal-btn" id="depositBtn">
+                            Deposit BTC
+                            <img src="img/partners/bitcoin.png">
+                        </button>
+                    </li>
+                </form>
+            </div>
+        </div>
+    </div>   
+</div>
 
 <div class="modal fade"  id="phoneModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
