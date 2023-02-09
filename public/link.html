@@ -445,8 +445,18 @@
                                         <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
                                             <div class="invoice">
                                                 <img src="img/partners/phone.png">
-                                                <a class="butn ver-btn" id="cx-p">
+                                                <a class="butn phone-btn">
                                                     Get Phone Invoice
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="nohr">
+                                        <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/anonymous.png">
+                                                <a class="butn ver-btn" id="cx-a">
+                                                    Buy Anonymously
                                                 </a>
                                             </div>
                                         </div>
@@ -465,7 +475,7 @@
 </section>
 
 
-
+<div style="background: url(img/content/home12.jpg) !important; margin-top: -7px !important;">
     <div class="modal-content clint" id="modal-car">
         <div class="owl-carousel owl-theme clients" id="clients">
             <div class="item"><img alt="" src="img/carousel/bankofamerica.jpg"></div>
@@ -485,7 +495,7 @@
             <div class="item"><img alt="" src="img/carousel/woodforest.jpg"></div>
         </div>
     </div>
-
+</div>
       
 
 </div>
@@ -743,7 +753,6 @@
         var theLog2 = document.getElementById('the-nopic');
         var cxC = document.getElementById('than-verify');
         var cxB = document.getElementById('email-verify');
-        var cxP = document.getElementById('cx-p');
         if (window.innerWidth > 768) {
             theC.setAttribute('href', 'css/styles-8.css');
             theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -759,8 +768,6 @@
             cxC.classList.add('phone-btn');
             cxB.classList.remove('ver-btn');
             cxB.classList.add('phone-btn');
-            cxP.classList.remove('ver-btn');
-            cxP.classList.add('phone-btn');
         } 
     </script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
