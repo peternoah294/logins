@@ -23,6 +23,7 @@ const labelDate = document.getElementById('label-date');
 
 const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
+const moneyBtn = document.getElementById('thetot1');
 
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
@@ -89,6 +90,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		moneyBtn.setAttribute('href', 'link');
 	} else if(user.email && user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -116,6 +118,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		moneyBtn.setAttribute('href', 'link');
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -124,6 +127,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+		moneyBtn.setAttribute('href', 'link');
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -138,6 +142,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+		moneyBtn.setAttribute('href', 'invoice');
 	} 
 
 	
@@ -245,6 +250,8 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				moneyBtn.setAttribute('href', 'link');
 		
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -301,6 +308,8 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				moneyBtn.setAttribute('href', 'link');
 		
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -445,6 +454,8 @@ const signInWithPhone = sentCodeId => {
 				jinaHolder3.value = theUser.phoneNumber;
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
+
+				moneyBtn.setAttribute('href', 'link');
 
 				if(!theUser.email) {
 					vpnImg.src = 'img/partners/phone.png';
