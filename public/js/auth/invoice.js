@@ -32,6 +32,7 @@ const phoneIn = document.getElementById('phone-in');
 
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
+const theSet = document.getElementById('settings');
 
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
@@ -91,6 +92,11 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+
+		theSet.innerHTML = `Linked <img src="img/partners/phone.png">`;
+		theSet.removeAttribute('data-bs-toggle');
+		theSet.style.right = '28%';
+		theSet.style.left = '28%';
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
@@ -159,6 +165,11 @@ auth.onAuthStateChanged(user => {
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+		theSet.innerHTML = `Linked <img src="img/partners/phone.png">`;
+		theSet.removeAttribute('data-bs-toggle');
+		theSet.style.right = '28%';
+		theSet.style.left = '28%';
+
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
 				Phone: <span>${user.phoneNumber}</span>, <br>

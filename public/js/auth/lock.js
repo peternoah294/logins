@@ -13,21 +13,18 @@ const jinaHolder = document.getElementById('is-there');
 
 const auth = firebase.auth();
 
-if(localStorage.getItem('received-funds')) {
-	window.location.assign('invoice');
-}
 auth.onAuthStateChanged(user => {
 	if (!user) {
 		window.location.assign('index');
 	}
     if(!localStorage.getItem('cx-out')) {
-        window.history.back();
+        window.location.assign('home');
     }
     var cxOut = document.getElementById('cx-out');
     cxOut.addEventListener('click', removeIt);
     function removeIt() {
         localStorage.removeItem('cx-out');
-        window.history.back();
+        window.location.assign('home');
     }
 
 	if(user.email) {
