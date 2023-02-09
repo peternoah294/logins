@@ -11,6 +11,7 @@
 }
 #phoneNumber,
 #code,
+#inputAmount,
 #inputEmail {
   color: rgb(45, 66, 54) !important;
   border: 1.7px solid rgb(174, 210, 129) !important;

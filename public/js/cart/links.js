@@ -4,9 +4,14 @@ var setBtn = document.getElementById('settings');
 var wouldYou = document.getElementById('would');
 var anonDiv = document.getElementById('anon-div');
 
+var theClints = document.getElementsByClassName('clint')[0];
+
 if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('confirm').style.display = 'flex';
     document.getElementById('logs-invoice').style.display = 'none';
+
+    theClints.style.position = 'fixed';
+    theClints.style.bottom = '0';
 } else {
     document.getElementById('confirm').style.display = 'none';
     document.getElementById('logs-invoice').style.display = 'flex';
