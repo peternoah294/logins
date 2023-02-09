@@ -113,7 +113,7 @@
 #settings img {
     width: 25px !important;
 	height: 25px !important;
-	margin: -3px auto -1px 5px !important;
+	margin: -3px auto -1px 0px !important;
 }
 #settings {
 	left: 24%;
