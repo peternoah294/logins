@@ -3,16 +3,6 @@ var j = true;
 var coastNo = localStorage.getItem('banktotal');
 var coastDis = localStorage.getItem('divtotal');
 
-var coastBal = localStorage.getItem('acc-balance');
-
-var invoiceCol = document.getElementById('invoice-col');
-var invoiceColTable = document.getElementById('invoice-col-table');
-
-if(parseInt(coastBal) > parseInt(coastNo)) {
-    invoiceCol.style.display = 'none';
-    invoiceColTable.setAttribute('class', 'col-12');
-}
-
 auth.onAuthStateChanged(user => {
         
     if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
