@@ -240,7 +240,7 @@ function updateCartTotal() {
     });
 
     var downFile = document.getElementById('down-file');
-    var showToasts = document.getElementById('showtoasts');
+    var showToast = document.getElementById('showtoasts');
     var anonP = document.getElementById('anon-p');
     var anonCheck = document.getElementById('anon-check');
     var titleLog2 = document.getElementById('titlelogs2');
@@ -269,29 +269,18 @@ function updateCartTotal() {
         } else {
             downFile.innerHTML = bankLog.split('[')[0];
         }
+    
+        showToast.innerHTML = `
+            Download 1 Bank Log <img src="img/partners/doh.png">
+        `;
 
         anonP.innerHTML = `
             ${bankLog.replace(']',' ACCOUNT]')} with <span>${bankBal}</span> <hr class="thehr">
             ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
         `;
-        auth.onAuthStateChanged(user => {
-            if(user.email || user.phoneNumber) {
-                anonCheck.innerHTML = `
-                    Download File <img src=${bankImg}>
-                `;
-                anonCheck.removeAttribute('data-bs-toggle');
-                showToasts.innerHTML = `
-                    Download 1 Bank Log <img src="img/partners/doh.png">
-                `
-            } else if(user.isAnonymous) {
-                anonCheck.innerHTML = `
-                    Request Link <img src=${bankImg}>
-                `;
-                showToasts.innerHTML = `
-                    Get Download Link <img src="img/partners/doh.png">
-                `;
-            }
-        });
+        anonCheck.innerHTML = `
+            Download File <img src=${bankImg}>
+        `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
             Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
@@ -315,30 +304,49 @@ function updateCartTotal() {
             logItems.prepend(logRow);
         }
         
+        showToast.innerHTML = `
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
+            <img src="img/partners/doh.png">
+        `;
         downFile.innerHTML = 'Bank Log Files';
-        auth.onAuthStateChanged(user => {
-            if(user.email || user.phoneNumber) {
-                showToast.innerHTML = `
-                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
-                    <img src="img/partners/doh.png">
-                `;
-                downFile.innerHTML = 'Bank Log Files';
-                anonCheck.innerHTML = `
-                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
-                    <img src="img/partners/doh.png">
-                `;
-                anonCheck.removeAttribute('data-bs-toggle');
-            } else if(user.isAnonymous) {
-                anonCheck.innerHTML = `
-                    Request ${JSON.parse(localStorage.getItem('banklogs')).length} Links
-                    <img src="img/partners/doh.png">
-                `;
-                showToasts.innerHTML = `
-                    Get ${JSON.parse(localStorage.getItem('banklogs')).length} 
-                    Download Links <img src="img/partners/doh.png">
-                `;
-            }
-        });
+        anonCheck.innerHTML = `
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+            <img src="img/partners/doh.png">
+        `;
+        titleLog2.innerHTML = `
+            Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
+            Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
+        `;
+
+        modalAmount.innerHTML = `
+            Send  <span id="omanyala3">$</span> 
+            <span id="omanyala2" class="countup">${parseInt(total).toLocaleString()}</span> 
+            $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span>
+        `;
+        document.getElementById('bitcoin-logo').style.display = 'none';
+    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 3) {
+        var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
+
+        for(var i = 0; i < Loginz.length; i++) {
+            var logRow = document.createElement('p');
+            var logItems = document.getElementById('anon-p');
+            logRow.innerHTML = `
+                <hr class="thehr" style="margin-top: -10px !important"> 
+                ${Loginz[i].account.substring(0, Loginz[i].account.indexOf('['))} -
+                <span>${Loginz[i].balance}</span>
+            `;
+            logItems.prepend(logRow);
+        }
+        
+        showToast.innerHTML = `
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
+            <img src="img/partners/doh.png">
+        `;
+        downFile.innerHTML = 'Bank Log Files';
+        anonCheck.innerHTML = `
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+            <img src="img/partners/doh.png">
+        `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
             Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 

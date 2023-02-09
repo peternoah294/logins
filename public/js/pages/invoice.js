@@ -56,8 +56,10 @@ var getMessage = function() {
             for (var i = 0; i < items.length; i++) {
                 var msgs = [`
                     ${toastbitcoin} Bitcoin payment not detected
-                    <hr class="to-hr">
+                    <hr>
                     Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
+                    <hr class="to-hr">
+                    Or deposit to your account balance and use the funds to purchase bank logs.
                 `];
                 i++;
                 if (i === msgs.length) {
@@ -69,8 +71,10 @@ var getMessage = function() {
             for (var i = 0; i < items.length; i++) {
                 var msgs = [`
                     ${toastbitcoin2} Bitcoin payment not detected
-                    <hr class="to-hr">
+                    <hr>
                     Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
+                    <hr class="to-hr">
+                    Or deposit to your account balance and use the funds to purchase bank logs.
                 `];
                 i++;
                 if (i === msgs.length) {
@@ -84,26 +88,22 @@ var getMessage = function() {
 
 var toastbut = document.getElementById('anon-check');
 
-auth.onAuthStateChanged(user => {
-	if(user.email || user.phoneNumber) {
-        $(toastbut).click(function() {
-            var shortCutFunction = 'success';
-            var msg = '';
-            var title = '';
-            toastr.options = {
-                closeButton: true,
-                debug: false,
-                newestOnTop: true,
-                progressBar: true,
-                positionClass: 'toast-top-full-width',
-                preventDuplicates: true,
-                onclick: null
-            };
-            if (!msg) {
-                msg = getMessage();
-            }
-            var $toast = toastr[shortCutFunction](msg, title);
-            $toastlast = $toast;
-        });
+$(toastbut).click(function() {
+    var shortCutFunction = 'success';
+    var msg = '';
+    var title = '';
+    toastr.options = {
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: 'toast-top-full-width',
+        preventDuplicates: true,
+        onclick: null
+    };
+    if (!msg) {
+        msg = getMessage();
     }
+    var $toast = toastr[shortCutFunction](msg, title);
+    $toastlast = $toast;
 });
