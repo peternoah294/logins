@@ -77,13 +77,16 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
 				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -113,9 +116,11 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
 				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			var themail = user.email;
@@ -125,6 +130,7 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailIn.innerText = 'Verify Email';
@@ -152,6 +158,7 @@ auth.onAuthStateChanged(user => {
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
 				Phone: <span>${user.phoneNumber}</span>, <br>
@@ -177,6 +184,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
 				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
