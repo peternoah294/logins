@@ -24,10 +24,6 @@
         "destination": "/lockscreen.html"
       },
       {
-        "source": "/deposit",
-        "destination": "/deposit.html"
-      },
-      {
         "source": "/bankofamerica",
         "destination": "/bankofamerica.html"
       },
@@ -159,11 +155,6 @@
       {
         "source": "/cashout.html",
         "destination": "/cashout",
-        "type": 301
-      },
-      {
-        "source": "/deposit.html",
-        "destination": "/deposit",
         "type": 301
       },
       {
