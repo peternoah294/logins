@@ -16,6 +16,10 @@
         "destination": "/download.html"
       },
       {
+        "source": "/deposit",
+        "destination": "/deposit.html"
+      },
+      {
         "source": "/cashout",
         "destination": "/cashout.html"
       },
@@ -145,6 +149,11 @@
       {
         "source": "/download.html",
         "destination": "/download",
+        "type": 301
+      },
+      {
+        "source": "/deposit.html",
+        "destination": "/deposit",
         "type": 301
       },
       {
