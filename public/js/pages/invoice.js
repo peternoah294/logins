@@ -88,23 +88,26 @@ var getMessage = function() {
 
 var toastbut = document.getElementById('anon-check');
 
-
-$(toastbut).click(function() {
-    var shortCutFunction = 'success';
-    var msg = '';
-    var title = '';
-    toastr.options = {
-        closeButton: true,
-        debug: false,
-        newestOnTop: true,
-        progressBar: true,
-        positionClass: 'toast-top-full-width',
-        preventDuplicates: true,
-        onclick: null
-    };
-    if (!msg) {
-        msg = getMessage();
+auth.onAuthStateChanged(user => {
+	if(user.email || user.phoneNumber) {
+        $(toastbut).click(function() {
+            var shortCutFunction = 'success';
+            var msg = '';
+            var title = '';
+            toastr.options = {
+                closeButton: true,
+                debug: false,
+                newestOnTop: true,
+                progressBar: true,
+                positionClass: 'toast-top-full-width',
+                preventDuplicates: true,
+                onclick: null
+            };
+            if (!msg) {
+                msg = getMessage();
+            }
+            var $toast = toastr[shortCutFunction](msg, title);
+            $toastlast = $toast;
+        });
     }
-    var $toast = toastr[shortCutFunction](msg, title);
-    $toastlast = $toast;
 });

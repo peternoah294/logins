@@ -240,7 +240,6 @@ function updateCartTotal() {
     });
 
     var downFile = document.getElementById('down-file');
-    var showToast = document.getElementById('showtoasts');
     var anonP = document.getElementById('anon-p');
     var anonCheck = document.getElementById('anon-check');
     var titleLog2 = document.getElementById('titlelogs2');
@@ -269,17 +268,13 @@ function updateCartTotal() {
         } else {
             downFile.innerHTML = bankLog.split('[')[0];
         }
-    
-        showToast.innerHTML = `
-            Download 1 Bank Log <img src="img/partners/doh.png">
-        `;
 
         anonP.innerHTML = `
             ${bankLog.replace(']',' ACCOUNT]')} with <span>${bankBal}</span> <hr class="thehr">
             ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
         `;
         anonCheck.innerHTML = `
-            Download File <img src=${bankImg}>
+            Request Link <img src=${bankImg}>
         `;
         titleLog2.innerHTML = `
             Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
@@ -304,13 +299,9 @@ function updateCartTotal() {
             logItems.prepend(logRow);
         }
         
-        showToast.innerHTML = `
-            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
-            <img src="img/partners/doh.png">
-        `;
         downFile.innerHTML = 'Bank Log Files';
         anonCheck.innerHTML = `
-            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+            Request ${JSON.parse(localStorage.getItem('banklogs')).length} Links
             <img src="img/partners/doh.png">
         `;
         titleLog2.innerHTML = `

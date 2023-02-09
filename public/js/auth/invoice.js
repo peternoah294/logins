@@ -41,6 +41,8 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
+const saveBtn = document.getElementById('anon-check');
+
 if(!window.location.href.includes('arkweb')){
 	if(!window.location.href.includes('5502')) {
 		window.location.assign('index')
@@ -740,58 +742,4 @@ if(!window.location.href.includes('5502')) {
 		}
 		return true;
 	}
-}
-
-var inputAmount = document.getElementById('inputAmount');
-var depositBtn = document.getElementById('depositBtn');
-
-const depositBtc = (even) => {
-	even.preventDefault();
-	if(inputAmount.value >= 10 && inputAmount.value <= 500) {
-		localStorage.setItem('deposit-amount', inputAmount.value);
-		localStorage.setItem('depo-left',600);
-		
-
-		$('#depositModal').modal('hide');
-		document.getElementById('depart').style.display = 'flex';
-		document.getElementById('logsection').style.display = 'none';
-		document.getElementById('logsection2').style.display = 'none';
-		document.getElementById('predat').style.display = 'none';
-
-		document.getElementById('your-bal').innerHTML = `Pending Deposit: <span>$${localStorage.getItem('deposit-amount')}</span>`;
-
-		document.getElementsByClassName('depo-p')[0].innerHTML = `
-			There's a deposit amount of 
-			<span>$${localStorage.getItem('deposit-amount')}</span>
-			that is pending. 
-			Visit the deposit page and complete the progress.
-		`;
-
-		document.getElementsByClassName('clint')[0].style.bottom = '0';
-		document.getElementsByClassName('clint')[0].style.position = 'fixed';
-		localStorage.setItem('time-left', 60000);
-	} else {
-		var shortCutFunction = 'success';
-		var msg = `Enter a deposit amount between: <hr class="to-hr"> $10 and $500`;
-		toastr.options = {
-			closeButton: true,
-			debug: false,
-			newestOnTop: true,
-			progressBar: true,
-			positionClass: 'toast-top-full-width',
-			preventDuplicates: true,
-			onclick: null
-		};
-		var $toast = toastr[shortCutFunction](msg);
-		$toastlast = $toast;
-	}
-}
-
-depositBtn.addEventListener('click', depositBtc);
-document.getElementById('the-form').addEventListener('submit', depositBtc);
-
-if(localStorage.getItem('acc-balance')) {
-	vpn.innerHTML = `Balance: $${localStorage.getItem('acc-balance')} <img src="img/partners/bitcoin.png">`;
-} else {
-	vpn.innerHTML = `Balance: $0 <img src="img/partners/bitcoin.png">`;
 }
