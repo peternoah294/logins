@@ -59,6 +59,19 @@
 #bipart .section-heading h4 {
     color: #121d33;
 }
+
+#apart {
+  display: none;
+  padding: 3px;
+  height: 100vh;
+  margin: 0 -7px !important;
+}
+#apart div {
+  overflow-y: hidden !important;
+}
+#apart .section-heading h4 {
+  color: #121d33;
+}
 .butn.home-btn{
     margin-top: 7vh;
     color: #121d33 !important;

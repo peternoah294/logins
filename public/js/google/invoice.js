@@ -180,6 +180,16 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 
 		document.getElementById('settings').removeAttribute('data-bs-toggle');
+
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			if(!localStorage.getItem('deposit-amount')) {
+				document.getElementById('apart').style.display = 'flex';
+				document.getElementById('logsection').style.display = 'none';
+				document.getElementById('logsection2').style.display = 'none';
+				document.getElementsByClassName('clint')[0].style.bottom = '0';
+				document.getElementsByClassName('clint')[0].style.position = 'fixed';
+			}
+		}
 	}
 
 	if(user.uid){
