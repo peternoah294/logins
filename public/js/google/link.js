@@ -32,6 +32,9 @@ const emailInvoice = document.getElementById('email-div');
 const phoneInvoice = document.getElementById('phone-div');
 const anonInvoice = document.getElementById('anon-div');
 
+const carlImg = document.getElementById('carl-img');
+const carlA = document.getElementById('carl-a');
+
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -112,6 +115,9 @@ auth.onAuthStateChanged(user => {
 		thanPhone.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		thanVerify.addEventListener('click', sendEmail);	
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -142,6 +148,9 @@ auth.onAuthStateChanged(user => {
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -151,6 +160,9 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -269,6 +281,9 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
+				carlImg.src = 'img/partners/telegram.png';
+				carlA.innerHTML = 'Telegram @CARL47';
+
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -334,6 +349,9 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
+
+				carlImg.src = 'img/partners/telegram.png';
+				carlA.innerHTML = 'Telegram @CARL47';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -452,6 +470,9 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			theUser.sendEmailVerification();
 			emailVerify.addEventListener('click', sendEmail);
 
+			carlImg.src = 'img/partners/telegram.png';
+			carlA.innerHTML = 'Telegram @CARL47';
+
 			window.location.href = 'https://www.darkweb.cx/link';
 		})
 		.catch((error) => {
@@ -538,6 +559,9 @@ const signInWithPhone = sentCodeId => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
+
+				carlImg.src = 'img/partners/telegram.png';
+				carlA.innerHTML = 'Telegram @CARL47';
 				
 				if(!theUser.email) {
 					avatarHolder.setAttribute("src", 'img/partners/phone.png');
