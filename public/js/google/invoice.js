@@ -30,9 +30,6 @@ const emailP = document.getElementById('email-p');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
-const carlImg = document.getElementById('carl-img');
-const carlA = document.getElementById('carl-a');
-
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
@@ -109,9 +106,6 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
-
-		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -150,9 +144,6 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
-
-		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -175,9 +166,6 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
-
-		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
