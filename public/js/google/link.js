@@ -35,6 +35,10 @@ const anonInvoice = document.getElementById('anon-div');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
+const cxR = document.getElementById('cx-p');
+const linkR = document.getElementsByClassName('link-phone-div')[0];
+const imgR = document.getElementById('cx-img');
+
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -160,6 +164,16 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
+		
+		if(!localStorage.getItem('vx-time')) {
+			cxR.innerHTML = 'Buy Anonymously';
+			linkR.setAttribute('data-bs-target', '#vpnModal');
+			imgR.src = 'img/partners/anonymous.png';
+		} else {
+			cxR.innerHTML = 'Get Phone Invoice';
+			linkR.setAttribute('data-bs-target', '#phoneModal');
+			imgR.src = 'img/partners/phone.png';
+		}
 	}
 
 	if(user.uid){
