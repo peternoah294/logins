@@ -2831,14 +2831,14 @@ ul.countdown li p {
     margin-bottom: 10px !important;
     cursor: pointer !important;
 }
-#phone-check {
+#sms-check {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     cursor: pointer !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
 }
-#email-check {
+#mail-check {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     cursor: pointer !important;
