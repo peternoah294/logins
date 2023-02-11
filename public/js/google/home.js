@@ -47,6 +47,8 @@ const signUp = document.getElementById('signUp');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
+const theMoney = document.getElementById('thetot1');
+
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
