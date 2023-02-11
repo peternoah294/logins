@@ -77,9 +77,11 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
 				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			vpnImg.src = 'img/partners/emails.png';
@@ -113,9 +115,11 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
 				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			var themail = user.email;
@@ -152,6 +156,7 @@ auth.onAuthStateChanged(user => {
 		phoneIn.removeAttribute('data-bs-toggle');
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
@@ -178,17 +183,18 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
-		document.getElementById('settings').removeAttribute('data-bs-toggle');
-
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			if(!localStorage.getItem('deposit-amount')) {
-				document.getElementById('apart').style.display = 'flex';
-				document.getElementById('logsection').style.display = 'none';
-				document.getElementById('logsection2').style.display = 'none';
-				document.getElementsByClassName('clint')[0].style.bottom = '0';
-				document.getElementsByClassName('clint')[0].style.position = 'fixed';
-			}
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
 		}
 	}
 
@@ -744,58 +750,4 @@ if(!window.location.href.includes('5502')) {
 		}
 		return true;
 	}
-}
-
-var inputAmount = document.getElementById('inputAmount');
-var depositBtn = document.getElementById('depositBtn');
-
-const depositBtc = (even) => {
-	even.preventDefault();
-	if(inputAmount.value >= 10 && inputAmount.value <= 500) {
-		localStorage.setItem('deposit-amount', inputAmount.value);
-		localStorage.setItem('depo-left',600);
-		
-
-		$('#depositModal').modal('hide');
-		document.getElementById('depart').style.display = 'flex';
-		document.getElementById('logsection').style.display = 'none';
-		document.getElementById('logsection2').style.display = 'none';
-		document.getElementById('predat').style.display = 'none';
-
-		document.getElementById('your-bal').innerHTML = `Pending Deposit: <span>$${localStorage.getItem('deposit-amount')}</span>`;
-
-		document.getElementsByClassName('depo-p')[0].innerHTML = `
-			There's a deposit amount of 
-			<span>$${localStorage.getItem('deposit-amount')}</span>
-			that is pending. 
-			Visit the deposit page and complete the progress.
-		`;
-
-		document.getElementsByClassName('clint')[0].style.bottom = '0';
-		document.getElementsByClassName('clint')[0].style.position = 'fixed';
-		localStorage.setItem('time-left', 60000);
-	} else {
-		var shortCutFunction = 'success';
-		var msg = `Enter a deposit amount between: <hr class="to-hr"> $10 and $500`;
-		toastr.options = {
-			closeButton: true,
-			debug: false,
-			newestOnTop: true,
-			progressBar: true,
-			positionClass: 'toast-top-full-width',
-			preventDuplicates: true,
-			onclick: null
-		};
-		var $toast = toastr[shortCutFunction](msg);
-		$toastlast = $toast;
-	}
-}
-
-depositBtn.addEventListener('click', depositBtc);
-document.getElementById('the-form').addEventListener('submit', depositBtc);
-
-if(localStorage.getItem('acc-balance')) {
-	vpn.innerHTML = `Balance: $${localStorage.getItem('acc-balance')} <img src="img/partners/bitcoin.png">`;
-} else {
-	vpn.innerHTML = `Balance: $0 <img src="img/partners/bitcoin.png">`;
 }
