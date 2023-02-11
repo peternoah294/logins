@@ -322,7 +322,7 @@ function updateCartTotal() {
                     Get ${JSON.parse(localStorage.getItem('banklogs')).length} Download Links <img src="img/partners/doh.png">
                 `;
                 anonCheck.innerHTML = `
-                    Request Link <img src=${bankImg}>
+                    Request Links <img src="img/partners/doh.png">
                 `;
             } else if(user.email || user.phoneNumber) {
                 showToast.innerHTML = `
