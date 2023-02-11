@@ -1433,7 +1433,6 @@ td {
         font-size: 22px;
         padding: 17px 0 !important;
     }
-    #email-nav,
     #vpn-nav {
         font-size: 23px !important;
     }
@@ -1458,7 +1457,6 @@ td {
         font-size: 18.5px;
         padding: 14px 0 !important;
     }
-    #email-nav,
     #vpn-nav {
         font-size: 19.5px !important;
     }
@@ -1483,7 +1481,6 @@ td {
         font-size: 17px;
         padding: 10px 0 !important;
     }
-    #email-nav,
     #vpn-nav {
         font-size: 18px !important;
     }
@@ -1505,7 +1502,6 @@ td {
         font-size: 17px;
         padding: 9px 0 !important;
     }
-    #email-nav,
     #vpn-nav {
         font-size: 18px !important;
     }
@@ -1522,7 +1518,6 @@ td {
         font-size: 16.5px;
         padding: 8px 0 !important;
     }
-    #email-nav,
     #vpn-nav {
         font-size: 17.5px !important;
     }
@@ -2495,13 +2490,11 @@ ul.countdown li p {
         margin: -3px 0 !important;
     }
 }
-#email-nav,
 #vpn-nav {
     color: rgba(18, 29, 51, 1);
     cursor: pointer;
     border: 1.4px solid rgba(255, 255, 255, 0.5) !important;
 }
-#email-nav::after,
 #vpn-nav::after {
     background: rgba(255, 255, 255, 0.5) !important;
 }
