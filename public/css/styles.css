@@ -298,7 +298,7 @@ blink.high {
   color: #86bc42;
   transition: all 0.7s ease;
 }
-#depositModal .modal-content,
+#linkModal .modal-content,
 #emailModal .modal-content,
 #loginModal .modal-content,
 #phoneModal .modal-content,
@@ -340,7 +340,7 @@ blink.high {
   border: 1.4px solid rgba(134, 188, 66, 0.7) !important;
   box-shadow: 0px 5px 10px 0px rgba(134, 188, 66, 0.3);
 }
-#depositModal .modal-header .close img,
+#linkModal .modal-header .close img,
 #emailModal .modal-header .close img,
 #loginModal .modal-header .close img,
 #phoneModal .modal-header .close img,

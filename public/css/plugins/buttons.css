@@ -1570,7 +1570,7 @@ td {
 #loginModal .modal-dialog {
     top: 10vh !important;
 }
-#depositModal .modal-dialog {
+#linkModal .modal-dialog {
     top: 10vh !important;
 }
 #emailModal .modal-dialog {
@@ -1579,7 +1579,7 @@ td {
 @media screen and (max-width: 821px) {
     #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #loginModal .modal-dialog,
     #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
@@ -1594,7 +1594,7 @@ td {
 }
 @media screen and (max-width: 769px) {
     #emailModal .modal-dialog,
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #loginModal .modal-dialog,
     #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
@@ -1617,7 +1617,7 @@ td {
         top: 20vh !important;
         max-width: 80vw !important;
     }
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1638,7 +1638,7 @@ td {
         top: 20vh !important;
         max-width: 84vw !important;
     }
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1659,7 +1659,7 @@ td {
         top: 20vh !important;
         max-width: 85vw !important;
     }
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1680,7 +1680,7 @@ td {
         top: 20vh !important;
         max-width: 85vw !important;
     }
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1701,7 +1701,7 @@ td {
         top: 20vh !important;
         max-width: 88vw !important;
     }
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1722,7 +1722,7 @@ td {
         top: 20vh !important;
         max-width: 87vw !important;
     }
-    #depositModal .modal-dialog,
+    #linkModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1741,7 +1741,7 @@ td {
 }
 #verifyModal .modal-dialog,
 #emailModal .modal-dialog,
-#depositModal .modal-dialog,
+#linkModal .modal-dialog,
 #loginModal .modal-dialog,
 #phoneModal .modal-dialog,
 #vpnModal .modal-dialog,
@@ -1750,7 +1750,7 @@ td {
 }
 #verifyModal .modal-header,
 #emailModal .modal-header,
-#depositModal .modal-header,
+#linkModal .modal-header,
 #loginModal .modal-header,
 #phoneModal .modal-header,
 #vpnModal .modal-header,
@@ -1761,7 +1761,7 @@ td {
 }
 #verifyModal .modal-header img,
 #emailModal .modal-header img,
-#depositModal .modal-header img,
+#linkModal .modal-header img,
 #loginModal .modal-header img,
 #phoneModal .modal-header img,
 #vpnModal .modal-header img,
@@ -1770,7 +1770,7 @@ td {
 }
 #verifyModal .modal-header h4.modal-title,
 #emailModal .modal-header h4.modal-title,
-#depositModal .modal-header h4.modal-title,
+#linkModal .modal-header h4.modal-title,
 #loginModal .modal-header h4.modal-title,
 #phoneModal .modal-header h4.modal-title,
 #vpnModal .modal-header h4.modal-title,
@@ -1779,7 +1779,7 @@ td {
 }
 #verifyModal .modal-header .close img,
 #emailModal .modal-header .close img,
-#depositModal .modal-header .close img,
+#linkModal .modal-header .close img,
 #loginModal .modal-header .close img,
 #phoneModal .modal-header .close img,
 #vpnModal .modal-header .close img,
@@ -1790,7 +1790,7 @@ td {
 }
 #verifyModal .modal-header .close img:hover,
 #emailModal .modal-header .close img:hover,
-#depositModal .modal-header .close img:hover,
+#linkModal .modal-header .close img:hover,
 #loginModal .modal-header .close img:hover,
 #phoneModal .modal-header .close img:hover,
 #vpnModal .modal-header .close img:hover,
@@ -1799,7 +1799,7 @@ td {
 }
 #verifyModal .modal-footer,
 #emailModal .modal-footer,
-#depositModal .modal-footer,
+#linkModal .modal-footer,
 #loginModal .modal-footer,
 #phoneModal .modal-footer,
 #vpnModal .modal-footer,
@@ -1810,7 +1810,7 @@ td {
 }
 #verifyModal .modal-body,
 #emailModal .modal-body,
-#depositModal .modal-body,
+#linkModal .modal-body,
 #loginModal .modal-body,
 #phoneModal .modal-body,
 #coModal .modal-body,
@@ -1822,7 +1822,7 @@ td {
 }
 #verifyModal .modal-backdrop div p,
 #emailModal .modal-backdrop div p,
-#depositModal .modal-backdrop div p,
+#linkModal .modal-backdrop div p,
 #loginModal .modal-backdrop div p,
 #phoneModal .modal-backdrop div p,
 #exampleModal .modal-body div p {
@@ -1830,7 +1830,7 @@ td {
 }
 #verifyModal .modal-body,
 #emailModal .modal-body,
-#depositModal .modal-body,
+#linkModal .modal-body,
 #loginModal .modal-body,
 #phoneModal .modal-body {
     text-align: center !important;
@@ -2661,7 +2661,7 @@ ul.countdown li p {
 #verifyModal .butn.modal-btn,
 #phoneModal .butn.modal-btn,
 #emailModal .butn.modal-btn,
-#depositModal .butn.modal-btn,
+#linkModal .butn.modal-btn,
 #loginModal .butn.modal-btn {
     margin: 1vh 0 !important;
 }
@@ -2822,7 +2822,7 @@ ul.countdown li p {
 }
 #phoneModal span,
 #emailModal span,
-#depositModal span,
+#linkModal span,
 #loginModal span {
     color: yellow !important;
 }

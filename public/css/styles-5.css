@@ -267,7 +267,7 @@ blink.high {
 .owl-carousel .owl-nav button.owl-prev {
   border: 1.4px solid rgba(250, 183, 2, 1);
 }
-#depositModal .modal-content,
+#linkModal .modal-content,
 #emailModal .modal-content,
 #loginModal .modal-content,
 #phoneModal .modal-content,
@@ -309,7 +309,7 @@ blink.high {
   border: 1.4px solid rgba(250, 183, 2, 0.7) !important;
   box-shadow: 0px 5px 10px 0px rgba(250, 183, 2, 0.3);
 }
-#depositModal .modal-header .close img,
+#linkModal .modal-header .close img,
 #emailModal .modal-header .close img,
 #loginModal .modal-header .close img,
 #phoneModal .modal-header .close img,
