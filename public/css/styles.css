@@ -17,7 +17,6 @@
   box-shadow: 0 0 0 1px rgb(225, 238, 208) !important;
 }
 #copy-text,
-.lesnar,
 .butn.white.in-cart,
 .butn.in-cart,
 #cartlength,
@@ -323,6 +322,8 @@ blink.high {
 .custom-file-label::after,
 #tele-home,
 #tele-link,
+.lesnar,
+.gold,
 #vpn,
 #showtoasts,
 #thetot1, 
@@ -331,7 +332,9 @@ blink.high {
   box-shadow: 0 0 0 1px rgb(195, 222, 161);
   color: rgb(37, 56, 54) !important;
 }
-
+.lesnar {
+  background: rgb(225, 238, 17) !important;
+}
 .modal-body div p,
 .account {
   border: 1.4px solid rgba(134, 188, 66, 0.3);
