@@ -126,6 +126,8 @@ auth.onAuthStateChanged(user => {
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+
+		theMoney.setAttribute('href', 'link');
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -176,6 +178,8 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+
+		theMoney.setAttribute('href', 'link');
 		email5.innerHTML = user.email;
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
@@ -198,6 +202,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+
+		theMoney.setAttribute('href', 'link');
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -236,6 +242,8 @@ auth.onAuthStateChanged(user => {
 		email5.innerHTML = `Logged in anonymously, you can link a valid email address on the confirm page to get an email invoice`;
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 		vpnImg.src = 'img/partners/anonymous.png';
+
+		theMoney.setAttribute('href', 'invoice');
 	}
 
 
@@ -336,6 +344,8 @@ const signUpFunction = () => {
 				vpnImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 
+				theMoney.setAttribute('href', 'link');
+
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -404,6 +414,8 @@ const signUpFunction = () => {
 				thenoPic2.style.display = 'none';
 				vpnImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+
+				theMoney.setAttribute('href', 'link');
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -564,6 +576,8 @@ const signInWithPhone = sentCodeId => {
 				nameHolder2.value = theUser.phoneNumber;
 				nameHolder3.value = theUser.phoneNumber;
 				email5.innerHTML = theUser.phoneNumber;
+
+				theMoney.setAttribute('href', 'link');
 
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
