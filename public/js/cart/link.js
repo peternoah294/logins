@@ -3,10 +3,14 @@ var table3 = jQuery('#example1').DataTable();
 var setBtn = document.getElementById('settings');
 var wouldYou = document.getElementById('would');
 var anonDiv = document.getElementById('anon-div');
+var theClint = document.getElementsByClassName('clint')[0];
 
 if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('confirm').style.display = 'flex';
     document.getElementById('logs-invoice').style.display = 'none';
+
+    theClint.style.position = 'fixed';
+    theClint.style.bottom = '0';
 } else {
     document.getElementById('confirm').style.display = 'none';
     document.getElementById('logs-invoice').style.display = 'flex';
@@ -147,13 +151,13 @@ function updateCartTotal() {
         const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
 
         if (window.innerWidth > 768) {
-            anonDiv.style.marginTop = '11vh';
+            anonDiv.style.marginTop = '9vh';
         } else if(window.innerWidth >= 390) {
-            anonDiv.style.marginTop = '17vh';
-        } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '15vh';
+        } else if(window.innerWidth >= 375) {
+            anonDiv.style.marginTop = '13vh';
         } else if(window.innerWidth >= 370) {
-            anonDiv.style.marginTop = '12vh';
+            anonDiv.style.marginTop = '10vh';
         }
 
         wouldYou.innerHTML = `
