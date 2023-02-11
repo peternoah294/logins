@@ -164,16 +164,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
-		
-		if(!localStorage.getItem('vx-time')) {
-			cxR.innerHTML = 'Buy Anonymously';
-			linkR.setAttribute('data-bs-target', '#vpnModal');
-			imgR.src = 'img/partners/anonymous.png';
-		} else {
-			cxR.innerHTML = 'Get Phone Invoice';
-			linkR.setAttribute('data-bs-target', '#phoneModal');
-			imgR.src = 'img/partners/phone.png';
-		}
 	}
 
 	if(user.uid){
