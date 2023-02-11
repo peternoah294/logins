@@ -277,7 +277,7 @@ function updateCartTotal() {
                     Get Download Link <img src="img/partners/doh.png">
                 `;
                 anonCheck.innerHTML = `
-                    Request Now <img src=${bankImg}>
+                    Request Link <img src=${bankImg}>
                 `;
             } else if(user.email || user.phoneNumber) {
                 showToast.innerHTML = `
@@ -322,7 +322,7 @@ function updateCartTotal() {
                     Get ${JSON.parse(localStorage.getItem('banklogs')).length} Download Links <img src="img/partners/doh.png">
                 `;
                 anonCheck.innerHTML = `
-                    Request Now <img src=${bankImg}>
+                    Request Link <img src=${bankImg}>
                 `;
             } else if(user.email || user.phoneNumber) {
                 showToast.innerHTML = `
