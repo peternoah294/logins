@@ -341,9 +341,10 @@ blink.high {
 .thehr {
   border: 0.7px solid rgba(0, 115, 173, 0.3);
 }
-#vpn-nav {
-  border: 1.4px solid rgba(0, 115, 173, 0.92);
-  background: rgba(0, 115, 173, 0.92);
+.gold#vpn-nav {
+  border: 1px solid rgb(14, 49, 79) !important;
+  background: rgb(85, 162, 200) !important;
+  box-shadow: 0 0 0 1px rgb(85, 162, 200) !important;
 }
 #canvas3,
 #canvas,
