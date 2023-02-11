@@ -342,6 +342,7 @@ blink.high {
 .thehr {
   border: 0.7px solid rgba(73, 192, 208, 0.3);
 }
+.navbar-nav li.nav-small.open a,
 .gold#vpn-nav {
   border: 1px solid rgb(31, 67, 87) !important;
   background: rgb(134, 213, 224) !important;
