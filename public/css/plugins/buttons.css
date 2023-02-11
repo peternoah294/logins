@@ -2831,6 +2831,18 @@ ul.countdown li p {
     margin-bottom: 10px !important;
     cursor: pointer !important;
 }
+#phone-check {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    cursor: pointer !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+#email-check {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    cursor: pointer !important;
+}
 .clients img {
     opacity: 1;
     -webkit-transition-duration: 0.3s;

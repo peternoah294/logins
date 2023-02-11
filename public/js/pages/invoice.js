@@ -111,6 +111,6 @@ auth.onAuthStateChanged(user => {
         });
     } else if(user.isAnonymous) {
         toastbut.setAttribute('data-bs-toggle', 'modal');
-        toastbut.setAttribute('data-bs-target', '#loginModal');
+        toastbut.setAttribute('data-bs-target', '#linkModal');
     }
 });

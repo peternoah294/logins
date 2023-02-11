@@ -526,7 +526,7 @@
                         EMAIL INVOICE
                     </h4>
                 </div>
-                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-cloze" data-bs-toggle="modal" data-bs-target="#loginModal"></button>
             </div>
             <div class="modal-body">
                 <p class="modal-p" id="ver-email">
@@ -579,6 +579,42 @@
     </div>   
 </div>
 
+<div class="modal fade" id="linkModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="section-heading">
+                    <h4 class="set">
+                        DOWNLOAD LINK
+                    </h4>
+                </div>
+                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-p" id="ver-p">
+                    Bank log files can be sent via <span>email</span> 
+                    or via <span>sms</span> as a dynamic link that expires after 7 hours.
+                </p>
+
+                <hr class="thehr">
+                <li class="next">
+                    <a class="butn modal-btn" id="email-check" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Email Invoice <img src="img/partners/emails.png">
+                    </a>
+                </li>
+
+                <hr class="thehr">
+                <li class="next">
+                    <a class="butn modal-btn" id="phone-check" data-bs-toggle="modal" data-bs-target="#phoneModal">
+                        Phone Invoice <img src="img/partners/phone.png">
+                    </a>
+                </li>
+
+            </div>
+        </div>
+    </div>   
+</div>
+
 <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -618,7 +654,7 @@
                         PHONE INVOICE
                     </h4>
                 </div>
-                <button type="button" class="btn-cloze" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-cloze" data-bs-toggle="modal" data-bs-target="#linkModal"></button>
             </div>
             <div class="modal-body">
                 <p class="modal-p">
