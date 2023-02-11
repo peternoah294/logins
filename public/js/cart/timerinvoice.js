@@ -5,7 +5,7 @@ var coastDis = localStorage.getItem('divtotal');
 
 auth.onAuthStateChanged(user => {
         
-    if(localStorage.getItem('banklogs') && !localStorage.getItem('deposit-amount') && !localStorage.getItem('received-funds')) {
+    if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
             var elemj = document.getElementById('pablos');        
             var width = localStorage.getItem('time-left');
