@@ -2705,6 +2705,7 @@ ul.countdown li p {
     margin: 10px auto !important;
     line-height: 30px !important;
 }
+#link-p,
 #ver-p,
 #email-p,
 #anon-p {
@@ -2718,6 +2719,7 @@ ul.countdown li p {
     .modal-p {
         font-size: 18px !important;
     }
+    #link-p,
     #ver-p,
     #email-p,
     #anon-p {
