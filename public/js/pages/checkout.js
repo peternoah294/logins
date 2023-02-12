@@ -270,24 +270,12 @@ function updateCartTotal() {
             downFile.innerHTML = bankLog.split('[')[0];
         }
 
-
-        auth.onAuthStateChanged(user => {        
-            if(user.isAnonymous){
-                showToast.innerHTML = `
-                    Get Download Link <img src="img/partners/doh.png">
-                `;
-                anonCheck.innerHTML = `
-                    Request Link <img src=${bankImg}>
-                `;
-            } else if(user.email || user.phoneNumber) {
-                showToast.innerHTML = `
-                    Download 1 Bank Log <img src="img/partners/doh.png">
-                `;
-                anonCheck.innerHTML = `
-                    Download File <img src=${bankImg}>
-                `;
-            }
-        });
+        showToast.innerHTML = `
+            Download 1 Bank Log <img src="img/partners/doh.png">
+        `;
+        anonCheck.innerHTML = `
+            Download File <img src=${bankImg}>
+        `;
 
         anonP.innerHTML = `
             ${bankLog.replace(']',' ACCOUNT]')} with <span>${bankBal}</span> <hr class="thehr">
@@ -316,25 +304,14 @@ function updateCartTotal() {
             logItems.prepend(logRow);
         }
         
-        auth.onAuthStateChanged(user => {        
-            if(user.isAnonymous){
-                showToast.innerHTML = `
-                    Get ${JSON.parse(localStorage.getItem('banklogs')).length} Download Links <img src="img/partners/doh.png">
-                `;
-                anonCheck.innerHTML = `
-                    Request Links <img src="img/partners/doh.png">
-                `;
-            } else if(user.email || user.phoneNumber) {
-                showToast.innerHTML = `
-                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
-                    <img src="img/partners/doh.png">
-                `;
-                anonCheck.innerHTML = `
-                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
-                    <img src="img/partners/doh.png">
-                `;
-            }
-        });
+        showToast.innerHTML = `
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
+            <img src="img/partners/doh.png">
+        `;
+        anonCheck.innerHTML = `
+            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+            <img src="img/partners/doh.png">
+        `;
 
         downFile.innerHTML = 'Bank Log Files';
 
