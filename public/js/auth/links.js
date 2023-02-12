@@ -231,7 +231,7 @@ const signUpFunction = () => {
 		url: 'https://www.darkweb.cx/link',
 		handleCodeInApp: true,
 	};
-	if((email.includes('@gmail.com') || email.includes('@GMAIL.COM')) && !email.includes('peternoah294@gmail.com')) {
+	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
 		const googleProvider = new firebase.auth.GoogleAuthProvider;
 		const theUser = auth.currentUser;
 		theUser.linkWithPopup(googleProvider).then(() => {
