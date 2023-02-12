@@ -16,7 +16,7 @@ if(localStorage.getItem('darkweb-verify-cx')) {
 if(localStorage.getItem('cx-out')) {
 	localStorage.removeItem('cx-out');
 }
-
+localStorage.setItem('banklogs',[]);
 
 var firebaseConfig = {
 	apiKey: "AIzaSyCu_nRoURohiSg1EiPq0-j688c7h8huVb0",
