@@ -541,7 +541,11 @@ const signInWithPhone = sentCodeId => {
 					logoHolder.style.display = 'none';
 					thePic.style.display = 'none';
 				} else {
-					thanImg.src = 'img/partners/mail.png';
+					if(theUser.email.includes('yahoo.com')){
+						thanImg.src = 'img/partners/yahoo.png';
+					} else {
+						thanImg.src = 'img/partners/google.png';
+					}
 					thanVerify.addEventListener('click', sendEmail);
 					thanInvoice.style.display = 'flex';
 					thanPhone.innerText = theUser.phoneNumber;
