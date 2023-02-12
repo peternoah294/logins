@@ -19,7 +19,7 @@
 .butn.ver-btn,
 .butn.home-btn, 
 .butn.phone-btn {
-    margin: 3vh 0 1vh;
+    margin: 3vh 1vh 1vh;
     color: #121d33 !important;
     font-size: 22px;
     cursor: pointer !important;
