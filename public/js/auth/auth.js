@@ -30,6 +30,9 @@ const signUp = document.getElementById('signUp');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
+const carlImg = document.getElementById('carl-img');
+const carlA = document.getElementById('carl-a');
+
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
@@ -90,6 +93,9 @@ auth.onAuthStateChanged(user => {
 		phoneIn.innerText = user.phoneNumber;
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @carl47';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -117,6 +123,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @carl47';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -125,6 +134,9 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @carl47';
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -239,6 +251,9 @@ const signUpFunction = () => {
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 
+				carlImg.src = 'img/partners/telegram.png';
+				carlA.innerHTML = 'Telegram @carl47';
+
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -294,6 +309,9 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				carlImg.src = 'img/partners/telegram.png';
+				carlA.innerHTML = 'Telegram @carl47';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -438,6 +456,9 @@ const signInWithPhone = sentCodeId => {
 				jinaHolder3.value = theUser.phoneNumber;
 				phoneIn.removeAttribute('data-bs-toggle');
 				phoneIn.innerText = theUser.phoneNumber;
+
+				carlImg.src = 'img/partners/telegram.png';
+				carlA.innerHTML = 'Telegram @carl47';
 				
 				if(!theUser.email) {
 					vpnImg.src = 'img/partners/phone.png';

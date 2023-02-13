@@ -32,6 +32,9 @@ const emailInvoice = document.getElementById('email-div');
 const phoneInvoice = document.getElementById('phone-div');
 const anonInvoice = document.getElementById('anon-div');
 
+const carlImg = document.getElementById('carl-img');
+const carlA = document.getElementById('carl-a');
+
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 

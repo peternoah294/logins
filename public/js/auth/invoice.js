@@ -27,6 +27,9 @@ const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
 const emailP = document.getElementById('email-p');
 
+const carlImg = document.getElementById('carl-img');
+const carlA = document.getElementById('carl-a');
+
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 

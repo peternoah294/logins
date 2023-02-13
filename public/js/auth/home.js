@@ -34,6 +34,9 @@ const email5 = document.getElementById('yourEmail5');
 const thePic2 = document.getElementById('the-pic2');
 const thenoPic2 = document.getElementById('the-nopic2');
 
+const carlImg = document.getElementById('carl-img');
+const carlA = document.getElementById('carl-a');
+
 const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
 
