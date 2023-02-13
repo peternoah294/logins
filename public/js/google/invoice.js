@@ -160,7 +160,8 @@ auth.onAuthStateChanged(user => {
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
-		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+		vpn.innerHTML = `Email Invoice <img src="img/partners/emails.png">`;
+		vpn.setAttribute('data-bs-target', '#loginModal');
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
