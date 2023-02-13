@@ -110,8 +110,8 @@
 }
 @media screen and (max-width: 500px) {
   #settings {
-    left: 26.5%;
-    right: 26.5%;
+    left: 26%;
+    right: 26%;
   }
 }
 
