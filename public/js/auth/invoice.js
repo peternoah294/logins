@@ -33,8 +33,6 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
-const theSet = document.getElementById('settings');
-
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -42,8 +40,6 @@ const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
-
-const saveBtn = document.getElementById('anon-check');
 
 if(!window.location.href.includes('arkweb')){
 	if(!window.location.href.includes('5502')) {
