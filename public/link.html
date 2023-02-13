@@ -427,13 +427,14 @@
 
                                         <hr class="nohr">
 
-                                        <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                        <div style="display: inline-block" class="link-than-div" data-bs-toggle="modal" data-bs-target="#loginModal">
                                             <div class="invoice">
                                                 <img src="img/partners/emails.png">
-                                                <a class="butn phone-btn">
+                                                <a class="butn ver-btn" id="cx-w">
                                                     Email Invoice
                                                 </a>
                                             </div>
+                                            <blink class="disc">Discount</blink>
                                         </div>        
                 
                                     </div>
@@ -772,6 +773,7 @@
         var theLog1 = document.getElementById('cart-logo');
         var theLog2 = document.getElementById('the-nopic');
         var cxC = document.getElementById('than-verify');
+        var cxW = document.getElementById('cx-w');
         if (window.innerWidth > 768) {
             theC.setAttribute('href', 'css/styles-8.css');
             theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -785,6 +787,9 @@
 
             cxC.classList.remove('ver-btn');
             cxC.classList.add('phone-btn');
+
+            cxW.classList.remove('ver-btn');
+            cxW.classList.add('phone-btn');
         } 
     </script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
