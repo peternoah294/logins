@@ -135,6 +135,21 @@ auth.onAuthStateChanged(user => {
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
 		} 
+
+		
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Mail: <span>${user.email}</span>, <br>
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Mail: <span>${user.email}</span>, <br>
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);

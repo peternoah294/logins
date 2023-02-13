@@ -246,7 +246,7 @@ function updateCartTotal() {
     var titleLog2 = document.getElementById('titlelogs2');
     var modalAmount = document.getElementById('modal-amount');
 
-    var discountTotal = parseInt((total * 0.8).toFixed(0));
+    var discountTotal = parseInt((total * 0.9).toFixed(0));
     localStorage.setItem('divtotal', discountTotal);
     var disTot = localStorage.getItem('divtotal');
 
