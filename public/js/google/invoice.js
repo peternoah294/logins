@@ -152,8 +152,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber;
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		phoneIn.removeAttribute('data-bs-toggle');
-		phoneIn.innerText = user.phoneNumber;
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
+		phoneIn.innerText = theUser.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 

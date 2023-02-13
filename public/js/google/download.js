@@ -142,8 +142,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		phoneIn.removeAttribute('data-bs-toggle');
-		phoneIn.innerText = user.phoneNumber;
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
+		phoneIn.innerText = theUser.phoneNumber;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
 			Send $70 to complete your download.

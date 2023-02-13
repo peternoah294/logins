@@ -100,8 +100,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 
-		phoneIn.innerText = user.phoneNumber;
-		phoneIn.removeAttribute('data-bs-toggle');
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
+		phoneIn.innerText = theUser.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#exampleModal');
@@ -151,8 +151,8 @@ auth.onAuthStateChanged(user => {
 		phoneInvoice.style.display = 'flex';
 		yourPhone.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
-		phoneIn.removeAttribute('data-bs-toggle');
-		phoneIn.innerText = user.phoneNumber;
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
+		phoneIn.innerText = theUser.phoneNumber;
 
 		theClint.style.position = 'fixed';
 		theClint.style.bottom = '0';
@@ -489,12 +489,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 }
 
 
-
-// window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-// recaptchaVerifier.render().then(widgetId => {
-// 	window.recaptchaWidgetId = widgetId;
-// });
-
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
 });
@@ -558,7 +552,7 @@ const signInWithPhone = sentCodeId => {
 				jinaHolder3.value = theUser.phoneNumber;
 
 				emailIn.removeAttribute('data-bs-toggle');
-				phoneIn.removeAttribute('data-bs-toggle');
+				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
 
 				theClint.style.position = 'fixed';

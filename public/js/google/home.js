@@ -193,7 +193,7 @@ auth.onAuthStateChanged(user => {
 			}
 		}
 
-		phoneIn.removeAttribute('data-bs-toggle');
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
@@ -553,7 +553,7 @@ const signInWithPhone = sentCodeId => {
 				isAnonymous: false
 			}).then(() => {
 				$('#verifyModal').modal('hide');
-				phoneIn.removeAttribute('data-bs-toggle');
+				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
 				jinaHolder4.value = theUser.phoneNumber;

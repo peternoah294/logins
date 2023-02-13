@@ -119,8 +119,8 @@ auth.onAuthStateChanged(user => {
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-		phoneIn.removeAttribute('data-bs-toggle');
-		phoneIn.innerText = user.phoneNumber;
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
+		phoneIn.innerText = theUser.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
@@ -442,7 +442,7 @@ const signInWithPhone = sentCodeId => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
-				phoneIn.removeAttribute('data-bs-toggle');
+				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
 
 				if(!theUser.email) {
