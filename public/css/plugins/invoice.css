@@ -102,11 +102,11 @@
 #settings img {
     width: 25px !important;
 	height: 25px !important;
-	margin: -3px auto -1px 0px !important;
+	margin: -3px auto -1px 3px !important;
 }
 #settings {
-	left: 25%;
-	right: 25%;
+	left: 26%;
+	right: 26%;
 }
 @media screen and (max-width: 500px) {
   #settings {
