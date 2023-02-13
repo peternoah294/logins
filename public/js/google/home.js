@@ -130,7 +130,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 
 		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/darkwebcx');
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -184,7 +185,8 @@ auth.onAuthStateChanged(user => {
 		email5.innerHTML = user.email;
 
 		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/darkwebcx');
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -208,7 +210,8 @@ auth.onAuthStateChanged(user => {
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 
 		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/darkwebcx');
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -348,7 +351,8 @@ const signUpFunction = () => {
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 
 				carlImg.src = 'img/partners/telegram.png';
-				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/darkwebcx');
+				carlA.innerHTML = 'Telegram @CARL47';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -420,7 +424,8 @@ const signUpFunction = () => {
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 
 				carlImg.src = 'img/partners/telegram.png';
-				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/darkwebcx');
+				carlA.innerHTML = 'Telegram @CARL47';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -585,7 +590,8 @@ const signInWithPhone = sentCodeId => {
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 
 				carlImg.src = 'img/partners/telegram.png';
-				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/darkwebcx');
+				carlA.innerHTML = 'Telegram @CARL47';
 
 				if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 					goodies = JSON.parse(localStorage.getItem('banklogs'));

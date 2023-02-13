@@ -119,7 +119,8 @@ auth.onAuthStateChanged(user => {
 		theClint.style.bottom = '0';
 
 		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/darkwebcx');
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -152,7 +153,8 @@ auth.onAuthStateChanged(user => {
 		emailVerify.addEventListener('click', sendEmail);
 
 		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/darkwebcx');
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -167,7 +169,8 @@ auth.onAuthStateChanged(user => {
 		theClint.style.bottom = '0';
 
 		carlImg.src = 'img/partners/telegram.png';
-		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/darkwebcx');
+		carlA.innerHTML = 'Telegram @CARL47';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -299,7 +302,8 @@ const signUpFunction = () => {
 				emailIn.addEventListener('click', sendEmail);
 
 				carlImg.src = 'img/partners/telegram.png';
-				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/darkwebcx');
+				carlA.innerHTML = 'Telegram @CARL47';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -368,7 +372,8 @@ const signUpFunction = () => {
 				emailIn.addEventListener('click', sendEmail);
 
 				carlImg.src = 'img/partners/telegram.png';
-				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/darkwebcx');
+				carlA.innerHTML = 'Telegram @CARL47';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -482,7 +487,8 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			vpnImg.src = 'img/partners/emails.png';
 
 			carlImg.src = 'img/partners/telegram.png';
-			carlA.innerHTML = 'Telegram @carl47';
+			carlA.setAttribute('href', 'https://t.me/darkwebcx');
+			carlA.innerHTML = 'Telegram @CARL47';
 				
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
@@ -581,7 +587,8 @@ const signInWithPhone = sentCodeId => {
 				theClint.style.bottom = '0';
 				
 				carlImg.src = 'img/partners/telegram.png';
-				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/darkwebcx');
+				carlA.innerHTML = 'Telegram @CARL47';
 				
 				if(!theUser.email) {
 					avatarHolder.setAttribute("src", 'img/partners/phone.png');
