@@ -19,7 +19,7 @@
 .butn.ver-btn,
 .butn.home-btn, 
 .butn.phone-btn {
-    margin: 3vh 1vh 1vh;
+    margin: 3vh 3vh 1vh 1vh;
     color: #121d33 !important;
     font-size: 22px;
     cursor: pointer !important;
@@ -27,6 +27,13 @@
     white-space: nowrap !important;
     padding: 7.5px 14px;
     box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
+}
+@media screen and (max-width: 770px) {
+    .butn.ver-btn,
+    .butn.home-btn, 
+    .butn.phone-btn {
+        margin: 3vh 2vh 1vh 0;
+    }
 }
 .butn.home-btn {
     padding: 7.5px 16px;
@@ -274,6 +281,23 @@ blink {
     }
 }
 
+blink.disc {
+    position: relative !important;
+    top: -75px !important;
+    left: 90px !important;
+    z-index: 999 !important;
+}
+@media screen and (max-width: 500px) {
+    blink.disc {
+        left: 75px !important;
+    }
+}
+@media screen and (max-width: 380px) {
+    blink.disc {
+        left: 70px !important;
+    }
+}
+
 #invoice-body-div {
     margin: 0 !important;
     background: #fff !important;
@@ -291,6 +315,10 @@ blink {
 .link-email-div {
     margin-top: -3px !important;
     margin-bottom: -18px !important;
+}
+.link-than-div {
+    margin-top: 4px !important;
+    margin-bottom: -25px !important;
 }
 .link-phone-div {
     margin-top: 0px !important;
