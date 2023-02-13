@@ -109,6 +109,9 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @carl47';
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -135,6 +138,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @carl47';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -158,6 +164,9 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.innerHTML = 'Telegram @carl47';
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
