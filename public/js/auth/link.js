@@ -144,9 +144,6 @@ auth.onAuthStateChanged(user => {
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
-
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -289,9 +286,6 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
-
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -357,9 +351,6 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -477,9 +468,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			anonInvoice.style.display = 'none';
 			theUser.sendEmailVerification();
 			emailVerify.addEventListener('click', sendEmail);
-
-			theClint.style.position = 'fixed';
-			theClint.style.bottom = '0';
 
 			window.location.href = 'https://www.darkweb.cx/link';
 		})

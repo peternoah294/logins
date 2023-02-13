@@ -349,9 +349,9 @@
                                 <div id="email-invoice">
                                     <div class="text-center section-heading">
                                         <p>
-                                            Bank log files will be sent to your email <span id="yourEmail"></span>.
+                                            Bank log files will be sent to your email <span id="yourEmail"></span>, after a successful purchase
                                             <br>
-                                            Secure your purchase by getting a <span>phone invoice</span>.
+                                            Check the <span>spam / junk</span> folder.
                                         </p>
                                         <hr class="nohr">
                                         <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#vpnModal">
@@ -359,6 +359,18 @@
                                                 <img src="img/partners/btc.png">
                                                 <a class="butn home-btn" id="email-check">
                                                     
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="nohr">
+
+                                        <hr class="nohr">
+                                        <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/phone.png">
+                                                <a class="butn phone-btn">
+                                                    Phone Invoice
                                                 </a>
                                             </div>
                                         </div>
@@ -746,7 +758,6 @@
         var theLog1 = document.getElementById('cart-logo');
         var theLog2 = document.getElementById('the-nopic');
         var cxC = document.getElementById('than-verify');
-        var cxB = document.getElementById('email-verify');
         if (window.innerWidth > 768) {
             theC.setAttribute('href', 'css/styles-8.css');
             theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -760,8 +771,6 @@
 
             cxC.classList.remove('ver-btn');
             cxC.classList.add('phone-btn');
-            cxB.classList.remove('ver-btn');
-            cxB.classList.add('phone-btn');
         } 
     </script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
