@@ -415,9 +415,8 @@ logOut.addEventListener('click', () => {
 	}
 })
 
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-recaptchaVerifier.render().then(widgetId => {
-	window.recaptchaWidgetId = widgetId;
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+    'size': 'invisible'
 });
 const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
