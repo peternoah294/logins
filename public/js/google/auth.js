@@ -375,9 +375,8 @@ signUp.addEventListener('click', signUpFunction);
 document.getElementById('the-form').addEventListener('submit', signUpFunction);
 
 
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-recaptchaVerifier.render().then(widgetId => {
-	window.recaptchaWidgetId = widgetId;
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+    'size': 'invisible'
 });
 const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
