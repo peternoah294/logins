@@ -103,13 +103,26 @@ window.addEventListener("load", () => {
   let binance = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1h");
   let bitcoin = document.getElementById("the-one");
 
+  const auth2 = firebase.auth();
+
   binance.onmessage = event => {
     let confirm = JSON.parse(event.data);
-      if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length == 1)){
-        bitcoin.innerHTML = (localStorage.getItem('banktotal') / parseFloat(confirm.k.c)).toFixed(5)
-      } else if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length > 1)){
-        bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
+
+    auth2.onAuthStateChanged(user => {
+      if(user.email && user.phoneNumber) {
+        if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length == 1)){
+          bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
+        } else if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length > 1)){
+          bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
+        }
+      } else {
+        if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length == 1)){
+          bitcoin.innerHTML = (localStorage.getItem('banktotal') / parseFloat(confirm.k.c)).toFixed(5)
+        } else if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length > 1)){
+          bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
+        }
       }
+    });
   }
   
   document.getElementById("copy-text").addEventListener("click", function (ev) {
