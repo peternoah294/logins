@@ -19,12 +19,8 @@
 .butn.white.in-cart,
 .butn.in-cart,
 #cartlength,
-#copy, 
 .home-btn {
   background: rgb(191, 220, 43) !important;
-}
-#copy2 {
-  background: rgb(170, 208, 58) !important;
 }
 .home-btn:hover {
   border: 1.4px solid rgb(210, 230, 31) !important;
