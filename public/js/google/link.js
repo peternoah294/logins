@@ -101,7 +101,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber;
 
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
-		phoneIn.innerText = theUser.phoneNumber;
+		phoneIn.innerText = user.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#exampleModal');
@@ -152,7 +152,7 @@ auth.onAuthStateChanged(user => {
 		yourPhone.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
-		phoneIn.innerText = theUser.phoneNumber;
+		phoneIn.innerText = user.phoneNumber;
 
 		theClint.style.position = 'fixed';
 		theClint.style.bottom = '0';

@@ -102,7 +102,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
-		phoneIn.innerText = theUser.phoneNumber;
+		phoneIn.innerText = user.phoneNumber;
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -145,7 +145,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
-		phoneIn.innerText = theUser.phoneNumber;
+		phoneIn.innerText = user.phoneNumber;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
 			Send $70 to complete your download.
