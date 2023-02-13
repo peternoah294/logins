@@ -250,82 +250,191 @@ function updateCartTotal() {
     localStorage.setItem('divtotal', discountTotal);
     var disTot = localStorage.getItem('divtotal');
 
-    if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-        const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
-        const bankBal = (JSON.parse(localStorage.getItem('banklogs'))[0].balance);
-        const bankImg = (JSON.parse(localStorage.getItem('banklogs'))[0].image);
 
-        const banking1 = (JSON.parse(localStorage.getItem('banklogs'))[0].info1);
-        const banking2 = (JSON.parse(localStorage.getItem('banklogs'))[0].info2);
-        const banking3 = (JSON.parse(localStorage.getItem('banklogs'))[0].info3);
-        const banking4 = (JSON.parse(localStorage.getItem('banklogs'))[0].info4);
-        const banking5 = (JSON.parse(localStorage.getItem('banklogs'))[0].info5);
-        const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
+    auth.onAuthStateChanged(user => {
+        if(user.email && user.phoneNumber) {
+            
 
-        if(bankLog.includes('Huntington') || bankLog.includes('Woodforest') || bankLog.includes('Barclays')) {
-            downFile.innerHTML = bankLog.split('Bank')[0];
-        } else if(bankLog.includes('America')) {
-            downFile.innerHTML = 'BankofAmerica';
-        } else {
-            downFile.innerHTML = bankLog.split('[')[0];
-        }
 
-        showToast.innerHTML = `
-            Download 1 Bank Log <img src="img/partners/doh.png">
-        `;
-        anonCheck.innerHTML = `
-            Download File <img src=${bankImg}>
-        `;
 
-        anonP.innerHTML = `
-            ${bankLog.replace(']',' ACCOUNT]')} with <span>${bankBal}</span> <hr class="thehr">
-            ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
-        `;
-        titleLog2.innerHTML = `
-            Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
-            Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
-        `;
 
-        modalAmount.innerHTML = `
-            Send $ <span id="omanyala" class="countup">${parseInt(total).toLocaleString()}</span> 
-        `;
-        document.getElementById('disb').style.display = 'none';
-    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1 && JSON.parse(localStorage.getItem('banklogs')).length <= 3) {
-        var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
-
-        for(var i = 0; i < Loginz.length; i++) {
-            var logRow = document.createElement('p');
-            var logItems = document.getElementById('anon-p');
-            logRow.innerHTML = `
-                <hr class="thehr" style="margin-top: -10px !important"> 
-                ${Loginz[i].account.replace(']', ' ACCOUNT]')} with 
-                <span>${Loginz[i].balance}</span>
-            `;
-            logItems.prepend(logRow);
-        }
+            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
+                const bankBal = (JSON.parse(localStorage.getItem('banklogs'))[0].balance);
+                const bankImg = (JSON.parse(localStorage.getItem('banklogs'))[0].image);
         
-        showToast.innerHTML = `
-            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
-            <img src="img/partners/doh.png">
-        `;
-        anonCheck.innerHTML = `
-            Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
-            <img src="img/partners/doh.png">
-        `;
+                const banking1 = (JSON.parse(localStorage.getItem('banklogs'))[0].info1);
+                const banking2 = (JSON.parse(localStorage.getItem('banklogs'))[0].info2);
+                const banking3 = (JSON.parse(localStorage.getItem('banklogs'))[0].info3);
+                const banking4 = (JSON.parse(localStorage.getItem('banklogs'))[0].info4);
+                const banking5 = (JSON.parse(localStorage.getItem('banklogs'))[0].info5);
+                const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
+        
+                if(bankLog.includes('Huntington') || bankLog.includes('Woodforest') || bankLog.includes('Barclays')) {
+                    downFile.innerHTML = bankLog.split('Bank')[0];
+                } else if(bankLog.includes('America')) {
+                    downFile.innerHTML = 'BankofAmerica';
+                } else {
+                    downFile.innerHTML = bankLog.split('[')[0];
+                }
+        
+                showToast.innerHTML = `
+                    Download 1 Bank Log <img src="img/partners/doh.png">
+                `;
+                anonCheck.innerHTML = `
+                    Download File <img src=${bankImg}>
+                `;
+        
+                anonP.innerHTML = `
+                    ${bankLog.replace(']',' ACCOUNT]')} with <span>${bankBal}</span> <hr class="thehr">
+                    ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
+                `;
+                titleLog2.innerHTML = `
+                    Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
+                    Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
+                `;
+        
+                modalAmount.innerHTML = `
+                    Send  <span id="omanyala3">$</span> 
+                    <span id="omanyala2" class="countup">${parseInt(total).toLocaleString()}</span> 
+                    $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span>
+                `;
+                document.getElementById('bitcoin-logo').style.display = 'none';
+            } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1 && JSON.parse(localStorage.getItem('banklogs')).length <= 3) {
+                var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
+        
+                for(var i = 0; i < Loginz.length; i++) {
+                    var logRow = document.createElement('p');
+                    var logItems = document.getElementById('anon-p');
+                    logRow.innerHTML = `
+                        <hr class="thehr" style="margin-top: -10px !important"> 
+                        ${Loginz[i].account.replace(']', ' ACCOUNT]')} with 
+                        <span>${Loginz[i].balance}</span>
+                    `;
+                    logItems.prepend(logRow);
+                }
+                
+                showToast.innerHTML = `
+                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
+                    <img src="img/partners/doh.png">
+                `;
+                anonCheck.innerHTML = `
+                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+                    <img src="img/partners/doh.png">
+                `;
+        
+                downFile.innerHTML = 'Bank Log Files';
+        
+                titleLog2.innerHTML = `
+                    Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
+                    Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
+                `;
+        
+                modalAmount.innerHTML = `
+                    Send  <span id="omanyala3">$</span> 
+                    <span id="omanyala2" class="countup">${parseInt(total).toLocaleString()}</span> 
+                    $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span>
+                `;
+                document.getElementById('bitcoin-logo').style.display = 'none';
+            } 
 
-        downFile.innerHTML = 'Bank Log Files';
 
-        titleLog2.innerHTML = `
-            Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
-            Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
-        `;
 
-        modalAmount.innerHTML = `
-            Send  <span id="omanyala3">$</span> 
-            <span id="omanyala2" class="countup">${parseInt(total).toLocaleString()}</span> 
-            $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span>
-        `;
-        document.getElementById('bitcoin-logo').style.display = 'none';
-    } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        } else if(!(user.email && user.phoneNumber)) {
+            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                const bankLog = (JSON.parse(localStorage.getItem('banklogs'))[0].account);
+                const bankBal = (JSON.parse(localStorage.getItem('banklogs'))[0].balance);
+                const bankImg = (JSON.parse(localStorage.getItem('banklogs'))[0].image);
+        
+                const banking1 = (JSON.parse(localStorage.getItem('banklogs'))[0].info1);
+                const banking2 = (JSON.parse(localStorage.getItem('banklogs'))[0].info2);
+                const banking3 = (JSON.parse(localStorage.getItem('banklogs'))[0].info3);
+                const banking4 = (JSON.parse(localStorage.getItem('banklogs'))[0].info4);
+                const banking5 = (JSON.parse(localStorage.getItem('banklogs'))[0].info5);
+                const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
+        
+                if(bankLog.includes('Huntington') || bankLog.includes('Woodforest') || bankLog.includes('Barclays')) {
+                    downFile.innerHTML = bankLog.split('Bank')[0];
+                } else if(bankLog.includes('America')) {
+                    downFile.innerHTML = 'BankofAmerica';
+                } else {
+                    downFile.innerHTML = bankLog.split('[')[0];
+                }
+        
+                showToast.innerHTML = `
+                    Download 1 Bank Log <img src="img/partners/doh.png">
+                `;
+                anonCheck.innerHTML = `
+                    Download File <img src=${bankImg}>
+                `;
+        
+                anonP.innerHTML = `
+                    ${bankLog.replace(']',' ACCOUNT]')} with <span>${bankBal}</span> <hr class="thehr">
+                    ${banking1}, ${banking2}, ${banking3}, ${banking4}, ${banking5}, ${banking6}
+                `;
+                titleLog2.innerHTML = `
+                    Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
+                    Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
+                `;
+        
+                modalAmount.innerHTML = `
+                    Send $ <span id="omanyala" class="countup">${parseInt(total).toLocaleString()}</span> 
+                `;
+                document.getElementById('disb').style.display = 'none';
+            } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1 && JSON.parse(localStorage.getItem('banklogs')).length <= 3) {
+                var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
+        
+                for(var i = 0; i < Loginz.length; i++) {
+                    var logRow = document.createElement('p');
+                    var logItems = document.getElementById('anon-p');
+                    logRow.innerHTML = `
+                        <hr class="thehr" style="margin-top: -10px !important"> 
+                        ${Loginz[i].account.replace(']', ' ACCOUNT]')} with 
+                        <span>${Loginz[i].balance}</span>
+                    `;
+                    logItems.prepend(logRow);
+                }
+                
+                showToast.innerHTML = `
+                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Bank Logs
+                    <img src="img/partners/doh.png">
+                `;
+                anonCheck.innerHTML = `
+                    Download ${JSON.parse(localStorage.getItem('banklogs')).length} Files
+                    <img src="img/partners/doh.png">
+                `;
+        
+                downFile.innerHTML = 'Bank Log Files';
+        
+                titleLog2.innerHTML = `
+                    Cart: ${JSON.parse(localStorage.getItem('banklogs')).length}, 
+                    Total: $<span class="countup">${parseInt(total).toLocaleString()}</span> 
+                `;
+        
+                modalAmount.innerHTML = `
+                    Send  <span id="omanyala3">$</span> 
+                    <span id="omanyala2" class="countup">${parseInt(total).toLocaleString()}</span> 
+                    $<span id="omanyala" class="countup">${parseInt(disTot).toLocaleString()}</span>
+                `;
+                document.getElementById('bitcoin-logo').style.display = 'none';
+            } 
+        }
+    });
     localStorage.setItem('banktotal',total);
 }

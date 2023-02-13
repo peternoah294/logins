@@ -18,33 +18,50 @@ var $toastlast;
 
 var getMessage = function() {
 
-    if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-        for (var i = 0; i < items.length; i++) {
-            var msgs = [`
-                ${toastbitcoin} Bitcoin payment not detected
-                <hr class="to-hr">
-                Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            `];
-            i++;
-            if (i === msgs.length) {
-                i = 0;
+    auth.onAuthStateChanged(user => {
+        if(user.email && user.phoneNumber) {
+            for (var i = 0; i < items.length; i++) {
+                var msgs = [`
+                    ${toastbitcoin2} Bitcoin payment not detected
+                    <hr class="to-hr">
+                    Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                `];
+                i++;
+                if (i === msgs.length) {
+                    i = 0;
+                }
+                return msgs[i];
             }
-            return msgs[i];
-        }
-    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {        
-        for (var i = 0; i < items.length; i++) {
-            var msgs = [`
-                ${toastbitcoin2} Bitcoin payment not detected
-                <hr class="to-hr">
-                Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            `];
-            i++;
-            if (i === msgs.length) {
-                i = 0;
+        } else {
+            if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                for (var i = 0; i < items.length; i++) {
+                    var msgs = [`
+                        ${toastbitcoin} Bitcoin payment not detected
+                        <hr class="to-hr">
+                        Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    `];
+                    i++;
+                    if (i === msgs.length) {
+                        i = 0;
+                    }
+                    return msgs[i];
+                }
+            } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {        
+                for (var i = 0; i < items.length; i++) {
+                    var msgs = [`
+                        ${toastbitcoin2} Bitcoin payment not detected
+                        <hr class="to-hr">
+                        Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    `];
+                    i++;
+                    if (i === msgs.length) {
+                        i = 0;
+                    }
+                    return msgs[i];
+                }
             }
-            return msgs[i];
         }
-    }
+    });
 };
 
 var toastbut = document.getElementById('anon-check');
