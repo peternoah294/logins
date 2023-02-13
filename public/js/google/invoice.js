@@ -36,6 +36,8 @@ const verImg = document.getElementById('ver-img');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
+const theSet = document.getElementById('settings');
+
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -188,19 +190,17 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
-		vpn.innerHTML = `Email Invoice <img src="img/partners/emails.png">`;
-		vpn.setAttribute('data-bs-target', '#loginModal');
 
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
+		theSet.removeAttribute('data-bs-toggle');
+
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			if(!localStorage.getItem('deposit-amount')) {
+				document.getElementById('apart').style.display = 'flex';
+				document.getElementById('logsection').style.display = 'none';
+				document.getElementById('logsection2').style.display = 'none';
+				document.getElementsByClassName('clint')[0].style.bottom = '0';
+				document.getElementsByClassName('clint')[0].style.position = 'fixed';
+			}
 		}
 	}
 
