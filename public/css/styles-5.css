@@ -294,12 +294,14 @@ blink.high {
 .gold,
 .navbar-nav li.nav-small a,
 #showtoasts,
+#copy-text,
 #thetot1, 
 .money {
   background: rgb(254, 240, 201) !important;
   box-shadow: 0 0 0 1px rgb(253, 219, 129);
   color: rgb(57, 55, 43) !important;
 }
+#copy-text,
 .lesnar {
   background: rgb(254, 237, 1) !important;
 }

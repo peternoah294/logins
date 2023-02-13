@@ -297,12 +297,14 @@ blink.high {
 #vpn,
 .navbar-nav li.nav-small a,
 #showtoasts,
+#copy-text,
 #thetot1, 
 .money {
   background: rgb(245, 237, 219) !important;
   box-shadow: 0 0 0 1px rgb(232, 214, 170);
   color: rgb(50, 53, 57) !important;
 }
+#copy-text,
 .lesnar {
   background: rgb(243, 235, 21) !important;
 }

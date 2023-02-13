@@ -296,11 +296,13 @@ blink.high {
 .navbar-nav li.nav-small a,
 #showtoasts,
 #thetot1, 
+#copy-text,
 .money {
   background: rgb(216, 242, 245) !important;
   box-shadow: 0 0 0 1px rgb(164, 224, 232);
   color: rgb(27, 56, 77) !important;
 }
+#copy-text,
 .lesnar {
   background: rgb(210, 239, 52) !important;
 }
