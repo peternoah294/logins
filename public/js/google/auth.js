@@ -87,7 +87,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
-		phoneIn.innerText = user.phoneNumber;
+		phoneIn.setAttribute('data-bs-target', '#vpnModal');
+		phoneIn.innerText = theUser.phoneNumber;
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(user.email && !user.phoneNumber) {
