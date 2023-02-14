@@ -30,8 +30,6 @@ const emailP = document.getElementById('email-p');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
-const theSet = document.getElementById('settings');
-
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
@@ -151,6 +149,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		vpn.innerHTML = `Phone Invoice <img src="img/partners/phone.png">`;
+		vpn.setAttribute('data-bs-target', '#phoneModal');
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -159,7 +160,8 @@ auth.onAuthStateChanged(user => {
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
 		vpnImg.src = 'img/partners/phone.png';
-		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+		vpn.innerHTML = `Email Invoice <img src="img/partners/emails.png">`;
+		vpn.setAttribute('data-bs-target', '#loginModal');
 
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
@@ -186,15 +188,19 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
+		vpn.innerHTML = `Email Invoice <img src="img/partners/emails.png">`;
+		vpn.setAttribute('data-bs-target', '#loginModal');
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			if(!localStorage.getItem('deposit-amount')) {
-				document.getElementById('apart').style.display = 'flex';
-				document.getElementById('logsection').style.display = 'none';
-				document.getElementById('logsection2').style.display = 'none';
-				document.getElementsByClassName('clint')[0].style.bottom = '0';
-				document.getElementsByClassName('clint')[0].style.position = 'fixed';
-			}
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
 		}
 	}
 
