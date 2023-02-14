@@ -47,82 +47,26 @@ var getMessage = function() {
     }
 };
 
-
-var getDiscount = function() {
-
-    if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-        for (var i = 0; i < items.length; i++) {
-            var msgs = [`
-                ${toastbitcoin2} Bitcoin payment not detected
-                <hr class="to-hr">
-                Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            `];
-            i++;
-            if (i === msgs.length) {
-                i = 0;
-            }
-            return msgs[i];
-        }
-    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {        
-        for (var i = 0; i < items.length; i++) {
-            var msgs = [`
-                ${toastbitcoin2} Bitcoin payment not detected
-                <hr class="to-hr">
-                Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            `];
-            i++;
-            if (i === msgs.length) {
-                i = 0;
-            }
-            return msgs[i];
-        }
-    }
-};
-
 var toastbut = document.getElementById('anon-check');
 
-auth.onAuthStateChanged(user => {
-	if(user.email && user.phoneNumber) {
-        $(toastbut).click(function() {
-            var shortCutFunction = 'success';
-            var msg = '';
-            var title = '';
-            toastr.options = {
-                closeButton: true,
-                debug: false,
-                newestOnTop: true,
-                progressBar: true,
-                positionClass: 'toast-top-full-width',
-                preventDuplicates: true,
-                onclick: null
-            };
-            if (!msg) {
-                msg = getDiscount();
-            }
-            var $toast = toastr[shortCutFunction](msg, title);
-            $toastlast = $toast;
-        });
-        
-	} else {
-        $(toastbut).click(function() {
-            var shortCutFunction = 'success';
-            var msg = '';
-            var title = '';
-            toastr.options = {
-                closeButton: true,
-                debug: false,
-                newestOnTop: true,
-                progressBar: true,
-                positionClass: 'toast-top-full-width',
-                preventDuplicates: true,
-                onclick: null
-            };
-            if (!msg) {
-                msg = getMessage();
-            }
-            var $toast = toastr[shortCutFunction](msg, title);
-            $toastlast = $toast;
-        });
-        
+
+$(toastbut).click(function() {
+    var shortCutFunction = 'success';
+    var msg = '';
+    var title = '';
+    toastr.options = {
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: 'toast-top-full-width',
+        preventDuplicates: true,
+        onclick: null
+    };
+    if (!msg) {
+        msg = getMessage();
     }
+    var $toast = toastr[shortCutFunction](msg, title);
+    $toastlast = $toast;
 });
+        
