@@ -52,7 +52,7 @@ const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
 const auth = firebase.auth();
 
-window.recaptchaVerifier = new auth.RecaptchaVerifier('recaptcha-container', {
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
 });
 
