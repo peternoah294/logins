@@ -107,22 +107,11 @@ window.addEventListener("load", () => {
 
   binance.onmessage = event => {
     let confirm = JSON.parse(event.data);
-
-    auth2.onAuthStateChanged(user => {
-      if(user.email && user.phoneNumber) {
-        if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length == 1)){
-          bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
-        } else if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length > 1)){
-          bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
-        }
-      } else {
-        if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length == 1)){
-          bitcoin.innerHTML = (localStorage.getItem('banktotal') / parseFloat(confirm.k.c)).toFixed(5)
-        } else if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length > 1)){
-          bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
-        }
+      if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length == 1)){
+        bitcoin.innerHTML = (localStorage.getItem('banktotal') / parseFloat(confirm.k.c)).toFixed(5)
+      } else if(localStorage.getItem('banklogs') && (JSON.parse(localStorage.getItem('banklogs')).length > 1)){
+        bitcoin.innerHTML = (localStorage.getItem('divtotal') / parseFloat(confirm.k.c)).toFixed(5)
       }
-    });
   }
   
   document.getElementById("copy-text").addEventListener("click", function (ev) {

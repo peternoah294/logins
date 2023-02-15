@@ -4,6 +4,7 @@ var coastNo = localStorage.getItem('banktotal');
 var coastDis = localStorage.getItem('divtotal');
 
 auth.onAuthStateChanged(user => {
+if(!user.isAnonymous || user.email || user.phoneNumber) {
     if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
             var elemj = document.getElementById('pablos');        
@@ -53,13 +54,7 @@ auth.onAuthStateChanged(user => {
                         } else {
                             var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `15 Seconds Left! Anonymous User, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `; 
-                        } else {
-                            var msg = `15 Seconds Left! Anonymous User, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -84,15 +79,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `1 Minute Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `1 Minute Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `1 Minute Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -100,7 +87,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `1 Minute Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `1 Minute Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -108,17 +95,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `1 Minute Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `1 Minute Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `1 Minute Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -144,15 +121,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `2 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `2 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `2 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -160,7 +129,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `2 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `2 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -168,17 +137,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `2 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `2 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `2 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -203,15 +162,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `3 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `3 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `3 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -219,7 +170,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `3 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `3 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -227,17 +178,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `3 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `3 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `3 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -273,15 +214,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `4 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `4 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `4 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -289,7 +222,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `4 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `4 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -297,17 +230,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `4 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `4 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `4 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -333,15 +256,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `5 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `5 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `5 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -349,7 +264,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `5 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `5 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -357,17 +272,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `5 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `5 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `5 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -393,15 +298,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `6 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `6 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `6 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -409,7 +306,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `6 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `6 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -417,17 +314,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `6 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `6 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `6 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -460,15 +347,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `7 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `7 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `7 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -476,7 +355,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `7 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `7 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -484,17 +363,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `7 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `7 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `7 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -518,15 +387,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `8 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `8 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `8 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -534,7 +395,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `8 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `8 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -542,17 +403,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `8 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `8 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `8 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -576,15 +427,7 @@ auth.onAuthStateChanged(user => {
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
-                    if(user.email && user.phoneNumber) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `9 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
-                        } else {
-                            var msg = `9 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
-                        }
-                    } else if(user.email && !user.phoneNumber) { 
+                    if(user.email) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `9 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -592,7 +435,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `9 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.phoneNumber && !user.email) { 
+                    } else if(user.phoneNumber) { 
                         if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
                             var msg = `9 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
@@ -600,17 +443,7 @@ auth.onAuthStateChanged(user => {
                             var msg = `9 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } else if(user.isAnonymous) {
-                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
-                            var msg = `9 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        } else {
-                            var msg = `9 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
-                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
-                            <hr class="to-hr"> Email invoice is a better option`; 
-                        }
-                    }
+                    } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -633,6 +466,7 @@ auth.onAuthStateChanged(user => {
     } else {
         console.log('No bank logs selected')
     }     
+}
 });  
 
 if(localStorage.getItem('received-funds')) {
