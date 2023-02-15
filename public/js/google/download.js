@@ -26,9 +26,6 @@ const labelDate = document.getElementById('label-date');
 const paidText = document.getElementById('paid-text');
 const emailP = document.getElementById('email-p');
 
-const carlA = document.getElementById('carl-a');
-const carlImg = document.getElementById('carl-img');
-
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -106,10 +103,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
-
-		carlA.innerHTML = 'Telegram @carl47';
-		carlA.setAttribute('href', 'https://t.me/carl47');
-		carlImg.src = 'img/partners/telegram.png';
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -147,10 +140,6 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-
-		carlA.innerHTML = 'Telegram @carl47';
-		carlA.setAttribute('href', 'https://t.me/carl47');
-		carlImg.src = 'img/partners/telegram.png';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber
@@ -172,10 +161,6 @@ auth.onAuthStateChanged(user => {
 		`;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
-
-		carlA.innerHTML = 'Telegram @carl47';
-		carlA.setAttribute('href', 'https://t.me/carl47');
-		carlImg.src = 'img/partners/telegram.png';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
