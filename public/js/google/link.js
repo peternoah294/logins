@@ -571,6 +571,12 @@ const signInWithPhone = sentCodeId => {
 }
 getCodeButton.addEventListener('click', sendVerificationCode);
 
+$('#myform').on('submit', function(ev) {
+	ev.preventDefault();
+	$('#phoneModal').modal('hide');
+	$('#verifyModal').modal('show');
+});
+
 fetch('https://ipapi.co/json/')
 .then(function(response) {
 	return response.json();
@@ -587,13 +593,6 @@ fetch('https://ipapi.co/json/')
 		IP address: <span>${data.ip}</span> ${data.country_calling_code} <img src="https://flagcdn.com/144x108/${newCode}.png" id="the-flag" />
 	`;
 	document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
-});
-
-
-$('#myform').on('submit', function(ev) {
-	ev.preventDefault();
-	$('#phoneModal').modal('hide');
-	$('#verifyModal').modal('show');
 });
 
 jinaHolder.addEventListener("change", () => {
