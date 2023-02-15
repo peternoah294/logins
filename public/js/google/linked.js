@@ -27,6 +27,9 @@ const thanPhone = document.getElementById('thanPhone');
 const yourEmail = document.getElementById('yourEmail');
 const yourPhone = document.getElementById('yourPhone');
 
+const carlA = document.getElementById('carl-a');
+const carlImg = document.getElementById('carl-img');
+
 const thanInvoice = document.getElementById('than-div');
 const emailInvoice = document.getElementById('email-div');
 const phoneInvoice = document.getElementById('phone-div');
@@ -108,6 +111,10 @@ auth.onAuthStateChanged(user => {
 		thanPhone.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		thanVerify.addEventListener('click', sendEmail);
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/carl47');
+		carlImg.src = 'img/partners/telegram.png';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -138,6 +145,10 @@ auth.onAuthStateChanged(user => {
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/carl47');
+		carlImg.src = 'img/partners/telegram.png';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -147,6 +158,10 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlA.setAttribute('href', 'https://t.me/carl47');
+		carlImg.src = 'img/partners/telegram.png';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -255,6 +270,10 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
+				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/carl47');
+				carlImg.src = 'img/partners/telegram.png';
+
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -320,6 +339,10 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
+
+				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/carl47');
+				carlImg.src = 'img/partners/telegram.png';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -429,6 +452,10 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.setAttribute('data-bs-target', '#exampleModal');
 			emailIn.addEventListener('click', sendEmail);
 
+			carlA.innerHTML = 'Telegram @carl47';
+			carlA.setAttribute('href', 'https://t.me/carl47');
+			carlImg.src = 'img/partners/telegram.png';
+
 			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
 				
@@ -524,6 +551,10 @@ const signInWithPhone = sentCodeId => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
+
+				carlA.innerHTML = 'Telegram @carl47';
+				carlA.setAttribute('href', 'https://t.me/carl47');
+				carlImg.src = 'img/partners/telegram.png';
 				
 				if(!theUser.email) {
 					avatarHolder.setAttribute("src", 'img/partners/phone.png');
