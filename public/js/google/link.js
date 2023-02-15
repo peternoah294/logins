@@ -52,10 +52,6 @@ const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
 const auth = firebase.auth();
 
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-    'size': 'invisible'
-});
-
 const vpnImg = document.getElementById('vpn-img');
 if(localStorage.getItem('received-funds')) {
 	window.location.assign('invoice');
@@ -460,6 +456,12 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			$toastlast = $toast;
 		});
 }
+
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+recaptchaVerifier.render().then(widgetId => {
+	window.recaptchaWidgetId = widgetId;
+});
 
 const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
