@@ -190,7 +190,7 @@ auth.onAuthStateChanged(user => {
 			function sendNoti() {
 				var shortCutFunction = 'success';
 				var msg = `
-					Email invoice is a better option than anonymous checkout.
+					Email invoice is the better option.
 					<hr class="to-hr">
 					Create a burner email and use it to get an invoice
 				`;
