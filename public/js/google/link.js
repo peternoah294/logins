@@ -173,10 +173,8 @@ auth.onAuthStateChanged(user => {
 			var shortCutFunction = 'success';
 			var msg = `
 				Email / Phone invoice is a better option
-				<hr>
-				Create a burner email / phone and use it to get an invoice
 				<hr class="to-hr">
-				It's optional if you prefer to remain anonymous.
+				Create a burner email / phone and use it to get an invoice
 			`;
 			toastr.options = {
 				closeButton: true,
