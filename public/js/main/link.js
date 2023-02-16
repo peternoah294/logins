@@ -72,8 +72,8 @@
         cxZ.classList.remove('ver-btn');
         cxZ.classList.add('phone-btn');
 
-        // cxV.classList.add('phone-btn');
-        // cxV.classList.remove('ver-btn');
+        cxV.classList.add('phone-btn');
+        cxV.classList.remove('ver-btn');
     } 
 
     $window.on("load", function() {
