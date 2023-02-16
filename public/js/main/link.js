@@ -52,6 +52,7 @@
     var theLog1 = document.getElementById('cart-logo');
     var theLog2 = document.getElementById('the-nopic');
     var cxC = document.getElementById('than-verify');
+    var cxZ = document.getElementById('email-verify');
     var cxW = document.getElementById('cx-p');
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
@@ -69,6 +70,9 @@
 
         cxW.classList.remove('ver-btn');
         cxW.classList.add('phone-btn');
+
+        cxZ.classList.remove('ver-btn');
+        cxZ.classList.add('phone-btn');
     } 
 
     $window.on("load", function() {

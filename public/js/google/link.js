@@ -144,6 +144,9 @@ auth.onAuthStateChanged(user => {
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
+		
+		theClint.style.position = 'fixed';
+		theClint.style.bottom = '0';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -153,6 +156,9 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
+
+		theClint.style.position = 'fixed';
+		theClint.style.bottom = '0';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -283,6 +289,9 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
+
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -348,6 +357,9 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
+
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -459,6 +471,9 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 
 			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
+
+			theClint.style.position = 'fixed';
+			theClint.style.bottom = '0';
 				
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
@@ -552,6 +567,9 @@ const signInWithPhone = sentCodeId => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
+
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
 				
 				if(!theUser.email) {
 					avatarHolder.setAttribute("src", 'img/partners/phone.png');
