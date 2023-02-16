@@ -36,6 +36,8 @@ const verImg = document.getElementById('ver-img');
 const carlA = document.getElementById('carl-a');
 const carlImg = document.getElementById('carl-img'); 
 
+const theSet = document.getElementById('settings');
+
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -115,6 +117,9 @@ auth.onAuthStateChanged(user => {
 		carlA.innerHTML = 'Telegram @carl47';
 		carlA.setAttribute('href', 'https:/t.me/carl47');
 		carlImg.src = 'img/partners/telegram.png';
+
+		theSet.innerHTML = 'Download <img src="img/partners/doh.png">';
+		theSet.setAttribute('data-bs-target', '#exampleModal');
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -160,6 +165,9 @@ auth.onAuthStateChanged(user => {
 		carlA.innerHTML = 'Telegram @carl47';
 		carlA.setAttribute('href', 'https:/t.me/carl47');
 		carlImg.src = 'img/partners/telegram.png';
+
+		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
+		theSet.setAttribute('data-bs-target', '#phoneModal');
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
