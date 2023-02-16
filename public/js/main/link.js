@@ -51,8 +51,6 @@
     var theLog = document.getElementById('logo');
     var theLog1 = document.getElementById('cart-logo');
     var theLog2 = document.getElementById('the-nopic');
-    var cxC = document.getElementById('email-verify');
-    var cxW = document.getElementById('cx-p');
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
         theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -63,12 +61,6 @@
         document.getElementById('nav2').setAttribute('href', 'img/logos/logo8.png');
         document.getElementById('nav3').setAttribute('href', 'img/logos/logo8.png');
         document.getElementById('nav4').setAttribute('href', 'img/logos/logo8.png');
-
-        cxC.classList.remove('ver-btn');
-        cxC.classList.add('phone-btn');
-
-        cxW.classList.remove('ver-btn');
-        cxW.classList.add('phone-btn');
     } 
 
     $window.on("load", function() {

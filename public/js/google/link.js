@@ -48,6 +48,9 @@ const thanVerify = document.getElementById('than-verify');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
+const cxA = document.getElementById('cx-a');
+var theClint = document.getElementsByClassName('clint')[0];
+
 const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
 const auth = firebase.auth();
@@ -108,6 +111,9 @@ auth.onAuthStateChanged(user => {
 		thanPhone.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		thanVerify.addEventListener('click', sendEmail);
+
+		theClint.style.position = 'fixed';
+		theClint.style.bottom = '0';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -160,6 +166,30 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
+
+		cxA.addEventListener('click', sendNoti);
+
+		function sendNoti() {
+			var shortCutFunction = 'success';
+			var msg = `
+				Email / Phone invoice is a better option
+				<hr>
+				Create a burner email / phone and use it to get an invoice
+				<hr class="to-hr">
+				It's optional if you prefer to remain anonymous.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		}
 	}
 
 	if(user.uid){
