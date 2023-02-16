@@ -38,6 +38,10 @@ const signUp = document.getElementById('signUp');
 const carlA = document.getElementById('carl-a');
 const carlImg = document.getElementById('carl-img'); 
 
+const cxA = document.getElementById('cx-v');
+const cxDiv = document.getElementById('cx-div');
+const cxImg = document.getElementById('cx-img');
+
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -175,6 +179,40 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
+
+		if(!localStorage.getItem('v-time')) {
+			cxA.innerHTML = 'Buy Anonymously';
+			cxImg.src = 'img/partners/anonymous.png';
+			cxDiv.setAttribute('data-bs-target', '#vpnModal');
+
+			cxA.addEventListener('click', sendNoti);
+
+			function sendNoti() {
+				var shortCutFunction = 'success';
+				var msg = `
+					Email invoice is a better option
+					<hr>
+					Create a burner email and use it to get an invoice
+					<hr class="to-hr">
+					It's optional if you prefer to remain anonymous.
+				`;
+				toastr.options = {
+					closeButton: true,
+					debug: false,
+					newestOnTop: true,
+					progressBar: true,
+					positionClass: 'toast-top-full-width',
+					preventDuplicates: true,
+					onclick: null
+				};
+				var $toast = toastr[shortCutFunction](msg);
+				$toastlast = $toast;
+			}
+		} else if(localStorage.getItem('v-time')){
+			cxA.innerHTML = 'Get Phone Invoice';
+			cxImg.src = 'img/partners/phone.png';
+			cxDiv.setAttribute('data-bs-target', '#phoneModal');
+		}
 	}
 
 	if(user.uid){
