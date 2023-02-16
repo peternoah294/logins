@@ -14,6 +14,7 @@ if((user.isAnonymous && !localStorage.getItem('v-time')) || user.email || user.p
                 if(width <= 0){
                     clearInterval(id);
                     i = false;
+                    localStorage.setItem('v-time', true);
                     localStorage.setItem('time-left',null);
                     localStorage.setItem('banklogs',[]);
                     document.getElementById('predat').style.display = 'flex';
