@@ -68,3 +68,27 @@ $(toastbut).click(function() {
     var $toast = toastr[shortCutFunction](msg, title);
     $toastlast = $toast;
 });
+
+
+
+var toastbut2 = document.getElementById('settings');
+
+$(toastbut2).click(function() {
+    var shortCutFunction = 'success';
+    var msg = '10% Discount is available if you purchase 2 or more bank logs';
+    var title = '';
+    toastr.options = {
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: 'toast-top-full-width',
+        preventDuplicates: true,
+        onclick: null
+    };
+    if (!msg) {
+        msg = getMessage();
+    }
+    var $toast = toastr[shortCutFunction](msg, title);
+    $toastlast = $toast;
+});
