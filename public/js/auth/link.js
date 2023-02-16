@@ -51,9 +51,6 @@ const thanVerify = document.getElementById('than-verify');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
-const cxA = document.getElementById('cx-a');
-var theClint = document.getElementsByClassName('clint')[0];
-
 const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
 const auth = firebase.auth();
@@ -115,9 +112,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		thanVerify.addEventListener('click', sendEmail);
 
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
-
 		carlA.innerHTML = 'Telegram @carl47';
 		carlA.setAttribute('href', 'https:/t.me/carl47');
 		carlImg.src = 'img/partners/telegram.png';
@@ -151,9 +145,6 @@ auth.onAuthStateChanged(user => {
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailVerify.addEventListener('click', sendEmail);
-		
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 
 		carlA.innerHTML = 'Telegram @carl47';
 		carlA.setAttribute('href', 'https:/t.me/carl47');
@@ -167,9 +158,6 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
-
-		theClint.style.position = 'fixed';
-		theClint.style.bottom = '0';
 
 		carlA.innerHTML = 'Telegram @carl47';
 		carlA.setAttribute('href', 'https:/t.me/carl47');
@@ -187,28 +175,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
-
-		cxA.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				Email / Phone invoice is a better option
-				<hr class="to-hr">
-				Create a burner email / phone and use it to get an invoice
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	}
 
 	if(user.uid){
@@ -308,9 +274,6 @@ const signUpFunction = () => {
 				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
-
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -380,9 +343,6 @@ const signUpFunction = () => {
 				carlA.innerHTML = 'Telegram @carl47';
 				carlA.setAttribute('href', 'https:/t.me/carl47');
 				carlImg.src = 'img/partners/telegram.png';
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
@@ -494,9 +454,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 
 			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
-
-			theClint.style.position = 'fixed';
-			theClint.style.bottom = '0';
 				
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
@@ -594,9 +551,6 @@ const signInWithPhone = sentCodeId => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
-
-				theClint.style.position = 'fixed';
-				theClint.style.bottom = '0';
 
 				carlA.innerHTML = 'Telegram @carl47';
 				carlA.setAttribute('href', 'https:/t.me/carl47');
