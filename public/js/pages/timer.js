@@ -4,7 +4,6 @@ var coastNo = localStorage.getItem('banktotal');
 var coastDis = localStorage.getItem('divtotal');
 
 auth.onAuthStateChanged(user => {
-if((user.isAnonymous && !localStorage.getItem('v-time')) || user.email || user.phoneNumber) {
     if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
             var elemj = document.getElementById('pablos');        
@@ -14,7 +13,6 @@ if((user.isAnonymous && !localStorage.getItem('v-time')) || user.email || user.p
                 if(width <= 0){
                     clearInterval(id);
                     i = false;
-                    localStorage.setItem('v-time', true);
                     localStorage.setItem('time-left',null);
                     localStorage.setItem('banklogs',[]);
                     document.getElementById('predat').style.display = 'flex';
@@ -562,8 +560,7 @@ if((user.isAnonymous && !localStorage.getItem('v-time')) || user.email || user.p
         }
     } else {
         console.log('No bank logs selected')
-    }
-}     
+    }     
 });  
 
 if(localStorage.getItem('received-funds')) {
