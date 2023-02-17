@@ -54,7 +54,6 @@
 
     var cxC = document.getElementById('than-verify');
     var cxZ = document.getElementById('email-verify');
-    var cxV = document.getElementById('cx-v');
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
         theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -71,9 +70,6 @@
 
         cxZ.classList.remove('ver-btn');
         cxZ.classList.add('phone-btn');
-
-        cxV.classList.add('phone-btn');
-        cxV.classList.remove('ver-btn');
     } 
 
     $window.on("load", function() {

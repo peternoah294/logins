@@ -35,14 +35,12 @@ const anonInvoice = document.getElementById('anon-div');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
-const cxA = document.getElementById('cx-v');
-const cxDiv = document.getElementById('cx-div');
-const cxImg = document.getElementById('cx-img');
-
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
+
+const cxA = document.getElementById('cx-a');
 
 const emailImg = document.getElementById('email-img');
 const emailVerify = document.getElementById('email-verify');
@@ -165,36 +163,27 @@ auth.onAuthStateChanged(user => {
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
 
-		if(!localStorage.getItem('v-time')) {
-			cxA.innerHTML = 'Buy Anonymously';
-			cxImg.src = 'img/partners/anonymous.png';
-			cxDiv.setAttribute('data-bs-target', '#vpnModal');
 
-			cxA.addEventListener('click', sendNoti);
+		cxA.addEventListener('click', sendNoti);
 
-			function sendNoti() {
-				var shortCutFunction = 'success';
-				var msg = `
-					Email invoice is the better option.
-					<hr class="to-hr">
-					Create a burner email and use it to get an invoice
-				`;
-				toastr.options = {
-					closeButton: true,
-					debug: false,
-					newestOnTop: true,
-					progressBar: true,
-					positionClass: 'toast-top-full-width',
-					preventDuplicates: true,
-					onclick: null
-				};
-				var $toast = toastr[shortCutFunction](msg);
-				$toastlast = $toast;
-			}
-		} else if(localStorage.getItem('v-time')){
-			cxA.innerHTML = 'Get Phone Invoice';
-			cxImg.src = 'img/partners/phone.png';
-			cxDiv.setAttribute('data-bs-target', '#phoneModal');
+		function sendNoti() {
+			var shortCutFunction = 'success';
+			var msg = `
+				Email / Phone invoice is a better option.
+				<hr class="to-hr">
+				Create a burner email / phone and use it to get an invoice
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
 		}
 	}
 
