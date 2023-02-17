@@ -118,8 +118,30 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		theSet.innerHTML = 'Download <img src="img/partners/doh.png">';
-		theSet.setAttribute('data-bs-target', '#exampleModal');
+		theSet.innerHTML = 'Discount <img src="img/partners/disco.png">';
+		theSet.removeAttribute('data-bs-toggle');
+
+		theSet.addEventListener('click', sendNoti);
+
+		function sendNoti() {
+			var shortCutFunction = 'success';
+			var msg = `
+				A 10% discount is available.
+				<hr class="to-hr">
+				If you purchase 2 or more bank logs
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		}
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -166,8 +188,30 @@ auth.onAuthStateChanged(user => {
 		carlImg.src = 'img/partners/telegram.png';
 		carlA.setAttribute('href', 'https://t.me/carl47');
 
-		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
-		theSet.setAttribute('data-bs-target', '#phoneModal');
+		theSet.innerHTML = 'Discount <img src="img/partners/disco.png">';
+		theSet.removeAttribute('data-bs-toggle');
+
+		theSet.addEventListener('click', sendNoti);
+
+		function sendNoti() {
+			var shortCutFunction = 'success';
+			var msg = `
+				A 10% discount is available.
+				<hr class="to-hr">
+				If you purchase 2 or more bank logs
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		}
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -195,6 +239,31 @@ auth.onAuthStateChanged(user => {
 		carlA.innerHTML = 'Telegram @carl47';
 		carlImg.src = 'img/partners/telegram.png';
 		carlA.setAttribute('href', 'https://t.me/carl47');
+
+		theSet.innerHTML = 'Discount <img src="img/partners/disco.png">';
+		theSet.removeAttribute('data-bs-toggle');
+
+		theSet.addEventListener('click', sendNoti);
+
+		function sendNoti() {
+			var shortCutFunction = 'success';
+			var msg = `
+				A 10% discount is available.
+				<hr class="to-hr">
+				If you purchase 2 or more bank logs
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
+		}
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
