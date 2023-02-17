@@ -31,6 +31,19 @@
 #predat .section-heading h4 {
     color: #121d33;
 }
+
+#apart {
+  display: none;
+  padding: 3px;
+  height: 100vh;
+  margin: 0 -7px !important;
+}
+#apart div {
+  overflow-y: hidden !important;
+}
+#apart .section-heading h4 {
+  color: #121d33;
+}
 .empty-cart {
     padding: 49px 14px;
     margin-top: 23vh !important;
@@ -104,14 +117,8 @@
 	margin: -3px auto -1px 3px !important;
 }
 #settings {
-	left: 26%;
-	right: 26%;
-}
-@media screen and (max-width: 769px) {
-  #settings {
-    left: 25.5%;
-    right: 25.5%;
-  }
+	left: 26.5%;
+	right: 26.5%;
 }
 .pricing-list ul li:nth-child(8) {
     font-size: 15px !important;
