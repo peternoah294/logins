@@ -106,6 +106,10 @@ auth.onAuthStateChanged(user => {
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.setAttribute('href', 'https://t.me/carl47');
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -143,6 +147,10 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.setAttribute('href', 'https://t.me/carl47');
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber
@@ -164,6 +172,10 @@ auth.onAuthStateChanged(user => {
 		`;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.setAttribute('href', 'https://t.me/carl47');
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;

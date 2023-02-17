@@ -100,6 +100,10 @@ auth.onAuthStateChanged(user => {
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
 
+		carlA.innerHTML = 'Telegram @carl47';
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.setAttribute('href', 'https://t.me/carl47');
+
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
 				Mail: <span>${user.email}</span>, <br>
@@ -158,6 +162,10 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 
+		carlA.innerHTML = 'Telegram @carl47';
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.setAttribute('href', 'https://t.me/carl47');
+
 		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
 		theSet.setAttribute('data-bs-target', '#phoneModal');
 	} else if(!user.email && user.phoneNumber) {
@@ -183,6 +191,10 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+
+		carlA.innerHTML = 'Telegram @carl47';
+		carlImg.src = 'img/partners/telegram.png';
+		carlA.setAttribute('href', 'https://t.me/carl47');
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
