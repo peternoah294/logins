@@ -110,6 +110,9 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+
+		theSet.removeAttribute('data-bs-target', '#exampleModal');
+		theSet.innerHTML = 'Download <img src="img/partners/doh.png>';
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -151,6 +154,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		theSet.removeAttribute('data-bs-target', '#phoneModal');
+		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png>';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -174,6 +180,9 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+
+		theSet.removeAttribute('data-bs-target', '#loginModal');
+		theSet.innerHTML = 'Link Phone <img src="img/partners/mail.png>';
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -188,7 +197,8 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
-		theSet.removeAttribute('data-bs-toggle');
+		theSet.removeAttribute('data-bs-target', '#phoneModal');
+		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png>';
 
 		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			if(!localStorage.getItem('deposit-amount')) {
