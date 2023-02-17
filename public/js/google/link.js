@@ -35,6 +35,9 @@ const anonInvoice = document.getElementById('anon-div');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
+const carlA = document.getElementById('carl-a');
+const carlImg = document.getElementById('carl-img');
+
 const cxA = document.getElementById('cx-v');
 const cxDiv = document.getElementById('cx-div');
 const cxImg = document.getElementById('cx-img');

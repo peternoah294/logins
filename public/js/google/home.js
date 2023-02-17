@@ -37,6 +37,9 @@ const thenoPic2 = document.getElementById('the-nopic2');
 const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
 
+const carlA = document.getElementById('carl-a');
+const carlImg = document.getElementById('carl-img');
+
 const plat1 = document.getElementById('plat1');
 const plat2 = document.getElementById('plat2');
 const plat3 = document.getElementById('plat3');

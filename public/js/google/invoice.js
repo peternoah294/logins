@@ -33,6 +33,9 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
+const carlA = document.getElementById('carl-a');
+const carlImg = document.getElementById('carl-img');
+
 const theSet = document.getElementById('settings');
 
 const mailField = document.getElementById('inputEmail');

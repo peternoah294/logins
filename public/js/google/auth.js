@@ -30,6 +30,9 @@ const signUp = document.getElementById('signUp');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
+const carlA = document.getElementById('carl-a');
+const carlImg = document.getElementById('carl-img');
+
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
