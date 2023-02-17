@@ -69,26 +69,3 @@ $(toastbut).click(function() {
     $toastlast = $toast;
 });
 
-
-var toastbut2 = document.getElementById('settings');
-
-$(toastbut2).click(function() {
-    var shortCutFunction = 'success';
-    var msg = '10% discount is available on: <hr class="to-hr"> 2 Bank Logs or more';
-    var title = '';
-    toastr.options = {
-        closeButton: true,
-        debug: false,
-        newestOnTop: true,
-        progressBar: true,
-        positionClass: 'toast-top-full-width',
-        preventDuplicates: true,
-        onclick: null
-    };
-    if (!msg) {
-        msg = getMessage();
-    }
-    var $toast = toastr[shortCutFunction](msg, title);
-    $toastlast = $toast;
-});
-
