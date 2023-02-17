@@ -36,8 +36,6 @@ const verImg = document.getElementById('ver-img');
 const carlA = document.getElementById('carl-a');
 const carlImg = document.getElementById('carl-img');
 
-const theSet = document.getElementById('settings');
-
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -117,31 +115,6 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
-
-		theSet.innerHTML = 'Discount <img src="img/partners/disco.png">';
-		theSet.removeAttribute('data-bs-toggle');
-
-		theSet.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				A 10% discount is available.
-				<hr class="to-hr">
-				If you purchase 2 or more bank logs
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	} else if(user.email && !user.phoneNumber) {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
@@ -187,31 +160,6 @@ auth.onAuthStateChanged(user => {
 		carlA.innerHTML = 'Telegram @carl47';
 		carlImg.src = 'img/partners/telegram.png';
 		carlA.setAttribute('href', 'https://t.me/carl47');
-
-		theSet.innerHTML = 'Discount <img src="img/partners/disco.png">';
-		theSet.removeAttribute('data-bs-toggle');
-
-		theSet.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				A 10% discount is available.
-				<hr class="to-hr">
-				If you purchase 2 or more bank logs
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -239,31 +187,6 @@ auth.onAuthStateChanged(user => {
 		carlA.innerHTML = 'Telegram @carl47';
 		carlImg.src = 'img/partners/telegram.png';
 		carlA.setAttribute('href', 'https://t.me/carl47');
-
-		theSet.innerHTML = 'Discount <img src="img/partners/disco.png">';
-		theSet.removeAttribute('data-bs-toggle');
-
-		theSet.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				A 10% discount is available.
-				<hr class="to-hr">
-				If you purchase 2 or more bank logs
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
