@@ -191,7 +191,7 @@ auth.onAuthStateChanged(user => {
 		theSet.setAttribute('data-bs-target', '#loginModal');
 		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('tx-time')) {
 			if(!localStorage.getItem('deposit-amount')) {
 				document.getElementById('apart').style.display = 'flex';
 				document.getElementById('logsection').style.display = 'none';
