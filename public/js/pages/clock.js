@@ -14,7 +14,6 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                 if(width <= 0){
                     clearInterval(id);
                     i = false;
-                    localStorage.setItem('tx-time', true);
                     localStorage.setItem('time-left',null);
                     localStorage.setItem('banklogs',[]);
                     document.getElementById('predat').style.display = 'flex';
