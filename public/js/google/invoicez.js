@@ -33,6 +33,8 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
+const theSet = document.getElementById('settings');
+
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -186,7 +188,22 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
+
+		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
+		theSet.setAttribute('data-bs-target', '#loginModal');
+
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('cx-time')) {
 			if(!localStorage.getItem('deposit-amount')) {
 				document.getElementById('apart').style.display = 'flex';
 				document.getElementById('logsection').style.display = 'none';
