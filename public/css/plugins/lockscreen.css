@@ -318,4 +318,8 @@ body {
 }
 #cx-out {
     color: rgba(18, 29, 51, 0.92) !important;
+	cursor: pointer !important;
+}
+#cx-out:hover {
+	color: #fff !important;
 }
