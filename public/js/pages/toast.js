@@ -69,3 +69,27 @@ $(toastbut).click(function() {
     $toastlast = $toast;
 });
 
+
+
+var toastbut = document.getElementById('settings');
+
+$(toastbut).click(function() {
+    var shortCutFunction = 'success';
+    var msg = '10% Discount is available <hr class="to-hr"> If you purchase 2 bank logs or more';
+    var title = '';
+    toastr.options = {
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: 'toast-top-full-width',
+        preventDuplicates: true,
+        onclick: null
+    };
+    if (!msg) {
+        msg = getMessage();
+    }
+    var $toast = toastr[shortCutFunction](msg, title);
+    $toastlast = $toast;
+});
+
