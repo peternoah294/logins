@@ -1555,6 +1555,7 @@ td {
 #exampleModal .modal-dialog {
     top: 5vh !important;
 }
+#contactModal .modal-dialog,
 #verifyModal .modal-dialog {
     top: 8vh !important;
 }
@@ -1569,13 +1570,13 @@ td {
     top: 10vh !important;
 }
 @media screen and (max-width: 821px) {
-    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog,
     #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
     }
@@ -1590,6 +1591,7 @@ td {
     #exampleModal .modal-dialog {
         top: 15vh !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 19vh !important;
     }
@@ -1602,6 +1604,7 @@ td {
         top: 17vh !important;
         max-width: 80vw !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
         max-width: 80vw !important;
@@ -1622,6 +1625,7 @@ td {
         top: 17vh !important;
         max-width: 84vw !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
         max-width: 84vw !important;
@@ -1642,6 +1646,7 @@ td {
         top: 17vh !important;
         max-width: 85vw !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
         max-width: 85vw !important;
@@ -1662,6 +1667,7 @@ td {
         top: 17vh !important;
         max-width: 85vw !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
         max-width: 85vw !important;
@@ -1682,6 +1688,7 @@ td {
         top: 17vh !important;
         max-width: 88vw !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
         max-width: 88vw !important;
@@ -1702,6 +1709,7 @@ td {
         top: 17vh !important;
         max-width: 87vw !important;
     }
+    #contactModal .modal-dialog,
     #verifyModal .modal-dialog {
         top: 20vh !important;
         max-width: 87vw !important;
@@ -1723,6 +1731,7 @@ td {
 .jina-div {
     display: grid;
 }
+#contactModal .modal-dialog,
 #verifyModal .modal-dialog,
 #emailModal .modal-dialog,
 #loginModal .modal-dialog,
@@ -1731,6 +1740,7 @@ td {
 #exampleModal .modal-dialog {
     background: transparent !important;
 }
+#contactModal .modal-header,
 #verifyModal .modal-header,
 #emailModal .modal-header,
 #loginModal .modal-header,
@@ -1741,6 +1751,7 @@ td {
     padding: 0;
     border-bottom: none;
 }
+#contactModal .modal-header img,
 #verifyModal .modal-header img,
 #emailModal .modal-header img,
 #loginModal .modal-header img,
@@ -1749,6 +1760,7 @@ td {
 #exampleModal .modal-header img {
     width: 70px;
 }
+#contactModal .modal-header h4.modal-title,
 #verifyModal .modal-header h4.modal-title,
 #emailModal .modal-header h4.modal-title,
 #loginModal .modal-header h4.modal-title,
@@ -1757,6 +1769,7 @@ td {
 #exampleModal .modal-header h4.modal-title {
     font-weight: 600;
 }
+#contactModal .modal-header .close img,
 #verifyModal .modal-header .close img,
 #emailModal .modal-header .close img,
 #loginModal .modal-header .close img,
@@ -1767,6 +1780,7 @@ td {
     opacity: 0.7;
     border-radius: 50%;
 }
+#contactModal .modal-header .close img:hover,
 #verifyModal .modal-header .close img:hover,
 #emailModal .modal-header .close img:hover,
 #loginModal .modal-header .close img:hover,
@@ -1775,6 +1789,7 @@ td {
 #exampleModal .modal-header .close img:hover {
     opacity: 1 !important;
 }
+#contactModal .modal-footer,
 #verifyModal .modal-footer,
 #emailModal .modal-footer,
 #loginModal .modal-footer,
@@ -1785,6 +1800,7 @@ td {
     border-top: none;
     padding: 0;
 }
+#contactModal .modal-body,
 #verifyModal .modal-body,
 #emailModal .modal-body,
 #loginModal .modal-body,
@@ -1796,6 +1812,7 @@ td {
     padding: 0;
     background: transparent !important;
 }
+#contactModal .modal-backdrop div p,
 #verifyModal .modal-backdrop div p,
 #emailModal .modal-backdrop div p,
 #loginModal .modal-backdrop div p,
@@ -1803,6 +1820,7 @@ td {
 #exampleModal .modal-body div p {
     background: transparent !important;
 }
+#contactModal .modal-body,
 #verifyModal .modal-body,
 #emailModal .modal-body,
 #loginModal .modal-body,
@@ -2630,6 +2648,7 @@ ul.countdown li p {
 .modal-dialog .butn.modal-btn {
     padding: 6.5px 13px !important;
 }
+#contactModal .butn.modal-btn,
 #verifyModal .butn.modal-btn,
 #phoneModal .butn.modal-btn,
 #emailModal .butn.modal-btn,
