@@ -149,16 +149,12 @@ function updateCartTotal() {
 
         if (window.innerWidth > 768) {
             anonDiv.style.marginTop = '11vh';
-            phoneDiv.style.marginTop = '11vh';
         } else if(window.innerWidth >= 390) {
             anonDiv.style.marginTop = '17vh';
-            phoneDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '15vh';
-            phoneDiv.style.marginTop = '15vh';
         } else if(window.innerWidth >= 370) {
             anonDiv.style.marginTop = '12vh';
-            phoneDiv.style.marginTop = '12vh';
         }
 
         wouldYou.innerHTML = `

@@ -167,49 +167,56 @@
     display: none;
 }
 #than-div,
-#anon-div,
-#phone-div,
 #email-div {
     margin-top: 16vh;
 }
+#phone-div {
+    margin-top: 11vh;
+}
 @media screen and (max-width: 821px) {
     #than-div
-    #anon-div,
     #phone-div,
     #email-div {
         margin-top: 22vh;
     }
+    #phone-div {
+        margin-top: 20vh;
+    }
 }
 @media screen and (max-width: 500px) {
     #than-div,
-    #anon-div,
-    #phone-div,
     #email-div {
         margin-top: 19vh;
+    }
+    #phone-div {
+        margin-top: 18vh;
     }
 }
 @media screen and (max-width: 400px) {
     #than-div,
-    #anon-div,
-    #phone-div,
     #email-div {
         margin-top: 18vh;
+    }
+    #phone-div {
+        margin-top: 17vh;
     }
 }
 @media screen and (max-width: 381px) {
     #than-div,
-    #anon-div,
-    #phone-div,
     #email-div {
         margin-top: 17vh;
+    }
+    #phone-div {
+        margin-top: 15vh;
     }
 }
 @media screen and (max-width: 374px) {
     #than-div
-    #anon-div,
-    #phone-div,
     #email-div {
         margin-top: 13vh;
+    }
+    #phone-div {
+        margin-top: 12vh;
     }
 }
 #than-invoice p,
