@@ -2695,6 +2695,7 @@ ul.countdown li p {
     margin: 10px auto !important;
     line-height: 30px !important;
 }
+#contact-p,
 #ver-p,
 #email-p,
 #anon-p {
@@ -2708,6 +2709,7 @@ ul.countdown li p {
     .modal-p {
         font-size: 18px !important;
     }
+    #contact-p,
     #ver-p,
     #email-p,
     #anon-p {
@@ -2815,6 +2817,7 @@ ul.countdown li p {
 #loginModal span {
     color: yellow !important;
 }
+#contact-check,
 #ver-check {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
