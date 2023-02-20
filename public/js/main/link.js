@@ -54,7 +54,7 @@
 
     var cxC = document.getElementById('than-verify');
     var cxZ = document.getElementById('email-verify');
-    var cxW = document.getElementById('than-link');
+    var cxW = document.getElementById('cx-a');
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
         theLog.setAttribute('src', 'img/logos/logo8.png');

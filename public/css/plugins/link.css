@@ -281,23 +281,6 @@ blink {
     }
 }
 
-blink.disc {
-    position: relative !important;
-    top: -75px !important;
-    left: 80px !important;
-    z-index: 999 !important;
-}
-@media screen and (max-width: 500px) {
-    blink.disc {
-        left: 75px !important;
-    }
-}
-@media screen and (max-width: 380px) {
-    blink.disc {
-        left: 70px !important;
-    }
-}
-
 #invoice-body-div {
     margin: 0 !important;
     background: #fff !important;
@@ -313,16 +296,12 @@ blink.disc {
    }
 }
 .link-email-div {
-    margin-top: -3px !important;
-    margin-bottom: -18px !important;
+    margin-top: 0px !important;
+    margin-bottom: -20px !important;
 }
 .link-phone-div {
-    margin-top: -2px !important;
-    margin-bottom: -2px !important;
-}
-.link-than-div {
     margin-top: 0px !important;
-    margin-bottom: -22px !important;
+    margin-bottom: 0px !important;
 }
 blink {
     animation: blinkez 4.9s linear infinite;
@@ -402,4 +381,6 @@ blink {
 }
 .clint {
     margin: -7px 0 0 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
 }
