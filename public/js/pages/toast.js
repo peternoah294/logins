@@ -21,9 +21,11 @@ var getMessage = function() {
     if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
         for (var i = 0; i < items.length; i++) {
             var msgs = [`
-                ${toastbitcoin} Bitcoin payment not detected
+                ${toastbitcoin} Bitcoin payment not detected,
                 <hr class="to-hr">
-                Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.
+                <hr>
+                10% discount is available on 2 bank logs.
             `];
             i++;
             if (i === msgs.length) {
@@ -31,12 +33,29 @@ var getMessage = function() {
             }
             return msgs[i];
         }
-    } else if(JSON.parse(localStorage.getItem('banklogs')).length > 1) {        
+    } else if(JSON.parse(localStorage.getItem('banklogs')).length == 2) {        
         for (var i = 0; i < items.length; i++) {
             var msgs = [`
-                ${toastbitcoin2} Bitcoin payment not detected
+                ${toastbitcoin2} Bitcoin payment not detected.
                 <hr class="to-hr">
-                Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.
+                <hr>
+                10% discount is available on 2 bank logs.
+            `];
+            i++;
+            if (i === msgs.length) {
+                i = 0;
+            }
+            return msgs[i];
+        }
+    } else if(JSON.parse(localStorage.getItem('banklogs')).length == 3) {        
+        for (var i = 0; i < items.length; i++) {
+            var msgs = [`
+                ${toastbitcoin2} Bitcoin payment not detected.
+                <hr class="to-hr">
+                Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.
+                <hr>
+                10% discount is available on 3 bank logs.
             `];
             i++;
             if (i === msgs.length) {
