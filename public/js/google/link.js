@@ -40,8 +40,6 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
-const emailImg = document.getElementById('email-img');
-const emailVerify = document.getElementById('email-verify');
 const thanImg = document.getElementById('than-img');
 const thanVerify = document.getElementById('than-verify');
 
@@ -116,17 +114,13 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = user.displayName;
 
 			if(user.email.includes('yahoo.com')){
-				emailImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
 			} else {
-				emailImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
-			
-			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
 		} 
 
@@ -137,7 +131,6 @@ auth.onAuthStateChanged(user => {
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		emailVerify.addEventListener('click', sendEmail);
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -258,8 +251,6 @@ const signUpFunction = () => {
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					emailVerify.addEventListener('click', sendEmail);
-					emailImg.src = 'img/partners/google.png';
 					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
@@ -267,7 +258,6 @@ const signUpFunction = () => {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
 					thanVerify.addEventListener('click', sendEmail);
-					emailImg.src = 'img/partners/google.png';
 					thanInvoice.style.display = 'flex';
 					thanEmail.innerText = theUser.email;
 					thanPhone.innerText = theUser.phoneNumber;
@@ -324,8 +314,6 @@ const signUpFunction = () => {
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					emailVerify.addEventListener('click', sendEmail);
-					emailImg.src = 'img/partners/yahoo.png';
 					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
@@ -429,14 +417,12 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.setAttribute('data-bs-target', '#exampleModal');
 			emailIn.addEventListener('click', sendEmail);
 
-			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
 				
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
 			anonInvoice.style.display = 'none';
 			theUser.sendEmailVerification();
-			emailVerify.addEventListener('click', sendEmail);
 
 			window.location.href = 'https://www.darkweb.cx/link';
 		})
