@@ -129,8 +129,14 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
 
+		if(!localStorage.getItem('verify-cx')) {
+			vpn.innerHTML = 'Verify Email <img src="img/partners/emails.png">';
+			vpn.addEventListener('click', sendEmail);
+			vpn.setAttribute('data-bs-target', '#emailModal');
+		} 
 		
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
@@ -200,7 +206,7 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('vox-time')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementById('logsection2').style.display = 'none';
@@ -269,6 +275,9 @@ function sendEmail() {
 		$toastlast = $toast;
 	}
 	localStorage.setItem('verify-cx', true);
+	vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+	vpn.setAttribute('data-bs-target', '#vpnModal');
+	vpn.removeEventListener('click', sendEmail);
 }
 
 const signUpFunction = () => {
