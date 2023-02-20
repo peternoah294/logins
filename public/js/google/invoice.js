@@ -36,6 +36,8 @@ const verImg = document.getElementById('ver-img');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
+const theSet = document.getElementById('settings');
+
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -186,6 +188,9 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
+
+		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
+		theSet.setAttribute('data-bs-target', '#loginModal');
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
