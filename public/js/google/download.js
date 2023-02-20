@@ -417,9 +417,11 @@ logOut.addEventListener('click', () => {
 	}
 })
 
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-    'size': 'invisible'
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+recaptchaVerifier.render().then(widgetId => {
+	window.recaptchaWidgetId = widgetId;
 });
+
 const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
 	const appVerifier = window.recaptchaVerifier;
