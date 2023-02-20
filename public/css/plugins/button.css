@@ -1552,6 +1552,7 @@ td {
     color: #fff !important;
     font-size: 24px !important;
 }
+#phoneModal .modal-dialog,
 #exampleModal .modal-dialog {
     top: 5vh !important;
 }
@@ -1562,7 +1563,6 @@ td {
 #vpnModal .modal-dialog {
     top: 10vh !important;
 }
-#phoneModal .modal-dialog,
 #loginModal .modal-dialog {
     top: 10vh !important;
 }
@@ -1600,6 +1600,7 @@ td {
     }
 }
 @media screen and (max-width: 570px) {
+    #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
         max-width: 80vw !important;
@@ -1609,7 +1610,6 @@ td {
         top: 20vh !important;
         max-width: 80vw !important;
     }
-    #phoneModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1621,6 +1621,7 @@ td {
     }
 }
 @media screen and (max-width: 420px) {
+    #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
         max-width: 84vw !important;
@@ -1630,7 +1631,6 @@ td {
         top: 20vh !important;
         max-width: 84vw !important;
     }
-    #phoneModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1642,6 +1642,7 @@ td {
     }
 }
 @media screen and (max-width: 411px) {
+    #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
         max-width: 85vw !important;
@@ -1651,7 +1652,6 @@ td {
         top: 20vh !important;
         max-width: 85vw !important;
     }
-    #phoneModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1663,6 +1663,7 @@ td {
     }
 }
 @media screen and (max-width: 397px) {
+    #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
         max-width: 85vw !important;
@@ -1672,7 +1673,6 @@ td {
         top: 20vh !important;
         max-width: 85vw !important;
     }
-    #phoneModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1684,6 +1684,7 @@ td {
     }
 }
 @media screen and (max-width: 376px) {
+    #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
         max-width: 88vw !important;
@@ -1693,7 +1694,6 @@ td {
         top: 20vh !important;
         max-width: 88vw !important;
     }
-    #phoneModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1705,6 +1705,7 @@ td {
     }
 }
 @media screen and (max-width: 370px) {
+    #phoneModal .modal-dialog,
     #exampleModal .modal-dialog {
         top: 17vh !important;
         max-width: 87vw !important;
@@ -1714,7 +1715,6 @@ td {
         top: 20vh !important;
         max-width: 87vw !important;
     }
-    #phoneModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
