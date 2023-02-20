@@ -48,10 +48,6 @@ const thanVerify = document.getElementById('than-verify');
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
-const cxDiv = document.getElementById('cx-div');
-const cxImg = document.getElementById('cx-img');
-const cxA = document.getElementById('cx-a');
-
 const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
 const auth = firebase.auth();
@@ -164,38 +160,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
-
-		if(!localStorage.getItem('cx-time')) {
-			cxDiv.setAttribute('data-bs-target', '#vpnModal');
-			cxA.innerHTML= 'Buy Anonymously';
-			cxImg.src = 'img/partners/anonymous.png';
-
-			cxA.addEventListener('click', sendNoti);
-
-			function sendNoti() {
-				var shortCutFunction = 'success';
-				var msg = `
-					Email invoice is the better option
-					<hr class="to-hr">
-					Create a burner email / phone and use it to get an invoice
-				`;
-				toastr.options = {
-					closeButton: true,
-					debug: false,
-					newestOnTop: true,
-					progressBar: true,
-					positionClass: 'toast-top-full-width',
-					preventDuplicates: true,
-					onclick: null
-				};
-				var $toast = toastr[shortCutFunction](msg);
-				$toastlast = $toast;
-			}
-		} else if(localStorage.getItem('cx-time')) {
-			cxDiv.setAttribute('data-bs-target', '#phoneModal');
-			cxA.innerHTML= 'Get Phone Invoice';
-			cxImg.src = 'img/partners/phone.png';
-		}
 	}
 
 	if(user.uid){
