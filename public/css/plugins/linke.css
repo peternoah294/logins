@@ -320,6 +320,10 @@ blink.disc {
     margin-top: -2px !important;
     margin-bottom: -2px !important;
 }
+.link-than-div {
+    margin-top: 0px !important;
+    margin-bottom: -22px !important;
+}
 blink {
     animation: blinkez 4.9s linear infinite;
     color: #fff;
