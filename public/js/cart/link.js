@@ -3,7 +3,6 @@ var table3 = jQuery('#example1').DataTable();
 var setBtn = document.getElementById('settings');
 var wouldYou = document.getElementById('would');
 var anonDiv = document.getElementById('anon-div');
-var phoneDiv = document.getElementById('phone-div');
 
 if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('confirm').style.display = 'flex';
