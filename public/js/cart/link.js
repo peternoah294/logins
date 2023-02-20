@@ -3,6 +3,8 @@ var table3 = jQuery('#example1').DataTable();
 var setBtn = document.getElementById('settings');
 var wouldYou = document.getElementById('would');
 var anonDiv = document.getElementById('anon-div');
+var phoneDiv = document.getElementById('phone-div');
+var emailDiv = document.getElementById('email-div');
 
 if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('confirm').style.display = 'flex';
@@ -148,12 +150,20 @@ function updateCartTotal() {
 
         if (window.innerWidth > 768) {
             anonDiv.style.marginTop = '10vh';
+            phoneDiv.style.marginTop = '11vh';
+            emailDiv.style.marginTop = '12vh';
         } else if(window.innerWidth >= 390) {
             anonDiv.style.marginTop = '16vh';
+            phoneDiv.style.marginTop = '17vh';
+            emailDiv.style.marginTop = '18vh';
         } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '14vh';
+            phoneDiv.style.marginTop = '15vh';
+            emailDiv.style.marginTop = '16vh';
         } else if(window.innerWidth >= 370) {
             anonDiv.style.marginTop = '11vh';
+            phoneDiv.style.marginTop = '12vh';
+            emailDiv.style.marginTop = '13vh';
         }
 
         wouldYou.innerHTML = `
@@ -167,12 +177,20 @@ function updateCartTotal() {
 
         if (window.innerWidth > 768) {
             anonDiv.style.marginTop = '13.5vh';
+            phoneDiv.style.marginTop = '11vh';
+            emailDiv.style.marginTop = '12vh';
         } else if(window.innerWidth >= 390) {
             anonDiv.style.marginTop = '16vh';
+            phoneDiv.style.marginTop = '17vh';
+            emailDiv.style.marginTop = '18vh';
         } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '14vh';
+            phoneDiv.style.marginTop = '15vh';
+            emailDiv.style.marginTop = '16vh';
         } else if(window.innerWidth >= 370) {
             anonDiv.style.marginTop = '11vh';
+            phoneDiv.style.marginTop = '12vh';
+            emailDiv.style.marginTop = '13vh';
         }
     
         for(var i = 0; i < Loginz.length; i++) {
@@ -189,12 +207,20 @@ function updateCartTotal() {
         var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
         if (window.innerWidth > 768) {
             anonDiv.style.marginTop = '14vh';
+            phoneDiv.style.marginTop = '11vh';
+            emailDiv.style.marginTop = '12vh';
         } else if(window.innerWidth >= 390) {
             anonDiv.style.marginTop = '18vh';
+            phoneDiv.style.marginTop = '17vh';
+            emailDiv.style.marginTop = '18vh';
         } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '16vh';
+            phoneDiv.style.marginTop = '15vh';
+            emailDiv.style.marginTop = '16vh';
         } else if(window.innerWidth >= 370) {
             anonDiv.style.marginTop = '13vh';
+            phoneDiv.style.marginTop = '12vh';
+            emailDiv.style.marginTop = '13vh';
         }
     
         for(var i = 0; i < Loginz.length; i++) {

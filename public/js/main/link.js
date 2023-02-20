@@ -54,7 +54,7 @@
 
     var cxC = document.getElementById('than-verify');
     var cxZ = document.getElementById('email-verify');
-    var cxA = document.getElementById('cx-a');
+    var cxW = document.getElementById('than-link');
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
         theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -72,8 +72,8 @@
         cxZ.classList.remove('ver-btn');
         cxZ.classList.add('phone-btn');
 
-        cxA.classList.remove('ver-btn');
-        cxA.classList.add('phone-btn');
+        cxW.classList.remove('ver-btn');
+        cxW.classList.add('phone-btn');
     } 
 
     $window.on("load", function() {
