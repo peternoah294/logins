@@ -265,6 +265,7 @@ blink.high {
 #loginModal .modal-content,
 #phoneModal .modal-content,
 #verifyModal .modal-content,
+#contactModal .modal-content,
 #vpnModal .modal-content,
 #profileModal .modal-content,
 #exampleModal .modal-content {
@@ -314,6 +315,7 @@ blink.high {
 #loginModal .modal-header .close img,
 #phoneModal .modal-header .close img,
 #verifyModal .modal-header .close img,
+#contactModal .modal-header .close img,
 #vpnModal .modal-header .close img,
 #profileModal .modal-header .close img,
 #exampleModal .modal-header .close img,
