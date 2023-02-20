@@ -1556,7 +1556,6 @@ td {
 #exampleModal .modal-dialog {
     top: 5vh !important;
 }
-#contactModal .modal-dialog,
 #verifyModal .modal-dialog {
     top: 8vh !important;
 }
@@ -1566,6 +1565,7 @@ td {
 #loginModal .modal-dialog {
     top: 10vh !important;
 }
+#contactModal .modal-dialog,
 #emailModal .modal-dialog {
     top: 10vh !important;
 }
@@ -1606,10 +1606,7 @@ td {
         max-width: 80vw !important;
     }
     #contactModal .modal-dialog,
-    #verifyModal .modal-dialog {
-        top: 20vh !important;
-        max-width: 80vw !important;
-    }
+    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1627,10 +1624,7 @@ td {
         max-width: 84vw !important;
     }
     #contactModal .modal-dialog,
-    #verifyModal .modal-dialog {
-        top: 20vh !important;
-        max-width: 84vw !important;
-    }
+    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1648,10 +1642,7 @@ td {
         max-width: 85vw !important;
     }
     #contactModal .modal-dialog,
-    #verifyModal .modal-dialog {
-        top: 20vh !important;
-        max-width: 85vw !important;
-    }
+    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1669,10 +1660,7 @@ td {
         max-width: 85vw !important;
     }
     #contactModal .modal-dialog,
-    #verifyModal .modal-dialog {
-        top: 20vh !important;
-        max-width: 85vw !important;
-    }
+    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1690,10 +1678,7 @@ td {
         max-width: 88vw !important;
     }
     #contactModal .modal-dialog,
-    #verifyModal .modal-dialog {
-        top: 20vh !important;
-        max-width: 88vw !important;
-    }
+    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
@@ -1711,10 +1696,7 @@ td {
         max-width: 87vw !important;
     }
     #contactModal .modal-dialog,
-    #verifyModal .modal-dialog {
-        top: 20vh !important;
-        max-width: 87vw !important;
-    }
+    #verifyModal .modal-dialog,
     #emailModal .modal-dialog,
     #loginModal .modal-dialog {
         top: 20vh !important;
