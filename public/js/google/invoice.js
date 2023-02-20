@@ -185,12 +185,18 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			document.getElementById('apart').style.display = 'flex';
-			document.getElementById('logsection').style.display = 'none';
-			document.getElementById('logsection2').style.display = 'none';
-			document.getElementsByClassName('clint')[0].style.bottom = '0';
-			document.getElementsByClassName('clint')[0].style.position = 'fixed';
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
 		}
 	}
 
