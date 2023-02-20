@@ -133,7 +133,15 @@ auth.onAuthStateChanged(user => {
 		} 
 
 		if(!localStorage.getItem('verify-cx')) {
-			vpn.innerHTML = 'Verify Email <img src="img/partners/emails.png">';
+			if(user.displayName) {
+				if(user.email.includes('yahoo.com')){
+					vpn.innerHTML = `Verify Email <img src="img/partners/yahoo.png">`;
+				} else {
+					vpn.innerHTML = `Verify Email <img src="img/partners/google.png">`;
+				}
+			} else if(!user.displayName) {
+				vpn.innerHTML = 'Verify Email <img src="img/partners/emails.png">';
+			}
 			vpn.addEventListener('click', sendEmail);
 			vpn.setAttribute('data-bs-target', '#emailModal');
 		} 
@@ -275,7 +283,17 @@ function sendEmail() {
 		$toastlast = $toast;
 	}
 	localStorage.setItem('verify-cx', true);
-	vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+
+	if(auth.currentUser.displayName) {
+		if(auth.currentUser.email.includes('yahoo.com')){
+			vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+		} else {
+			vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+		}
+	} else if(!auth.currentUser.displayName) {
+		vpn.innerHTML = 'View Profile <img src="img/partners/emails.png">';
+	}
+
 	vpn.setAttribute('data-bs-target', '#vpnModal');
 	vpn.removeEventListener('click', sendEmail);
 }
