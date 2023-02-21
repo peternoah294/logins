@@ -724,8 +724,3 @@ if(!window.location.href.includes('5502')) {
 		return true;
 	}
 }
-
-if(!localStorage.getItem('received-funds')) {
-	document.getElementsByClassName('clint')[0].style.bottom = '0';
-	document.getElementsByClassName('clint')[0].style.position = 'fixed';
-}

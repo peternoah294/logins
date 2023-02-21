@@ -19,8 +19,6 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     document.getElementById('predat').style.display = 'flex';
                     document.getElementById('logsection').style.display = 'none';
                     document.getElementById('logsection2').style.display = 'none';
-                    document.getElementsByClassName('clint')[0].style.bottom = '0';
-                    document.getElementsByClassName('clint')[0].style.position = 'fixed';
                     document.getElementById('cartlength').style.display = 'none';
                 } 
                 else if( width <= 14) {
@@ -475,8 +473,6 @@ if(localStorage.getItem('received-funds')) {
     document.getElementById('logsection2').style.display = 'none';
     document.getElementById('predat').style.display = 'none';
     document.getElementById('bit-bal').innerHTML = `You Have Paid: <span>$${(parseInt(localStorage.getItem('received-funds')).toLocaleString())}</span>`;
-    document.getElementsByClassName('clint')[0].style.bottom = '0';
-    document.getElementsByClassName('clint')[0].style.position = 'fixed';
 
     document.getElementsByClassName('bit-p')[0].innerHTML = `
         A bitcoin payment has been detected, 
@@ -484,6 +480,4 @@ if(localStorage.getItem('received-funds')) {
     `;
 } else if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
     document.getElementById('predat').style.display = 'flex';
-    document.getElementsByClassName('clint')[0].style.bottom = '0';
-    document.getElementsByClassName('clint')[0].style.position = 'fixed';
 }

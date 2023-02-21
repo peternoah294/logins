@@ -24,8 +24,6 @@ binance.onmessage = function(onmsg){
             document.getElementById('logsection2').style.display = 'none';
             document.getElementById('predat').style.display = 'none';
             document.getElementById('bit-bal').innerHTML = `You Have Paid: <span>$${(parseInt(localStorage.getItem('received-funds')).toLocaleString())}</span>`;
-            document.getElementsByClassName('clint')[0].style.bottom = '0';
-            document.getElementsByClassName('clint')[0].style.position = 'fixed';
 
             document.getElementsByClassName('bit-p')[0].innerHTML = `
                 A bitcoin payment has been detected, 
