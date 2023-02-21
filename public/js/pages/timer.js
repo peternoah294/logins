@@ -473,6 +473,7 @@ if(localStorage.getItem('received-funds')) {
     document.getElementById('bipart').style.display = 'flex';
     document.getElementById('logsection').style.display = 'none';
     document.getElementById('logsection2').style.display = 'none';
+    document.getElementById('predat').style.display = 'none';
     document.getElementById('bit-bal').innerHTML = `You Have Paid: <span>$${(parseInt(localStorage.getItem('received-funds')).toLocaleString())}</span>`;
     document.getElementsByClassName('clint')[0].style.bottom = '0';
     document.getElementsByClassName('clint')[0].style.position = 'fixed';

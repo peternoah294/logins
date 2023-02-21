@@ -12,7 +12,7 @@ function move(){
                 document.getElementById('logsection').style.display = 'none'
 	            document.getElementById('predat').style.display = 'flex';
             } 
-            else if( width <= 600) {
+            else if( width <= 1200) {
                 elemj.classList.add("bg-danger");
                 localStorage.setItem('pay-left',width--);
                 var minutes = Math.floor(width/60);
@@ -20,10 +20,10 @@ function move(){
                 if(seconds < 10){
                     seconds = '0'+seconds
                 }
-                elemj.style.width = (width/18) + "%";
+                elemj.style.width = (width/36) + "%";
                 document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
             } 
-            else if( width <= 1200) {
+            else if( width <= 2400) {
                 elemj.classList.add("bg-warning");
                 localStorage.setItem('pay-left',width--);
                 var minutes = Math.floor(width/60);
@@ -31,7 +31,7 @@ function move(){
                 if(seconds < 10){
                     seconds = '0'+seconds
                 }
-                elemj.style.width = (width/18) + "%";
+                elemj.style.width = (width/36) + "%";
                 document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
             } 
             else {
@@ -41,7 +41,7 @@ function move(){
                 if(seconds < 10){
                     seconds = '0'+seconds
                 }
-                elemj.style.width = (width/18) + "%";
+                elemj.style.width = (width/36) + "%";
                 document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
             }
         }
