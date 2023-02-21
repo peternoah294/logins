@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="css/plugins/darkweb.min.css" />
     <link rel="stylesheet" href="css/plugins/nav-menu.css" />
 
-    <link rel="stylesheet" href="datatables/css/jquery.datatables2.min.css" />
     <link href="css/styles-2.css" rel="stylesheet" id="colors">
+    <link rel="stylesheet" href="datatables/css/jquery.datatables2.min.css" />
     <link href="css/plugins/button.css" rel="stylesheet">
+    <link href="css/plugins/link.css" rel="stylesheet">
 </head>
 <body id="thebodyz">
     <div id="preloader">
@@ -264,52 +265,197 @@
         
 
 
-<!-- start revolution slideshow-->
-<div class="rev_slider_wrapper">
-    <div class="rev_slider" id="rev_slider_2" data-version="5.4.5">
-        <ul>
-            <li data-fstransition="fade" data-transition="scaledownfrombottom" data-easein="default" data-easeout="default" data-slotamount="1" data-masterspeed="1200" data-delay="4000" 
-            data-title="Spending Accounts">
-                <div class="opacity-full bg-black z-index-1">
-                    <div id="particles-js"></div> 
+<!-- start projet ection -->
+<section class="bg-img bg-animate" data-background="img/content/home12.jpg" id="logs-invoice">
+    <div class="opacity-full-dark bg-extra-dark-gray">
+        <div id="particles-js"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-7 col-12 center-col" id="than-div">
+                <div class="modal-content" id="modalsend">
+                    <div class="brock">
+    
+                        <div class="modal-body" id="invoice-body">
+                            <div id="invoice-body-div">
+                                <div id="than-invoice">
+                                    <div class="text-center section-heading">
+                                        <p>
+                                            Bank log files will be sent to your 
+                                            email <span id="thanEmail"></span>, 
+                                            & phone <span id="thanPhone"></span> as a dynamic link
+                                            that expires after 7 hours.
+                                        </p>
+                                        <hr class="nohr">
+                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/btc.png">
+                                                <a class="butn home-btn" id="than-check">
+                                                
+                                                </a>
+                                            </div>
+                                        </div>
+                
+                                        <hr class="nohr">
+                
+                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <div class="invoice">
+                                                <img id="than-img">
+                                                <a class="butn ver-btn" id="than-verify">
+                                                    Verify My Mail
+                                                </a>
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
                 </div>
-                <img src="img/wall/chims.jpg" data-bgrepeat="no-repeat" data-bgfit="cover" data-bgparallax="7" class="rev-slidebg">
-                <div class="tp-caption t-head" data-x="center" data-y="center" data-voffset="[-28,-10,-20,-40]" data-fontsize="[72,62,52,46]" data-lineheight="[72,62,52,70]" data-width="[none, none, none, 400]" data-whitespace="[nowrap, nowrap, nowrap, normal]" data-frames='[{"delay":"+700","split":"chars","splitdelay":0.07,"speed":750,"frame":"0","from":"y:150px;sX:1.5;sY:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"sX:1;sY:1;opacity:0;fb:10px;","ease":"Power4.easeOut"}]' >
-                    8 Spending Accounts
+            </div>
+        
+
+            <div class="col-lg-5 col-md-7 col-12 center-col" id="email-div">
+                <div class="modal-content" id="modalsend">
+                    <div class="brock">
+    
+                        <div class="modal-body" id="invoice-body">
+                            <div id="invoice-body-div">
+                                <div id="email-invoice">
+                                    <div class="text-center section-heading">
+                                        <p>
+                                            Bank log files will be sent to your email <span id="yourEmail"></span>, after a successful purchase
+                                            <br>
+                                            Check the <span>spam / junk</span> folder
+                                        </p>
+                            
+                                        <hr class="nohr">
+                
+                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <div class="invoice">
+                                                <img id="email-img">
+                                                <a class="butn home-btn" id="email-verify">
+                                                    Verify My Mail
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="nohr">
+                
+                                        <div style="display: inline-block;" class="link-than-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/phone.png">
+                                                <a class="butn ver-btn" id="p-verify">
+                                                    Phone Invoice
+                                                </a>
+                                            </div>
+                                            <blink class="disc">Vouched</blink>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
                 </div>
-                <div class="tp-caption" data-x="center" data-y="center" data-voffset="[100,85,94]" data-lineheight="55" data-hoffset="0" data-frames='[{"delay":1200,"speed":900,"frame":"0","from":"y:150px;opacity:0;","ease":"Power3.easeOut","to":"o:1;"},{"delay":"wait","speed":1000,"frame":"999","to":"opacity:0;","ease":"Power3.easeOut"}]'>
-                    <button data-scroll-nav="5" class='butn white scroll-down'>
-                        View Accounts <i class="fas fa-angle-down"></i>
-                    </button>
+            </div>
+
+
+
+
+            <div class="col-lg-5 col-md-7 col-12 center-col" id="phone-div">
+                <div class="modal-content" id="modalsend">
+                    <div class="brock">
+    
+                        <div class="modal-body" id="invoice-body">
+                            <div id="invoice-body-div">
+                                <div id="phone-invoice">
+                                    <div class="text-center section-heading">
+                                        <p>
+                                            A dynamic link with bank log files will be sent to your phone number 
+                                            <span id="yourPhone"></span>.
+                                            <br>
+                                            The link will be active for <span>7 hours</span> after the 
+                                            time of purchase.
+                                        </p>
+                                        <hr class="nohr">
+                                        <div style="display: inline-block;" class="link-code-div" data-bs-toggle="modal" data-bs-target="#vpnModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/btc.png">
+                                                <a class="butn home-btn" id="phone-check">
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="nohr">
+
+                                        <div style="display: inline-block" class="link-than-div" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/emails.png">
+                                                <a class="butn ver-btn" id="code-verify">
+                                                    Email Invoice
+                                                </a>
+                                            </div>
+                                            <blink class="disc">Vouched</blink>
+                                        </div>        
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
                 </div>
-            </li>
+            </div>
 
             
+            <div class="col-lg-5 col-md-7 col-12 center-col" id="anon-div">
+                <div class="modal-content" id="modalsend">
+                    <div class="brock">
+    
+                        <div class="modal-body" id="invoice-body">
+                            <div id="invoice-body-div">
+                                <div id="anon-invoice">
+                                    <div class="text-center section-heading" style="margin: 5px 3px !important;">
 
-            <li data-transition="scaledownfrombottom" data-easein="default" data-easeout="default" data-slotamount="1" data-masterspeed="1200" data-delay="4000" 
-            data-title="Savings Accounts">
-                <div class="opacity-full bg-black z-index-1">
-                    <div id="particles-vs"></div> 
+                                        <p id="would">
+                                            
+                                        </p>
+                                        
+                                        <div style="display: inline-block" class="link-email-div" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/emails.png">
+                                                <a class="butn home-btn">
+                                                    Get Email Invoice
+                                                </a>
+                                            </div>
+                                            <blink>Vouched</blink>
+                                        </div>        
+                
+                                        <hr class="nohr">
+                                        <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
+                                            <div class="invoice">
+                                                <img src="img/partners/phone.png">
+                                                <a class="butn ver-btn" id="cx-a">
+                                                    Get Phone Invoice
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
                 </div>
-                <img src="img/wall/chimes.jpg" data-bgrepeat="no-repeat" data-bgfit="cover" data-bgparallax="7" class="rev-slidebg">
-                <div class="tp-caption t-head" data-x="center" data-y="center" data-voffset="[-28,-10,-20,-40]" data-fontsize="[72,62,52,46]" data-lineheight="[72,62,52,70]" data-width="[none, none, none, 400]" data-whitespace="[nowrap, nowrap, nowrap, normal]" data-frames='[{"delay":"+700","split":"chars","splitdelay":0.07,"speed":750,"frame":"0","from":"y:150px;sX:1.5;sY:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"sX:1;sY:1;opacity:0;fb:10px;","ease":"Power4.easeOut"}]' >
-                    12 Savings Accounts
-                </div>
-                <div class="tp-caption" data-x="center" data-y="center" data-voffset="[100,85,94]" data-lineheight="55" data-hoffset="0" data-frames='[{"delay":1200,"speed":900,"frame":"0","from":"y:150px;opacity:0;","ease":"Power3.easeOut","to":"o:1;"},{"delay":"wait","speed":1000,"frame":"999","to":"opacity:0;","ease":"Power3.easeOut"}]'>
-                    <button data-scroll-nav="5" class='butn white scroll-down'>
-                        View Accounts <i class="fas fa-angle-down"></i>
-                    </button>
-                </div>
-            </li>
-        </ul>
+            </div>
+
+
+        </div>
     </div>
-</div>
-<!-- end revolution slideshow-->
-
-
-
-
-
+</section>
 
 
 
@@ -673,8 +819,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
-    <script src="js/main/core.light.js"></script>
-    <script src="js/main/lights.js"></script>
+    <script src="js/main/core.link.js"></script>
+    <script src="js/main/links.js"></script>
     <script src="js/google/auth.js"></script>
     <script src="datatables/js/jquery.datatable2.min.js"></script>
     <script src="js/rev_slider/jquery.themepunch.revolution.min.js"></script>
