@@ -10,8 +10,8 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
-if(localStorage.getItem('darkweb-verify-cx')) {
-	localStorage.removeItem('darkweb-verify-cx')
+if(localStorage.getItem('verify-cx')) {
+	localStorage.removeItem('verify-cx')
 }
 if(localStorage.getItem('cx-out')) {
 	localStorage.removeItem('cx-out');

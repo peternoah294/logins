@@ -175,7 +175,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function sendEmail() {
-	if(!localStorage.getItem('darkweb-verify-cx')) {
+	if(!localStorage.getItem('verify-cx')) {
 		auth.currentUser.sendEmailVerification();
 		verP.innerHTML = `
 			Verification email sent to <span>${auth.currentUser.email}</span>. <br>
@@ -223,7 +223,7 @@ function sendEmail() {
 		var $toast = toastr[shortCutFunction](msg);
 		$toastlast = $toast;
 	}
-	localStorage.setItem('darkweb-verify-cx', true);
+	localStorage.setItem('verify-cx', true);
 }
 
 const signUpFunction = () => {
