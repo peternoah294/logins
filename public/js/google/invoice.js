@@ -133,20 +133,6 @@ auth.onAuthStateChanged(user => {
 			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
-
-		if(!localStorage.getItem('verify-cx')) {
-			if(user.displayName) {
-				if(user.email.includes('yahoo.com')){
-					vpn.innerHTML = `Verify Email <img src="img/partners/yahoo.png">`;
-				} else {
-					vpn.innerHTML = `Verify Email <img src="img/partners/google.png">`;
-				}
-			} else if(!user.displayName) {
-				vpn.innerHTML = 'Verify Email <img src="img/partners/emails.png">';
-			}
-			vpn.addEventListener('click', sendEmail);
-			vpn.setAttribute('data-bs-target', '#emailModal');
-		} 
 		
 		if(platform.manufacturer !== null) {
 			emailP.innerHTML = `
@@ -230,7 +216,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function sendEmail() {
-	if(!localStorage.getItem('verify-cx')) {
+	if(!localStorage.getItem('darkweb-verify-cx')) {
 		auth.currentUser.sendEmailVerification();
 		verP.innerHTML = `
 			Verification email sent to <span>${auth.currentUser.email}</span>. <br>
@@ -278,20 +264,7 @@ function sendEmail() {
 		var $toast = toastr[shortCutFunction](msg);
 		$toastlast = $toast;
 	}
-	localStorage.setItem('verify-cx', true);
-
-	if(auth.currentUser.displayName) {
-		if(auth.currentUser.email.includes('yahoo.com')){
-			vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
-		} else {
-			vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
-		}
-	} else if(!auth.currentUser.displayName) {
-		vpn.innerHTML = 'View Profile <img src="img/partners/emails.png">';
-	}
-
-	vpn.setAttribute('data-bs-target', '#vpnModal');
-	vpn.removeEventListener('click', sendEmail);
+	localStorage.setItem('darkweb-verify-cx', true);
 }
 
 const signUpFunction = () => {
