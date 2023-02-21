@@ -165,6 +165,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
+		theSet.setAttribute('data-bs-target', '#phoneModal');
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
