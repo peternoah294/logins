@@ -35,6 +35,9 @@ const anonInvoice = document.getElementById('anon-div');
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
+const emailImg = document.getElementById('email-img');
+const emailVerify = document.getElementById('email-check');
+
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
@@ -114,19 +117,25 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = user.displayName;
 
 			if(user.email.includes('yahoo.com')){
+				emailImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
 			} else {
+				emailImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
+			
+			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
 		} 
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		emailVerify.addEventListener('click', sendEmail);	
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
@@ -252,6 +261,8 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailInvoice.style.display = 'flex';
+					emailImg.src = 'img/partners/google.png';
+					emailVerify.addEventListener('click', sendEmail);	
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
@@ -316,6 +327,8 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailInvoice.style.display = 'flex';
+					emailImg.src = 'img/partners/yahoo.png';
+					emailVerify.addEventListener('click', sendEmail);	
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
@@ -418,7 +431,10 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.setAttribute('data-bs-target', '#emailModal');
 			emailIn.addEventListener('click', sendEmail);
 
+			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
+
+			emailVerify.addEventListener('click', sendEmail);	
 				
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
