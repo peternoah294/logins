@@ -87,13 +87,16 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				thanImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				thanImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			thanImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -119,9 +122,11 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				emailImg.src = 'img/partners/yahoo.png';
 				vpnImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				emailImg.src = 'img/partners/google.png';
 				vpnImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			jinaHolder.value = theaddress;
@@ -129,6 +134,7 @@ auth.onAuthStateChanged(user => {
 			
 			emailImg.src = 'img/partners/emails.png';
 			vpnImg.src = 'img/partners/emails.png';
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
 
 		emailIn.innerText = 'Verify Email';
@@ -148,6 +154,7 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
+		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -161,6 +168,8 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
+
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	}
 
 	if(user.uid){
@@ -458,10 +467,8 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		});
 }
 
-
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-recaptchaVerifier.render().then(widgetId => {
-	window.recaptchaWidgetId = widgetId;
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+    'size': 'invisible'
 });
 
 const sendVerificationCode = () => {
