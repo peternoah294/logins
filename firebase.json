@@ -20,6 +20,10 @@
         "destination": "/cashout.html"
       },
       {
+        "source": "/confirm",
+        "destination": "/confirm.html"
+      },
+      {
         "source": "/lockscreen",
         "destination": "/lockscreen.html"
       },
@@ -155,6 +159,11 @@
       {
         "source": "/cashout.html",
         "destination": "/cashout",
+        "type": 301
+      },
+      {
+        "source": "/confirm.html",
+        "destination": "/confirm",
         "type": 301
       },
       {
