@@ -99,7 +99,7 @@ auth.onAuthStateChanged(user => {
 		phoneIn.innerText = user.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
-		emailIn.setAttribute('data-bs-target', '#exampleModal');
+		emailIn.setAttribute('data-bs-target', '#emailModal');
 
 		thanInvoice.style.display = 'flex';
 		thanEmail.innerText = user.email;
@@ -126,7 +126,7 @@ auth.onAuthStateChanged(user => {
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
-		emailIn.setAttribute('data-bs-target', '#exampleModal');
+		emailIn.setAttribute('data-bs-target', '#emailModal');
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
@@ -245,7 +245,7 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#exampleModal');
+				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
 
 				if(!theUser.phoneNumber) {
@@ -309,7 +309,7 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#exampleModal');
+				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
 
 				if(!theUser.phoneNumber) {
@@ -415,7 +415,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			jinaHolder3.value = theaddress;
 
 			emailIn.innerText = 'Verify Email';
-			emailIn.setAttribute('data-bs-target', '#exampleModal');
+			emailIn.setAttribute('data-bs-target', '#emailModal');
 			emailIn.addEventListener('click', sendEmail);
 
 			vpnImg.src = 'img/partners/emails.png';
