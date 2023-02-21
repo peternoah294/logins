@@ -33,6 +33,10 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
+const apartSection = document.getElementById('apart');
+const logSection = document.getElementById('logsection');
+const logSection2 = document.getElementById('logsection2');
+
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -154,6 +158,20 @@ auth.onAuthStateChanged(user => {
 
 		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
 		theSet.setAttribute('data-bs-target', '#phoneModal');
+
+		if(!localStorage.getItem('verify-cx')) {
+			if(user.displayName) {
+				if(user.email.includes('yahoo.com')) {
+					vpn.innerHTML = 'Verify Email <img src="img/partners/yahoo.png">';
+				} else {
+					vpn.innerHTML = 'Verify Email <img src="img/partners/google.png">';
+				}
+			} else {
+				vpn.innerHTML = 'Verify Email <img src="img/partners/emails.png">';
+			}
+			vpn.addEventListener('click', sendEmail);
+			vpn.setAttribute('data-bs-target', '#emailModal');
+		}
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -197,9 +215,9 @@ auth.onAuthStateChanged(user => {
 		theSet.setAttribute('data-bs-target', '#loginModal');
 
 		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			document.getElementById('apart').style.display = 'flex';
-			document.getElementById('logsection').style.display = 'none';
-			document.getElementById('logsection2').style.display = 'none';
+			apartSection.style.display = 'flex';
+			logSection.style.display = 'none';
+			logSection2.style.display = 'none';
 		}
 	}
 
@@ -214,7 +232,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function sendEmail() {
-	if(!localStorage.getItem('darkweb-verify-cx')) {
+	if(!localStorage.getItem('verify-cx')) {
 		auth.currentUser.sendEmailVerification();
 		verP.innerHTML = `
 			Verification email sent to <span>${auth.currentUser.email}</span>. <br>
@@ -262,7 +280,19 @@ function sendEmail() {
 		var $toast = toastr[shortCutFunction](msg);
 		$toastlast = $toast;
 	}
-	localStorage.setItem('darkweb-verify-cx', true);
+	localStorage.setItem('verify-cx', true);
+
+	if(auth.currentUser.displayName) {
+		if(auth.currentUser.email.includes('yahoo.com')) {
+			vpn.innerHTML = 'View Profile <img src="img/partners/yahoo.png">';
+		} else {
+			vpn.innerHTML = 'View Profile <img src="img/partners/google.png">';
+		}
+	} else {
+		vpn.inert = 'View Profile <img src="img/partners/emails.png">';
+	}
+	vpn.removeEventListener('click', sendEmail);
+	vpn.setAttribute('data-bs-target', '#vpnModal');
 }
 
 const signUpFunction = () => {
