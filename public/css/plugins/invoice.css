@@ -116,8 +116,14 @@
 	margin: -3px auto -1px 1.3px !important;
 }
 #settings {
-	left: 25.3%;
-	right: 25.3%;
+	left: 24.5%;
+	right: 24.5%;
+}
+@media screen and (max-width: 769px) {
+  #settings {
+    left: 25%;
+    right: 25%;
+  }
 }
 .pricing-list ul li:nth-child(8) {
     font-size: 15px !important;
