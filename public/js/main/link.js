@@ -53,7 +53,7 @@
     var theLog2 = document.getElementById('the-nopic');
 
     var cxC = document.getElementById('than-verify');
-    var cxZ = document.getElementById('email-verify');
+    var cxZ = document.getElementById('p-verify');
     var cxW = document.getElementById('cx-a');
     var cxV = document.getElementById('code-verify');
     if (window.innerWidth > 768) {
