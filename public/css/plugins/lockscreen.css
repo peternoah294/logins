@@ -13,10 +13,6 @@ body {
 	width: 100vw !important;
 	background-color: rgba(0, 0, 0, 0.81);
 }
-.index-p{
-    color: #fff !important;
-	font-size: 21px !important;
-}
 #particles-js {
 	position: absolute !important;
 	width: 100% !important;
@@ -26,8 +22,8 @@ body {
 .zolute{
 	position: fixed !important;
 	z-index: 4;
-	width: 70% !important;
-	margin: 2vh 15% !important;
+	width: 50% !important;
+	margin: 10vh 25% !important;
 }
 @media screen and (max-width: 821px) {
 	.zolute{
@@ -41,103 +37,6 @@ body {
 		margin: 3vh 7% !important;
    }
 }
-.btn {
-	display: grid;
-	line-height: inherit;
-	text-transform: uppercase;
-	z-index: 1;
-	overflow: hidden;
-	margin-bottom: 3px;
-	font-family: "Montserrat", sans-serif;
-	position: relative;
-	text-align: center;
-	border-radius: 0;
-	background: #121d33;
-	border: 1.4px solid rgba(135, 206, 235, 1) !important;
-	letter-spacing: 0.5px;
-	line-height: 32px;
-	color: #fff;
-	font-weight: 700;
-	transition-duration: 0.7s;
-	transition-timing-function: ease-in-out;
-	padding: 10px 0;
-	font-size: 26px;
-	margin: 3% 4.167%;
-	flex: 0 0 25%;
-	max-width: 25%;
-}
-.btn span {
-	font-size: 15px;
-	font-weight: 600;
-	color: rgba(18, 29, 51, 0.85);
-}
-.btn.gold img{
-	height: 61px;
-	margin: 0 auto !important;
-	margin-bottom: 14px !important;
-}
-@media screen and (max-width: 821px) {
-	.btn {
-		padding: 7px 0 !important;
-		margin: 17px 3.5% !important;
-		flex: 0 0 43%;
-		max-width: 43%;
-		font-size: 22px;
-   }
-	.btn.gold img{
-		height: 42px;
-   }
-   .btn span {
-		font-size: 14px;
-		margin-bottom: -3px;
-		font-weight: 600;
-	}
-}
-@media screen and (max-width: 374px) {
-	.btn {
-		padding: 4px 0 !important;
-		margin: 14px 3% !important;
-		flex: 0 0 44%;
-		max-width: 44%;
-		font-size: 20px;
-   }
-	.btn.gold img{
-		height: 37px;
-   }
-   .btn span {
-		font-size: 12px;
-		margin-bottom: -3px;
-		font-weight: 600;
-	}
-}
-.btn:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 500%;
-	height: 1000%;
-	z-index: -1;
-	background: #121d33;
-	color: #fff;
-	transform-origin: 0% 0%;
-	transform: translateX(calc(20% - 21px)) translateY(10%) rotate(-45deg);
-	transition: transform 0.7s;
-}
-.btn:hover:after {
-	transform: translateY(10%) translateX(-20px) rotate(-45deg);
-}
-.btn.gold{
-	background: yellow;
-	color: #121d33;
-}
-.btn.gold:hover{
-	color: aqua;
-	border: 1.4px solid aqua !important;
-}
-.btn.gold:hover span{
-	color: aqua;
-}
 .btn7 {
 	display: inline-block;
 	line-height: inherit;
@@ -149,17 +48,21 @@ body {
 	position: relative;
 	text-align: center;
 	border-radius: 0;
-	background: #121d33;
+	background: yellow;
 	border: 1.4px solid rgba(135, 206, 235, 1) !important;
 	letter-spacing: 0.5px;
 	line-height: 26px;
-	color: #fff;
+	color: #121d33 !important;
 	font-weight: 700;
 	transition-duration: 0.7s;
 	transition-timing-function: ease-in-out;
 	padding: 10px 20px;
 	font-size: 24px;
 	margin: 12px auto;
+	cursor: pointer !important;
+}
+.btn7:hover {
+	color: #fff !important;
 }
 @media screen and (max-width: 821px) {
 	.btn7{
@@ -183,22 +86,14 @@ body {
 .btn7:hover:after {
 	transform: translateY(10%) translateX(-20px) rotate(-45deg);
 }
-.btn7.gold7{
-	background: yellow;
-	color: #121d33;
-}
-.btn7.gold7:hover{
-	color: aqua !important;
-	border: 1.4px solid aqua !important;
-}
-.btn7.gold7 img{
+.btn7 img{
 	height: 35px;
 }
 @media screen and (max-width: 374px) {
-	.btn7.gold7 img{
+	.btn7 img{
 		height: 30px;
 	}
-	.btn7.gold7 {
+	.btn7 {
 		font-size: 20px;
 	}
 }
@@ -283,20 +178,6 @@ body {
 	height: 100%;
 	background: aqua;
 }
-.modal{
-	background: rgba(0, 0, 0, 0.35);
-}
-@media screen and (min-width: 821px) {
-	.modal-dialog {
-		top: 7vh !important;
-		width: 35vw !important;
-   }
-}
-@media screen and (max-width: 821px) {
-	.modal-dialog {
-		top: 15vh !important;
-   }
-}
 .bg-animate {
 	background-position: 0 0;
 	background-repeat: repeat-x;
@@ -310,16 +191,4 @@ body {
 	to {
 		background-position: 100% 0;
    }
-}
-::placeholder {
-	color: #121d33 !important;
-	text-align: center !important;
-	opacity: 1;
-}
-#cx-out {
-    color: rgba(18, 29, 51, 0.92) !important;
-	cursor: pointer !important;
-}
-#cx-out:hover {
-	color: #fff !important;
 }
