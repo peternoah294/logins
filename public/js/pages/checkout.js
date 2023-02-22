@@ -224,7 +224,7 @@ function removeItemFromCart(price, balance,account,website,image,info1,info2,inf
     function checkAdult(items) {
         return JSON.stringify(items) !== JSON.stringify(item)
     }
-    localStorage.setItem('time-left', 600);
+    localStorage.setItem('time-left', 900);
     localStorage.setItem('banklogs', JSON.stringify(items.filter(checkAdult)));
     items = items.filter(checkAdult);
     window.location.reload()

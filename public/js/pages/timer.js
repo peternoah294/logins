@@ -27,7 +27,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 15) {
@@ -36,7 +36,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -64,7 +64,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 60) {
@@ -73,7 +73,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -106,7 +106,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 120) {
@@ -115,7 +115,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -147,7 +147,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 180) {
@@ -156,7 +156,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -188,7 +188,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 
@@ -199,7 +199,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 240) {
@@ -208,7 +208,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -241,7 +241,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 300) {
@@ -250,7 +250,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -283,7 +283,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 360) {
@@ -292,7 +292,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -324,7 +324,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
 
@@ -333,7 +333,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 420) {
@@ -341,7 +341,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -373,7 +373,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 480) {
@@ -381,7 +381,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -413,7 +413,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 540) {
@@ -421,7 +421,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -447,13 +447,210 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     $toastlast = $toast;
                 } 
 
+                else if( width <= 599) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+                } 
+                else if( width == 600) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+
+                    var shortCutFunction = 'success';
+                    if(user.email) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `10 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `10 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } else if(user.phoneNumber) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `10 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `10 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } 
+                    toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+                    var $toast = toastr[shortCutFunction](msg);
+                    $toastlast = $toast;
+                } 
+
+                else if( width <= 659) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+                } 
+                else if( width == 660) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+
+                    var shortCutFunction = 'success';
+                    if(user.email) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `11 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `11 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } else if(user.phoneNumber) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `11 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `11 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } 
+                    toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+                    var $toast = toastr[shortCutFunction](msg);
+                    $toastlast = $toast;
+                } 
+
+
+                else if( width <= 719) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+                } 
+                else if( width == 720) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+
+                    var shortCutFunction = 'success';
+                    if(user.email) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `12 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `12 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } else if(user.phoneNumber) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `12 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `12 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } 
+                    toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+                    var $toast = toastr[shortCutFunction](msg);
+                    $toastlast = $toast;
+                } 
+
+
+                else if( width <= 779) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+                } 
+                else if( width == 780) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+
+                    var shortCutFunction = 'success';
+                    if(user.email) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `13 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `13 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } else if(user.phoneNumber) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `13 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `13 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } 
+                    toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+                    var $toast = toastr[shortCutFunction](msg);
+                    $toastlast = $toast;
+                } 
+
+                else if( width <= 839) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+                } 
+                else if( width == 840) {
+                    localStorage.setItem('time-left',width--);
+                    var minutes = Math.floor(width/60);
+                    var seconds = width - minutes * 60;
+                    if(seconds < 10){ seconds = '0'+seconds }
+                    elemj.style.width = (width/9) + "%";
+                    document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
+
+                    var shortCutFunction = 'success';
+                    if(user.email) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `14 Minutes Left! ${user.email}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `14 Minutes Left! ${user.email}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } else if(user.phoneNumber) { 
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `14 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.`; 
+                        } else {
+                            var msg = `14 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
+                        }
+                    } 
+                    toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
+                    var $toast = toastr[shortCutFunction](msg);
+                    $toastlast = $toast;
+                } 
+
 
                 else {
                     localStorage.setItem('time-left',width--);
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/6) + "%";
+                    elemj.style.width = (width/9) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 }
             }

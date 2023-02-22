@@ -30,7 +30,7 @@ binance.onmessage = function(onmsg){
                 Visit the download page and complete the progress.
             `;
             localStorage.setItem('banklogs', []);
-            localStorage.setItem('time-left', 60000);
+            localStorage.removeItem('time-left')
         }
     }             
 }

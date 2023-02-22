@@ -302,7 +302,7 @@ function updateCartTotal() {
             } 
         });
     }
-    localStorage.setItem('time-left',600);
+    localStorage.setItem('time-left',900);
 
     var profileModal = document.getElementById('profileModal');
     var modalDialog = profileModal.getElementsByClassName('modal-dialog')[0];
@@ -360,5 +360,5 @@ function updateCartTotal2() {
         } 
     }
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
-    localStorage.setItem('time-left',600);
+    localStorage.setItem('time-left',900);
 }

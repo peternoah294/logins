@@ -199,7 +199,7 @@ function updateCartTotal() {
     document.getElementById('thetot').innerHTML = `View Cart: $${total.toLocaleString()}`;
     setBtn.innerHTML = `Cart: $${total.toLocaleString()} <img src="img/partners/bitcoin.png">`;
     document.getElementById('theno1').innerHTML = 'Cart: ' + JSON.parse(localStorage.getItem('banklogs')).length + ' , Total: $' + total.toLocaleString();
-    localStorage.setItem('time-left',600);
+    localStorage.setItem('time-left',900);
 
 
     var profileModal = document.getElementById('profileModal');
