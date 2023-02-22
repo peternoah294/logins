@@ -43,11 +43,8 @@ const auth = firebase.auth();
 if(localStorage.getItem('received-funds')) {
 	window.location.assign('invoice');
 }
-if(localStorage.getItem('cx-out')) {
-	window.location.assign('lockscreen');
-}
 auth.onAuthStateChanged(user => {
-	if (!user) {
+	if (!user || localStorage.getItem('cx-out')) {
 		window.location.assign('index');
 	}
 	if (user.photoURL) {
@@ -66,7 +63,7 @@ auth.onAuthStateChanged(user => {
 			logoHolder.style.display = 'block';
 			thenoPic.style.display = 'inline-block';
 		}
-	}
+	} 
 	if(user.email && user.phoneNumber) {
 		if (user.displayName && user.email) {
 			if(user.email.includes('yahoo.com')){
@@ -87,9 +84,9 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.value = user.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
+		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
-		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
@@ -136,10 +133,10 @@ auth.onAuthStateChanged(user => {
 		} 
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		vpnImg.src = 'img/partners/anonymous.png';
-		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
+		vpnImg.src = 'img/partners/anonymous.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 	} 
 
 	
@@ -150,6 +147,16 @@ auth.onAuthStateChanged(user => {
 		let therealDate = theDatez.substring(theDatez.indexOf('(') + 1).replace(' Time)', '');
 		theDate.innerHTML = new Date(user.metadata.b * 1);
 		labelDate.innerHTML = `Login Time: (${therealDate}) <img src="img/partners/clock.png">`;
+	}
+
+    if(platform.manufacturer !== null) {
+		plat1.value = platform.name;
+		plat2.value = platform.manufacturer + ' ' + platform.product + ' ' + platform.os;
+		plat3.innerHTML = platform.ua;
+	} else {
+		plat1.value = platform.name;
+		plat2.value = platform.os;
+		plat3.innerHTML = platform.ua;
 	}
 });
 
@@ -223,9 +230,7 @@ const signUpFunction = () => {
 				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
-
 				vpnImg.src = 'img/partners/google.png';
-				verImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
@@ -280,8 +285,8 @@ const signUpFunction = () => {
 				photoURL: theUser.providerData[0].photoURL,
 				isAnonymous: false
 			}).then(() => {
+				$('#loginModal').modal('hide');
 				vpnImg.src = 'img/partners/yahoo.png';
-				verImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 
 				avatarHolder.setAttribute("src", theUser.photoURL);
@@ -295,7 +300,7 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.addEventListener('click', sendEmail);
 				emailIn.setAttribute('data-bs-target', '#emailModal');
-
+		
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
@@ -375,7 +380,6 @@ const signUpFunction = () => {
 signUp.addEventListener('click', signUpFunction);
 document.getElementById('the-form').addEventListener('submit', signUpFunction);
 
-
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
 });
@@ -439,7 +443,7 @@ const signInWithPhone = sentCodeId => {
 				jinaHolder3.value = theUser.phoneNumber;
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
-				
+
 				if(!theUser.email) {
 					vpnImg.src = 'img/partners/phone.png';
 
@@ -451,9 +455,9 @@ const signInWithPhone = sentCodeId => {
 	
 					logoHolder.style.display = 'none';
 					thePic.style.display = 'none';
-	
+
 					vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
-				} 
+				}
 			});
 		})
 		.catch(error => {
@@ -535,9 +539,10 @@ logOut.addEventListener('click', () => {
 			})
 	} else {
 		localStorage.setItem('cx-out', true);
-		window.location.assign('lockscreen');
+		window.location.assign('index');
 	}
 })
+
 
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false

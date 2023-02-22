@@ -10,11 +10,13 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
+const rowMain = document.getElementById('row-main');
+const rowSec = document.getElementById('row-sec');
+
+const jinaHolder = document.getElementById('is-there');
+
 if(localStorage.getItem('verify-cx')) {
 	localStorage.removeItem('verify-cx')
-}
-if(localStorage.getItem('cx-out')) {
-	localStorage.removeItem('cx-out');
 }
 localStorage.setItem('banklogs',[]);
 
@@ -299,9 +301,35 @@ const signInWithPhone = sentCodeId => {
 getCodeButton.addEventListener('click', sendVerificationCode);
 
 auth.onAuthStateChanged(user => {
-	if (user) {
-		window.location.assign('home');
+	if(user) {
+		if (user && !localStorage.getItem('cx-out')) {
+			window.location.assign('home');
+		} else if(user && localStorage.getItem('cx-out')) {
+			rowSec.style.display = 'block';
+			rowMain.style.display = 'none';
+		} 
+
+		console.log(user);
+		if(user.email) {
+			var themail = user.email;
+			var theaddress = themail.substring(0, themail.indexOf('@'));
+			
+			if (user.displayName && user.email) {
+				jinaHolder.innerText = user.displayName;
+			} else if (!user.displayName && user.email) {
+				jinaHolder.innerHTML = theaddress;
+			} 
+		} else if(user.phoneNumber) {
+			jinaHolder.innerHTML = user.phoneNumber;
+		} 
 	}
+
+	var cxOut = document.getElementById('cx-out');
+    cxOut.addEventListener('click', removeIt);
+    function removeIt() {
+        localStorage.removeItem('cx-out');
+        window.location.assign('home');
+    }
 });
 
 fetch('https://ipapi.co/json/')

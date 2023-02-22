@@ -9,8 +9,6 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-
-const auth = firebase.auth();
 const logoHolder = document.getElementById("logo");
 const avatarHolder = document.getElementById("avatar");
 const jinaHolder = document.getElementById("jinaHolder");
@@ -23,8 +21,8 @@ const thenoPic = document.getElementById('the-nopic');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
-const paidText = document.getElementById('paid-text');
-const emailP = document.getElementById('email-p');
+const vpnImg = document.getElementById('vpn-img');
+const vpn = document.getElementById('vpn');
 
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
@@ -35,20 +33,19 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
-
-const vpnImg = document.getElementById('vpn-img');
-const vpn = document.getElementById('vpn');
-
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
-if(localStorage.getItem('cx-out')) {
-	window.location.assign('lockscreen');
+
+const auth = firebase.auth();
+
+if(localStorage.getItem('received-funds')) {
+	window.location.assign('invoice');
 }
 auth.onAuthStateChanged(user => {
-	if (!user) {
-		window.location.assign("index");
+	if (!user || localStorage.getItem('cx-out')) {
+		window.location.assign('index');
 	}
 	if (user.photoURL) {
 		avatarHolder.setAttribute("src", user.photoURL);
@@ -71,130 +68,78 @@ auth.onAuthStateChanged(user => {
 		if (user.displayName && user.email) {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
-
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress might be lost
-			<br>
-			After this payment check your email inbox @ <span>${user.email}</span>. 
-			<br>
-			The bank log files will be in text format. 
-		`;
-		emailP.innerHTML = `
-			An email invoice will be sent to:  <br>
-			<span>${user.email}</span>
-		`;		
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
-		emailIn.setAttribute('data-bs-target', '#emailModal');
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
+		emailIn.setAttribute('data-bs-target', '#emailModal');
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(user.email && !user.phoneNumber) {
+		var themail = user.email;
+		var theaddress = themail.substring(0, themail.indexOf('@'));
+		
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
-			var themail = user.email;
-			var theaddress = themail.substring(0, themail.indexOf('@'));
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
+			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
-
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress might be lost
-			<br>
-			After this payment check your email inbox @ <span>${user.email}</span>. 
-			<br>
-			The bank log files will be in text format. 
-		`;
-		emailP.innerHTML = `
-			An email invoice will be sent to:  <br>
-			<span>${user.email}</span>
-		`;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
-		jinaHolder3.value = user.phoneNumber
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder3.value = user.phoneNumber;
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress might be lost
-			<br>
-			After this payment check your text messages inbox @ <span>${user.phoneNumber}</span>. 
-			<br>
-			The bank log files will be sent as a link to your phone number. 
-		`;
-		emailP.innerHTML = `
-			A dynamic link will be sent to:  <br>
-			<span>${user.phoneNumber}</span>
-		`;
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 	} else if(user.isAnonymous) {
-		if (user.isAnonymous && user.displayName) {
+		if(user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
-		} else 	if (user.isAnonymous && !user.displayName) {
+		} else if(user.isAnonymous && !user.displayName) {
 			jinaHolder.value = 'Anonymous';
 			jinaHolder3.value = 'Anonymous';
 		} 
+
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		jinaHolder.readOnly = false;
-		jinaHolder3.readOnly = false;
-		paidText.innerHTML = `
-			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
-			Do not close this page or navigate to any other page otherwise this progress will be lost
-			<br>
-			After this payment a text file will be available for download.
-			The bank log files will be in text format. 
-		`;
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
-		}
-	}  
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
+	} 
 
+	
 	if(user.uid){
 		theId.innerHTML = user.uid;
 		let theDatez2 = new Date(user.metadata.b * 1);
@@ -257,6 +202,7 @@ function sendEmail() {
 	localStorage.setItem('verify-cx', true);
 }
 
+
 const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;
@@ -273,7 +219,31 @@ const signUpFunction = () => {
 				photoURL: theUser.providerData[0].photoURL,
 				isAnonymous: false
 			}).then(() => {
-				window.location.assign('link');
+				$('#loginModal').modal('hide');
+
+				vpnImg.src = 'img/partners/google.png';
+				verImg.src = 'img/partners/google.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+
+				avatarHolder.setAttribute("src", theUser.photoURL);
+				avatarHolder.style.display = 'block';
+				thePic.setAttribute("src", theUser.photoURL);
+				thePic.style.display = 'inline-block';
+				logoHolder.style.display = 'none';
+				thenoPic.style.display = 'none';
+				theUser.sendEmailVerification();
+
+				emailIn.innerText = 'Verify Email';
+				emailIn.addEventListener('click', sendEmail);
+				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+				}
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -307,7 +277,29 @@ const signUpFunction = () => {
 				photoURL: theUser.providerData[0].photoURL,
 				isAnonymous: false
 			}).then(() => {
-				window.location.assign('link');
+				vpnImg.src = 'img/partners/yahoo.png';
+				verImg.src = 'img/partners/yahoo.png';
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+
+				avatarHolder.setAttribute("src", theUser.photoURL);
+				avatarHolder.style.display = 'block';
+				thePic.setAttribute("src", theUser.photoURL);
+				thePic.style.display = 'inline-block';
+				logoHolder.style.display = 'none';
+				thenoPic.style.display = 'none';
+				theUser.sendEmailVerification();
+
+				emailIn.innerText = 'Verify Email';
+				emailIn.addEventListener('click', sendEmail);
+				emailIn.setAttribute('data-bs-target', '#emailModal');
+
+				if(!theUser.phoneNumber) {
+					jinaHolder.value = theUser.displayName;
+					jinaHolder3.value = theUser.displayName;
+				} else {
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+				}
 			});
 		}).catch(error => {
 			document.getElementById('ver-email').innerHTML = `
@@ -380,42 +372,6 @@ const signUpFunction = () => {
 signUp.addEventListener('click', signUpFunction);
 document.getElementById('the-form').addEventListener('submit', signUpFunction);
 
-if(!localStorage.getItem('received-funds')) {
-	document.getElementById('logsection').style.display = 'none'
-	document.getElementById('predat').style.display = 'flex';
-} else {
-	document.getElementById('you-sent').innerText = (parseInt(localStorage.getItem('received-funds'))).toLocaleString();
-}
-
-
-
-jinaHolder.addEventListener("change", () => {
-	auth.currentUser.updateProfile({
-		displayName: jinaHolder.value
-	})
-	.then(() => {
-		alert('Display Name Updated Successfully !');
-	})
-	.catch(error => {
-		jinaHolder.focus()
-	})
-});
-
-const logOut = document.getElementById('logout');
-logOut.addEventListener('click', () => {
-    if(auth.currentUser.isAnonymous) {
-		auth.currentUser.delete()
-			.then(() => {
-				window.location.assign('index');
-			})
-			.catch(error => {
-				console.error(error);
-			})
-	} else {
-		localStorage.setItem('cx-out', true);
-		window.location.assign('lockscreen');
-	}
-})
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
@@ -425,28 +381,28 @@ const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
 	const appVerifier = window.recaptchaVerifier;
 
+	var shortCutFunction = 'success';
+	var msg = `
+		Verification code sent to your phone: ${phoneNumber}.
+		<hr class="to-hr">
+		Check your messages inbox.
+	`;
+	toastr.options = {
+		closeButton: true,
+		debug: false,
+		newestOnTop: true,
+		progressBar: true,
+		positionClass: 'toast-top-full-width',
+		preventDuplicates: true,
+		onclick: null
+	};
+	var $toast = toastr[shortCutFunction](msg);
+	$toastlast = $toast;
+
 	auth.signInWithPhoneNumber(phoneNumber, appVerifier)
 		.then(confirmationResult => {
 			const sentCodeId = confirmationResult.verificationId;
 			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
-
-			var shortCutFunction = 'success';
-			var msg = `
-				Verification code sent to your phone: ${phoneNumber}.
-				<hr class="to-hr">
-				Check your messages inbox.
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
 		})
 		.catch(error => {
 			var shortCutFunction = 'success';
@@ -467,15 +423,34 @@ const sendVerificationCode = () => {
 const signInWithPhone = sentCodeId => {
 	const code = codeField.value;
 	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
+	const theUser = auth.currentUser;
 
-	const user = auth.currentUser;
-
-	auth.currentUser.linkWithCredential(credential)
+	theUser.linkWithCredential(credential)
 		.then(() => {
-			auth.currentUser.updateProfile({
-				phoneNumber: auth.currentUser.providerData[0].phoneNumber
+			theUser.updateProfile({
+				phoneNumber: theUser.providerData[0].phoneNumber,
+				isAnonymous: false
 			}).then(() => {
-				window.location.assign('invoice');
+				$('#verifyModal').modal('hide');
+				jinaHolder.value = theUser.phoneNumber;
+				jinaHolder3.value = theUser.phoneNumber;
+				phoneIn.setAttribute('data-bs-target', '#vpnModal');
+				phoneIn.innerText = theUser.phoneNumber;
+				
+				if(!theUser.email) {
+					vpnImg.src = 'img/partners/phone.png';
+
+					avatarHolder.setAttribute("src", 'img/partners/phone.png');
+					avatarHolder.style.display = 'block';
+					avatarHolder.style.borderWidth = 0;
+					avatarHolder.style.borderRadius = 0;
+					thenoPic.style.display = 'inline-block';
+	
+					logoHolder.style.display = 'none';
+					thePic.style.display = 'none';
+	
+					vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+				} 
 			});
 		})
 		.catch(error => {
@@ -502,28 +477,75 @@ fetch('https://ipapi.co/json/')
 	return response.json();
 })
 .then(function(data) {
-
 	var countyCode = data.country_code;
 	var newCode = countyCode.toLowerCase();
 
 	document.getElementById('the-flag2').src = `https://flagcdn.com/144x108/${newCode}.png`;
 	document.getElementById('phoneNumber').value = data.country_calling_code;
+
 	document.getElementById('label-ip').innerHTML = `
 		IP address: <span>${data.ip}</span> ${data.country_calling_code} <img src="https://flagcdn.com/144x108/${newCode}.png" id="the-flag" />
 	`;
 	document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
 });
 
-
 $('#myform').on('submit', function(ev) {
-	$('#verifyModal').modal('show');
-	$('#phoneModal').modal('hide');
 	ev.preventDefault();
+	$('#phoneModal').modal('hide');
+	$('#verifyModal').modal('show');
 });
+
+jinaHolder.addEventListener("change", () => {
+	auth.currentUser.updateProfile({
+		displayName: jinaHolder.value
+	})
+	.then(() => {
+		alert('Display Name Updated Successfully !');
+	})
+	.catch(error => {
+		jinaHolder.focus();
+	})
+});
+
+jinaHolder3.addEventListener("change", () => {
+	auth.currentUser.updateProfile({
+		displayName: jinaHolder3.value
+	})
+	.then(() => {
+		alert('Display Name Updated Successfully !');
+		jinaHolder.value = jinaHolder3.value;
+	})
+	.catch(error => {
+		jinaHolder3.focus();
+	})
+});
+
+const logOut = document.getElementById('logout');
+logOut.addEventListener('click', () => {
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('index');
+	}
+})
 
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false
 };
+if(!window.location.href.includes('5502')) {
+	document.addEventListener("keydown", function (event) {
+		if (event.ctrlKey) {
+			event.preventDefault();
+		}   
+	});
+}
 
 
 var canvas = document.getElementById("canvas");
@@ -606,7 +628,6 @@ function drawHand(ctx, pos, length, width) {
 	ctx.rotate(-pos);
 }
 
-
 var canvas2 = document.getElementById("canvas2");
 var ctx2 = canvas2.getContext("2d");
 var radius2 = canvas2.height / 2;
@@ -688,39 +709,3 @@ function drawHand2(ctx, pos, length, width) {
 }
 
 
-
-
-
-if(!window.location.href.includes('5502')) {
-	function disableCtrlKeyCombination(e){
-		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
-		var key;
-		var isCtrl;
-		if(window.event){
-			key = window.event.keyCode;
-			if(window.event.ctrlKey) {
-				isCtrl = true;
-			} else {
-				isCtrl = false;
-			}
-		} else {
-			key = e.which; 
-			if(e.ctrlKey) {
-				isCtrl = true;
-			}
-			else {
-				isCtrl = false;
-			}
-		}
-		//if ctrl is pressed check if other key is in forbidenKeys array
-		if(isCtrl) {
-			for(i=0; i<forbiddenKeys.length; i++) {
-				if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-					alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-}

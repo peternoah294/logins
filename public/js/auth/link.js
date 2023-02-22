@@ -57,11 +57,8 @@ const vpnImg = document.getElementById('vpn-img');
 if(localStorage.getItem('received-funds')) {
 	window.location.assign('invoice');
 }
-if(localStorage.getItem('cx-out')) {
-	window.location.assign('lockscreen');
-}
 auth.onAuthStateChanged(user => {
-	if (!user) {
+	if (!user || localStorage.getItem('cx-out')) {
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
 			window.location.assign('index');
 		}
