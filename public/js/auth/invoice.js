@@ -403,7 +403,7 @@ const sendVerificationCode = () => {
 
 			var shortCutFunction = 'success';
 			var msg = `
-				Verification code sent to your phone: ${phoneNumber}.
+				Verification  code sent to your phone: ${phoneNumber}.
 				<hr class="to-hr">
 				Check your messages inbox.
 			`;

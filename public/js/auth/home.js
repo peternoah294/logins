@@ -501,28 +501,28 @@ const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
 	const appVerifier = window.recaptchaVerifier;
 
-	var shortCutFunction = 'success';
-	var msg = `
-		Verification code sent to your phone: ${phoneNumber}.
-		<hr class="to-hr">
-		Check your messages inbox.
-	`;
-	toastr.options = {
-		closeButton: true,
-		debug: false,
-		newestOnTop: true,
-		progressBar: true,
-		positionClass: 'toast-top-full-width',
-		preventDuplicates: true,
-		onclick: null
-	};
-	var $toast = toastr[shortCutFunction](msg);
-	$toastlast = $toast;
-
 	auth.signInWithPhoneNumber(phoneNumber, appVerifier)
 		.then(confirmationResult => {
 			const sentCodeId = confirmationResult.verificationId;
 			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
+
+			var shortCutFunction = 'success';
+			var msg = `
+				Verification  code sent to your phone: ${phoneNumber}.
+				<hr class="to-hr">
+				Check your messages inbox.
+			`;
+			toastr.options = {
+				closeButton: true,
+				debug: false,
+				newestOnTop: true,
+				progressBar: true,
+				positionClass: 'toast-top-full-width',
+				preventDuplicates: true,
+				onclick: null
+			};
+			var $toast = toastr[shortCutFunction](msg);
+			$toastlast = $toast;
 		})
 		.catch(error => {
 			var shortCutFunction = 'success';
