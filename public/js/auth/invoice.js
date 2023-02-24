@@ -47,6 +47,10 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
+
+const recap2 = document.getElementById('recaptcha-container-2');
+const downloadBtn = document.getElementById('anon-check');
+
 if(!window.location.href.includes('arkweb')){
 	if(!window.location.href.includes('5502')) {
 		window.location.assign('index')
@@ -392,6 +396,19 @@ document.getElementById('the-form').addEventListener('submit', signUpFunction);
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
 });
+
+window.recaptchaVerifier2 = new firebase.auth.RecaptchaVerifier('recaptcha-container-2', {
+	'size': 'normal',
+	'callback': (response) => {
+		downloadBtn.style.display = 'inline-block';
+		recap2.style.display = 'none';
+	}
+});
+
+recaptchaVerifier2.render().then(widgetId => {
+	window.recaptchaWidgetId = widgetId
+});
+
 const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
 	const appVerifier = window.recaptchaVerifier;

@@ -2794,6 +2794,15 @@ ul.countdown li p {
         margin-left: -7px !important;
     }
 }
+
+#recaptcha-container-2 {
+    margin-left: 26px !important;
+}
+@media screen and (max-width: 780px) {
+    #recaptcha-container-2 {
+        margin-left: 13px !important;
+    }
+}
 #phoneModal span,
 #emailModal span,
 #loginModal span {
