@@ -33,6 +33,10 @@ const phoneIn = document.getElementById('phone-in');
 const verP = document.getElementById('ver-p');
 const verImg = document.getElementById('ver-img');
 
+const apartSection = document.getElementById('apart');
+const logSection = document.getElementById('logsection');
+const logSection2 = document.getElementById('logsection2');
+
 const mailField = document.getElementById('inputEmail');
 const signUp = document.getElementById('signUp');
 
@@ -197,20 +201,11 @@ auth.onAuthStateChanged(user => {
 		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 
-		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
-
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			apartSection.style.display = 'flex';
+			logSection.style.display = 'none';
+			logSection2.style.display = 'none';
 		}
-
 	}
 
 	if(user.uid){
