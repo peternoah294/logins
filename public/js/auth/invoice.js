@@ -155,20 +155,6 @@ auth.onAuthStateChanged(user => {
 
 		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
 		theSet.setAttribute('data-bs-target', '#phoneModal');
-
-		if(!localStorage.getItem('darkweb-cx')) {
-			if(user.displayName) {
-				if(user.email.includes('yahoo.com')) {
-					vpn.innerHTML = 'Verify Email <img src="img/partners/yahoo.png">';
-				} else {
-					vpn.innerHTML = 'Verify Email <img src="img/partners/google.png">';
-				}
-			} else {
-				vpn.innerHTML = 'Verify Email <img src="img/partners/emails.png">';
-			}
-			vpn.addEventListener('click', sendEmail);
-			vpn.setAttribute('data-bs-target', '#emailModal');
-		}
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -277,19 +263,7 @@ function sendEmail() {
 		var $toast = toastr[shortCutFunction](msg);
 		$toastlast = $toast;
 	}
-	localStorage.setItem('darkweb-cx', true);
-
-	if(auth.currentUser.displayName) {
-		if(auth.currentUser.email.includes('yahoo.com')) {
-			vpn.innerHTML = 'View Profile <img src="img/partners/yahoo.png">';
-		} else {
-			vpn.innerHTML = 'View Profile <img src="img/partners/google.png">';
-		}
-	} else {
-		vpn.innerHTML = 'View Profile <img src="img/partners/emails.png">';
-	}
-	vpn.removeEventListener('click', sendEmail);
-	vpn.setAttribute('data-bs-target', '#vpnModal');
+	localStorage.setItem('verify-cx', true);
 }
 
 const signUpFunction = () => {
