@@ -4,7 +4,7 @@ var coastNo = localStorage.getItem('banktotal');
 var coastDis = localStorage.getItem('divtotal');
 
 auth.onAuthStateChanged(user => {
-if(!user.isAnonymous || user.email || user.phoneNumber) {
+if((user.isAnonymous && !localStorage.getItem('vx-time')) || user.email || user.phoneNumber) {
     if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
             var elemj = document.getElementById('pablos');        
@@ -14,6 +14,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                 if(width <= 0){
                     clearInterval(id);
                     i = false;
+                    localStorage.setItem('vx-time', true);
                     localStorage.setItem('time-left',null);
                     localStorage.setItem('banklogs',[]);
                     document.getElementById('predat').style.display = 'flex';
@@ -52,7 +53,9 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                         } else {
                             var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        var msg = `15 Seconds Left! Anonymous User, <hr> Let the timer run out. <hr class="to-hr"> You'll be required to get an email / phone invoice next time `;
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -93,7 +96,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `1 Minute Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `1 Minute Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `1 Minute Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -135,7 +148,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `2 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `2 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `2 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -176,7 +199,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `3 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `3 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `3 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -228,7 +261,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `4 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `4 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `4 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -270,7 +313,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `5 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `5 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `5 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -312,7 +365,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `6 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `6 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `6 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -361,7 +424,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `7 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `7 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `7 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -401,7 +474,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `8 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `8 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `8 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
@@ -441,7 +524,17 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                             var msg = `9 Minutes Left! ${user.phoneNumber}, <hr> Complete the $${coastDis} bitcoin payment to download: 
                             <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.`; 
                         }
-                    } 
+                    } else if(user.isAnonymous) {
+                        if(JSON.parse(localStorage.getItem('banklogs')).length == 1) {
+                            var msg = `9 Minutes Left!, <hr> Complete the $${coastNo} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs'))[0].account).replace(']',' ACCOUNT]')} before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        } else {
+                            var msg = `9 Minutes Left!, <hr> Complete the $${coastDis} bitcoin payment to download: 
+                            <hr class="to-hr"> ${(JSON.parse(localStorage.getItem('banklogs')).length)} bank logs before time runs out.
+                            <hr class="to-hr"> Email invoice is a better option.`; 
+                        }
+                    }
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);
                     $toastlast = $toast;
