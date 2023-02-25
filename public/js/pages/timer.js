@@ -27,7 +27,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 15) {
@@ -36,7 +36,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -56,7 +56,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 60) {
@@ -65,7 +65,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -98,7 +98,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 120) {
@@ -107,7 +107,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -139,7 +139,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 180) {
@@ -148,7 +148,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -180,7 +180,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 
@@ -191,7 +191,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 240) {
@@ -200,7 +200,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -233,7 +233,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 300) {
@@ -242,7 +242,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -275,7 +275,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 360) {
@@ -284,7 +284,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -316,7 +316,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
 
@@ -325,7 +325,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 420) {
@@ -333,7 +333,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -365,7 +365,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 480) {
@@ -373,7 +373,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -405,7 +405,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 } 
                 else if( width == 540) {
@@ -413,7 +413,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
 
                     var shortCutFunction = 'success';
@@ -445,7 +445,7 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
                     var minutes = Math.floor(width/60);
                     var seconds = width - minutes * 60;
                     if(seconds < 10){ seconds = '0'+seconds }
-                    elemj.style.width = (width/9) + "%";
+                    elemj.style.width = (width/6) + "%";
                     document.getElementById('escoz').innerHTML = `Time left: ${minutes}:${seconds}`;
                 }
             }
