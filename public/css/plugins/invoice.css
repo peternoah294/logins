@@ -98,8 +98,8 @@
     top: 7vh;
 }
 #anon-check {
-    margin-top: -10px !important;
-    margin-bottom: 10px !important;
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
     cursor: pointer !important;
 }
 @media screen and (max-width: 500px) {
