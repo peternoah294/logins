@@ -21,8 +21,6 @@ const thenoPic = document.getElementById('the-nopic');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
-const emailImg = document.getElementById('email-img');
-const emailVerify = document.getElementById('email-verify');
 const thanEmail = document.getElementById('thanEmail');
 const thanPhone = document.getElementById('thanPhone');
 
@@ -114,23 +112,19 @@ auth.onAuthStateChanged(user => {
 
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
-				emailImg.src = 'img/partners/yahoo.png';
 			} else {
 				vpnImg.src = 'img/partners/google.png';
-				emailImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 		
 			vpnImg.src = 'img/partners/emails.png';
-			emailImg.src = 'img/partners/emails.png';
 		} 
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		emailVerify.addEventListener('click', sendEmail);		
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
@@ -273,13 +267,11 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
-				emailVerify.addEventListener('click', sendEmail);		
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailInvoice.style.display = 'flex';	
-					emailImg.src = 'img/partners/google.png';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
@@ -339,14 +331,12 @@ const signUpFunction = () => {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
-				emailVerify.addEventListener('click', sendEmail);		
 
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailInvoice.style.display = 'flex';
-					emailImg.src = 'img/partners/yahoo.png';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
@@ -448,10 +438,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.innerText = 'Verify Email';
 			emailIn.setAttribute('data-bs-target', '#emailModal');
 			emailIn.addEventListener('click', sendEmail);
-
-			emailImg.src = 'img/partners/emails.png';
-			emailVerify.addEventListener('click', sendEmail);		
-
 
 			vpnImg.src = 'img/partners/emails.png';
 
