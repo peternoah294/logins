@@ -45,8 +45,6 @@ const getCodeButton = document.getElementById('getCode');
 const thanImg = document.getElementById('than-img');
 const thanVerify = document.getElementById('than-verify');
 
-const cxA = document.getElementById('cx-a');
-
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 

@@ -166,66 +166,54 @@
 #email-div {
     display: none;
 }
-#than-div {
-    margin-top: 16vh;
-}
+#than-div,
 #email-div {
-    margin-top: 14vh;
+    margin-top: 16vh;
 }
 #phone-div {
     margin-top: 11vh;
 }
 @media screen and (max-width: 821px) {
     #than-div
-    #phone-div {
-        margin-top: 22vh;
-    }
+    #phone-div,
     #email-div {
-        margin-top: 20vh;
+        margin-top: 22vh;
     }
     #phone-div {
         margin-top: 20vh;
     }
 }
 @media screen and (max-width: 500px) {
-    #than-div {
-        margin-top: 19vh;
-    }
+    #than-div,
     #email-div {
-        margin-top: 17vh;
+        margin-top: 19vh;
     }
     #phone-div {
         margin-top: 18vh;
     }
 }
 @media screen and (max-width: 400px) {
-    #than-div {
-        margin-top: 18vh;
-    }
+    #than-div,
     #email-div {
-        margin-top: 16vh;
+        margin-top: 18vh;
     }
     #phone-div {
         margin-top: 17vh;
     }
 }
 @media screen and (max-width: 381px) {
-    #than-div {
-        margin-top: 17vh;
-    }
+    #than-div,
     #email-div {
-        margin-top: 15vh;
+        margin-top: 17vh;
     }
     #phone-div {
         margin-top: 15vh;
     }
 }
 @media screen and (max-width: 374px) {
-    #than-div {
-        margin-top: 13vh;
-    }
+    #than-div
     #email-div {
-        margin-top: 11vh;
+        margin-top: 13vh;
     }
     #phone-div {
         margin-top: 12vh;
