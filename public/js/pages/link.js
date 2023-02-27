@@ -147,13 +147,13 @@ function updateCartTotal() {
         const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
 
         if (window.innerWidth > 768) {
-            anonDiv.style.marginTop = '11vh';
-        } else if(window.innerWidth >= 390) {
             anonDiv.style.marginTop = '17vh';
+        } else if(window.innerWidth >= 390) {
+            anonDiv.style.marginTop = '19vh';
         } else if(window.innerWidth >= 375) {
-            anonDiv.style.marginTop = '15vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 370) {
-            anonDiv.style.marginTop = '12vh';
+            anonDiv.style.marginTop = '14vh';
         }
 
         wouldYou.innerHTML = `
@@ -166,13 +166,13 @@ function updateCartTotal() {
         var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
 
         if (window.innerWidth > 768) {
-            anonDiv.style.marginTop = '13.5vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 390) {
-            anonDiv.style.marginTop = '16vh';
+            anonDiv.style.marginTop = '19vh';
         } else if(window.innerWidth >= 375) {
-            anonDiv.style.marginTop = '14vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 370) {
-            anonDiv.style.marginTop = '11vh';
+            anonDiv.style.marginTop = '14vh';
         }
     
         for(var i = 0; i < Loginz.length; i++) {
@@ -180,7 +180,7 @@ function updateCartTotal() {
             logRow.style.fontWeight = '500';
             logRow.innerHTML = `
                 <span>${i+1}.</span> ${(Loginz[i].account.replace(']', ' ACCOUNT]'))} -
-                <span>${Loginz[i].balance}</span>.
+                <span>${Loginz[i].balance}</span>, <span>${Loginz[i].price}</span>.
                 <hr class="nohr">
             `;
             wouldYou.append(logRow);
