@@ -149,7 +149,7 @@ function updateCartTotal() {
         if (window.innerWidth > 768) {
             anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 390) {
-            anonDiv.style.marginTop = '19vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 370) {
@@ -168,7 +168,7 @@ function updateCartTotal() {
         if (window.innerWidth > 768) {
             anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 390) {
-            anonDiv.style.marginTop = '19vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 375) {
             anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 370) {
