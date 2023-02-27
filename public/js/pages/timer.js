@@ -4,7 +4,6 @@ var coastNo = localStorage.getItem('banktotal');
 var coastDis = localStorage.getItem('divtotal');
 
 auth.onAuthStateChanged(user => {
-if(!user.isAnonymous || user.email || user.phoneNumber) {
     if(localStorage.getItem('banklogs') && !localStorage.getItem('received-funds')) {
         if((JSON.parse(localStorage.getItem('banklogs')).length) > 0) {
             var elemj = document.getElementById('pablos');        
@@ -456,7 +455,6 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
     } else {
         console.log('No bank logs selected')
     }     
-}
 });  
 
 if(localStorage.getItem('received-funds')) {
