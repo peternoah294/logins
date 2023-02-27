@@ -123,7 +123,22 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
+	} else if(user.isAnonymous) {
+		if(user.isAnonymous && user.displayName) {
+			jinaHolder.value = user.displayName;
+			jinaHolder3.value = user.displayName;
+		} else if(user.isAnonymous && !user.displayName) {
+			jinaHolder.value = 'Anonymous';
+			jinaHolder3.value = 'Anonymous';
+		} 
+
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		vpnImg.src = 'img/partners/anonymous.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
 	} 
+
 	
 	if(user.uid){
 		theId.innerHTML = user.uid;
@@ -201,7 +216,8 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(googleProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
 
@@ -258,7 +274,8 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(yahooProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
 			}).then(() => {
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
@@ -411,7 +428,8 @@ const signInWithPhone = sentCodeId => {
 	theUser.linkWithCredential(credential)
 		.then(() => {
 			theUser.updateProfile({
-				phoneNumber: theUser.providerData[0].phoneNumber
+				phoneNumber: theUser.providerData[0].phoneNumber,
+				isAnonymous: false
 			}).then(() => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
@@ -504,10 +522,19 @@ jinaHolder3.addEventListener("change", () => {
 
 const logOut = document.getElementById('logout');
 logOut.addEventListener('click', () => {
-	localStorage.setItem('cx-out', true);
-	window.location.assign('index');
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('index');
+	}
 })
-
 
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false

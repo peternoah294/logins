@@ -195,7 +195,45 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
-	} 
+	} else if(user.isAnonymous) {
+		if (user.isAnonymous && user.displayName) {
+			jinaHolder.value = user.displayName;
+			jinaHolder3.value = user.displayName;
+			jinaHolder4.value = user.displayName;
+			nameHolder1.value = user.displayName;
+			nameHolder2.value = user.displayName;
+			nameHolder3.value = user.displayName;
+
+			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+				goodies = JSON.parse(localStorage.getItem('banklogs'));
+				for (var i = 0; i < goodies.length; i++) {
+					document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.displayName;
+				}
+			}
+		} else 	if (user.isAnonymous && !user.displayName) {
+			jinaHolder.value = 'Anonymous';
+			jinaHolder3.value = 'Anonymous';
+			jinaHolder4.value = 'Anonymous';
+			nameHolder1.value = 'ANONYMOUS';
+			nameHolder2.value = 'ANONYMOUS';
+			nameHolder3.value = 'ANONYMOUS';
+	
+			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+				goodies = JSON.parse(localStorage.getItem('banklogs'));
+				for (var i = 0; i < goodies.length; i++) {
+					document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = 'Anonymous';
+				}
+			}
+		}
+
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
+		jinaHolder4.readOnly = false;
+		email5.innerHTML = `Logged in anonymously, you can link a valid email address on the confirm page to get an email invoice`;
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+		vpnImg.src = 'img/partners/anonymous.png';
+	}
 
 
 
@@ -274,7 +312,8 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(googleProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
 
@@ -342,7 +381,8 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(yahooProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
 			}).then(() => {
 				$('#loginModal').modal('hide');
 
@@ -508,7 +548,8 @@ const signInWithPhone = sentCodeId => {
 	auth.currentUser.linkWithCredential(credential)
 		.then(() => {
 			theUser.updateProfile({
-				phoneNumber: auth.currentUser.providerData[0].phoneNumber
+				phoneNumber: auth.currentUser.providerData[0].phoneNumber,
+				isAnonymous: false
 			}).then(() => {
 				$('#verifyModal').modal('hide');
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
@@ -632,8 +673,18 @@ jinaHolder4.addEventListener("change", () => {
 
 const logOut = document.getElementById('logout');
 logOut.addEventListener('click', () => {
-	localStorage.setItem('cx-out', true);
-	window.location.assign('index');
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('index');
+	}
 })
 
 var d = new Date();
