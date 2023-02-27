@@ -21,10 +21,6 @@ const thenoPic = document.getElementById('the-nopic');
 const theDate = document.getElementById('the-date');
 const labelDate = document.getElementById('label-date');
 
-
-const emailImg = document.getElementById('email-img');
-const emailVerify = document.getElementById('email-verify');
-
 const thanEmail = document.getElementById('thanEmail');
 const thanPhone = document.getElementById('thanPhone');
 
@@ -120,23 +116,19 @@ auth.onAuthStateChanged(user => {
 
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
-				emailImg.src = 'img/partners/yahoo.png';
 			} else {
 				vpnImg.src = 'img/partners/google.png';
-				emailImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 		
 			vpnImg.src = 'img/partners/emails.png';
-			emailImg.src = 'img/partners/emails.png';
 		} 
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
-		emailVerify.addEventListener('click', sendEmail);		
 
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
@@ -296,8 +288,6 @@ const signUpFunction = () => {
 					emailInvoice.style.display = 'flex';	
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
-					emailVerify.addEventListener('click', sendEmail);		
-					emailImg.src = 'img/partners/google.png';
 				} else {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
@@ -363,8 +353,6 @@ const signUpFunction = () => {
 					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
-					emailVerify.addEventListener('click', sendEmail);	
-					emailImg.src = 'img/partners/yahoo.png';	
 				} else {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
@@ -465,10 +453,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			emailIn.setAttribute('data-bs-target', '#emailModal');
 			emailIn.addEventListener('click', sendEmail);
 
-			emailImg.src = 'img/partners/emails.png';
-
 			vpnImg.src = 'img/partners/emails.png';
-			emailVerify.addEventListener('click', sendEmail);		
 
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
