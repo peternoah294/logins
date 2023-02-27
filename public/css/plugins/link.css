@@ -171,12 +171,11 @@
     margin-top: 16vh;
 }
 #phone-div {
-    margin-top: 11vh;
+    margin-top: 15vh;
 }
 @media screen and (max-width: 821px) {
     #email-div,
-    #than-div
-    #phone-div {
+    #than-div {
         margin-top: 22vh;
     }
     #phone-div {
