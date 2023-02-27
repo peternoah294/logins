@@ -164,7 +164,7 @@ auth.onAuthStateChanged(user => {
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
 
-		if(!localStorage.getItem('vox-time')) {
+		if(!localStorage.getItem('box-time')) {
 			cxDiv.setAttribute('data-bs-target', '#vpnModal');
 			cxAh.innerHTML = 'Buy Anonymously';
 			cxImg.src = 'img/partners/anonymous.png';
@@ -190,7 +190,7 @@ auth.onAuthStateChanged(user => {
 				var $toast = toastr[shortCutFunction](msg);
 				$toastlast = $toast;
 			}
-		} else if(localStorage.getItem('vox-time')) {
+		} else if(localStorage.getItem('box-time')) {
 			cxDiv.setAttribute('data-bs-target', '#phoneModal');
 			cxAh.innerHTML = 'Get Phone Invoice';
 			cxImg.src = 'img/partners/phone.png';
