@@ -190,7 +190,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		vpnImg.src = 'img/partners/anonymous.png';
-		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
 		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
