@@ -195,22 +195,10 @@ auth.onAuthStateChanged(user => {
 		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 
-		if(platform.manufacturer !== null) {
-			emailP.innerHTML = `
-				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
-				Web Browser: <span>${platform.name}</span>. 
-			`;
-		} else {
-			emailP.innerHTML = `
-				Your Device: <span>${platform.os}</span>, <br> 
-				Web Browser: <span>${platform.name}</span>.
-			`;
-		}
-
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('fax-time')) {
-				document.getElementById('apart').style.display = 'flex';
-				document.getElementById('logsection').style.display = 'none';
-				document.getElementById('logsection2').style.display = 'none';
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+			document.getElementById('apart').style.display = 'flex';
+			document.getElementById('logsection').style.display = 'none';
+			document.getElementById('logsection2').style.display = 'none';
 		}
 	}
 
