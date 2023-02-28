@@ -46,10 +46,6 @@ const emailVerify = document.getElementById('email-verify');
 const thanImg = document.getElementById('than-img');
 const thanVerify = document.getElementById('than-verify');
 
-const cxDiv = document.getElementById('cx-div');
-const cxImg = document.getElementById('cx-img');
-const cxAh = document.getElementById('cx-d');
-
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
 
@@ -163,28 +159,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		anonInvoice.style.display = 'flex';
 		vpnImg.src = 'img/partners/anonymous.png';
-
-		cxAh.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				Email / Phone invoice is a better option
-				<hr class="to-hr">
-				Create a burner email / phone and use it to get an invoice.
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
 	}
 
 	if(user.uid){
