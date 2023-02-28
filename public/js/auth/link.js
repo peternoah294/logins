@@ -150,42 +150,7 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
-	} else if(user.isAnonymous) {
-		if (user.isAnonymous && user.displayName) {
-			jinaHolder.value = user.displayName;
-			jinaHolder3.value = user.displayName;
-		} else	if (user.isAnonymous && !user.displayName) {
-			jinaHolder.value = 'Anonymous';
-			jinaHolder3.value = 'Anonymous';
-		}
-		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		jinaHolder.readOnly = false;
-		jinaHolder3.readOnly = false;
-		anonInvoice.style.display = 'flex';
-		vpnImg.src = 'img/partners/anonymous.png';
-
-		cxAh.addEventListener('click', sendNoti);
-
-		function sendNoti() {
-			var shortCutFunction = 'success';
-			var msg = `
-				Email / Phone invoice is a better option
-				<hr class="to-hr">
-				Create a burner email / phone and use it to get an invoice.
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		}
-	}
+	} 
 
 	if(user.uid){
 		theId.innerHTML = user.uid;
@@ -262,8 +227,7 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(googleProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL,
-				isAnonymous: false
+				photoURL: theUser.providerData[0].photoURL
 			}).then(() => {
 				$('#loginModal').modal('hide');
 				vpnImg.src = 'img/partners/google.png';
@@ -328,8 +292,7 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(yahooProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL,
-				isAnonymous: false
+				photoURL: theUser.providerData[0].photoURL
 			}).then(() => {
 				$('#loginModal').modal('hide');
 				vpnImg.src = 'img/partners/yahoo.png';
@@ -538,8 +501,7 @@ const signInWithPhone = sentCodeId => {
 	theUser.linkWithCredential(credential)
 		.then(() => {
 			theUser.updateProfile({
-				phoneNumber: theUser.providerData[0].phoneNumber,
-				isAnonymous: false 
+				phoneNumber: theUser.providerData[0].phoneNumber
 			}).then(() => {
 				$('#verifyModal').modal('hide');
 				jinaHolder.value = theUser.phoneNumber;
