@@ -3,7 +3,6 @@ const signUp = document.getElementById('signUp');
 
 const signGoogle = document.getElementById("signGoogle");
 const signYahoo = document.getElementById('signYahoo');
-const signAnony = document.getElementById('signAnony');
 
 const phoneNumberField = document.getElementById('phoneNumber');
 const codeField = document.getElementById('code');
@@ -204,28 +203,6 @@ const signInWithYahoo = () => {
 	});
 };
 signYahoo.addEventListener("click", signInWithYahoo);
-
-
-const signInAnony = () => {
-	auth.signInAnonymously().then(() => {
-		window.location.assign('home');
-	}).catch(error => {
-		var shortCutFunction = 'success';
-		var msg = `${error.message}`;
-		toastr.options = {
-			closeButton: true,
-			debug: false,
-			newestOnTop: true,
-			progressBar: true,
-			positionClass: 'toast-top-full-width',
-			preventDuplicates: true,
-			onclick: null
-		};
-		var $toast = toastr[shortCutFunction](msg);
-		$toastlast = $toast;
-	});
-};
-signAnony.addEventListener("click", signInAnony);
 
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
