@@ -158,7 +158,39 @@ auth.onAuthStateChanged(user => {
 		`;
 		vpnImg.src = 'img/partners/phone.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
-	} 
+	} else if(user.isAnonymous) {
+		if (user.isAnonymous && user.displayName) {
+			jinaHolder.value = user.displayName;
+			jinaHolder3.value = user.displayName;
+		} else 	if (user.isAnonymous && !user.displayName) {
+			jinaHolder.value = 'Anonymous';
+			jinaHolder3.value = 'Anonymous';
+		} 
+		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		jinaHolder.readOnly = false;
+		jinaHolder3.readOnly = false;
+		paidText.innerHTML = `
+			The cost of acquiring tools for spamming, and also the process itself is expensive, 
+			Send $50 to complete your download.
+			Do not close this page or navigate to any other page otherwise this progress will be lost
+			<br>
+			After this payment a text file will be available for download.
+			The bank log files will be in text format. 
+		`;
+		vpnImg.src = 'img/partners/anonymous.png';
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
+	}  
 
 	if(user.uid){
 		theId.innerHTML = user.uid;
@@ -235,7 +267,8 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(googleProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
 			}).then(() => {
 				window.location.assign('link');
 			});
@@ -268,7 +301,8 @@ const signUpFunction = () => {
 		theUser.linkWithPopup(yahooProvider).then(() => {
 			theUser.updateProfile({
 				displayName: theUser.providerData[0].displayName, 
-				photoURL: theUser.providerData[0].photoURL
+				photoURL: theUser.providerData[0].photoURL,
+				isAnonymous: false
 			}).then(() => {
 				window.location.assign('link');
 			});
@@ -366,10 +400,19 @@ jinaHolder.addEventListener("change", () => {
 
 const logOut = document.getElementById('logout');
 logOut.addEventListener('click', () => {
-	localStorage.setItem('cx-out', true);
-	window.location.assign('index');
-});
-
+    if(auth.currentUser.isAnonymous) {
+		auth.currentUser.delete()
+			.then(() => {
+				window.location.assign('index');
+			})
+			.catch(error => {
+				console.error(error);
+			})
+	} else {
+		localStorage.setItem('cx-out', true);
+		window.location.assign('index');
+	}
+})
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
