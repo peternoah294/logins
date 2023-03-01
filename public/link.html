@@ -354,7 +354,9 @@
                                 <div id="email-invoice">
                                     <div class="text-center section-heading">
                                         <p>
-                                            Bank log files will be sent to your email <span id="yourEmail"></span> after a successful purchase.
+                                            Bank log files will be sent to your email <span id="yourEmail"></span> after a successful purchase. 
+                                            <br>
+                                            Check the <span>spam / junk</span> folder.
                                             <br>
                                             <span>Phone invoice</span> is a better option.
                                         </p>
@@ -369,8 +371,8 @@
                                             </div>
                                         </div>
 
-                                        <hr class="nohr">
-                                        <div style="display: inline-block;" data-bs-toggle="modal" data-bs-target="#emailModal">
+                                        <hr class="nohr" style="display: none">
+                                        <div style="display: none;" data-bs-toggle="modal" data-bs-target="#emailModal">
                                             <div class="invoice">
                                                 <img id="email-img">
                                                 <a class="butn phone-btn" id="email-verify">
@@ -383,7 +385,7 @@
                                         <div style="display: inline-block;" class="link-than-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
                                             <div class="invoice">
                                                 <img src="img/partners/phone.png">
-                                                <a class="butn phone-btn">
+                                                <a class="butn ver-btn" id="p-verify">
                                                     Phone Invoice
                                                 </a>
                                             </div>
