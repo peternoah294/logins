@@ -47,19 +47,23 @@ const thanVerify = document.getElementById('than-verify');
 
 const emailIn = document.getElementById('email-in');
 const phoneIn = document.getElementById('phone-in');
+
 const cxA = document.getElementById('cx-a');
+var theClint = document.getElementsByClassName('clint')[0];
 
 const verP = document.getElementById('ver-p');
 const anonP = document.getElementById('anon-p');
-
 const auth = firebase.auth();
 
 const vpnImg = document.getElementById('vpn-img');
 if(localStorage.getItem('received-funds')) {
 	window.location.assign('invoice');
 }
+if(localStorage.getItem('cx-out')) {
+	window.location.assign('lockscreen');
+}
 auth.onAuthStateChanged(user => {
-	if (!user || localStorage.getItem('cx-out')) {
+	if (!user) {
 		if(!auth.isSignInWithEmailLink(window.location.href)) {
 			window.location.assign('index');
 		}
@@ -100,13 +104,16 @@ auth.onAuthStateChanged(user => {
 		phoneIn.innerText = user.phoneNumber;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
-		emailIn.setAttribute('data-bs-target', '#emailModal');
+		emailIn.setAttribute('data-bs-target', '#exampleModal');
 
 		thanInvoice.style.display = 'flex';
 		thanEmail.innerText = user.email;
 		thanPhone.innerText = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		thanVerify.addEventListener('click', sendEmail);
+
+		theClint.style.position = 'fixed';
+		theClint.style.bottom = '0';
 	} else if(user.email && !user.phoneNumber) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -115,29 +122,31 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = user.displayName;
 
 			if(user.email.includes('yahoo.com')){
-				vpnImg.src = 'img/partners/yahoo.png';
 				emailImg.src = 'img/partners/yahoo.png';
+				vpnImg.src = 'img/partners/yahoo.png';
 			} else {
-				vpnImg.src = 'img/partners/google.png';
 				emailImg.src = 'img/partners/google.png';
+				vpnImg.src = 'img/partners/google.png';
 			}
 		} else if (!user.displayName && user.email) {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
-		
-			vpnImg.src = 'img/partners/emails.png';
+			
 			emailImg.src = 'img/partners/emails.png';
+			vpnImg.src = 'img/partners/emails.png';
 		} 
 
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
-		emailIn.setAttribute('data-bs-target', '#emailModal');
+		emailIn.setAttribute('data-bs-target', '#exampleModal');
 
-		emailVerify.addEventListener('click', sendEmail);
-		
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
+		emailVerify.addEventListener('click', sendEmail);
+		
+		theClint.style.position = 'fixed';
+		theClint.style.bottom = '0';
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -147,6 +156,9 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/phone.png';
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		phoneIn.innerText = user.phoneNumber;
+
+		theClint.style.position = 'fixed';
+		theClint.style.bottom = '0';
 	} else if(user.isAnonymous) {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
@@ -167,10 +179,8 @@ auth.onAuthStateChanged(user => {
 			var shortCutFunction = 'success';
 			var msg = `
 				Email / Phone invoice is a better option
-				<hr>
-				Create a burner email / phone and use it to get an invoice
 				<hr class="to-hr">
-				It's optional if you prefer to remain anonymous.
+				Create a burner email / phone and use it to get an invoice
 			`;
 			toastr.options = {
 				closeButton: true,
@@ -197,7 +207,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function sendEmail() {
-	if(!localStorage.getItem('verify-cx')) {
+	if(!localStorage.getItem('darkweb-verify-cx')) {
 		auth.currentUser.sendEmailVerification();
 		verP.innerHTML = `
 			Verification email sent to <span>${auth.currentUser.email}</span>. <br>
@@ -245,7 +255,7 @@ function sendEmail() {
 		var $toast = toastr[shortCutFunction](msg);
 		$toastlast = $toast;
 	}
-	localStorage.setItem('verify-cx', true);
+	localStorage.setItem('darkweb-verify-cx', true);
 }
 
 const signUpFunction = () => {
@@ -276,22 +286,25 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#emailModal');
+				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
+
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					emailInvoice.style.display = 'flex';	
-					emailImg.src = 'img/partners/google.png';
 					emailVerify.addEventListener('click', sendEmail);
+					emailImg.src = 'img/partners/google.png';
+					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
 					avatarHolder.style.borderWidth = '1.4px';
 					avatarHolder.style.borderRadius = '50%';
 					thanVerify.addEventListener('click', sendEmail);
-					thanImg.src = 'img/partners/google.png';
+					emailImg.src = 'img/partners/google.png';
 					thanInvoice.style.display = 'flex';
 					thanEmail.innerText = theUser.email;
 					thanPhone.innerText = theUser.phoneNumber;
@@ -342,16 +355,18 @@ const signUpFunction = () => {
 				theUser.sendEmailVerification();
 
 				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#emailModal');
+				emailIn.setAttribute('data-bs-target', '#exampleModal');
 				emailIn.addEventListener('click', sendEmail);
 
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					emailInvoice.style.display = 'flex';
-					emailImg.src = 'img/partners/yahoo.png';
 					emailVerify.addEventListener('click', sendEmail);
+					emailImg.src = 'img/partners/yahoo.png';
+					emailInvoice.style.display = 'flex';
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
@@ -451,18 +466,20 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			jinaHolder3.value = theaddress;
 
 			emailIn.innerText = 'Verify Email';
-			emailIn.setAttribute('data-bs-target', '#emailModal');
+			emailIn.setAttribute('data-bs-target', '#exampleModal');
 			emailIn.addEventListener('click', sendEmail);
 
 			emailImg.src = 'img/partners/emails.png';
-			emailVerify.addEventListener('click', sendEmail);
-
 			vpnImg.src = 'img/partners/emails.png';
 
+			theClint.style.position = 'fixed';
+			theClint.style.bottom = '0';
+				
 			emailInvoice.style.display = 'flex';
 			yourEmail.innerText = theUser.email;
 			anonInvoice.style.display = 'none';
 			theUser.sendEmailVerification();
+			emailVerify.addEventListener('click', sendEmail);
 
 			window.location.href = 'https://www.darkweb.cx/link';
 		})
@@ -483,36 +500,38 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		});
 }
 
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-    'size': 'invisible'
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+recaptchaVerifier.render().then(widgetId => {
+	window.recaptchaWidgetId = widgetId;
 });
 
 const sendVerificationCode = () => {
 	const phoneNumber = phoneNumberField.value;
 	const appVerifier = window.recaptchaVerifier;
 
+	var shortCutFunction = 'success';
+	var msg = `
+		Verification code sent to your phone: ${phoneNumber}.
+		<hr class="to-hr">
+		Check your messages inbox.
+	`;
+	toastr.options = {
+		closeButton: true,
+		debug: false,
+		newestOnTop: true,
+		progressBar: true,
+		positionClass: 'toast-top-full-width',
+		preventDuplicates: true,
+		onclick: null
+	};
+	var $toast = toastr[shortCutFunction](msg);
+	$toastlast = $toast;
+
 	auth.signInWithPhoneNumber(phoneNumber, appVerifier)
 		.then(confirmationResult => {
 			const sentCodeId = confirmationResult.verificationId;
 			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
-
-			var shortCutFunction = 'success';
-			var msg = `
-				Verification  code sent to your phone: ${phoneNumber}.
-				<hr class="to-hr">
-				Check your messages inbox.
-			`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
 		})
 		.catch(error => {
 			var shortCutFunction = 'success';
@@ -548,6 +567,9 @@ const signInWithPhone = sentCodeId => {
 				emailIn.removeAttribute('data-bs-toggle');
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				phoneIn.innerText = theUser.phoneNumber;
+
+				theClint.style.position = 'fixed';
+				theClint.style.bottom = '0';
 				
 				if(!theUser.email) {
 					avatarHolder.setAttribute("src", 'img/partners/phone.png');
