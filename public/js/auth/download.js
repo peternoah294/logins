@@ -84,7 +84,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
+			Send $70 to complete your download.
 			Do not close this page or navigate to any other page otherwise this progress might be lost
 			<br>
 			After this payment check your email inbox @ <span>${user.email}</span>. 
@@ -123,7 +123,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
+			Send $70 to complete your download.
 			Do not close this page or navigate to any other page otherwise this progress might be lost
 			<br>
 			After this payment check your email inbox @ <span>${user.email}</span>. 
@@ -145,7 +145,7 @@ auth.onAuthStateChanged(user => {
 		phoneIn.innerText = user.phoneNumber;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
+			Send $70 to complete your download.
 			Do not close this page or navigate to any other page otherwise this progress might be lost
 			<br>
 			After this payment check your text messages inbox @ <span>${user.phoneNumber}</span>. 
@@ -171,7 +171,7 @@ auth.onAuthStateChanged(user => {
 		jinaHolder3.readOnly = false;
 		paidText.innerHTML = `
 			The cost of acquiring tools for spamming, and also the process itself is expensive, 
-			Send $50 to complete your download.
+			Send $70 to complete your download.
 			Do not close this page or navigate to any other page otherwise this progress will be lost
 			<br>
 			After this payment a text file will be available for download.

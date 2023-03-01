@@ -179,7 +179,7 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		theSet.innerHTML = 'Link Email <img src="img/partners/mail.png">';
+		theSet.innerHTML = 'Email ID <img src="img/partners/mail.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
