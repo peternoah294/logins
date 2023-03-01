@@ -153,7 +153,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 
-		theSet.innerHTML = 'Link Phone <img src="img/partners/phone.png">';
+		theSet.innerHTML = 'Phone ID <img src="img/partners/phone.png">';
 		theSet.setAttribute('data-bs-target', '#phoneModal');
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
