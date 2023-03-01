@@ -176,7 +176,7 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		theSet.innerHTML = 'Email ID <img src="img/partners/mail.png">';
+		theSet.innerHTML = 'Email ID <img src="img/partners/emails.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 	} else if(user.isAnonymous) {
 		if(user.isAnonymous && user.displayName) {
@@ -204,7 +204,7 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		theSet.innerHTML = 'Email ID <img src="img/partners/mail.png">';
+		theSet.innerHTML = 'Email ID <img src="img/partners/emails.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 
 		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('fax-time')) {
