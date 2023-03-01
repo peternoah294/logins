@@ -114,11 +114,11 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
-				vpn.innerHTML = `Verify Email <img src="img/partners/yahoo.png">`;
+				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
 				verImg.src = 'img/partners/google.png';
-				vpn.innerHTML = `Verify Email <img src="img/partners/google.png">`;
+				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			var themail = user.email;
@@ -128,7 +128,7 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
-			vpn.innerHTML = `Verify Email <img src="img/partners/emails.png">`;
+			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
 		
 		if(platform.manufacturer !== null) {
@@ -144,9 +144,6 @@ auth.onAuthStateChanged(user => {
 				Web Browser: <span>${platform.name}</span>.
 			`;
 		}
-
-		vpn.addEventListener('click', sendEmail);
-		vpn.setAttribute('data-bs-target', '#emailModal');
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailIn.innerText = 'Verify Email';
@@ -195,10 +192,22 @@ auth.onAuthStateChanged(user => {
 		vpnImg.src = 'img/partners/anonymous.png';
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
+
 		theSet.innerHTML = 'Email ID <img src="img/partners/mail.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('fax-time')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementById('logsection2').style.display = 'none';
