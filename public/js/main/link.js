@@ -54,8 +54,6 @@
 
     var cxC = document.getElementById('than-verify');
     var cxV = document.getElementById('code-verify');
-    var cxR = document.getElementById('cx-r');
-    var cxS = document.getElementById('p-verify');
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
         theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -72,12 +70,6 @@
 
         cxV.classList.remove('ver-btn');
         cxV.classList.add('phone-btn');
-
-        cxR.classList.remove('ver-btn');
-        cxR.classList.add('phone-btn');
-
-        cxS.classList.remove('ver-btn');
-        cxS.classList.add('phone-btn');
     } 
 
     $window.on("load", function() {
