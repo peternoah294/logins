@@ -343,8 +343,8 @@ blink.disc {
     margin-top: 0px !important;
 }
 .link-phone-div {
-    margin-top: 1px !important;
-    margin-bottom: 1px !important;
+    margin-top: 0.5px !important;
+    margin-bottom: 0.5px !important;
 }
 blink {
     animation: blinkez 4.9s linear infinite;
