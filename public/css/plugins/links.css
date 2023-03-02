@@ -331,20 +331,20 @@ blink.disc {
    }
 }
 .link-email-div {
-    margin-top: 0px !important;
-    margin-bottom: -20px !important;
+    margin-top: -3px !important;
+    margin-bottom: -18px !important;
 }
 .link-than-div {
     margin-top: 0px !important;
-    margin-bottom: -20px !important;
+    margin-bottom: -18px !important;
 }
 .link-code-div {
     margin-bottom: 0px !important;
     margin-top: 0px !important;
 }
 .link-phone-div {
-    margin-top: 0.5px !important;
-    margin-bottom: 0.5px !important;
+    margin-top: -2px !important;
+    margin-bottom: -2px !important;
 }
 blink {
     animation: blinkez 4.9s linear infinite;
