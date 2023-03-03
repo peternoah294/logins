@@ -223,7 +223,7 @@ const signUpFunction = () => {
 		url: 'https://www.darkweb.cx/link',
 		handleCodeInApp: true,
 	};
-	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM')) {
+	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM') || !email.includes('peternoah294@gmail.com')) {
 		const googleProvider = new firebase.auth.GoogleAuthProvider;
 		const theUser = auth.currentUser;
 		theUser.linkWithPopup(googleProvider).then(() => {
@@ -406,7 +406,10 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		localStorage.setItem('the-email', true)
 		email = window.prompt('Enter your email for confirmation');
 	}
-	auth.signInWithEmailLink(email, window.location.href)
+	if(auth.currentUser) {
+		alert('there is a user currently')
+	} else if(!auth.currentUser) {
+		auth.signInWithEmailLink(email, window.location.href)
 		.then((result) => {
 			var theUser = auth.currentUser;
 			var themail = theUser.email;
@@ -442,6 +445,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			var $toast = toastr[shortCutFunction](msg);
 			$toastlast = $toast;
 		});
+	}
 }
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
