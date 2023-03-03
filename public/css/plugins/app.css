@@ -2800,17 +2800,7 @@ ul.countdown li p {
 #loginModal span {
     color: yellow !important;
 }
-#gram-check,
-#contact-check,
-#ver-check {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    cursor: pointer !important;
-}
-#gram-check {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-}
+
 .clients img {
     opacity: 1;
     -webkit-transition-duration: 0.3s;
@@ -3255,4 +3245,21 @@ button.toast-close-button {
     .nav-1200 {
         display: none !important;
     }
+}
+#gram-check,
+#contact-check,
+#ver-check {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    cursor: pointer !important;
+}
+#gram-check {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+@media screen and (max-width: 780px) {
+    #contactModal .next {
+        margin-top: 2px !important;
+        margin-bottom: -5px !important;
+    }    
 }
