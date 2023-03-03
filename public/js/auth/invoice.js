@@ -145,20 +145,6 @@ auth.onAuthStateChanged(user => {
 			`;
 		}
 
-		if(!localStorage.getItem('darkweb-cx')) {
-			vpn.addEventListener('click', sendEmail);
-			vpn.setAttribute('data-bs-target', '#emailModal');
-			if(user.displayName) {
-				if(user.email.includes('yahoo.com')){
-					vpn.innerHTML = `Verify Email <img src="img/partners/yahoo.png">`;
-				} else {
-					vpn.innerHTML = `Verify Email <img src="img/partners/google.png">`;
-				}
-			} else {
-				vpn.innerHTML = `Verify Email <img src="img/partners/emails.png">`;
-			}
-		}
-
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
@@ -208,7 +194,21 @@ auth.onAuthStateChanged(user => {
 		theSet.innerHTML = 'Email ID <img src="img/partners/emails.png">';
 		theSet.setAttribute('data-bs-target', '#loginModal');
 
-		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
+		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
+
+		if(platform.manufacturer !== null) {
+			emailP.innerHTML = `
+				Device: <span>${platform.manufacturer} ${platform.product} ${platform.os}</span>, <br>
+				Web Browser: <span>${platform.name}</span>. 
+			`;
+		} else {
+			emailP.innerHTML = `
+				Your Device: <span>${platform.os}</span>, <br> 
+				Web Browser: <span>${platform.name}</span>.
+			`;
+		}
+
+		if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0) && localStorage.getItem('fax-time')) {
 			document.getElementById('apart').style.display = 'flex';
 			document.getElementById('logsection').style.display = 'none';
 			document.getElementById('logsection2').style.display = 'none';
@@ -275,20 +275,6 @@ function sendEmail() {
 		$toastlast = $toast;
 	}
 	localStorage.setItem('verify-cx', true);
-
-	localStorage.setItem('darkweb-cx', true);
-
-	vpn.removeEventListener('click', sendEmail);
-	vpn.setAttribute('data-bs-target', '#vpnModal');
-	if(auth.currentUser.displayName) {
-		if(auth.currentUser.email.includes('yahoo.com')){
-			vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
-		} else {
-			vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
-		}
-	} else {
-		vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
-	}
 }
 
 const signUpFunction = () => {
