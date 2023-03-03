@@ -137,3 +137,10 @@
         font-size: 15px;
     }
 }
+
+#vpn {
+	margin: 20px auto 30px;
+	cursor: pointer;
+	font-size: 23.5px !important;
+	padding: 7.5px 10.3px !important;
+}
