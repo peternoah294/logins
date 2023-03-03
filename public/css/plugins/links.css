@@ -302,7 +302,7 @@ blink {
 
 blink.disc {
     position: relative !important;
-    top: -75px !important;
+    top: -70px !important;
     left: 80px !important;
     z-index: 999 !important;
 }
