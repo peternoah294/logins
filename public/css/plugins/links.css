@@ -23,9 +23,10 @@
     color: #121d33 !important;
     font-size: 22px;
     cursor: pointer !important;
+    border-radius: 1.7px !important;
     line-height: 35px;
     white-space: nowrap !important;
-    padding: 7.5px 14px;
+    padding: 7px 14px;
     box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
 }
 @media screen and (max-width: 770px) {
