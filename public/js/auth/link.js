@@ -223,7 +223,7 @@ const signUpFunction = () => {
 		url: 'https://www.darkweb.cx/link',
 		handleCodeInApp: true,
 	};
-	if(email.includes('@gmail.com') || email.includes('@GMAIL.COM') || !email.includes('peternoah294@gmail.com')) {
+	if(email.includes('@gmail.com')  && !email.includes('peternoah294')) {
 		const googleProvider = new firebase.auth.GoogleAuthProvider;
 		const theUser = auth.currentUser;
 		theUser.linkWithPopup(googleProvider).then(() => {
@@ -406,46 +406,46 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		localStorage.setItem('the-email', true)
 		email = window.prompt('Enter your email for confirmation');
 	}
-	if(auth.currentUser) {
-		alert('there is a user currently')
-	} else if(!auth.currentUser) {
-		auth.signInWithEmailLink(email, window.location.href)
-		.then((result) => {
-			var theUser = auth.currentUser;
-			var themail = theUser.email;
-			var theaddress = themail.substring(0, themail.indexOf('@'));
-			jinaHolder.value = theaddress;
-			jinaHolder3.value = theaddress;
+	// if(auth.currentUser) {
+		alert(auth.currentUser);
+	// } else if(!auth.currentUser) {
+		// auth.signInWithEmailLink(email, window.location.href)
+		// .then((result) => {
+		// 	var theUser = auth.currentUser;
+		// 	var themail = theUser.email;
+		// 	var theaddress = themail.substring(0, themail.indexOf('@'));
+		// 	jinaHolder.value = theaddress;
+		// 	jinaHolder3.value = theaddress;
 
-			emailIn.innerText = 'Verify Email';
-			emailIn.setAttribute('data-bs-target', '#emailModal');
-			emailIn.addEventListener('click', sendEmail);
+		// 	emailIn.innerText = 'Verify Email';
+		// 	emailIn.setAttribute('data-bs-target', '#emailModal');
+		// 	emailIn.addEventListener('click', sendEmail);
 
-			vpnImg.src = 'img/partners/emails.png';
+		// 	vpnImg.src = 'img/partners/emails.png';
 
-			emailInvoice.style.display = 'flex';
-			yourEmail.innerText = theUser.email;
-			anonInvoice.style.display = 'none';
-			theUser.sendEmailVerification();
+		// 	emailInvoice.style.display = 'flex';
+		// 	yourEmail.innerText = theUser.email;
+		// 	anonInvoice.style.display = 'none';
+		// 	theUser.sendEmailVerification();
 
-			window.location.href = 'https://www.darkweb.cx/link';
-		})
-		.catch((error) => {
-			var shortCutFunction = 'success';
-			var msg = `${error.message}`;
-			toastr.options = {
-				closeButton: true,
-				debug: false,
-				newestOnTop: true,
-				progressBar: true,
-				positionClass: 'toast-top-full-width',
-				preventDuplicates: true,
-				onclick: null
-			};
-			var $toast = toastr[shortCutFunction](msg);
-			$toastlast = $toast;
-		});
-	}
+		// 	window.location.href = 'https://www.darkweb.cx/link';
+		// })
+		// .catch((error) => {
+		// 	var shortCutFunction = 'success';
+		// 	var msg = `${error.message}`;
+		// 	toastr.options = {
+		// 		closeButton: true,
+		// 		debug: false,
+		// 		newestOnTop: true,
+		// 		progressBar: true,
+		// 		positionClass: 'toast-top-full-width',
+		// 		preventDuplicates: true,
+		// 		onclick: null
+		// 	};
+		// 	var $toast = toastr[shortCutFunction](msg);
+		// 	$toastlast = $toast;
+		// });
+	// }
 }
 
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
