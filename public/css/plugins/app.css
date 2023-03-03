@@ -2800,11 +2800,16 @@ ul.countdown li p {
 #loginModal span {
     color: yellow !important;
 }
+#gram-check,
 #contact-check,
 #ver-check {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     cursor: pointer !important;
+}
+#gram-check {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 .clients img {
     opacity: 1;
