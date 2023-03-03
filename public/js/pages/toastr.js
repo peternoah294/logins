@@ -22,8 +22,10 @@ var getMessage = function() {
         for (var i = 0; i < items.length; i++) {
             var msgs = [`
                 ${toastbitcoin} Bitcoin payment not detected,
-                <hr class="to-hr">
+                <hr>
                 Scan the bitcoin address and send $${toast.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.
+                <hr class="to-hr">
+                10% discount is available on 2 banklogs
             `];
             i++;
             if (i === msgs.length) {
@@ -35,8 +37,10 @@ var getMessage = function() {
         for (var i = 0; i < items.length; i++) {
             var msgs = [`
                 ${toastbitcoin2} Bitcoin payment not detected.
-                <hr class="to-hr">
+                <hr>
                 Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.
+                <hr class="to-hr">
+                10% discount is available on 2 banklogs
             `];
             i++;
             if (i === msgs.length) {
@@ -48,8 +52,10 @@ var getMessage = function() {
         for (var i = 0; i < items.length; i++) {
             var msgs = [`
                 ${toastbitcoin2} Bitcoin payment not detected.
-                <hr class="to-hr">
+                <hr>
                 Scan the bitcoin address and send $${toast2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.
+                <hr class="to-hr">
+                10% discount is available on 3 banklogs
             `];
             i++;
             if (i === msgs.length) {
