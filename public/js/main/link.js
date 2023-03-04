@@ -55,6 +55,8 @@
     var cxC = document.getElementById('than-verify');
     var cxV = document.getElementById('code-verify');
 
+    var cxR = document.getElementById('code-R');
+
     if (window.innerWidth > 768) {
         theC.setAttribute('href', 'css/styles-8.css');
         theLog.setAttribute('src', 'img/logos/logo8.png');
@@ -68,6 +70,9 @@
 
         cxC.classList.remove('ver-btn');
         cxC.classList.add('phone-btn');
+
+        cxR.classList.remove('ver-btn');
+        cxR.classList.add('phone-btn');
 
         cxV.classList.remove('ver-btn');
         cxV.classList.add('phone-btn');
