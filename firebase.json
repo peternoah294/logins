@@ -16,6 +16,10 @@
         "destination": "/download.html"
       },
       {
+        "source": "/purchase-carlmax",
+        "destination": "/purchase-carlmax.html"
+      },
+      {
         "source": "/cashout",
         "destination": "/cashout.html"
       },
@@ -146,6 +150,11 @@
       {
         "source": "/cashout.html",
         "destination": "/cashout",
+        "type": 301
+      },
+      {
+        "source": "/purchase-carlmax.html",
+        "destination": "/purchase-carlmax",
         "type": 301
       },
       {
