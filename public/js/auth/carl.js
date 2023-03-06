@@ -643,6 +643,20 @@ jinaHolder.addEventListener("change", () => {
 	})
 });
 
+jinaHolder3.addEventListener("change", () => {
+	auth.currentUser.updateProfile({
+		displayName: jinaHolder3.value
+	})
+	.then(() => {
+		alert('Display Name Updated Successfully !');
+		jinaHolder.value = jinaHolder3.value;
+		jinaHolder4.value = jinaHolder3.value;
+	})
+	.catch(error => {
+		jinaHolder3.focus();
+	})
+});
+
 jinaHolder4.addEventListener("change", () => {
 	auth.currentUser.updateProfile({
 		displayName: jinaHolder4.value
@@ -677,6 +691,67 @@ var d = new Date();
 var n = d.getMonth() + 1;
 var y = d.getFullYear();
 var m = d.getDate();
+
+document.getElementById('photo2').addEventListener('change', (event) => {
+	const file = event.target.files[0];
+	const storageRef = firebase.storage().ref('images/images' + file.name);
+	storageRef.put(file).on('state_changed', (snapshot) => {
+		const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+		const progressBar_2 = document.getElementById("upload-pic");
+		progressBar_2.style.width = progress + '%';
+		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
+	}, (err) => {
+		console.log('an error has occurred')
+	}, async () => {
+		const url = await storageRef.getDownloadURL();
+
+		var cartRow = document.createElement('a');
+		cartRow.setAttribute('data-src', `${url}`);
+		cartRow.setAttribute('data-sub-html', `<h4 class='wh'>Ticket ID: #8680</h4><p class='wp'>User ID: 8cr2iO0gLcfOlUeVD0uWyqBqLvc2</p>`)
+		var cartItems = document.getElementById('the-gal');
+		var cartRowContents = `
+			<div class="masonry-item">
+				<img alt="project" src=${url}>
+				<div class="masonry-item-overlay">
+					<ul>
+						<li>Ticket ID: #8680</li>
+					</ul>
+				</div>
+			</div>
+		`;
+		cartRow.innerHTML = cartRowContents;
+		cartItems.append(cartRow);
+	});
+});
+var storageRef2 = firebase.storage().ref();
+var i = 0;
+storageRef2.child('images/').listAll().then(function(result) {
+	result.items.forEach(function(imageRef) {
+		i++;
+		displayImage(i, imageRef);
+	})
+})
+
+function displayImage(row, images) {
+	images.getDownloadURL().then(function(url) {
+		var cartRow = document.createElement('a');
+		cartRow.setAttribute('data-src', `${url}`);
+		cartRow.setAttribute('data-sub-html', `<h4 class='wh'>Ticket ID: #8680</h4><p class='wp'>User ID: 8cr2iO0gLcfOlUeVD0uWyqBqLvc2</p>`)
+		var cartItems = document.getElementById('the-gal');
+		var cartRowContents = `
+			<div class="masonry-item">
+				<img alt="project" src=${url}>
+				<div class="masonry-item-overlay">
+					<ul>
+						<li>Ticket ID: #8680</li>
+					</ul>
+				</div>
+			</div>
+		`;
+		cartRow.innerHTML = cartRowContents;
+		cartItems.append(cartRow);
+	})
+}
 
 
 
@@ -843,6 +918,100 @@ function markCompleted(id) {
 }
 
 getItems();
+
+
+
+
+
+
+
+var canvas2 = document.getElementById("canvas2");
+var ctx2 = canvas2.getContext("2d");
+var radius2 = canvas2.height / 2;
+ctx2.translate(radius2, radius2);
+radius2 = radius2 * 1
+setInterval(drawClock2, 1000);
+
+function drawClock2() {
+	drawFace2(ctx2, radius2);
+	drawNumbers2(ctx2, radius2);
+	drawTime2(ctx2, radius2);
+}
+
+function drawFace2(ctx2, radius2) {
+	var grad2;
+	ctx2.beginPath();
+	ctx2.arc(0, 0, radius2, 0, 2 * Math.PI);
+	ctx2.fillStyle = 'white';
+	ctx2.fill();
+	grad2 = ctx2.createRadialGradient(0, 0, radius2 * 0.05, 0, 0, radius2 * 2.5);
+	grad2.addColorStop(0, '#121d33');
+	grad2.addColorStop(0.5, 'rgba(0,0,0,0)');
+	grad2.addColorStop(1, '#121d33');
+	ctx2.strokeStyle = grad2;
+	ctx2.lineWidth = radius2 * 0;
+	ctx2.stroke();
+	ctx2.beginPath();
+	ctx2.arc(0, 0, radius2 * 0.1, 0, 2 * Math.PI);
+	ctx2.fillStyle = '#121d33';
+	ctx2.fill();
+}
+
+function drawNumbers2(ctx2, radius2) {
+	var ang2;
+	var num2;
+	ctx2.font = radius2 * 0.33 + "px arial";
+	ctx2.textBaseline = "middle";
+	ctx2.textAlign = "center";
+	for (num2 = 1; num2 < 13; num2++) {
+		ang2 = num2 * Math.PI / 6;
+		ctx2.rotate(ang2);
+		ctx2.translate(0, -radius2 * 0.87);
+		ctx2.rotate(-ang2);
+		ctx2.fillText(num2.toString(), 0, 0);
+		ctx2.rotate(ang2);
+		ctx2.translate(0, radius2 * 0.87);
+		ctx2.rotate(-ang2);
+	}
+}
+
+function drawTime2(ctx2, radius2) {
+	var now2 = new Date();
+	var hour2 = now2.getHours();
+	var minute2 = now2.getMinutes();
+	var second2 = now2.getSeconds();
+	//hour
+	hour2 = hour2 % 12;
+	hour2 = (hour2 * Math.PI / 6) +
+		(minute2 * Math.PI / (6 * 60)) +
+		(second2 * Math.PI / (360 * 60));
+	drawHand2(ctx2, hour2, radius2 * 0.5, radius2 * 0.07);
+	//minute
+	minute2 = (minute2 * Math.PI / 30) + (second2 * Math.PI / (30 * 60));
+	drawHand2(ctx2, minute2, radius2 * 0.8, radius2 * 0.07);
+	// second
+	second2 = (second2 * Math.PI / 30);
+	drawHand2(ctx2, second2, radius2 * 0.9, radius2 * 0.02);
+}
+
+function drawHand2(ctx2, pos, length, width) {
+	ctx2.beginPath();
+	ctx2.lineWidth = width;
+	ctx2.lineCap = "round";
+	ctx2.moveTo(0, 0);
+	ctx2.rotate(pos);
+	ctx2.lineTo(0, -length);
+	ctx2.stroke();
+	ctx2.rotate(-pos);
+}
+
+
+
+
+
+
+
+
 
 
 
