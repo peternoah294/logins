@@ -22,13 +22,6 @@
 
 	 <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.amaran/0.5.4/amaran.min.css">
 	 <script src="//cdn.jsdelivr.net/jquery.amaran/0.5.4/jquery.amaran.min.js"></script>
-	<script>
-		EasyLogin.options = {
-			ajaxUrl: 'https://drklt5.es/ajax.php',
-			lang: {"error":"Oops! Something went wrong.","connecting":"Connecting to ","changes_saved":"Your settings have been saved.","pass_changed":"Your password has been changed!","no_messages":"You don't have any messages yet.","loading":"<div class=\"loadersmall\"><\/div>","loadding":"<div class=\"spinner-border\" role=\"status\">\r\n  <span class=\"sr-only\">Loading...<\/span>\r\n<\/div>","message_sent":"Your message has been sent to the Webmaster.","comment":" Comment","comments":" Comments"},
-			debug: 1,
-		};
-	</script>
 
 <style>
 
@@ -46,101 +39,6 @@
   <body class="authentication-bg">
 
     <div class="layout layout-nav-top">
-      <div class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-        <a class="navbar-brand" href="https://drklt5.es">
-          <img alt="Pipeline" src="https://drklt5.es/assets/img/user-icon.png" style="width: 60px;"/>
-        </a>
-        <div class="d-flex align-items-center">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="d-block d-lg-none ml-2">
-            <div class="dropdown">
-              <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img alt="Image" src="https://drklt5.es/assets/img/07.gif" class="avatar" />
-              </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a href="nav-side-user.html" class="dropdown-item">Profile</a>
-                <a href="utility-account-settings.html" class="dropdown-item">Account Settings</a>
-                <a href="#" class="dropdown-item">Log Out</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="collapse navbar-collapse justify-content-between" id="navbar-collapse">
-          <ul class="navbar-nav" style="font-size: 15px !important;">
-<li class="nav-item ">
-
-<div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">USA BANK(logins only)</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="https://drklt5.es/account/huntington-log-log-pass">Huntington Log(log+pass) </a><a class="dropdown-item" href="https://drklt5.es/account/citi-log-log-pass">Citi Log(log+pass) </a><a class="dropdown-item" href="https://drklt5.es/account/pnc-log-log-pass">PNC Log(log+pass) </a><a class="dropdown-item" href="https://drklt5.es/account/bbva-log-log-pass">BBVA Log(log+pass) </a><a class="dropdown-item" href="https://drklt5.es/account/woodforest-log-log-pass">Woodforest log (log+pass) </a></div>
-              </div><li class="nav-item ">
-
-<div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">USA BANK(full info)</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="https://drklt5.es/account/huntington-log-full-info">Huntington Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/chase-log-full-info">Chase Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/citi-log-full-info">Citi Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/pnc-log-full-info">PNC Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/woodforest-log-full-info">Woodforest Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/chime-log-full-info">Chime Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/nfcu-log-full-info">NFCU Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/bbva-log-full-info">BBVA Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/bb-t-log-full-info">BB&amp;T Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/boa-log-full-info">BOA Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/suntrust-log-full-info">Suntrust Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/m-t-bank">M&amp;T Bank </a></div>
-              </div><li class="nav-item ">
-
-<div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">CANADA BANK(full info)</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="https://drklt5.es/account/scotia-bank-log-full-info">Scotia Bank Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/rbc-log-full-info">RBC Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/td-bank-canada-full-info">TD Bank Canada(full info) </a></div>
-              </div><li class="nav-item ">
-
-<div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">UK BANK(full info)</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="https://drklt5.es/account/llyod-bank-log-full-info">Llyod Bank Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/barclays-bank-log-full-info">Barclays Bank Log(full info) </a><a class="dropdown-item" href="https://drklt5.es/account/hsbc-bank-log-full-info">HSBC Bank Log(full info) </a></div>
-              </div><li class="nav-item ">
-
-<div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">SHOPWITHSCRIP</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="https://drklt5.es/account/shopwithscrip-log-usa">Shopwithscrip Log (USA) </a><a class="dropdown-item" href="https://drklt5.es/account/fundscrip-log-canada">Fundscrip Log(Canada) </a><a class="dropdown-item" href="https://drklt5.es/account/southwest-log">Southwest Log </a></div>
-              </div><li class="nav-item ">
-
-<div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-dropdown-2">OTHER TOOLS</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="https://drklt5.es/account/chase-credit-card-info">Chase credit card info </a><a class="dropdown-item" href="https://drklt5.es/account/discover-credit-card-info">Discover credit card info </a><a class="dropdown-item" href="https://drklt5.es/account/usa-checks">USA Checks </a><a class="dropdown-item" href="https://drklt5.es/account/canada-checks">Canada Checks </a><a class="dropdown-item" href="https://drklt5.es/account/company-fullz-log">Company Fullz Log </a><a class="dropdown-item" href="https://drklt5.es/account/dump">DUMPS </a><a class="dropdown-item" href="https://drklt5.es/account/webmail">Webmail </a></div>
-              </div>           
-
-           <li class="nav-item">
-
-              <a class="nav-link" href="https://drklt5.es/ticket">Ticket</a>
-
-            </li>
-
-            <li class="nav-item">
-      					<a class="nav-link" href="https://drklt5.es/purchased">Purchased</a>
-      				</li>
-
-     
-
-
-          </ul>
-          <div class="d-lg-flex align-items-center">
-           
-            <div class="dropdown mx-lg-2">
-              <button class="btn btn-success btn-block dropdown-toggle" type="button" id="newContentButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Balance: 21.17$
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="https://drklt5.es/balance">Add Balance</a>
-                <a class="dropdown-item" href="https://drklt5.es/wallets">Deposit history</a>
-              </div>
-            </div>
-            <div class="d-none d-lg-block">
-              <div class="dropdown">
-                <a href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img alt="Image" src="https://drklt5.es/assets/img/07.gif" class="avatar" />
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                	<a class="dropdown-item" href="https://drklt5.es/ticket">Ticket</a>
-                  <a href="https://drklt5.es/settings" class="dropdown-item">Settings</a>
-                  <a href="https://drklt5.es/logout" class="dropdown-item">Log Out</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="main-container">
 
         <div class="container mt-5">
@@ -182,7 +80,7 @@
 		        <td>1 day ago</td>
 		         <td>CHECKING ACCOUNT </td>
 		         <td>$5,325</td>
-		         <td><p>HUNTINGTON bank</p><p>Name: &nbsp;Steven Thomas&nbsp;</p><p>Bank Account number:42137083</p><p>Routine number 041215032</p><p>DATE OF BIRTH : 
+		         <td><p>HUNTINGTON bank  </p><p>Name: &nbsp;Steven Thomas&nbsp;</p><p>Bank Account number:42137083</p><p>Routine number 041215032</p><p>DATE OF BIRTH : 
               &nbsp;19/12/1961</p><p>Mothers maiden:Villalobos</p><p>Logins:&nbsp;</p><p>Username - stefi***</p><p>Password -dexn***</p><p>SSN; 239-31-5***</p><p>Address; 176 Sandy Cross Rd</p><p>Hobbsville NC 27946</p><p>P.O. box 9130</p><p>Marlborough, MA 01752</p><p>Bank Phone number 508 263-6700</p><p>steventhomas593th@aol.com</p><p>Password Godlives12</p></td>
                 <td>$142</td>
                <td><div id="actionButton"><button class="btn btn-success">Open</button></div></td>
@@ -196,24 +94,6 @@
               </div>
 
   
-
-
-
-
-
-        	<script>
-
-     $(document).ready(function() {
-         $("#actionButton").load("refund_button.php");
-       var refreshId = setInterval(function() {
-          $("#actionButton").load('refund_button.php');
-       }, 1000);
-       $.ajaxSetup({ cache: false });
-    });
-
-
-
-</script>
      
               </div>
 </div>
