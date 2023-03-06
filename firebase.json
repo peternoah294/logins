@@ -16,8 +16,8 @@
         "destination": "/download.html"
       },
       {
-        "source": "/purchase-carlmax",
-        "destination": "/purchase-carlmax.html"
+        "source": "/carlmax",
+        "destination": "/carlmax.html"
       },
       {
         "source": "/cashout",
@@ -153,8 +153,8 @@
         "type": 301
       },
       {
-        "source": "/purchase-carlmax.html",
-        "destination": "/purchase-carlmax",
+        "source": "/carlmax.html",
+        "destination": "/carlmax",
         "type": 301
       },
       {
