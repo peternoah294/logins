@@ -25,12 +25,6 @@ const jinaHolder2 = document.getElementById("jinaHolder2");
 const jinaHolder3 = document.getElementById('jinaHolder3');
 const jinaHolder4 = document.getElementById('jinaHolder4');
 
-const nameHolder1 = document.getElementById('nameBro1');
-const nameHolder2 = document.getElementById('nameBro2');
-const nameHolder3 = document.getElementById('nameBro3');
-
-const email5 = document.getElementById('yourEmail5');
-
 const thePic2 = document.getElementById('the-pic2');
 const thenoPic2 = document.getElementById('the-nopic2');
 
@@ -112,10 +106,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder4.value = user.phoneNumber;
-		nameHolder1.value = user.phoneNumber;
-		nameHolder2.value = user.phoneNumber;
-		nameHolder3.value = user.phoneNumber;
-		email5.innerHTML = user.phoneNumber;
 		phoneIn.innerText = user.phoneNumber;
 
 		emailIn.innerText = 'Verify Email';
@@ -131,9 +121,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
 			jinaHolder4.value = user.displayName;
-			nameHolder1.value = user.displayName;
-			nameHolder2.value = user.displayName;
-			nameHolder3.value = user.displayName;
 	
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -154,9 +141,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
 			jinaHolder4.value = theaddress;
-			nameHolder1.value = theaddress;
-			nameHolder2.value = theaddress;
-			nameHolder3.value = theaddress;
 	
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -173,16 +157,11 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
-		email5.innerHTML = user.email;
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		jinaHolder4.value = user.phoneNumber;
-		nameHolder1.value = user.phoneNumber;
-		nameHolder2.value = user.phoneNumber;
-		nameHolder3.value = user.phoneNumber;
 		phoneIn.innerText = user.phoneNumber;
-		email5.innerHTML = user.phoneNumber;
 
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 			goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -200,9 +179,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
 			jinaHolder4.value = user.displayName;
-			nameHolder1.value = user.displayName;
-			nameHolder2.value = user.displayName;
-			nameHolder3.value = user.displayName;
 
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -214,9 +190,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = 'Anonymous';
 			jinaHolder3.value = 'Anonymous';
 			jinaHolder4.value = 'Anonymous';
-			nameHolder1.value = 'ANONYMOUS';
-			nameHolder2.value = 'ANONYMOUS';
-			nameHolder3.value = 'ANONYMOUS';
 	
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -230,7 +203,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
 		jinaHolder4.readOnly = false;
-		email5.innerHTML = `Logged in anonymously, you can link a valid email address on the confirm page to get an email invoice`;
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 		vpnImg.src = 'img/partners/anonymous.png';
 	}
@@ -337,10 +309,6 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					jinaHolder4.value = theUser.displayName;
-					nameHolder1.value = theUser.displayName;
-					nameHolder2.value = theUser.displayName;
-					nameHolder3.value = theUser.displayName;
-					email5.innerHTML = theUser.displayName;
 					if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 						goodies = JSON.parse(localStorage.getItem('banklogs'));
 						for (var i = 0; i < goodies.length; i++) {
@@ -406,10 +374,6 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					jinaHolder4.value = theUser.displayName;
-					nameHolder1.value = theUser.displayName;
-					nameHolder2.value = theUser.displayName;
-					nameHolder3.value = theUser.displayName;
-					email5.innerHTML = theUser.displayName;
 					if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 						goodies = JSON.parse(localStorage.getItem('banklogs'));
 						for (var i = 0; i < goodies.length; i++) {
@@ -557,10 +521,6 @@ const signInWithPhone = sentCodeId => {
 				jinaHolder3.value = theUser.phoneNumber;
 				jinaHolder4.value = theUser.phoneNumber;
 				phoneIn.innerText = theUser.phoneNumber;
-				nameHolder1.value = theUser.phoneNumber;
-				nameHolder2.value = theUser.phoneNumber;
-				nameHolder3.value = theUser.phoneNumber;
-				email5.innerHTML = theUser.phoneNumber;
 
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 
@@ -845,81 +805,6 @@ function drawHand(ctx, pos, length, width) {
 	ctx.stroke();
 	ctx.rotate(-pos);
 }
-
-
-
-function getItems() {
-	db.collection("todo-items").onSnapshot((snapshot) => {
-		let items = [];
-		snapshot.docs.forEach((doc) => {
-			items.push({
-				id: doc.id,
-				...doc.data()
-			})
-		})
-		generateItems(items);
-	})
-}
-
-
-function generateItems(items) {
-	let todoItems = []
-	items.forEach((item) => {
-
-		let todoItem = document.createElement("div");
-		todoItem.classList.add('alert', 'alert-info', 'alert-dismissible');
-		let checkContainer = document.createElement("div");
-		checkContainer.classList.add("check");
-		let checkMark = document.createElement("button");
-		checkMark.classList.add("btn-close");
-		checkMark.innerHTML = `&times;`;
-		checkMark.addEventListener("click", function() {
-			markCompleted(item.id);
-		})
-		checkContainer.appendChild(checkMark);
-		todoItem.innerText = item.text;
-		todoItem.appendChild(checkContainer);
-		todoItems.push(todoItem)
-	})
-	document.querySelector(".todo-items").replaceChildren(...todoItems);
-}
-
-function clearInput() {
-	document.getElementById('todo-input').value = '';
-}
-
-function addItem(event) {
-	event.preventDefault();
-	let text = document.getElementById("todo-input");
-	if(text.value !== '' && text.value !== 'New comment...') {
-		let newItem = db.collection("todo-items").add({
-			text: text.value,
-			status: "active"
-		})
-	}
-	text.value = "";
-}
-function markCompleted(id) {
-	let item = db.collection("todo-items").doc(id);
-	item.get().then(function(doc) {
-		if (doc.exists) {
-			if (doc.data().status == "active") {
-				item.update({
-					status: "completed"
-				});
-				item.delete();
-			} else {
-				item.update({
-					status: "active"
-				})
-			}
-		}
-	})
-}
-
-getItems();
-
-
 
 
 

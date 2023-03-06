@@ -122,27 +122,6 @@ if(localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklo
     
 }
 
-document.getElementById('alert-1').innerHTML = `
-    Added <strong>Chime Bank [SPENDING]</strong>, Balance: ${localStorage.getItem('chime2')}
-    <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
-`;
-document.getElementById('alert-2').innerHTML = `
-    Added <strong>Bank of America [CHECKING]</strong>, Balance: ${localStorage.getItem('boa2')}
-    <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
-`;
-document.getElementById('alert-3').innerHTML = `
-    Added <strong>PNC Bank [SAVINGS]</strong>, Balance: ${localStorage.getItem('pnc2')}
-    <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
-`;
-document.getElementById('alert-4').innerHTML = `
-    Added <strong>Huntington Bank [CHECKING]</strong>, Balance: ${localStorage.getItem('hunt2')}
-    <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
-`;
-document.getElementById('alert-5').innerHTML = `
-    Added <strong>Wells Fargo [SAVINGS]</strong>, Balance: ${localStorage.getItem('wells2')}
-    <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
-`;
-
 function removeCartItem(event) {
     var buttonClicked = event.target
     var cartItem = buttonClicked.parentElement.parentElement;
