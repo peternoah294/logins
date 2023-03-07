@@ -23,10 +23,6 @@ const avatarHolder = document.getElementById("avatar");
 const jinaHolder = document.getElementById("jinaHolder");
 const jinaHolder2 = document.getElementById("jinaHolder2");
 const jinaHolder3 = document.getElementById('jinaHolder3');
-const jinaHolder4 = document.getElementById('jinaHolder4');
-
-const thePic2 = document.getElementById('the-pic2');
-const thenoPic2 = document.getElementById('the-nopic2');
 
 const vpnImg = document.getElementById('vpn-img');
 const vpn = document.getElementById('vpn');
@@ -63,8 +59,6 @@ auth.onAuthStateChanged(user => {
 		avatarHolder.style.display = 'block';
 		thePic.setAttribute("src", user.photoURL);
 		thePic.style.display = 'inline-block';
-		thePic2.setAttribute("src", user.photoURL);
-		thePic2.style.display = 'inline-block';
 		
 	} else if (!user.photoURL) {
 		if(user.phoneNumber) {
@@ -73,11 +67,9 @@ auth.onAuthStateChanged(user => {
 			avatarHolder.style.borderWidth = 0;
 			avatarHolder.style.borderRadius = 0;
 			thenoPic.style.display = 'inline-block';
-			thenoPic2.style.display = 'inline-block';
 		} else {
 			logoHolder.style.display = 'block';
 			thenoPic.style.display = 'inline-block';
-			thenoPic2.style.display = 'inline-block';
 		}
 	}
 	if(user.email && user.phoneNumber) {
@@ -105,7 +97,6 @@ auth.onAuthStateChanged(user => {
 
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-		jinaHolder4.value = user.phoneNumber;
 		phoneIn.innerText = user.phoneNumber;
 
 		emailIn.innerText = 'Verify Email';
@@ -120,7 +111,6 @@ auth.onAuthStateChanged(user => {
 		if (user.displayName && user.email) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
-			jinaHolder4.value = user.displayName;
 	
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -140,7 +130,6 @@ auth.onAuthStateChanged(user => {
 		} else if (!user.displayName && user.email) {	
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
-			jinaHolder4.value = theaddress;
 	
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -160,7 +149,6 @@ auth.onAuthStateChanged(user => {
 	} else if(!user.email && user.phoneNumber) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
-		jinaHolder4.value = user.phoneNumber;
 		phoneIn.innerText = user.phoneNumber;
 
 		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
@@ -178,7 +166,6 @@ auth.onAuthStateChanged(user => {
 		if (user.isAnonymous && user.displayName) {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
-			jinaHolder4.value = user.displayName;
 
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -189,7 +176,6 @@ auth.onAuthStateChanged(user => {
 		} else 	if (user.isAnonymous && !user.displayName) {
 			jinaHolder.value = 'Anonymous';
 			jinaHolder3.value = 'Anonymous';
-			jinaHolder4.value = 'Anonymous';
 	
 			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 				goodies = JSON.parse(localStorage.getItem('banklogs'));
@@ -202,7 +188,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
 		jinaHolder.readOnly = false;
 		jinaHolder3.readOnly = false;
-		jinaHolder4.readOnly = false;
 		vpn.innerHTML = `View Profile <img src="img/partners/anonymous.png">`;
 		vpnImg.src = 'img/partners/anonymous.png';
 	}
@@ -296,19 +281,15 @@ const signUpFunction = () => {
 				avatarHolder.setAttribute("src", theUser.photoURL);
 				avatarHolder.style.display = 'block';
 				thePic.setAttribute("src", theUser.photoURL);
-				thePic2.setAttribute("src", theUser.photoURL);
 				thePic.style.display = 'inline-block';
-				thePic2.style.display = 'inline-block';
 				logoHolder.style.display = 'none';
 				thenoPic.style.display = 'none';
-				thenoPic2.style.display = 'none';
 				vpnImg.src = 'img/partners/google.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					jinaHolder4.value = theUser.displayName;
 					if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 						goodies = JSON.parse(localStorage.getItem('banklogs'));
 						for (var i = 0; i < goodies.length; i++) {
@@ -361,19 +342,15 @@ const signUpFunction = () => {
 				avatarHolder.setAttribute("src", theUser.photoURL);
 				avatarHolder.style.display = 'block';
 				thePic.setAttribute("src", theUser.photoURL);
-				thePic2.setAttribute("src", theUser.photoURL);
 				thePic.style.display = 'inline-block';
-				thePic2.style.display = 'inline-block';
 				logoHolder.style.display = 'none';
 				thenoPic.style.display = 'none';
-				thenoPic2.style.display = 'none';
 				vpnImg.src = 'img/partners/yahoo.png';
 				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
 
 				if(!theUser.phoneNumber) {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
-					jinaHolder4.value = theUser.displayName;
 					if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
 						goodies = JSON.parse(localStorage.getItem('banklogs'));
 						for (var i = 0; i < goodies.length; i++) {
@@ -519,7 +496,6 @@ const signInWithPhone = sentCodeId => {
 				phoneIn.setAttribute('data-bs-target', '#vpnModal');
 				jinaHolder.value = theUser.phoneNumber;
 				jinaHolder3.value = theUser.phoneNumber;
-				jinaHolder4.value = theUser.phoneNumber;
 				phoneIn.innerText = theUser.phoneNumber;
 
 				vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
@@ -537,12 +513,10 @@ const signInWithPhone = sentCodeId => {
 					avatarHolder.style.borderWidth = 0;
 					avatarHolder.style.borderRadius = 0;
 					thenoPic.style.display = 'inline-block';
-					thenoPic2.style.display = 'inline-block';
 					vpnImg.src = 'img/partners/phone.png';
 					vpn.innerHTML = `View Profile <img src="img/partners/phone.png">`;
 					logoHolder.style.display = 'none';
 					thePic.style.display = 'none';	
-					thePic2.style.display = 'none';
 				}
 
 			});
@@ -596,7 +570,6 @@ jinaHolder.addEventListener("change", () => {
 	.then(() => {
 		alert('Display Name Updated Successfully !');
 		jinaHolder3.value = jinaHolder.value;
-		jinaHolder4.value = jinaHolder.value;
 	})
 	.catch(error => {
 		jinaHolder.focus();
@@ -610,24 +583,9 @@ jinaHolder3.addEventListener("change", () => {
 	.then(() => {
 		alert('Display Name Updated Successfully !');
 		jinaHolder.value = jinaHolder3.value;
-		jinaHolder4.value = jinaHolder3.value;
 	})
 	.catch(error => {
 		jinaHolder3.focus();
-	})
-});
-
-jinaHolder4.addEventListener("change", () => {
-	auth.currentUser.updateProfile({
-		displayName: jinaHolder4.value
-	})
-	.then(() => {
-		alert('Display Name Updated Successfully !');
-		jinaHolder.value = jinaHolder4.value;
-		jinaHolder3.value = jinaHolder4.value;
-	})
-	.catch(error => {
-		jinaHolder4.focus();
 	})
 });
 
@@ -832,139 +790,3 @@ function drawHand2(ctx2, pos, length, width) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var canvas3 = document.getElementById("canvas3");
-var ctx3 = canvas3.getContext("2d");
-var radius3 = canvas3.height / 2;
-ctx3.translate(radius3, radius3);
-radius3 = radius3 * 1
-setInterval(drawClock3, 1000);
-
-function drawClock3() {
-	drawFace3(ctx3, radius3);
-	drawNumbers3(ctx3, radius3);
-	drawTime3(ctx3, radius3);
-}
-
-function drawFace3(ctx3, radius3) {
-	var grad3;
-	ctx3.beginPath();
-	ctx3.arc(0, 0, radius3, 0, 2 * Math.PI);
-	ctx3.fillStyle = 'white';
-	ctx3.fill();
-	grad3 = ctx3.createRadialGradient(0, 0, radius3 * 0.05, 0, 0, radius3 * 2.5);
-	grad3.addColorStop(0, '#121d33');
-	grad3.addColorStop(0.5, 'rgba(0,0,0,0)');
-	grad3.addColorStop(1, '#121d33');
-	ctx3.strokeStyle = grad3;
-	ctx3.lineWidth = radius3 * 0;
-	ctx3.stroke();
-	ctx3.beginPath();
-	ctx3.arc(0, 0, radius3 * 0.1, 0, 2 * Math.PI);
-	ctx3.fillStyle = '#121d33';
-	ctx3.fill();
-}
-
-function drawNumbers3(ctx3, radius3) {
-	var ang3;
-	var num3;
-	ctx3.font = radius3 * 0.33 + "px arial";
-	ctx3.textBaseline = "middle";
-	ctx3.textAlign = "center";
-	for (num3 = 1; num3 < 13; num3++) {
-		ang3 = num3 * Math.PI / 6;
-		ctx3.rotate(ang3);
-		ctx3.translate(0, -radius3 * 0.87);
-		ctx3.rotate(-ang3);
-		ctx3.fillText(num3.toString(), 0, 0);
-		ctx3.rotate(ang3);
-		ctx3.translate(0, radius3 * 0.87);
-		ctx3.rotate(-ang3);
-	}
-}
-
-function drawTime3(ctx3, radius3) {
-	var now3 = new Date();
-	var hour3 = now3.getHours();
-	var minute3 = now3.getMinutes();
-	var second3 = now3.getSeconds();
-	//hour
-	hour3 = hour3 % 12;
-	hour3 = (hour3 * Math.PI / 6) +
-		(minute3 * Math.PI / (6 * 60)) +
-		(second3 * Math.PI / (360 * 60));
-	drawHand3(ctx3, hour3, radius3 * 0.5, radius3 * 0.07);
-	//minute
-	minute3 = (minute3 * Math.PI / 30) + (second3 * Math.PI / (30 * 60));
-	drawHand3(ctx3, minute3, radius3 * 0.8, radius3 * 0.07);
-	// second
-	second3 = (second3 * Math.PI / 30);
-	drawHand3(ctx3, second3, radius3 * 0.9, radius3 * 0.02);
-}
-
-function drawHand3(ctx3, pos, length, width) {
-	ctx3.beginPath();
-	ctx3.lineWidth = width;
-	ctx3.lineCap = "round";
-	ctx3.moveTo(0, 0);
-	ctx3.rotate(pos);
-	ctx3.lineTo(0, -length);
-	ctx3.stroke();
-	ctx3.rotate(-pos);
-}
-
-if(!window.location.href.includes('5502')) {
-	function disableCtrlKeyCombination(e){
-		var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'i', 'v', 'j' , 'w', 'i');
-		var key;
-		var isCtrl;
-		if(window.event){
-			key = window.event.keyCode;
-			if(window.event.ctrlKey) {
-				isCtrl = true;
-			} else {
-				isCtrl = false;
-			}
-		} else {
-			key = e.which; 
-			if(e.ctrlKey) {
-				isCtrl = true;
-			}
-			else {
-				isCtrl = false;
-			}
-		}
-		//if ctrl is pressed check if other key is in forbidenKeys array
-		if(isCtrl) {
-			for(i=0; i<forbiddenKeys.length; i++) {
-				if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
-					alert('Key combination CTRL + '+String.fromCharCode(key) +' has been disabled.');
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-}
