@@ -652,69 +652,6 @@ var n = d.getMonth() + 1;
 var y = d.getFullYear();
 var m = d.getDate();
 
-document.getElementById('photo2').addEventListener('change', (event) => {
-	const file = event.target.files[0];
-	const storageRef = firebase.storage().ref('images/images' + file.name);
-	storageRef.put(file).on('state_changed', (snapshot) => {
-		const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-		const progressBar_2 = document.getElementById("upload-pic");
-		progressBar_2.style.width = progress + '%';
-		document.getElementById('escoz-3').innerHTML = 'Upload Progress: ' + progress + '%';
-	}, (err) => {
-		console.log('an error has occurred')
-	}, async () => {
-		const url = await storageRef.getDownloadURL();
-
-		var cartRow = document.createElement('a');
-		cartRow.setAttribute('data-src', `${url}`);
-		cartRow.setAttribute('data-sub-html', `<h4 class='wh'>Ticket ID: #8680</h4><p class='wp'>User ID: 8cr2iO0gLcfOlUeVD0uWyqBqLvc2</p>`)
-		var cartItems = document.getElementById('the-gal');
-		var cartRowContents = `
-			<div class="masonry-item">
-				<img alt="project" src=${url}>
-				<div class="masonry-item-overlay">
-					<ul>
-						<li>Ticket ID: #8680</li>
-					</ul>
-				</div>
-			</div>
-		`;
-		cartRow.innerHTML = cartRowContents;
-		cartItems.append(cartRow);
-	});
-});
-var storageRef2 = firebase.storage().ref();
-var i = 0;
-storageRef2.child('images/').listAll().then(function(result) {
-	result.items.forEach(function(imageRef) {
-		i++;
-		displayImage(i, imageRef);
-	})
-})
-
-function displayImage(row, images) {
-	images.getDownloadURL().then(function(url) {
-		var cartRow = document.createElement('a');
-		cartRow.setAttribute('data-src', `${url}`);
-		cartRow.setAttribute('data-sub-html', `<h4 class='wh'>Ticket ID: #8680</h4><p class='wp'>User ID: 8cr2iO0gLcfOlUeVD0uWyqBqLvc2</p>`)
-		var cartItems = document.getElementById('the-gal');
-		var cartRowContents = `
-			<div class="masonry-item">
-				<img alt="project" src=${url}>
-				<div class="masonry-item-overlay">
-					<ul>
-						<li>Ticket ID: #8680</li>
-					</ul>
-				</div>
-			</div>
-		`;
-		cartRow.innerHTML = cartRowContents;
-		cartItems.append(cartRow);
-	})
-}
-
-
-
 document.getElementById("thebodyz").oncontextmenu = function() {
 	return false
 };
