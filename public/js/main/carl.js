@@ -35,21 +35,6 @@
 
     $(document).ready(function() {
 
-        if ($(".countdown").length !== 0) {
-            var tpj = jQuery;
-            var countdown;
-            tpj(document).ready(function() {
-                if (tpj(".countdown").countdown == undefined) {
-                    revslider_showDoubleJqueryError(".countdown");
-                } else {
-                    countdown = tpj(".countdown").show().countdown({
-                        date: "28 Feb 2023 00:00:00",
-                        format: "on"
-                    });
-                }
-            });
-        }
-
         $('#clients').owlCarousel({
 			loop: true,
 			nav: false,
@@ -71,11 +56,6 @@
                 1300: {items: 19, margin: 14}
 			}
 		});
-
-        $('.countup').counterUp({
-            delay: 30,
-            time: 7000
-        });
 
     });
     function toggleFullScreen() {
