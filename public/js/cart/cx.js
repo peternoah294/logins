@@ -1,4 +1,4 @@
-localStorage.getItem("darkweb-life")
+localStorage.getItem("darkweb-cx")
 ? console.log("Bank Logs Loaded Successfully")
 : (localStorage.setItem("banklogs", []),
 localStorage.setItem("boa1", "$" + (3390).toLocaleString()),
@@ -236,4 +236,4 @@ localStorage.setItem("wood8", "$" + (8032).toLocaleString()),
 localStorage.setItem("wood9", "$" + (8740).toLocaleString()),
 localStorage.setItem("wood10", "$" + (9460).toLocaleString())
 ),
-localStorage.setItem("darkweb-life", !0);
+localStorage.setItem("darkweb-cx", !0);
