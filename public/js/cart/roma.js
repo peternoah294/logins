@@ -2,7 +2,7 @@ localStorage.getItem("darkweb-roma")
 ? console.log("Bank Logs Loaded Successfully")
 : (localStorage.setItem("banklogs", []),
 localStorage.setItem("boa1", "$" + (3890).toLocaleString()),
-localStorage.setItem("boa2", "$" + (5274).toLocaleString()),
+localStorage.setItem("boa2", "$" + (4574).toLocaleString()),
 localStorage.setItem("boa3", "$" + (4852).toLocaleString()),
 localStorage.setItem("boa4", "$" + (5530).toLocaleString()),
 localStorage.setItem("boa5", "$" + (6707).toLocaleString()),
