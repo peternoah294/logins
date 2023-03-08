@@ -460,8 +460,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
-
-				emailVerify.addEventListener('click', sendEmail);		
 	
 				vpnImg.src = 'img/partners/emails.png';
 	
