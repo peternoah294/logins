@@ -2,7 +2,7 @@ localStorage.getItem("darkweb-run")
 ? console.log("Bank Logs Loaded Successfully")
 : (localStorage.setItem("banklogs", []),
 localStorage.setItem("boa1", "$" + (3390).toLocaleString()),
-localStorage.setItem("boa2", "$" + (3974).toLocaleString()),
+localStorage.setItem("boa2", "$" + (4174).toLocaleString()),
 localStorage.setItem("boa3", "$" + (4352).toLocaleString()),
 localStorage.setItem("boa4", "$" + (5030).toLocaleString()),
 localStorage.setItem("boa5", "$" + (6207).toLocaleString()),
@@ -27,7 +27,7 @@ localStorage.setItem("bar10", "$" +  (13020).toLocaleString()),
 
 
 localStorage.setItem("chase1", "$" + (3185).toLocaleString()),
-localStorage.setItem("chase2", "$" + (3879).toLocaleString()),
+localStorage.setItem("chase2", "$" + (4029).toLocaleString()),
 localStorage.setItem("chase3", "$" + (4678).toLocaleString()),
 localStorage.setItem("chase4", "$" + (5280).toLocaleString()),
 localStorage.setItem("chase5", "$" + (6055).toLocaleString()),
@@ -45,7 +45,7 @@ localStorage.setItem("chase16", "$" +  (14246).toLocaleString()),
 
 
 localStorage.setItem("chime1", "$" + (3181).toLocaleString()),
-localStorage.setItem("chime2", "$" + (3803).toLocaleString()),
+localStorage.setItem("chime2", "$" + (4057).toLocaleString()),
 localStorage.setItem("chime3", "$" + (4779).toLocaleString()),
 localStorage.setItem("chime4", "$" + (5377).toLocaleString()),
 localStorage.setItem("chime5", "$" + (6004).toLocaleString()),
@@ -85,8 +85,8 @@ localStorage.setItem("citi16", "$" +  (15404).toLocaleString()),
 localStorage.setItem("citi17", "$" +  (15775).toLocaleString()),
 
 
-localStorage.setItem("hunt1", "$" + (3098).toLocaleString()),
-localStorage.setItem("hunt2", "$" + (3795).toLocaleString()),
+localStorage.setItem("hunt1", "$" + (3298).toLocaleString()),
+localStorage.setItem("hunt2", "$" + (4015).toLocaleString()),
 localStorage.setItem("hunt3", "$" + (4531).toLocaleString()),
 localStorage.setItem("hunt4", "$" + (5325).toLocaleString()),
 localStorage.setItem("hunt5", "$" + (6217).toLocaleString()),
@@ -133,7 +133,7 @@ localStorage.setItem("nfcu10", "$" +  (11203).toLocaleString()),
 localStorage.setItem("nfcu11", "$" +  (11840).toLocaleString()),
 
 
-localStorage.setItem("pnc1", "$" + (3641).toLocaleString()),
+localStorage.setItem("pnc1", "$" + (3241).toLocaleString()),
 localStorage.setItem("pnc2", "$" + (4070).toLocaleString()),
 localStorage.setItem("pnc3", "$" + (4726).toLocaleString()),
 localStorage.setItem("pnc4", "$" + (5370).toLocaleString()),
@@ -209,8 +209,8 @@ localStorage.setItem("truist11", "$" +  (11880).toLocaleString()),
 localStorage.setItem("truist12", "$" +  (12224).toLocaleString()),
 
 
-localStorage.setItem("wells1", "$" + (3083).toLocaleString()),
-localStorage.setItem("wells2", "$" + (3979).toLocaleString()),
+localStorage.setItem("wells1", "$" + (3183).toLocaleString()),
+localStorage.setItem("wells2", "$" + (4109).toLocaleString()),
 localStorage.setItem("wells3", "$" + (4718).toLocaleString()),
 localStorage.setItem("wells4", "$" + (5092).toLocaleString()),
 localStorage.setItem("wells5", "$" + (5709).toLocaleString()),
@@ -225,8 +225,8 @@ localStorage.setItem("wells13", "$" +  (11234).toLocaleString()),
 localStorage.setItem("wells14", "$" +  (11979).toLocaleString()),
 
 
-localStorage.setItem("wood1", "$" + (3016).toLocaleString()),
-localStorage.setItem("wood2", "$" + (3990).toLocaleString()),
+localStorage.setItem("wood1", "$" + (3216).toLocaleString()),
+localStorage.setItem("wood2", "$" + (4018).toLocaleString()),
 localStorage.setItem("wood3", "$" + (4584).toLocaleString()),
 localStorage.setItem("wood4", "$" + (5470).toLocaleString()),
 localStorage.setItem("wood5", "$" + (5684).toLocaleString()),
