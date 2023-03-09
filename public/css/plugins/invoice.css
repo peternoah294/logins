@@ -452,17 +452,17 @@ blink {
 blink.visc {
     position: relative !important;
     top: -75px !important;
-    left: 80px !important;
+    left: 75px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink.visc {
-        left: 75px !important;
+        left: 70px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink.visc {
-        left: 70px !important;
+        left: 65px !important;
     }
 }
 .link-email-div {
@@ -474,7 +474,7 @@ blink.visc {
     margin-bottom: 0.5px !important;
 }
 blink.visc {
-    animation: blinkes 4.9s linear infinite;
+    animation: blinkez 4.9s linear infinite;
     color: #fff;
     font-weight: 600;
     padding: 3px;
@@ -486,52 +486,6 @@ blink.visc {
     border-radius: 0;
     text-transform: uppercase;
     border: 1.4px solid #fff;
-}
-@keyframes blinkes {
-  0% {
-    color: rgba(18, 29, 51, 0.5);
-    border: 1.4px solid rgba(18, 29, 51, 0.5);
-  }
-  10% {
-    color: rgba(18, 29, 51, 0.75);
-    border: 1.4px solid rgba(18, 29, 51, 0.75);
-  }
-  20% {
-    color: rgba(18, 29, 51, 1);
-    border: 1.4px solid rgba(18, 29, 51, 1);
-  }
-  30% {
-    color: rgba(18, 29, 51, 0.75);
-    border: 1.4px solid rgba(18, 29, 51, 0.75);
-  }
-  40% {
-    color: rgba(18, 29, 51, 0.5);
-    border: 1.4px solid rgba(18, 29, 51, 0.5);
-  }
-  50% {
-    color: rgba(18, 29, 51, 0.25);
-    border: 1.4px solid rgba(18, 29, 51, 0.25);
-  }
-  60% {
-    color: rgba(255, 255, 255, 0.5);
-    border: 1.4px solid rgba(255, 255, 255, 0.5);
-  }
-  70% {
-    color: rgba(255, 255, 255, 0.75);
-    border: 1.4px solid rgba(255, 255, 255, 0.75);
-  }
-  80% {
-    color: rgba(255, 255, 255, 1);
-    border: 1.4px solid rgba(255, 255, 255, 1);
-  }
-    90% {
-      color: rgba(255, 255, 255, 0.75);
-      border: 1.4px solid rgba(255, 255, 255, 0.75);
-   }
-   100% {
-    color: rgba(255, 255, 255, 0.5);
-    border: 1.4px solid rgba(255, 255, 255, 0.5);
-  }
 }
 .nohr {
     padding: 0 !important;
