@@ -2726,6 +2726,7 @@ ul.countdown li p {
     width: 20px !important;
     height: 20px !important;
 }
+.link-cart,
 .empty-cart {
     background: rgba(255, 255, 255, 0.92) !important;
     padding: 49px 14px;
