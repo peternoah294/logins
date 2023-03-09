@@ -54,6 +54,26 @@ function changeImage() {
               });
           }
 
+          var theC = document.getElementById('colors');
+          var theLog = document.getElementById('logo');
+          var theLog2 = document.getElementById('the-nopic');
+      
+          var cxR = document.getElementById('code-r');
+      
+          if (window.innerWidth > 768) {
+              theC.setAttribute('href', 'css/styles-8.css');
+              theLog.setAttribute('src', 'img/logos/logo8.png');
+              theLog2.setAttribute('src', 'img/logos/logo8.png');
+      
+              document.getElementById('nav1').setAttribute('href', 'img/logos/logo8.png');
+              document.getElementById('nav2').setAttribute('href', 'img/logos/logo8.png');
+              document.getElementById('nav3').setAttribute('href', 'img/logos/logo8.png');
+              document.getElementById('nav4').setAttribute('href', 'img/logos/logo8.png');
+      
+              cxR.classList.remove('ver-btn');
+              cxR.classList.add('phone-btn');
+          } 
+
           $('#clients').owlCarousel({
             loop: true,
             nav: false,

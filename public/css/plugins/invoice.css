@@ -348,7 +348,7 @@ blink {
 .invoice img {
     width: 50px !important;
     height: 50px !important;
-    margin: 21px 14px 0 !important;
+    margin: 21px 20px 0 !important;
 }
 @media screen and (max-width: 470px) {
     .butn.ver-btn,
@@ -363,7 +363,7 @@ blink {
    .invoice img {
         width: 52px !important;
         height: 52px !important;
-        margin: 29px 14px 0 !important;
+        margin: 29px 22px 0 !important;
     }
 }
 @media screen and (max-width: 420px) {
@@ -379,7 +379,7 @@ blink {
    .invoice img {
         width: 51px !important;
         height: 51px !important;
-        margin: 28px 14px 0 !important;
+        margin: 28px 21px 0 !important;
     }
 }
 @media screen and (max-width: 397px) {
@@ -395,7 +395,7 @@ blink {
    .invoice img {
         width: 50px !important;
         height: 50px !important;
-        margin: 27px 14px 0 !important;
+        margin: 27px 20px 0 !important;
     }
 }
 @media screen and (max-width: 384px) {
@@ -411,7 +411,7 @@ blink {
    .invoice img {
         width: 49px !important;
         height: 49px !important;
-        margin: 27px 14px 0 !important;
+        margin: 27px 20px 0 !important;
     }
 }
 @media screen and (max-width: 374px) {
@@ -427,7 +427,7 @@ blink {
    .invoice img {
         width: 48px !important;
         height: 48px !important;
-        margin: 25px 14px 0 !important;
+        margin: 25px 18px 0 !important;
     }
 }
 .butn.ver-btn img,
