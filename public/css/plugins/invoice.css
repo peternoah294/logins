@@ -70,6 +70,15 @@
     line-height: 35px;
     padding: 10px;
 }
+
+.butn.home-btn.emp-btn{
+  margin-top: 7vh !important;
+  color: #121d33 !important;
+  font-size: 24px;
+  line-height: 35px;
+  padding: 10px;
+}
+
 .butn.modal-btn {
     margin-top: 7vh;
     font-size: 24px;
