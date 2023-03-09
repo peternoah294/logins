@@ -3268,3 +3268,6 @@ button.toast-close-button {
         margin-bottom: -5px !important;
     }    
 }
+.citi-nav {
+    border-radius: 13px !important;
+}
