@@ -147,13 +147,13 @@ function updateCartTotal() {
         const banking6 = (JSON.parse(localStorage.getItem('banklogs'))[0].info6);
 
         if (window.innerWidth > 768) {
-            anonDiv.style.marginTop = '11vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 390) {
-            anonDiv.style.marginTop = '15vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 375) {
-            anonDiv.style.marginTop = '13vh';
+            anonDiv.style.marginTop = '15vh';
         } else if(window.innerWidth >= 370) {
-            anonDiv.style.marginTop = '11vh';
+            anonDiv.style.marginTop = '13vh';
         }
 
         wouldYou.innerHTML = `
@@ -166,7 +166,7 @@ function updateCartTotal() {
         var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
 
         if (window.innerWidth > 768) {
-            anonDiv.style.marginTop = '13vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 390) {
             anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 375) {
@@ -188,13 +188,13 @@ function updateCartTotal() {
     } else if((JSON.parse(localStorage.getItem('banklogs')).length) == 3) {
         var Loginz = (JSON.parse(localStorage.getItem('banklogs')));
         if (window.innerWidth > 768) {
-            anonDiv.style.marginTop = '14vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 390) {
-            anonDiv.style.marginTop = '18vh';
+            anonDiv.style.marginTop = '17vh';
         } else if(window.innerWidth >= 375) {
-            anonDiv.style.marginTop = '16vh';
+            anonDiv.style.marginTop = '15vh';
         } else if(window.innerWidth >= 370) {
-            anonDiv.style.marginTop = '14vh';
+            anonDiv.style.marginTop = '13vh';
         }
     
         for(var i = 0; i < Loginz.length; i++) {
