@@ -88,12 +88,6 @@ auth.onAuthStateChanged(user => {
 			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
 		} 
-		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			goodies = JSON.parse(localStorage.getItem('banklogs'));
-			for (var i = 0; i < goodies.length; i++) {
-				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(user.phoneNumber.length - 4, 0) + '.....';
-			}
-		}
 
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
@@ -112,12 +106,6 @@ auth.onAuthStateChanged(user => {
 			jinaHolder.value = user.displayName;
 			jinaHolder3.value = user.displayName;
 	
-			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-				goodies = JSON.parse(localStorage.getItem('banklogs'));
-				for (var i = 0; i < goodies.length; i++) {
-					document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.displayName;
-				}
-			}
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
@@ -130,13 +118,7 @@ auth.onAuthStateChanged(user => {
 		} else if (!user.displayName && user.email) {	
 			jinaHolder.value = theaddress;
 			jinaHolder3.value = theaddress;
-	
-			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-				goodies = JSON.parse(localStorage.getItem('banklogs'));
-				for (var i = 0; i < goodies.length; i++) {
-					document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = theaddress;
-				}
-			}
+
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
 			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
@@ -150,13 +132,6 @@ auth.onAuthStateChanged(user => {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder3.value = user.phoneNumber;
 		phoneIn.innerText = user.phoneNumber;
-
-		if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-			goodies = JSON.parse(localStorage.getItem('banklogs'));
-			for (var i = 0; i < goodies.length; i++) {
-				document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = user.phoneNumber.substring(user.phoneNumber.length - 4, 0) + '.....';
-			}
-		}
 
 		phoneIn.setAttribute('data-bs-target', '#vpnModal');
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -176,13 +151,6 @@ auth.onAuthStateChanged(user => {
 		} else 	if (user.isAnonymous && !user.displayName) {
 			jinaHolder.value = 'Anonymous';
 			jinaHolder3.value = 'Anonymous';
-	
-			if (localStorage.getItem('banklogs') && ((JSON.parse(localStorage.getItem('banklogs')).length) > 0)) {
-				goodies = JSON.parse(localStorage.getItem('banklogs'));
-				for (var i = 0; i < goodies.length; i++) {
-					document.getElementById(`name-on-table${items.indexOf(items[i])}`).innerHTML = 'Anonymous';
-				}
-			}
 		}
 
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
