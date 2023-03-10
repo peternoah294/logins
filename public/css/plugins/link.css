@@ -39,6 +39,9 @@
 .butn.home-btn.check {
     padding: 7.5px 17.5px;
 }
+.butn.link-btn {
+    padding: 7.5px 17.5px;
+}
 
 .butn.home-btn.emp-btn{
     margin-top: 7vh;
@@ -72,6 +75,9 @@
    .butn.home-btn.check {
         padding: 8px 16px;
     }
+    .butn.link-btn {
+        padding: 8px 16px;
+    }
    .invoice img {
         width: 52px !important;
         height: 52px !important;
@@ -87,6 +93,9 @@
         padding: 8px 14px;
    }
    .butn.home-btn.check {
+        padding: 8px 16px;
+    }
+    .butn.link-btn {
         padding: 8px 16px;
     }
    .invoice img {
@@ -106,6 +115,9 @@
    .butn.home-btn.check {
         padding: 8px 17px;
     }
+    .butn.link-btn {
+        padding: 8px 17px;
+    }
    .invoice img {
         width: 50px !important;
         height: 50px !important;
@@ -123,6 +135,9 @@
    .butn.home-btn.check {
         padding: 7.5px 16px;
     }
+    .butn.link-btn {
+        padding: 7.5px 16px;
+    }
    .invoice img {
         width: 49px !important;
         height: 49px !important;
@@ -138,6 +153,9 @@
         padding: 7px 13px;
    }
    .butn.home-btn.check {
+        padding: 7.5px 15px;
+    }
+    .butn.link-btn {
         padding: 7.5px 15px;
     }
    .invoice img {
