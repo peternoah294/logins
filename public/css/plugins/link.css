@@ -36,7 +36,7 @@
         margin: 3vh 2vh 1vh 0;
     }
 }
-.butn.home-btn {
+.butn.home-btn.check {
     padding: 7.5px 17.5px;
 }
 
@@ -69,7 +69,7 @@
         font-size: 22px;
         padding: 8px 14px;
    }
-   .butn.home-btn {
+   .butn.home-btn.check {
         padding: 8px 16px;
     }
    .invoice img {
@@ -86,7 +86,7 @@
         font-size: 22px;
         padding: 8px 14px;
    }
-   .butn.home-btn {
+   .butn.home-btn.check {
         padding: 8px 16px;
     }
    .invoice img {
@@ -103,7 +103,7 @@
         font-size: 21px;
         padding: 8px 15px;
    }
-   .butn.home-btn {
+   .butn.home-btn.check {
         padding: 8px 17px;
     }
    .invoice img {
@@ -120,7 +120,7 @@
         font-size: 20.5px;
         padding: 7.5px 14px;
    }
-   .butn.home-btn {
+   .butn.home-btn.check {
         padding: 7.5px 16px;
     }
    .invoice img {
@@ -137,7 +137,7 @@
         font-size: 20px;
         padding: 7px 13px;
    }
-   .butn.home-btn {
+   .butn.home-btn.check {
         padding: 7.5px 15px;
     }
    .invoice img {
