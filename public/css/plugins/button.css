@@ -3250,8 +3250,8 @@ button.toast-close-button {
 #gram-check,
 #contact-check,
 #ver-check {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
     cursor: pointer !important;
 }
 #contact-check {
@@ -3262,6 +3262,10 @@ button.toast-close-button {
     padding-left: 11px !important;
     padding-right: 11px !important;
 }
+#contactModal .next {
+    margin-top: 2px !important;
+    margin-bottom: -5px !important;
+}    
 @media screen and (max-width: 780px) {
     #contactModal .next {
         margin-top: 2px !important;
