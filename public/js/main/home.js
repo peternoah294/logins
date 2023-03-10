@@ -35,21 +35,6 @@
 
     $(document).ready(function() {
 
-        if ($(".countdown").length !== 0) {
-            var tpj = jQuery;
-            var countdown;
-            tpj(document).ready(function() {
-                if (tpj(".countdown").countdown == undefined) {
-                    revslider_showDoubleJqueryError(".countdown");
-                } else {
-                    countdown = tpj(".countdown").show().countdown({
-                        date: "28 Feb 2023 00:00:00",
-                        format: "on"
-                    });
-                }
-            });
-        }
-
         $('#clients').owlCarousel({
 			loop: true,
 			nav: false,

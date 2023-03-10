@@ -41,9 +41,9 @@ if(!user.isAnonymous || user.email || user.phoneNumber) {
 
                     var shortCutFunction = 'success';
                     if(user.email) { 
-                        var msg = `15 Seconds Left! ${user.email}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
+                        var msg = `15 Seconds Left! ${user.email}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time. `;
                     } else if(user.phoneNumber) { 
-                        var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time `;
+                        var msg = `15 Seconds Left! ${user.phoneNumber}, <hr class="to-hr"> Let the timer run out, and then choose another banklog and pay for it on time. `;
                     } 
                     toastr.options = {closeButton: true, debug: false, newestOnTop: true, progressBar: true, positionClass: 'toast-top-full-width', preventDuplicates: true, onclick: null};
                     var $toast = toastr[shortCutFunction](msg);

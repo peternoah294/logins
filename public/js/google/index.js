@@ -308,8 +308,6 @@ auth.onAuthStateChanged(user => {
 			rowSec.style.display = 'block';
 			rowMain.style.display = 'none';
 		} 
-
-		console.log(user);
 		if(user.email) {
 			var themail = user.email;
 			var theaddress = themail.substring(0, themail.indexOf('@'));
