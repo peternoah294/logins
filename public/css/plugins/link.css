@@ -168,7 +168,7 @@
     display: none;
 }
 #than-div {
-    margin-top: 16vh;
+    margin-top: 14vh;
 }
 #email-div {
     margin-top: 14vh;
@@ -178,7 +178,7 @@
 }
 @media screen and (max-width: 821px) {
     #than-div {
-        margin-top: 22vh;
+        margin-top: 18vh;
     }
     #email-div {
         margin-top: 18vh;
@@ -189,7 +189,7 @@
 }
 @media screen and (max-width: 500px) {
     #than-div {
-        margin-top: 19vh;
+        margin-top: 16vh;
     }
     #email-div {
         margin-top: 16vh;
@@ -200,7 +200,7 @@
 }
 @media screen and (max-width: 400px) {
     #than-div {
-        margin-top: 18vh;
+        margin-top: 16vh;
     }
     #email-div {
         margin-top: 16vh;
@@ -211,7 +211,7 @@
 }
 @media screen and (max-width: 381px) {
     #than-div {
-        margin-top: 17vh;
+        margin-top: 15vh;
     }
     #email-div {
         margin-top: 15vh;
@@ -222,7 +222,7 @@
 }
 @media screen and (max-width: 374px) {
     #than-div {
-        margin-top: 13vh;
+        margin-top: 10vh;
     }
     #email-div {
         margin-top: 10vh;
