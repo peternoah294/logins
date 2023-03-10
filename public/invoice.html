@@ -17,7 +17,7 @@
 
     <link href="css/styles-7.css" rel="stylesheet" id="colors">
     <link rel="stylesheet" href="datatables/css/jquery.datatables2.min.css" />
-    <link href="css/plugins/button.css" rel="stylesheet">
+    <link href="css/plugins/app.css" rel="stylesheet">
     <link href="css/plugins/invoice.css" rel="stylesheet">
 </head>
 <body id="thebodyz" style="background: #121d33;">
@@ -110,7 +110,7 @@
                     </a>
                 </li>                                                                                    
                 <li class="nav-small">
-                    <img src="img/partners/citiz.png" class="citi-nav">
+                    <img src="img/partners/citilogo.png">
                     <a href="citi" class="butn">
                         Citi Bank
                     </a>
@@ -392,7 +392,7 @@
                         <h4>
                             Your Cart is Empty
                         </h4>
-                        <a class="butn home-btn emp-btn" href="home">
+                        <a class="butn home-btn" href="home">
                             Home Page 
                             <img src="img/partners/home.png">
                         </a>
@@ -437,36 +437,16 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-lg-5 col-md-7 col-11 center-col">
-                <div class="link-cart">
+            <div class="col-lg-55 col-md-7 col-11 center-col">
+                <div class="empty-cart">
                     <div class="text-center section-heading">
-                    <h4>
-                        ANONYMOUS USER
-                    </h4>
-                    <hr class="nohr">
-
-                    <div style="display: inline-block" class="link-email-div" data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <div class="invoice">
-                            <img src="img/partners/emails.png">
-                            <a class="butn home-btn">
-                                Email Invoice
-                            </a>
-                        </div>
-                        <blink class="visc">Vouched</blink>
-                    </div>        
-
-                    <hr class="nohr">
-                    <div style="display: inline-block" class="link-phone-div" data-bs-toggle="modal" data-bs-target="#phoneModal">
-                        <div class="invoice">
+                        <h4>
+                            You're Anonymous
+                        </h4>
+                        <a class="butn home-btn" data-bs-toggle="modal" data-bs-target="#phoneModal" style="cursor: pointer !important;">
+                            Phone Invoice
                             <img src="img/partners/phone.png">
-                            <a class="butn ver-btn" id="code-r">
-                                Phone Invoice
-                            </a>
-                        </div>
-                    </div>
-                    <hr class="nohrs">
-
-
+                        </a>
                     </div>
                 </div>
             </div>
@@ -776,10 +756,10 @@
     <script src="js/main/core.invoice.js"></script>
     <script src="js/main/invoice.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js"></script>
-    <script src="js/google/invoice.js"></script>
+    <script src="js/auth/invoice.js"></script>
     <script src="datatables/js/jquery.datatable2.min.js"></script> 
-    <script src="js/pages/invoice.js"></script>
-    <script src="js/pages/clock.js"></script>
-    <script src="js/pages/alert.js"></script>
+    <script src="js/pages/checkout.js"></script>
+    <script src="js/pages/timer.js"></script>
+    <script src="js/pages/toast.js"></script>
 </body>
 </html>

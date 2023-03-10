@@ -26,7 +26,7 @@
     border-radius: 1.3px !important;
     line-height: 35px;
     white-space: nowrap !important;
-    padding: 7px 15.5px;
+    padding: 7px 14px;
     box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
 }
 @media screen and (max-width: 770px) {
@@ -37,7 +37,7 @@
     }
 }
 .butn.home-btn {
-    padding: 7.5px 17.5px;
+    padding: 7.5px 16px;
 }
 
 .butn.home-btn.emp-btn{
@@ -59,7 +59,7 @@
 .invoice img {
     width: 50px !important;
     height: 50px !important;
-    margin: 21px 20px 0 !important;
+    margin: 21px 14px 0 !important;
 }
 @media screen and (max-width: 470px) {
     .butn.modal-btn,
@@ -67,15 +67,15 @@
     .butn.home-btn,
     .butn.phone-btn {
         font-size: 22px;
-        padding: 8px 14px;
+        padding: 8px 12px;
    }
    .butn.home-btn {
-        padding: 8px 16px;
+        padding: 8px 14px;
     }
    .invoice img {
         width: 52px !important;
         height: 52px !important;
-        margin: 29px 22px 0 !important;
+        margin: 29px 14px 0 !important;
     }
 }
 @media screen and (max-width: 420px) {
@@ -84,15 +84,15 @@
     .butn.home-btn,
     .butn.phone-btn {
         font-size: 22px;
-        padding: 8px 14px;
+        padding: 8px 12px;
    }
    .butn.home-btn {
-        padding: 8px 16px;
+        padding: 8px 14px;
     }
    .invoice img {
         width: 51px !important;
         height: 51px !important;
-        margin: 28px 21px 0 !important;
+        margin: 28px 14px 0 !important;
     }
 }
 @media screen and (max-width: 397px) {
@@ -101,15 +101,15 @@
     .butn.home-btn,
     .butn.phone-btn {
         font-size: 21px;
-        padding: 8px 15px;
+        padding: 8px 13px;
    }
    .butn.home-btn {
-        padding: 8px 17px;
+        padding: 8px 15px;
     }
    .invoice img {
         width: 50px !important;
         height: 50px !important;
-        margin: 27px 20px 0 !important;
+        margin: 27px 14px 0 !important;
     }
 }
 @media screen and (max-width: 384px) {
@@ -118,15 +118,15 @@
     .butn.home-btn,
     .butn.phone-btn {
         font-size: 20.5px;
-        padding: 7.5px 14px;
+        padding: 7.5px 12px;
    }
    .butn.home-btn {
-        padding: 7.5px 16px;
+        padding: 7.5px 14px;
     }
    .invoice img {
         width: 49px !important;
         height: 49px !important;
-        margin: 27px 20px 0 !important;
+        margin: 27px 14px 0 !important;
     }
 }
 @media screen and (max-width: 374px) {
@@ -135,15 +135,15 @@
     .butn.home-btn,
     .butn.phone-btn {
         font-size: 20px;
-        padding: 7px 13px;
+        padding: 7px 11px;
    }
    .butn.home-btn {
-        padding: 7.5px 15px;
+        padding: 7.5px 13px;
     }
    .invoice img {
         width: 48px !important;
         height: 48px !important;
-        margin: 25px 18px 0 !important;
+        margin: 25px 14px 0 !important;
     }
 }
 .butn.modal-btn img,
@@ -171,7 +171,7 @@
     margin-top: 16vh;
 }
 #email-div {
-    margin-top: 16vh;
+    margin-top: 13vh;
 }
 #phone-div {
     margin-top: 15vh;
@@ -181,7 +181,7 @@
         margin-top: 22vh;
     }
     #email-div {
-        margin-top: 22vh;
+        margin-top: 18vh;
     }
     #phone-div {
         margin-top: 20vh;
@@ -192,7 +192,7 @@
         margin-top: 19vh;
     }
     #email-div {
-        margin-top: 19vh;
+        margin-top: 17vh;
     }
     #phone-div {
         margin-top: 18vh;
@@ -203,7 +203,7 @@
         margin-top: 18vh;
     }
     #email-div {
-        margin-top: 18vh;
+        margin-top: 16vh;
     }
     #phone-div {
         margin-top: 17vh;
@@ -214,7 +214,7 @@
         margin-top: 17vh;
     }
     #email-div {
-        margin-top: 17vh;
+        margin-top: 15vh;
     }
     #phone-div {
         margin-top: 15vh;
@@ -225,7 +225,7 @@
         margin-top: 13vh;
     }
     #email-div {
-        margin-top: 13vh;
+        margin-top: 11vh;
     }
     #phone-div {
         margin-top: 12vh;
@@ -286,17 +286,17 @@
 blink {
     position: relative !important;
     top: -75px !important;
-    left: 90px !important;
+    left: 100px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink {
-        left: 85px !important;
+        left: 95px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink {
-        left: 80px !important;
+        left: 90px !important;
     }
 }
 

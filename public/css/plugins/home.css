@@ -398,9 +398,9 @@ section .dataTables_wrapper dataTables_length {
     -webkit-column-gap: 3px;
     column-gap: 3px;
 
-    -moz-column-count: 12;
-    -webkit-column-count: 12;
-    column-count: 12;
+    -moz-column-count: 11;
+    -webkit-column-count: 11;
+    column-count: 11;
 }
 .masonry-4 a {
     display: block;
@@ -411,36 +411,36 @@ section .dataTables_wrapper dataTables_length {
 }
 @media screen and (min-width: 576px) {
     .masonry-4 {
-    -moz-column-count: 8;
-    -webkit-column-count: 78;
-    column-count: 8;
+    -moz-column-count: 7;
+    -webkit-column-count: 7;
+    column-count: 7;
 }
 }@media screen and (min-width: 768px) {
     .masonry-4 {
-    -moz-column-count: 12;
-    -webkit-column-count: 12;
-    column-count: 12;
+    -moz-column-count: 11;
+    -webkit-column-count: 11;
+    column-count: 11;
 }
 }
 @media screen and (min-width: 812px) {
     .masonry-4 {
-        -moz-column-count: 12;
-        -webkit-column-count: 12;
-        column-count: 12;
+        -moz-column-count: 11;
+        -webkit-column-count: 11;
+        column-count: 11;
     }
 }
 @media screen and (min-width: 992px) {
     .masonry-4 {
-        -moz-column-count: 12;
-        -webkit-column-count: 12;
-        column-count: 12;
+        -moz-column-count: 11;
+        -webkit-column-count: 11;
+        column-count: 11;
     }
 }
 @media screen and (min-width: 1200px) {
     .masonry-4 {
-    -moz-column-count: 24;
-    -webkit-column-count: 24;
-    column-count: 24;
+    -moz-column-count: 23;
+    -webkit-column-count: 23;
+    column-count: 23;
 }
 }
 
