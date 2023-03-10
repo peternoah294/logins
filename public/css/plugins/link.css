@@ -171,7 +171,7 @@
     margin-top: 16vh;
 }
 #email-div {
-    margin-top: 16vh;
+    margin-top: 14vh;
 }
 #phone-div {
     margin-top: 15vh;
@@ -181,7 +181,7 @@
         margin-top: 22vh;
     }
     #email-div {
-        margin-top: 22vh;
+        margin-top: 18vh;
     }
     #phone-div {
         margin-top: 20vh;
@@ -192,7 +192,7 @@
         margin-top: 19vh;
     }
     #email-div {
-        margin-top: 19vh;
+        margin-top: 16vh;
     }
     #phone-div {
         margin-top: 18vh;
@@ -203,7 +203,7 @@
         margin-top: 18vh;
     }
     #email-div {
-        margin-top: 18vh;
+        margin-top: 16vh;
     }
     #phone-div {
         margin-top: 17vh;
@@ -214,7 +214,7 @@
         margin-top: 17vh;
     }
     #email-div {
-        margin-top: 17vh;
+        margin-top: 15vh;
     }
     #phone-div {
         margin-top: 15vh;
@@ -225,7 +225,7 @@
         margin-top: 13vh;
     }
     #email-div {
-        margin-top: 13vh;
+        margin-top: 10vh;
     }
     #phone-div {
         margin-top: 12vh;
@@ -418,6 +418,9 @@ blink {
 .nohr {
     padding: 0 !important;
     margin: 0 !important;
+}
+.nohr.nopad {
+    margin: -3px auto !important;
 }
 .empty-cart {
     padding: 49px 14px;
