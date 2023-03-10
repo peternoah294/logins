@@ -444,3 +444,8 @@ blink {
     padding: 49px 14px;
     margin-top: 23vh !important;
 }
+
+.confirm-div {
+    cursor: pointer !important;
+    display: inline-block !important;
+}
