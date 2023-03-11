@@ -120,7 +120,7 @@ auth.onAuthStateChanged(user => {
                             <hr class="to-hr">
                             Bank logs will be downloaded on your
                             ${platform.manufacturer} ${platform.product} ${platform.os}, 
-                            from ${platform.name} web browser.
+                            from ${platform.name} Web Browser.
                         `];
                         i++;
                         if (i === msgs.length) {
@@ -137,7 +137,7 @@ auth.onAuthStateChanged(user => {
                             <hr class="to-hr">
                             Bank logs will be downloaded on your
                             ${platform.manufacturer} ${platform.product} ${platform.os}, 
-                            from ${platform.name} web browser.
+                            from ${platform.name} Web Browser.
                         `];
                         i++;
                         if (i === msgs.length) {
@@ -154,7 +154,7 @@ auth.onAuthStateChanged(user => {
                             <hr class="to-hr">
                             Bank logs will be downloaded on your
                             ${platform.manufacturer} ${platform.product} ${platform.os}, 
-                            from ${platform.name} web browser.
+                            from ${platform.name} Web Browser.
                         `];
                         i++;
                         if (i === msgs.length) {
@@ -173,7 +173,7 @@ auth.onAuthStateChanged(user => {
                             <hr class="to-hr">
                             Bank logs will be downloaded on your
                             ${platform.os}, 
-                            from ${platform.name} web browser.
+                            from ${platform.name} Web Browser.
                         `];
                         i++;
                         if (i === msgs.length) {
@@ -190,7 +190,7 @@ auth.onAuthStateChanged(user => {
                             <hr class="to-hr">
                             Bank logs will be downloaded on your
                             ${platform.os}, 
-                            from ${platform.name} web browser.
+                            from ${platform.name} Web Browser.
                         `];
                         i++;
                         if (i === msgs.length) {
@@ -207,7 +207,7 @@ auth.onAuthStateChanged(user => {
                             <hr class="to-hr">
                             Bank logs will be downloaded on your
                             ${platform.os}, 
-                            from ${platform.name} web browser.
+                            from ${platform.name} Web Browser.
                         `];
                         i++;
                         if (i === msgs.length) {
