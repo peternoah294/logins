@@ -26,7 +26,7 @@
     border-radius: 1.3px !important;
     line-height: 35px;
     white-space: nowrap !important;
-    padding: 7px 15.5px;
+    padding: 7px 14px;
     box-shadow: 1px 1px 3px 1px rgba(18, 29, 51, 0.5) !important;
 }
 @media screen and (max-width: 770px) {
@@ -304,17 +304,17 @@
 blink {
     position: relative !important;
     top: -75px !important;
-    left: 90px !important;
+    left: 100px !important;
     z-index: 999 !important;
 }
 @media screen and (max-width: 500px) {
     blink {
-        left: 85px !important;
+        left: 95px !important;
     }
 }
 @media screen and (max-width: 380px) {
     blink {
-        left: 80px !important;
+        left: 90px !important;
     }
 }
 
@@ -350,8 +350,8 @@ blink.disc {
    }
 }
 .link-email-div {
-    margin-top: 0px !important;
-    margin-bottom: -20px !important;
+    margin-top: -3px !important;
+    margin-bottom: -18px !important;
 }
 .link-than-div {
     margin-top: 5px !important;
@@ -362,8 +362,8 @@ blink.disc {
     margin-top: 0px !important;
 }
 .link-phone-div {
-    margin-top: 0.5px !important;
-    margin-bottom: 0.5px !important;
+    margin-top: -2px !important;
+    margin-bottom: -2px !important;
 }
 blink {
     animation: blinkez 4.9s linear infinite;
