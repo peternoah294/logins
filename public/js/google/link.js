@@ -411,85 +411,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
 
 	auth.onAuthStateChanged(user1 => {
-		if(user1.isAnonymous) {
-			auth.currentUser.linkWithCredential(credential)
-			.then((result) => {
-				var theUser = auth.currentUser;
-				var themail = theUser.email;
-				var theaddress = themail.substring(0, themail.indexOf('@'));
-				jinaHolder.value = theaddress;
-				jinaHolder3.value = theaddress;
-	
-				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#emailModal');
-				emailIn.addEventListener('click', sendEmail);
-	
-				vpnImg.src = 'img/partners/emails.png';
-	
-				emailInvoice.style.display = 'flex';
-				yourEmail.innerText = theUser.email;
-				anonInvoice.style.display = 'none';
-				theUser.sendEmailVerification();
-	
-				window.location.href = 'https://www.darkweb.cx/link';
-			})
-			.catch((error) => {
-				var shortCutFunction = 'success';
-				var msg = `${error.message}`;
-				toastr.options = {
-					closeButton: true,
-					debug: false,
-					newestOnTop: true,
-					progressBar: true,
-					positionClass: 'toast-top-full-width',
-					preventDuplicates: true,
-					onclick: null
-				};
-				var $toast = toastr[shortCutFunction](msg);
-				$toastlast = $toast;
-			});
-		} else if(user1.phoneNumber){
-			auth.currentUser.linkWithCredential(credential)
-			.then((result) => {
-				var theUser = auth.currentUser;
-				var themail = theUser.email;
-				var theaddress = themail.substring(0, themail.indexOf('@'));
-				jinaHolder.value = theUser.phoneNumber;
-				jinaHolder3.value = theUser.phoneNumber;
-	
-				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#emailModal');
-				emailIn.addEventListener('click', sendEmail);
-	
-				vpnImg.src = 'img/partners/emails.png';
-	
-				window.location.href = 'https://www.darkweb.cx/link';
-
-				avatarHolder.style.borderWidth = '1.4px';
-				avatarHolder.style.borderRadius = '50%';
-				thanVerify.addEventListener('click', sendEmail);
-				thanImg.src = 'img/partners/emails.png';
-				thanInvoice.style.display = 'flex';
-				thanEmail.innerText = theUser.email;
-				thanPhone.innerText = theUser.phoneNumber;
-				anonInvoice.style.display = 'none';
-			})
-			.catch((error) => {
-				var shortCutFunction = 'success';
-				var msg = `${error.message}`;
-				toastr.options = {
-					closeButton: true,
-					debug: false,
-					newestOnTop: true,
-					progressBar: true,
-					positionClass: 'toast-top-full-width',
-					preventDuplicates: true,
-					onclick: null
-				};
-				var $toast = toastr[shortCutFunction](msg);
-				$toastlast = $toast;
-			});
-		} else if(!user1) {
+		if(!user) {
 			auth.signInWithEmailLink(email, window.location.href)
 			.then((result) => {
 				var theUser = auth.currentUser;
@@ -526,6 +448,86 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				var $toast = toastr[shortCutFunction](msg);
 				$toastlast = $toast;
 			});
+		} else if(user) {
+			if(user1.isAnonymous) {
+				auth.currentUser.linkWithCredential(credential)
+				.then((result) => {
+					var theUser = auth.currentUser;
+					var themail = theUser.email;
+					var theaddress = themail.substring(0, themail.indexOf('@'));
+					jinaHolder.value = theaddress;
+					jinaHolder3.value = theaddress;
+		
+					emailIn.innerText = 'Verify Email';
+					emailIn.setAttribute('data-bs-target', '#emailModal');
+					emailIn.addEventListener('click', sendEmail);
+		
+					vpnImg.src = 'img/partners/emails.png';
+		
+					emailInvoice.style.display = 'flex';
+					yourEmail.innerText = theUser.email;
+					anonInvoice.style.display = 'none';
+					theUser.sendEmailVerification();
+		
+					window.location.href = 'https://www.darkweb.cx/link';
+				})
+				.catch((error) => {
+					var shortCutFunction = 'success';
+					var msg = `${error.message}`;
+					toastr.options = {
+						closeButton: true,
+						debug: false,
+						newestOnTop: true,
+						progressBar: true,
+						positionClass: 'toast-top-full-width',
+						preventDuplicates: true,
+						onclick: null
+					};
+					var $toast = toastr[shortCutFunction](msg);
+					$toastlast = $toast;
+				});
+			} else if(user1.phoneNumber){
+				auth.currentUser.linkWithCredential(credential)
+				.then((result) => {
+					var theUser = auth.currentUser;
+					var themail = theUser.email;
+					var theaddress = themail.substring(0, themail.indexOf('@'));
+					jinaHolder.value = theUser.phoneNumber;
+					jinaHolder3.value = theUser.phoneNumber;
+		
+					emailIn.innerText = 'Verify Email';
+					emailIn.setAttribute('data-bs-target', '#emailModal');
+					emailIn.addEventListener('click', sendEmail);
+		
+					vpnImg.src = 'img/partners/emails.png';
+		
+					window.location.href = 'https://www.darkweb.cx/link';
+	
+					avatarHolder.style.borderWidth = '1.4px';
+					avatarHolder.style.borderRadius = '50%';
+					thanVerify.addEventListener('click', sendEmail);
+					thanImg.src = 'img/partners/emails.png';
+					thanInvoice.style.display = 'flex';
+					thanEmail.innerText = theUser.email;
+					thanPhone.innerText = theUser.phoneNumber;
+					anonInvoice.style.display = 'none';
+				})
+				.catch((error) => {
+					var shortCutFunction = 'success';
+					var msg = `${error.message}`;
+					toastr.options = {
+						closeButton: true,
+						debug: false,
+						newestOnTop: true,
+						progressBar: true,
+						positionClass: 'toast-top-full-width',
+						preventDuplicates: true,
+						onclick: null
+					};
+					var $toast = toastr[shortCutFunction](msg);
+					$toastlast = $toast;
+				});
+			} 
 		}
 	});
 }
