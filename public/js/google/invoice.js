@@ -115,11 +115,11 @@ auth.onAuthStateChanged(user => {
 			if(user.email.includes('yahoo.com')){
 				vpnImg.src = 'img/partners/yahoo.png';
 				verImg.src = 'img/partners/yahoo.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/yahoo.png">`;
+				vpn.innerHTML = `Verify Email <img src="img/partners/yahoo.png">`;
 			} else {
 				vpnImg.src = 'img/partners/google.png';
 				verImg.src = 'img/partners/google.png';
-				vpn.innerHTML = `View Profile <img src="img/partners/google.png">`;
+				vpn.innerHTML = `Verify Email <img src="img/partners/google.png">`;
 			}
 		} else if (!user.displayName && user.email) {
 			var themail = user.email;
@@ -129,7 +129,7 @@ auth.onAuthStateChanged(user => {
 			jinaHolder3.value = theaddress;
 			vpnImg.src = 'img/partners/emails.png';
 			verImg.src = 'img/partners/emails.png';
-			vpn.innerHTML = `View Profile <img src="img/partners/emails.png">`;
+			vpn.innerHTML = `Verify Email <img src="img/partners/emails.png">`;
 		} 
 		
 		if(platform.manufacturer !== null) {
@@ -150,6 +150,9 @@ auth.onAuthStateChanged(user => {
 		emailIn.innerText = 'Verify Email';
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
+
+		vpn.addEventListener('click', sendEmail);
+		vpn.setAttribute('data-bs-target', '#emailModal');
 
 		theSet.innerHTML = 'Phone ID <img src="img/partners/phone.png">';
 		theSet.setAttribute('data-bs-target', '#phoneModal');
