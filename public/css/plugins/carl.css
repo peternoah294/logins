@@ -89,3 +89,6 @@ section .dataTables_wrapper dataTables_length {
   }
 
   
+  #example.dataTable td:nth-child(4){
+    filter: none;
+}
