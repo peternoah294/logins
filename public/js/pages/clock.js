@@ -464,10 +464,10 @@ if(localStorage.getItem('received-funds')) {
     document.getElementById('logsection').style.display = 'none';
     document.getElementById('logsection2').style.display = 'none';
     document.getElementById('predat').style.display = 'none';
-    document.getElementById('bit-bal').innerHTML = `You Have Paid: <span>$${(parseInt(localStorage.getItem('received-funds')).toLocaleString())}</span>`;
+    document.getElementById('bit-bal').innerHTML = `You Paid: <span>$${(parseInt(localStorage.getItem('received-funds')).toLocaleString())}</span>`;
 
     document.getElementsByClassName('bit-p')[0].innerHTML = `
-        A bitcoin payment has been detected, 
+        A bitcoin payment of <span>$${(parseInt(localStorage.getItem('received-funds')).toLocaleString())}</span> has been detected, 
         Visit the download page and complete the progress.
     `;
 } else if(!localStorage.getItem('banklogs') || ((JSON.parse(localStorage.getItem('banklogs')).length) < 1)) {
