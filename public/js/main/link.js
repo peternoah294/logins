@@ -53,6 +53,7 @@
     var theLog2 = document.getElementById('the-nopic');
 
     var cxC = document.getElementById('than-verify');
+    var cxZ = document.getElementById('rizz-verify');
     var cxV = document.getElementById('code-verify');
     var cxR = document.getElementById('code-r');
 
@@ -69,6 +70,9 @@
 
         cxC.classList.remove('ver-btn');
         cxC.classList.add('phone-btn');
+
+        cxZ.classList.remove('ver-btn');
+        cxZ.classList.add('phone-btn');
 
         cxV.classList.remove('ver-btn');
         cxV.classList.add('phone-btn');
