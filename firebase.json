@@ -16,8 +16,8 @@
         "destination": "/download.html"
       },
       {
-        "source": "/carlz",
-        "destination": "/carlz.html"
+        "source": "/carl",
+        "destination": "/carl.html"
       },
       {
         "source": "/cashout",
@@ -153,8 +153,8 @@
         "type": 301
       },
       {
-        "source": "/carlz.html",
-        "destination": "/carlz",
+        "source": "/carl.html",
+        "destination": "/carl",
         "type": 301
       },
       {
