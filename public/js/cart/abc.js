@@ -1,7 +1,7 @@
 localStorage.getItem("darkweb-abc")
 ? console.log("Bank Logs Loaded Successfully")
 : (localStorage.setItem("banklogs", []),
-localStorage.setItem("boa1", "$" + (3890).toLocaleString()),
+localStorage.setItem("boa1", "$" + (3590).toLocaleString()),
 localStorage.setItem("boa2", "$" + (4274).toLocaleString()),
 localStorage.setItem("boa3", "$" + (4852).toLocaleString()),
 localStorage.setItem("boa4", "$" + (5530).toLocaleString()),
@@ -26,7 +26,7 @@ localStorage.setItem("bar9", "$" +  (12625).toLocaleString()),
 localStorage.setItem("bar10", "$" +  (13520).toLocaleString()),
 
 
-localStorage.setItem("chase1", "$" + (3685).toLocaleString()),
+localStorage.setItem("chase1", "$" + (3569).toLocaleString()),
 localStorage.setItem("chase2", "$" + (4379).toLocaleString()),
 localStorage.setItem("chase3", "$" + (5178).toLocaleString()),
 localStorage.setItem("chase4", "$" + (5780).toLocaleString()),
@@ -44,7 +44,7 @@ localStorage.setItem("chase15", "$" +  (13745).toLocaleString()),
 localStorage.setItem("chase16", "$" +  (14746).toLocaleString()),
 
 
-localStorage.setItem("chime1", "$" + (3681).toLocaleString()),
+localStorage.setItem("chime1", "$" + (3581).toLocaleString()),
 localStorage.setItem("chime2", "$" + (4303).toLocaleString()),
 localStorage.setItem("chime3", "$" + (5279).toLocaleString()),
 localStorage.setItem("chime4", "$" + (5877).toLocaleString()),
@@ -133,7 +133,7 @@ localStorage.setItem("nfcu10", "$" +  (11703).toLocaleString()),
 localStorage.setItem("nfcu11", "$" +  (12340).toLocaleString()),
 
 
-localStorage.setItem("pnc1", "$" + (3641).toLocaleString()),
+localStorage.setItem("pnc1", "$" + (3541).toLocaleString()),
 localStorage.setItem("pnc2", "$" + (4570).toLocaleString()),
 localStorage.setItem("pnc3", "$" + (5226).toLocaleString()),
 localStorage.setItem("pnc4", "$" + (5870).toLocaleString()),
@@ -209,7 +209,7 @@ localStorage.setItem("truist11", "$" +  (12380).toLocaleString()),
 localStorage.setItem("truist12", "$" +  (12724).toLocaleString()),
 
 
-localStorage.setItem("wells1", "$" + (3583).toLocaleString()),
+localStorage.setItem("wells1", "$" + (3563).toLocaleString()),
 localStorage.setItem("wells2", "$" + (4479).toLocaleString()),
 localStorage.setItem("wells3", "$" + (5218).toLocaleString()),
 localStorage.setItem("wells4", "$" + (5592).toLocaleString()),
