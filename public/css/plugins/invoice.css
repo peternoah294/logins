@@ -49,7 +49,10 @@
 }
 .link-cart {
   padding: 30px 14px !important;
+}
+.thelinks {
   margin-top: 20vh !important;
+  padding: 3px !important;
 }
 #bipart {
     display: none;

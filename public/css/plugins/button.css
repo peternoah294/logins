@@ -2726,11 +2726,17 @@ ul.countdown li p {
     width: 20px !important;
     height: 20px !important;
 }
-.link-cart,
+.thelinks {
+    margin-top: 30vh !important;
+}
 .empty-cart {
     background: rgba(255, 255, 255, 0.92) !important;
     padding: 49px 14px;
     margin-top: 30vh !important;
+}
+.link-cart {
+    background: rgba(255, 255, 255, 0.92) !important;
+    padding: 49px 14px;
 }
 .depart-cart {
     background: rgba(255, 255, 255, 0.92) !important;
