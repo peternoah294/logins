@@ -41,7 +41,8 @@ const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
 const emailImg = document.getElementById('email-img');
-const emailVerify = document.getElementById('email-check');
+const emailVerify = document.getElementById('email-verify');
+
 const thanImg = document.getElementById('than-img');
 const thanVerify = document.getElementById('than-verify');
 
@@ -132,7 +133,7 @@ auth.onAuthStateChanged(user => {
 		emailIn.addEventListener('click', sendEmail);
 		emailIn.setAttribute('data-bs-target', '#emailModal');
 
-		emailVerify.addEventListener('click', sendEmail);	
+		emailVerify.addEventListener('click', sendEmail);		
 		
 		emailInvoice.style.display = 'flex';
 		yourEmail.innerText = user.email;
@@ -259,10 +260,9 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailInvoice.style.display = 'flex';
+					emailVerify.addEventListener('click', sendEmail);		
+					emailImg.src = 'img/partners/google.png';	
 					yourEmail.innerText = theUser.email;
-
-					emailImg.src = 'img/partners/google.png';
-					emailVerify.addEventListener('click', sendEmail);	
 					anonInvoice.style.display = 'none';
 				} else {
 					avatarHolder.style.borderWidth = '1.4px';
@@ -327,9 +327,9 @@ const signUpFunction = () => {
 					jinaHolder.value = theUser.displayName;
 					jinaHolder3.value = theUser.displayName;
 					emailInvoice.style.display = 'flex';
-
 					emailImg.src = 'img/partners/yahoo.png';
-					emailVerify.addEventListener('click', sendEmail);	
+
+					emailVerify.addEventListener('click', sendEmail);		
 					yourEmail.innerText = theUser.email;
 					anonInvoice.style.display = 'none';
 				} else {
@@ -424,47 +424,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 	var credential = new firebase.auth.EmailAuthProvider.credentialWithLink(email, window.location.href);
 
 	auth.onAuthStateChanged(user1 => {
-		if(!user1) {
-			auth.signInWithEmailLink(email, window.location.href)
-			.then((result) => {
-				var theUser = auth.currentUser;
-				var themail = theUser.email;
-				var theaddress = themail.substring(0, themail.indexOf('@'));
-				jinaHolder.value = theaddress;
-				jinaHolder3.value = theaddress;
-	
-				emailIn.innerText = 'Verify Email';
-				emailIn.setAttribute('data-bs-target', '#emailModal');
-				emailIn.addEventListener('click', sendEmail);
-	
-				vpnImg.src = 'img/partners/emails.png';
-
-				emailImg.src = 'img/partners/emails.png';
-				emailVerify.addEventListener('click', sendEmail);	
-	
-				emailInvoice.style.display = 'flex';
-				yourEmail.innerText = theUser.email;
-				anonInvoice.style.display = 'none';
-				theUser.sendEmailVerification();
-	
-				window.location.href = 'https://www.darkweb.cx/link';
-			})
-			.catch((error) => {
-				var shortCutFunction = 'success';
-				var msg = `${error.message}`;
-				toastr.options = {
-					closeButton: true,
-					debug: false,
-					newestOnTop: true,
-					progressBar: true,
-					positionClass: 'toast-top-full-width',
-					preventDuplicates: true,
-					onclick: null
-				};
-				var $toast = toastr[shortCutFunction](msg);
-				$toastlast = $toast;
-			});
-		} else if(user1.isAnonymous) {
+		if(user1.isAnonymous) {
 			auth.currentUser.linkWithCredential(credential)
 			.then((result) => {
 				var theUser = auth.currentUser;
@@ -476,11 +436,11 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
-
-				emailImg.src = 'img/partners/emails.png';
-				emailVerify.addEventListener('click', sendEmail);	
 	
 				vpnImg.src = 'img/partners/emails.png';
+
+				emailImg.src = 'img/partners/emails.png';
+				emailVerify.addEventListener('click', sendEmail);		
 	
 				emailInvoice.style.display = 'flex';
 				yourEmail.innerText = theUser.email;
@@ -516,11 +476,12 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				emailIn.innerText = 'Verify Email';
 				emailIn.setAttribute('data-bs-target', '#emailModal');
 				emailIn.addEventListener('click', sendEmail);
+
+				emailVerify.addEventListener('click', sendEmail);		
 	
 				vpnImg.src = 'img/partners/emails.png';
-
-				emailImg.src = 'img/partners/emails.png';
-				emailVerify.addEventListener('click', sendEmail);	
+	
+				window.location.href = 'https://www.darkweb.cx/link';
 
 				avatarHolder.style.borderWidth = '1.4px';
 				avatarHolder.style.borderRadius = '50%';
@@ -530,6 +491,41 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				thanEmail.innerText = theUser.email;
 				thanPhone.innerText = theUser.phoneNumber;
 				anonInvoice.style.display = 'none';
+			})
+			.catch((error) => {
+				var shortCutFunction = 'success';
+				var msg = `${error.message}`;
+				toastr.options = {
+					closeButton: true,
+					debug: false,
+					newestOnTop: true,
+					progressBar: true,
+					positionClass: 'toast-top-full-width',
+					preventDuplicates: true,
+					onclick: null
+				};
+				var $toast = toastr[shortCutFunction](msg);
+				$toastlast = $toast;
+			});
+		} else if(!user1) {
+			auth.signInWithEmailLink(email, window.location.href)
+			.then((result) => {
+				var theUser = auth.currentUser;
+				var themail = theUser.email;
+				var theaddress = themail.substring(0, themail.indexOf('@'));
+				jinaHolder.value = theaddress;
+				jinaHolder3.value = theaddress;
+	
+				emailIn.innerText = 'Verify Email';
+				emailIn.setAttribute('data-bs-target', '#emailModal');
+				emailIn.addEventListener('click', sendEmail);
+	
+				vpnImg.src = 'img/partners/emails.png';
+	
+				emailInvoice.style.display = 'flex';
+				yourEmail.innerText = theUser.email;
+				anonInvoice.style.display = 'none';
+				theUser.sendEmailVerification();
 	
 				window.location.href = 'https://www.darkweb.cx/link';
 			})
@@ -548,7 +544,7 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 				var $toast = toastr[shortCutFunction](msg);
 				$toastlast = $toast;
 			});
-		} 
+		}
 	});
 }
 
